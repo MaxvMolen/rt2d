@@ -11,11 +11,8 @@
 
 #include <rt2d/scene.h>
 #include "corescene.h"
-<<<<<<< Updated upstream
-=======
 #include "myufo.h"
 
->>>>>>> Stashed changes
 /// @brief The MyScene class is the Scene implementation.
 class MyScene : public CoreScene
 {
@@ -34,17 +31,6 @@ protected:
 
 private:
 	/// @brief the rotating square in the middle of the screen
-<<<<<<< Updated upstream
-	MyPerson* myperson;
-	MyCar* mycar[8];
-	MyTree* mytree[8];
-	/// @brief a Timer to rotate the color every n seconds
-	Timer t;
-
-	BasicEntity* myroads[16];
-	BasicEntity* myhouse[3];
-	BasicEntity* myparking[16];
-=======
 	MyUfo* myufo;
 	MyPerson* myperson;
 	MyCar* mycar[8];
@@ -56,7 +42,6 @@ private:
 	BasicEntity* myhouse[3];
 	BasicEntity* myparking[14];
 
->>>>>>> Stashed changes
 };
 
 #endif /* SCENE00_H */
