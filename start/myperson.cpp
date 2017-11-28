@@ -6,7 +6,6 @@
 
 #include "myperson.h"
 
-
 MyPerson::MyPerson() : Entity()
 {
 	this->addSprite("assets/StartPerson.tga");

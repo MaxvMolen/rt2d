@@ -15,17 +15,9 @@
 #include <rt2d/text.h>
 #include "basicentity.h"
 // objects
-#include "myufo.h"
 #include "myperson.h"
 #include "mycar.h"
 #include "mytree.h"
-
-/*
-struct Player
-{
-	int mouseclicks = 0;
-};
-*/
 
 /// @brief The MyEntity class is the Entity implementation.
 class CoreScene : public Scene
@@ -48,7 +40,6 @@ protected:
 	std::vector<BasicEntity*> layers;
 	std::vector<Text*> text;
 private:
-	MyUfo* myufo;
 	Timer fpstimer;
 	/* add your private declarations */
 };

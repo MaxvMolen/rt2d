@@ -11,17 +11,28 @@
 
 int totalroads = 16;
 int totalhouses = 3;
+<<<<<<< Updated upstream
 int totalparking = 16;
 int totalcar = 8;
 int totaltree = 8;
 int n; 
+=======
+int totalparking = 15;
+int totalcar = 8;
+int totaltree = 8;
+int n;
+>>>>>>> Stashed changes
 
 MyScene::MyScene() : CoreScene()
 {
 	// start the timer.
 	t.start();
 	myperson = new MyPerson();
+<<<<<<< Updated upstream
 
+=======
+	myufo = new MyUfo();
+>>>>>>> Stashed changes
 	// ###############################################################
 	// create roads for the level
 	// ###############################################################
@@ -95,7 +106,13 @@ MyScene::MyScene() : CoreScene()
 		layers[5]->addChild(mytree[n]);
 	}
 
+<<<<<<< Updated upstream
 	myperson->position = Point2(SWIDTH / 2, SHEIGHT / 2); 
+=======
+	myufo->position = Point2(SWIDTH / 2, SHEIGHT / 2);
+	myperson->position = Point2(SWIDTH / 2, SHEIGHT / 2); 
+	layers[6]->addChild(myufo);
+>>>>>>> Stashed changes
 	layers[5]->addChild(myperson);
 }
 
@@ -104,6 +121,10 @@ MyScene::~MyScene()
 {
 	// deconstruct and delete the Tree
 	this->removeChild(myperson);
+<<<<<<< Updated upstream
+=======
+	this->removeChild(myufo);
+>>>>>>> Stashed changes
 
 	for (n = 0; n < totalroads; ++n) {
 		this->removeChild(myroads[n]);
@@ -131,7 +152,13 @@ MyScene::~MyScene()
 	}
 
 	// delete myentity from the heap (there was a 'new' in the constructor)
+<<<<<<< Updated upstream
 	delete myperson;
+=======
+	delete myufo;
+	delete myperson;
+
+>>>>>>> Stashed changes
 }
 
 void MyScene::update(float deltaTime)
@@ -142,5 +169,9 @@ void MyScene::update(float deltaTime)
 	if (input()->getKeyUp(KeyCode::Escape)) {
 		this->stop();
 	}
+<<<<<<< Updated upstream
 
 }
+=======
+}
+>>>>>>> Stashed changes

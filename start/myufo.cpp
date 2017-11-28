@@ -23,7 +23,10 @@ MyUfo::~MyUfo()
 }
 
 void MyUfo::update(float deltaTime)
-{	
+{
+	static Vector2 velocity = Vector2();
+	static Polar polar = Polar();
+	
 	// ###############################################################
 	// Rotate player automatic
 	// ###############################################################
@@ -38,6 +41,15 @@ void MyUfo::update(float deltaTime)
 		this->rotation.z -= rotationSpeed * deltaTime; // 90 deg/sec
 		if (this->rotation.z > TWO_PI) {
 			this->rotation.z -= TWO_PI;
+		}
+	}
+	// ###############################################################
+	// Slow down rotation with E slows down to 0 if W isnt held
+	// ###############################################################
+	if (input()->getKey('E')) {
+		this->rotation.z += rotationSpeed * deltaTime; // 90 deg/sec
+		if (this->rotation.z > TWO_PI) {
+			this->rotation.z += TWO_PI;
 		}
 	}
 
@@ -82,4 +94,22 @@ void MyUfo::update(float deltaTime)
 		this->sprite()->color.b = 0;
 	}
 
+	/*
+	int x1 = 3;
+	int y1 = 4;
+
+	int x2 = 6;
+	int y2 = 8;
+
+	int r1 = 3;
+	int r2 = 5;
+	// collision true
+	if ((x2-x1)^2 + (y1-y2)^2 <= (r1+r2)^2) { 
+		this->addSprite("assets/StartUfo3.tga");
+	}
+	// collision false
+	else {
+		this->addSprite("assets/StartUfo1.tga");
+	}
+	*/
 }

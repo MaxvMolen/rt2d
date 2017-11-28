@@ -28,19 +28,14 @@ CoreScene::CoreScene() : Scene()
 
 	text[1]->message("<ESC> quit game",YELLOW);
 	text[2]->message("Score: 0", YELLOW);
-	
-	myufo = new MyUfo();
-	myufo->position = Point2(SWIDTH / 2, SHEIGHT / 2);
 
 	// create the scene 'tree'
 	// add myentity to this Scene as a child.
-	layers[6]->addChild(myufo);
 
 }
 CoreScene::~CoreScene()
 {	
 	// deconstruct and delete the Tree
-	this->removeChild(myufo);
 	int ls = layers.size();
 	for (int i = 0; i<ls; i++) {
 		this->removeChild(layers[i]);
@@ -58,7 +53,6 @@ CoreScene::~CoreScene()
 	text.clear();
 
 	// delete myentity from the heap (there was a 'new' in the constructor)
-	delete myufo;
 }
 
 void CoreScene::update(float deltaTime)
