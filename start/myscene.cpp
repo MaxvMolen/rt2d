@@ -13,7 +13,9 @@ int totalroads = 16;
 int totalhouses = 3;
 int totalparking = 15;
 int totalcar = 8;
-int totaltree = 8;
+int totaltree = 9;
+int totaltgarage = 2;
+int totaltbush = 4;
 int n;
 
 MyScene::MyScene() : CoreScene()
@@ -51,7 +53,7 @@ MyScene::MyScene() : CoreScene()
 		myhouse[n]->sprite()->color.g = 88;
 		myhouse[n]->sprite()->color.b = 30;
 		if (n >= 2) {
-			myhouse[n]->position = Point2(n* 260 + 180,625);
+			myhouse[n]->position = Point2(n* 260 + 180,635);
 			myhouse[n]->rotation.z = 1.57;
 		}
 		layers[4]->addChild(myhouse[n]);
@@ -92,7 +94,42 @@ MyScene::MyScene() : CoreScene()
 			mytree[n]->position = Point2(n * 200 + 465, 982);
 			mytree[n]->rotation.z = 3.14;
 		}
+		if (n >= 8) {
+			mytree[n]->position = Point2(655,425 );
+		}
 		layers[5]->addChild(mytree[n]);
+	}
+	// ###############################################################
+	// create garage's for the level
+	// ###############################################################
+	for (n = 0; n < totaltgarage; ++n) {
+		mygarage[n] = new BasicEntity();
+		mygarage[n]->addSprite("assets/StartGarage.tga");
+		mygarage[n]->sprite()->color.r = 59;
+		mygarage[n]->sprite()->color.g = 62;
+		mygarage[n]->sprite()->color.b = 58;
+		mygarage[n]->position = Point2(-25,420);
+		mygarage[n]->scale = Point(0.7f, 0.7f);
+		if (n >= 1) {
+			mygarage[n]->position = Point2(680, 840);
+			mygarage[n]->rotation.z = 1.57;
+		}
+		layers[5]->addChild(mygarage[n]);
+	}
+	// ###############################################################
+	// create bushe's for the level
+	// ###############################################################
+	for (n = 0; n < totaltbush; ++n) {
+		mybush[n] = new BasicEntity();
+		mybush[n]->addSprite("assets/StartBush.tga");
+		mybush[n]->sprite()->color.r = 0;
+		mybush[n]->sprite()->color.g = 255;
+		mybush[n]->sprite()->color.b = 0;
+		mybush[n]->position = Point2(n * 100 + 615,310);
+		if (n >= 2) {
+			mybush[n]->position = Point2(790, (n - 2) * 100 + 370);
+		}
+		layers[5]->addChild(mybush[n]);
 	}
 
 	myufo->position = Point2(SWIDTH / 2, SHEIGHT / 2);
@@ -131,6 +168,16 @@ MyScene::~MyScene()
 	for (n = 0; n < totaltree; ++n) {
 		this->removeChild(mytree[n]);
 		delete mytree[n];
+	}
+
+	for (n = 0; n < totaltgarage; ++n) {
+		this->removeChild(mygarage[n]);
+		delete mygarage[n];
+	}
+
+	for (n = 0; n < totaltbush; ++n) {
+		this->removeChild(mybush[n]);
+		delete mybush[n];
 	}
 
 	// delete myentity from the heap (there was a 'new' in the constructor)

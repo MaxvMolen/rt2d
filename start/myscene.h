@@ -34,10 +34,12 @@ private:
 	MyUfo* myufo;
 	MyPerson* myperson;
 	MyCar* mycar[8];
-	MyTree* mytree[7];
+	MyTree* mytree[8];
 	/// @brief a Timer to rotate the color every n seconds
 	Timer t;
 	
+	BasicEntity* mygarage[2];
+	BasicEntity* mybush[4];
 	BasicEntity* myroads[16];
 	BasicEntity* myhouse[3];
 	BasicEntity* myparking[14];

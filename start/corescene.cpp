@@ -8,7 +8,6 @@
 
 CoreScene::CoreScene() : Scene()
 {
-
 	top_layer = 7; // 8 layers (0-7)
 
 	for (unsigned int i = 0; i <= top_layer; i++) {

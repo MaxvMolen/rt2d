@@ -40,7 +40,6 @@ protected:
 	std::vector<BasicEntity*> layers;
 	std::vector<Text*> text;
 private:
-	Timer fpstimer;
 	/* add your private declarations */
 };
 
