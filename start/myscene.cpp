@@ -105,9 +105,9 @@ MyScene::MyScene() : CoreScene()
 	for (n = 0; n < totaltgarage; ++n) {
 		mygarage[n] = new BasicEntity();
 		mygarage[n]->addSprite("assets/StartGarage.tga");
-		mygarage[n]->sprite()->color.r = 59;
-		mygarage[n]->sprite()->color.g = 62;
-		mygarage[n]->sprite()->color.b = 58;
+		mygarage[n]->sprite()->color.r = 171;
+		mygarage[n]->sprite()->color.g = 167;
+		mygarage[n]->sprite()->color.b = 154;
 		mygarage[n]->position = Point2(-25,420);
 		mygarage[n]->scale = Point(0.7f, 0.7f);
 		if (n >= 1) {
@@ -122,9 +122,9 @@ MyScene::MyScene() : CoreScene()
 	for (n = 0; n < totaltbush; ++n) {
 		mybush[n] = new BasicEntity();
 		mybush[n]->addSprite("assets/StartBush.tga");
-		mybush[n]->sprite()->color.r = 0;
-		mybush[n]->sprite()->color.g = 255;
-		mybush[n]->sprite()->color.b = 0;
+		mybush[n]->sprite()->color.r = 78;
+		mybush[n]->sprite()->color.g = 203;
+		mybush[n]->sprite()->color.b = 22;
 		mybush[n]->position = Point2(n * 100 + 615,310);
 		if (n >= 2) {
 			mybush[n]->position = Point2(790, (n - 2) * 100 + 370);

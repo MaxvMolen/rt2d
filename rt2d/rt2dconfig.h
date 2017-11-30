@@ -27,9 +27,9 @@
 #define WINDOWNAME "RT2D" ///< The window name
 
 //standard 0.1f for all
-#define CLEARCOLOR_RED 0.0f ///< The red component of the color of the window 
-#define CLEARCOLOR_GREEN 0.40f ///< The green component of the color of the window
-#define CLEARCOLOR_BLUE 0.0f ///< The blue component of the color of the window
+#define CLEARCOLOR_RED 0.1f ///< The red component of the color of the window
+#define CLEARCOLOR_GREEN 0.59f ///< The green component of the color of the window
+#define CLEARCOLOR_BLUE 0.01f ///< The blue component of the color of the window
 
 // defaultshader for Renderer as fallback if Sprite has no shader defined
 #define SPRITEVERTEXSHADER "shaders/sprite.vert" ///< vertexshader name
