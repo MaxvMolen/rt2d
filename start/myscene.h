@@ -1,5 +1,5 @@
 /**
- * Copyright 2015 Your Name <you@yourhost.com>
+ * Copyright 2017 Max van der Molen <maxharm1811@gmail.com>
  *
  * @file myscene.h
  *
@@ -30,18 +30,24 @@ public:
 protected:
 
 private:
-	/// @brief the rotating square in the middle of the screen
+	/// @brief the rotating ufo you play in the game
 	MyUfo* myufo;
+	/// @brief the person in the level that you need to pick up
 	MyPerson* myperson;
+	/// @brief the car in the level that you need to pick up
 	MyCar* mycar[8];
+	/// @brief the tree in the level that you need to pick up
 	MyTree* mytree[8];
-	/// @brief a Timer to rotate the color every n seconds
-	Timer t;
 	
+	/// @brief the garage in the background of the level
 	BasicEntity* mygarage[2];
+	/// @brief the bush in the background of the level
 	BasicEntity* mybush[4];
+	/// @brief the road in the background of the level
 	BasicEntity* myroads[16];
+	/// @brief the house in the background of the level
 	BasicEntity* myhouse[3];
+	/// @brief the parkingspot in the background of the level
 	BasicEntity* myparking[14];
 
 };

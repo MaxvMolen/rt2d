@@ -1,7 +1,7 @@
 /**
 * This class describes MyScene behavior.
 *
-* Copyright 2015 Your Name <you@yourhost.com>
+* Copyright 2017 Max van der Molen <maxharm1811@gmail.com>
 */
 
 #include <fstream>
@@ -30,8 +30,6 @@ float re = 25;
 
 MyScene::MyScene() : CoreScene()
 {
-	// start the timer.
-	t.start();
 	myperson = new MyPerson(xe,ye,re);
 	myufo = new MyUfo(xa,ya,ra);
 
@@ -218,7 +216,7 @@ void MyScene::update(float deltaTime)
 	// ###############################################################
 
 	//TEST-----------
-
+	
 	// collision
 	if ((xa - xe)*(xa - xe)+ (ya-ye)*(ya - ye) < ra*re) {
 		myufo->sprite()->color.r = 0;
