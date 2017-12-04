@@ -94,28 +94,4 @@ void MyUfo::update(float deltaTime)
 		this->sprite()->color.b = 0;
 	}
 
-	/*
-	int x1 = 3;
-	int y1 = 4;
-
-	int x2 = 6;
-	int y2 = 8;
-
-	int r1 = 3;
-	int r2 = 5;
-	// collision true
-	if ((x2-x1)^2 + (y1-y2)^2 <= (r1+r2)^2) { 
-		this->addSprite("assets/StartUfo3.tga");
-	}
-	// collision false
-	else {
-		this->addSprite("assets/StartUfo1.tga");
-	}*/
-	
-	//properties entity (float x1, float y1, float r1)
-	/*
-	bool IsPointInCircle(float x1, float y1, float x2, float y2, float r) {
-		return ((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2)) < r*r;
-	}
-	*/
 }

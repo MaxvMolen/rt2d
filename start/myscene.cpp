@@ -18,12 +18,22 @@ int totaltgarage = 2;
 int totaltbush = 4;
 int n;
 
+//myufo
+float xa = 1;
+float ya = 1;
+float ra = 25;
+//other
+float xe = 1;
+float ye = 1;
+float re = 25;
+
+
 MyScene::MyScene() : CoreScene()
 {
 	// start the timer.
 	t.start();
-	myperson = new MyPerson(1,1,1);
-	myufo = new MyUfo(1,1,1);
+	myperson = new MyPerson(xe,ye,re);
+	myufo = new MyUfo(xa,ya,ra);
 
 	// ###############################################################
 	// create roads for the level
@@ -109,7 +119,7 @@ MyScene::MyScene() : CoreScene()
 		mygarage[n]->sprite()->color.r = 171;
 		mygarage[n]->sprite()->color.g = 167;
 		mygarage[n]->sprite()->color.b = 154;
-		mygarage[n]->position = Point2(-25,420);
+		mygarage[n]->position = Point2(-25, 420);
 		mygarage[n]->scale = Point(0.7f, 0.7f);
 		if (n >= 1) {
 			mygarage[n]->position = Point2(680, 840);
@@ -126,7 +136,7 @@ MyScene::MyScene() : CoreScene()
 		mybush[n]->sprite()->color.r = 78;
 		mybush[n]->sprite()->color.g = 203;
 		mybush[n]->sprite()->color.b = 22;
-		mybush[n]->position = Point2(n * 100 + 615,310);
+		mybush[n]->position = Point2(n * 100 + 615, 310);
 		if (n >= 2) {
 			mybush[n]->position = Point2(790, (n - 2) * 100 + 370);
 		}
@@ -134,7 +144,7 @@ MyScene::MyScene() : CoreScene()
 	}
 
 	myufo->position = Point2(SWIDTH / 2, SHEIGHT / 2);
-	myperson->position = Point2(SWIDTH / 2, SHEIGHT / 2); 
+	myperson->position = Point2(SWIDTH / 2, SHEIGHT / 2);
 	layers[6]->addChild(myufo);
 	layers[5]->addChild(myperson);
 }
@@ -188,11 +198,37 @@ MyScene::~MyScene()
 }
 
 void MyScene::update(float deltaTime)
-{	
+{
+	// ###############################################################
+	// Update X and Y position
+	// ###############################################################
+	xa = myufo->position.x;
+	ya = myufo->position.y;
+
+	xe = myperson->position.x;
+	ye = myperson->position.y;
 	// ###############################################################
 	// Escape key stops the Scene
 	// ###############################################################
 	if (input()->getKeyUp(KeyCode::Escape)) {
 		this->stop();
+	}
+	// ###############################################################
+	// Collision ufo
+	// ###############################################################
+
+	//TEST-----------
+
+	// collision
+	if ((xa - xe)*(xa - xe)+ (ya-ye)*(ya - ye) < ra*re) {
+		myufo->sprite()->color.r = 0;
+		myufo->sprite()->color.g = 255;
+		myufo->sprite()->color.b = 0;
+	}
+	// no collision
+	else {
+		myufo->sprite()->color.r = 255;
+		myufo->sprite()->color.g = 0;
+		myufo->sprite()->color.b = 0;
 	}
 }
