@@ -1,7 +1,7 @@
 /**
 * This class describes MyEntity behavior.
 *
-* Copyright 2015 Your Name <you@yourhost.com>
+* Copyright 2017 Max van der Molen <maxharm1811@gmail.com>
 */
 
 #include "corescene.h"
