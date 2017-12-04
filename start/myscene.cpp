@@ -73,7 +73,7 @@ MyScene::MyScene() : CoreScene()
 		layers[4]->addChild(myparking[n]);
 	}
 	// ###############################################################
-	// create car's for the level
+	// create cars for the level
 	// ###############################################################
 	for (n = 0; n < totalcar; ++n) {
 		mycar[n] = new MyCar();
@@ -85,7 +85,7 @@ MyScene::MyScene() : CoreScene()
 		layers[5]->addChild(mycar[n]);
 	}
 	// ###############################################################
-	// create tree's for the level
+	// create trees	for the level
 	// ###############################################################
 	for (n = 0; n < totaltree; ++n) {
 		mytree[n] = new MyTree();
@@ -100,7 +100,7 @@ MyScene::MyScene() : CoreScene()
 		layers[5]->addChild(mytree[n]);
 	}
 	// ###############################################################
-	// create garage's for the level
+	// create garages for the level
 	// ###############################################################
 	for (n = 0; n < totaltgarage; ++n) {
 		mygarage[n] = new BasicEntity();
@@ -117,7 +117,7 @@ MyScene::MyScene() : CoreScene()
 		layers[5]->addChild(mygarage[n]);
 	}
 	// ###############################################################
-	// create bushe's for the level
+	// create bushes for the level
 	// ###############################################################
 	for (n = 0; n < totaltbush; ++n) {
 		mybush[n] = new BasicEntity();

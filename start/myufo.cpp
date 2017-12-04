@@ -110,6 +110,6 @@ void MyUfo::update(float deltaTime)
 	// collision false
 	else {
 		this->addSprite("assets/StartUfo1.tga");
-	}
-	*/
+	}*/
+	
 }
