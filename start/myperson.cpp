@@ -6,7 +6,7 @@
 
 #include "myperson.h"
 
-MyPerson::MyPerson() : Entity()
+MyPerson::MyPerson(float x1, float y1, float r) : Entity()
 {
 	this->addSprite("assets/StartPerson.tga");
 	this->sprite()->color.r = 255;

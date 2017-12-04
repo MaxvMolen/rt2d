@@ -16,8 +16,9 @@ class MyUfo : public Entity
 
 {
 public:
+	MyUfo(float x1, float y1, float r);
 	/// @brief Constructor
-	MyUfo();
+	//MyUfo();
 	/// @brief Destructor
 	virtual ~MyUfo();
 

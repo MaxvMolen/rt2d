@@ -9,7 +9,7 @@
 int rotationSpeed = 12; // speed of rotation
 int speed = 10; // speed of player
 
-MyUfo::MyUfo() : Entity()
+MyUfo::MyUfo(float x1, float y1, float r) : Entity()
 {
 	this->addSprite("assets/StartUfo2.tga");
 	this->sprite()->color.r = 255;
@@ -112,4 +112,10 @@ void MyUfo::update(float deltaTime)
 		this->addSprite("assets/StartUfo1.tga");
 	}*/
 	
+	//properties entity (float x1, float y1, float r1)
+	/*
+	bool IsPointInCircle(float x1, float y1, float x2, float y2, float r) {
+		return ((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2)) < r*r;
+	}
+	*/
 }

@@ -16,7 +16,7 @@ class MyTree : public Entity
 {
 public:
 	/// @brief Constructor
-	MyTree();
+	MyTree(float x1, float y1, float r);
 	/// @brief Destructor
 	virtual ~MyTree();
 

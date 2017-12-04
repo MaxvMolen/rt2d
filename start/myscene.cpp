@@ -22,8 +22,9 @@ MyScene::MyScene() : CoreScene()
 {
 	// start the timer.
 	t.start();
-	myperson = new MyPerson();
-	myufo = new MyUfo();
+	myperson = new MyPerson(1,1,1);
+	myufo = new MyUfo(1,1,1);
+
 	// ###############################################################
 	// create roads for the level
 	// ###############################################################
@@ -76,7 +77,7 @@ MyScene::MyScene() : CoreScene()
 	// create cars for the level
 	// ###############################################################
 	for (n = 0; n < totalcar; ++n) {
-		mycar[n] = new MyCar();
+		mycar[n] = new MyCar(1,1,1);
 		mycar[n]->position = Point2(n * 125 + 1170, 338);
 		if (n >= 4) {
 			mycar[n]->position = Point2(n * 125 + 670, 715);
@@ -88,7 +89,7 @@ MyScene::MyScene() : CoreScene()
 	// create trees	for the level
 	// ###############################################################
 	for (n = 0; n < totaltree; ++n) {
-		mytree[n] = new MyTree();
+		mytree[n] = new MyTree(1,1,1);
 		mytree[n]->position = Point2(n * 200 + 1170, 855);
 		if (n >= 4) {
 			mytree[n]->position = Point2(n * 200 + 465, 982);

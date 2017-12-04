@@ -6,7 +6,7 @@
 
 #include "mycar.h"
 
-MyCar::MyCar() : Entity()
+MyCar::MyCar(float x1, float y1, float r) : Entity()
 {
 	this->addSprite("assets/StartCar.tga");
 	this->sprite()->color.r = 255;
