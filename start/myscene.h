@@ -33,7 +33,7 @@ private:
 	/// @brief the rotating ufo you play in the game
 	MyUfo* myufo;
 	/// @brief the person in the level that you need to pick up
-	MyPerson* myperson;
+	MyPerson* myperson[2];
 	/// @brief the car in the level that you need to pick up
 	MyCar* mycar[8];
 	/// @brief the tree in the level that you need to pick up

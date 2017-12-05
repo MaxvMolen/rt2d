@@ -16,6 +16,7 @@ int totalcar = 8;
 int totaltree = 9;
 int totaltgarage = 2;
 int totaltbush = 4;
+int totalperson = 2;
 int n;
 
 //myufo
@@ -25,7 +26,6 @@ float ra = 25; // radius myufo
 
 MyScene::MyScene() : CoreScene()
 {
-	myperson = new MyPerson();
 	myufo = new MyUfo();
 
 	// ###############################################################
@@ -135,18 +135,22 @@ MyScene::MyScene() : CoreScene()
 		}
 		layers[5]->addChild(mybush[n]);
 	}
-
+	// ###############################################################
+	// create persons for the level
+	// ###############################################################
+	for (n = 0; n < totalperson; ++n) {
+		myperson[n] = new MyPerson();
+		myperson[n]->position = Point2(n * 125 + 200, 700);
+		layers[5]->addChild(myperson[n]);
+	}
 	myufo->position = Point2(SWIDTH / 2, SHEIGHT / 2);
-	myperson->position = Point2(SWIDTH / 2, SHEIGHT / 2);
 	layers[6]->addChild(myufo);
-	layers[5]->addChild(myperson);
 }
 
 
 MyScene::~MyScene()
 {
 	// deconstruct and delete the Tree
-	this->removeChild(myperson);
 	this->removeChild(myufo);
 
 	for (n = 0; n < totalroads; ++n) {
@@ -184,9 +188,13 @@ MyScene::~MyScene()
 		delete mybush[n];
 	}
 
+	for (n = 0; n < totalperson; ++n) {
+		this->removeChild(myperson[n]);
+		delete myperson[n];
+	}
+
 	// delete myentity from the heap (there was a 'new' in the constructor)
 	delete myufo;
-	delete myperson;
 
 }
 
@@ -214,6 +222,10 @@ void MyScene::update(float deltaTime)
 
 	for (n = 0; n < totaltree; ++n) {
 		collision(mytree[n]->position.x, mytree[n]->position.y, 100);
+	}
+
+	for (n = 0; n < totalperson; ++n) {
+		collision(myperson[n]->position.x, myperson[n]->position.y, 25);
 	}
 
 }
