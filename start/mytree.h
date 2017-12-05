@@ -11,7 +11,7 @@
 
 #include <rt2d/entity.h>
 
-/// @brief The MyEntity class is the Entity implementation.
+/// @brief The MyTree class is the Tree implementation.
 class MyTree : public Entity
 {
 public:

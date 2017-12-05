@@ -19,7 +19,7 @@
 #include "mycar.h"
 #include "mytree.h"
 
-/// @brief The MyEntity class is the Entity implementation.
+/// @brief The Corescene class is the Scene implementation.
 class CoreScene : public Scene
 {
 public:

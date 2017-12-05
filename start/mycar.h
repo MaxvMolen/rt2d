@@ -11,7 +11,7 @@
 
 #include <rt2d/entity.h>
 
-/// @brief The MyEntity class is the Entity implementation.
+/// @brief The MyCar class is the Car implementation.
 class MyCar : public Entity
 {
 public:
