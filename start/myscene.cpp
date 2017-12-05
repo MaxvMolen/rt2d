@@ -19,9 +19,9 @@ int totaltbush = 4;
 int n;
 
 //myufo
-float xa = 1;
-float ya = 1;
-float ra = 25;
+float xa = 1; // x position myufo
+float ya = 1; // y position myufo
+float ra = 25; // radius myufo
 
 
 MyScene::MyScene() : CoreScene()
@@ -194,7 +194,7 @@ MyScene::~MyScene()
 void MyScene::update(float deltaTime)
 {
 	// ###############################################################
-	// Update X and Y position
+	// Update X and Y position of myufo
 	// ###############################################################
 	xa = myufo->position.x;
 	ya = myufo->position.y;
@@ -205,16 +205,14 @@ void MyScene::update(float deltaTime)
 	if (input()->getKeyUp(KeyCode::Escape)) {
 		this->stop();
 	}
-	collision(mycar[n]->position.x, mycar[n]->position.y, 25);
 
+	collision(mycar[n]->position.x, mycar[n]->position.y, 25);
 }
 
 void MyScene::collision(float xe, float ye, float re) {
 	// ###############################################################
 	// Collision ufo
 	// ###############################################################
-
-	//TEST-----------
 
 	// collision
 	if ((xa - xe)*(xa - xe) + (ya - ye)*(ya - ye) < ra*re) {
