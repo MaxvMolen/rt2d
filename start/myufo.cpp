@@ -53,6 +53,11 @@ void MyUfo::update(float deltaTime)
 		}
 	}
 
+	movement();
+	changeUfo();
+}
+
+void MyUfo::movement() {
 	// ###############################################################
 	// Move myentity with arrowkeys
 	// ###############################################################
@@ -68,8 +73,6 @@ void MyUfo::update(float deltaTime)
 	if (input()->getKey(KeyCode::Right)) {
 		this->position.x += speed;
 	}
-
-	changeUfo();
 }
 
 void MyUfo::changeUfo() {
