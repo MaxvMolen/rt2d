@@ -6,7 +6,7 @@
 
 #include "mytree.h"
 
-MyTree::MyTree(float x1, float y1, float r) : Entity()
+MyTree::MyTree() : Entity()
 {
 	this->addSprite("assets/StartTree.tga");
 	this->sprite()->color.r = 12;

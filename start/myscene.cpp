@@ -22,16 +22,12 @@ int n;
 float xa = 1;
 float ya = 1;
 float ra = 25;
-//other
-float xe = 1;
-float ye = 1;
-float re = 25;
 
 
 MyScene::MyScene() : CoreScene()
 {
-	myperson = new MyPerson(1,1,1);
-	myufo = new MyUfo(xa,ya,ra);
+	myperson = new MyPerson();
+	myufo = new MyUfo();
 
 	// ###############################################################
 	// create roads for the level
@@ -85,7 +81,7 @@ MyScene::MyScene() : CoreScene()
 	// create cars for the level
 	// ###############################################################
 	for (n = 0; n < totalcar; ++n) {
-		mycar[n] = new MyCar(xe,ye,re);
+		mycar[n] = new MyCar();
 		mycar[n]->position = Point2(n * 125 + 1170, 338);
 		if (n >= 4) {
 			mycar[n]->position = Point2(n * 125 + 670, 715);
@@ -97,7 +93,7 @@ MyScene::MyScene() : CoreScene()
 	// create trees	for the level
 	// ###############################################################
 	for (n = 0; n < totaltree; ++n) {
-		mytree[n] = new MyTree(1,1,1);
+		mytree[n] = new MyTree();
 		mytree[n]->position = Point2(n * 200 + 1170, 855);
 		if (n >= 4) {
 			mytree[n]->position = Point2(n * 200 + 465, 982);
@@ -203,18 +199,17 @@ void MyScene::update(float deltaTime)
 	xa = myufo->position.x;
 	ya = myufo->position.y;
 
-	xe = mycar[n]->position.x;
-	ye = mycar[n]->position.y;
 	// ###############################################################
 	// Escape key stops the Scene
 	// ###############################################################
 	if (input()->getKeyUp(KeyCode::Escape)) {
 		this->stop();
 	}
-	Collision();
+	collision(mycar[n]->position.x, mycar[n]->position.y, 25);
+
 }
 
-void MyScene::Collision() {
+void MyScene::collision(float xe, float ye, float re) {
 	// ###############################################################
 	// Collision ufo
 	// ###############################################################

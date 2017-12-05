@@ -9,7 +9,7 @@
 int rotationSpeed = 12; // speed of rotation
 int speed = 10; // speed of player
 
-MyUfo::MyUfo(float x1, float y1, float r) : Entity()
+MyUfo::MyUfo() : Entity()
 {
 	this->addSprite("assets/StartUfo2.tga");
 	this->sprite()->color.r = 255;

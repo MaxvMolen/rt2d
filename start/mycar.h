@@ -16,7 +16,7 @@ class MyCar : public Entity
 {
 public:
 	/// @brief Constructor
-	MyCar(float x1, float y1, float r);
+	MyCar();
 	/// @brief Destructor
 	virtual ~MyCar();
 

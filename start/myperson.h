@@ -16,7 +16,7 @@ class MyPerson : public Entity
 {
 public:
 	/// @brief Constructor
-	MyPerson(float x1, float y1, float r);
+	MyPerson();
 	/// @brief Destructor
 	virtual ~MyPerson();
 
