@@ -215,6 +215,7 @@ void MyScene::update(float deltaTime)
 	for (n = 0; n < totaltree; ++n) {
 		collision(mytree[n]->position.x, mytree[n]->position.y, 100);
 	}
+
 }
 
 void MyScene::collision(float xe, float ye, float re) {
