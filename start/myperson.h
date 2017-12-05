@@ -29,4 +29,4 @@ private:
 	/* add your private declarations */
 };
 
-#endif /* MYOBJECT_H */
+#endif /* MYPERSON_H */

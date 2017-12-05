@@ -29,4 +29,4 @@ private:
 	/* add your private declarations */
 };
 
-#endif /* MYPICKUP_H */
+#endif /* MYTREE_H */

@@ -26,7 +26,6 @@ float ra = 25; // radius myufo
 
 MyScene::MyScene() : CoreScene()
 {
-	myufo = new MyUfo();
 
 	// ###############################################################
 	// create roads for the level
@@ -143,6 +142,11 @@ MyScene::MyScene() : CoreScene()
 		myperson[n]->position = Point2(n * 125 + 200, 700);
 		layers[5]->addChild(myperson[n]);
 	}
+
+	// ###############################################################
+	// create ufo for the level
+	// ###############################################################
+	myufo = new MyUfo();
 	myufo->position = Point2(SWIDTH / 2, SHEIGHT / 2);
 	layers[6]->addChild(myufo);
 }
@@ -193,7 +197,6 @@ MyScene::~MyScene()
 		delete myperson[n];
 	}
 
-	// delete myentity from the heap (there was a 'new' in the constructor)
 	delete myufo;
 
 }

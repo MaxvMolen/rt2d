@@ -31,4 +31,4 @@ private:
 	/* add your private declarations */
 };
 
-#endif /* MYENTITY_H */
+#endif /* MYUFO_H */

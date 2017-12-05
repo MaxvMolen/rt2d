@@ -14,7 +14,7 @@
 #include <rt2d/scene.h>
 #include <rt2d/text.h>
 #include "basicentity.h"
-// objects
+
 #include "myperson.h"
 #include "mycar.h"
 #include "mytree.h"

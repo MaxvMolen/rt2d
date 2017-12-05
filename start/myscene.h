@@ -52,4 +52,4 @@ private:
 
 };
 
-#endif /* SCENE00_H */
+#endif /* MYSCENE_H */
