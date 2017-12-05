@@ -69,6 +69,10 @@ void MyUfo::update(float deltaTime)
 		this->position.x += speed;
 	}
 
+	changeUfo();
+}
+
+void MyUfo::changeUfo() {
 	// ###############################################################
 	// A,S and D changes ufo color and sprite
 	// ###############################################################
