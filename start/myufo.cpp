@@ -24,9 +24,6 @@ MyUfo::~MyUfo()
 
 void MyUfo::update(float deltaTime)
 {
-	static Vector2 velocity = Vector2();
-	static Polar polar = Polar();
-	
 	// ###############################################################
 	// Rotate player automatic
 	// ###############################################################
