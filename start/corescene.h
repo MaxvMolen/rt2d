@@ -3,7 +3,7 @@
 *
 * @file corescene.h
 *
-* @brief description of Corescene behavior.
+* @brief description of CoreScene behavior.
 */
 
 #ifndef CORESCENE_H
@@ -19,7 +19,7 @@
 #include "mycar.h"
 #include "mytree.h"
 
-/// @brief The Corescene class is the Scene implementation.
+/// @brief The CoreScene class is the Scene implementation.
 class CoreScene : public Scene
 {
 public:
