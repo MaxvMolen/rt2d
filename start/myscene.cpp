@@ -23,7 +23,6 @@ float xa = 1; // x position myufo
 float ya = 1; // y position myufo
 float ra = 25; // radius myufo
 
-
 MyScene::MyScene() : CoreScene()
 {
 	myperson = new MyPerson();
@@ -84,8 +83,8 @@ MyScene::MyScene() : CoreScene()
 		mycar[n] = new MyCar();
 		mycar[n]->position = Point2(n * 125 + 1170, 338);
 		if (n >= 4) {
-			mycar[n]->position = Point2(n * 125 + 670, 715);
 			mycar[n]->rotation.z = 3.14;
+			mycar[n]->position = Point2(n * 125 + 670, 715);
 		}
 		layers[5]->addChild(mycar[n]);
 	}
@@ -206,7 +205,16 @@ void MyScene::update(float deltaTime)
 		this->stop();
 	}
 
-	collision(mycar[n]->position.x, mycar[n]->position.y, 25);
+	// ###############################################################
+	// Update X and Y position and set radius
+	// ###############################################################
+	for (n = 0; n < totalcar; ++n) {
+		collision(mycar[n]->position.x, mycar[n]->position.y, 100);
+	}
+
+	for (n = 0; n < totaltree; ++n) {
+		collision(mytree[n]->position.x, mytree[n]->position.y, 100);
+	}
 }
 
 void MyScene::collision(float xe, float ye, float re) {
@@ -220,10 +228,11 @@ void MyScene::collision(float xe, float ye, float re) {
 		myufo->sprite()->color.g = 255;
 		myufo->sprite()->color.b = 0;
 	}
+
 	// no collision
 	else {
-		myufo->sprite()->color.r = 255;
+		/*myufo->sprite()->color.r = 255;
 		myufo->sprite()->color.g = 0;
-		myufo->sprite()->color.b = 0;
+		myufo->sprite()->color.b = 0;*/
 	}
 }
