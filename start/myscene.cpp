@@ -30,7 +30,7 @@ float re = 25;
 
 MyScene::MyScene() : CoreScene()
 {
-	myperson = new MyPerson(xe,ye,re);
+	myperson = new MyPerson(1,1,1);
 	myufo = new MyUfo(xa,ya,ra);
 
 	// ###############################################################
@@ -85,7 +85,7 @@ MyScene::MyScene() : CoreScene()
 	// create cars for the level
 	// ###############################################################
 	for (n = 0; n < totalcar; ++n) {
-		mycar[n] = new MyCar(1,1,1);
+		mycar[n] = new MyCar(xe,ye,re);
 		mycar[n]->position = Point2(n * 125 + 1170, 338);
 		if (n >= 4) {
 			mycar[n]->position = Point2(n * 125 + 670, 715);
@@ -203,22 +203,26 @@ void MyScene::update(float deltaTime)
 	xa = myufo->position.x;
 	ya = myufo->position.y;
 
-	xe = myperson->position.x;
-	ye = myperson->position.y;
+	xe = mycar[n]->position.x;
+	ye = mycar[n]->position.y;
 	// ###############################################################
 	// Escape key stops the Scene
 	// ###############################################################
 	if (input()->getKeyUp(KeyCode::Escape)) {
 		this->stop();
 	}
+	Collision();
+}
+
+void MyScene::Collision() {
 	// ###############################################################
 	// Collision ufo
 	// ###############################################################
 
 	//TEST-----------
-	
+
 	// collision
-	if ((xa - xe)*(xa - xe)+ (ya-ye)*(ya - ye) < ra*re) {
+	if ((xa - xe)*(xa - xe) + (ya - ye)*(ya - ye) < ra*re) {
 		myufo->sprite()->color.r = 0;
 		myufo->sprite()->color.g = 255;
 		myufo->sprite()->color.b = 0;
