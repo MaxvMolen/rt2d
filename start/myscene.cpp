@@ -217,11 +217,11 @@ void MyScene::update(float deltaTime)
 	// Update X and Y position and set radius
 	// ###############################################################
 	for (n = 0; n < totalcar; ++n) {
-		collision(mycar[n]->position.x, mycar[n]->position.y, 100);
+		collision(mycar[n]->position.x, mycar[n]->position.y, 125);
 	}
 
 	for (n = 0; n < totaltree; ++n) {
-		collision(mytree[n]->position.x, mytree[n]->position.y, 100);
+		collision(mytree[n]->position.x, mytree[n]->position.y, 50);
 	}
 
 	for (n = 0; n < totalperson; ++n) {
