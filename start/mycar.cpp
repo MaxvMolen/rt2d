@@ -1,5 +1,5 @@
 /**
-* This class describes MyEntity behavior.
+* This class describes MyCar behavior.
 *
 * Copyright 2017 Max van der Molen <maxharm1811@gmail.com>
 */

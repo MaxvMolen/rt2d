@@ -1,9 +1,9 @@
 /**
 * Copyright 2017 Max van der Molen <maxharm1811@gmail.com>
 *
-* @file myentity.h
+* @file myscore.h
 *
-* @brief description of MyEntity behavior.
+* @brief description of MyScore behavior.
 */
 
 #ifndef MYSCORE_H

@@ -1,9 +1,9 @@
 /**
 * Copyright 2017 Max van der Molen <maxharm1811@gmail.com>
 *
-* @file myentity.h
+* @file mytree.h
 *
-* @brief description of MyEntity behavior.
+* @brief description of MyTree behavior.
 */
 
 #ifndef MYTREE_H

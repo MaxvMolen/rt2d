@@ -1,9 +1,9 @@
 /**
 * Copyright 2017 Max van der Molen <maxharm1811@gmail.com>
 *
-* @file myentity.h
+* @file mycar.h
 *
-* @brief description of MyEntity behavior.
+* @brief description of MyCar behavior.
 */
 
 #ifndef MYCAR_H

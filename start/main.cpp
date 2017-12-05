@@ -1,17 +1,15 @@
 /**
  * Copyright 2017 Max van der Molen <maxharm1811@gmail.com>
  *
- * @brief Description of My Awesome Game.
+ * @brief Description of Ufo Game.
  *
  * @file main.cpp
  *
- * @mainpage My Awesome Game
+ * @mainpage Ufo Game
  *
  * @section intro Introduction
  *
- * Detailed description of My Awesome Game.
- *
- * There's even a second paragraph.
+ * Detailed description of Ufo Game.
  */
 #include <rt2d/core.h>
 
