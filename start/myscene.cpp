@@ -9,9 +9,9 @@
 
 #include "myscene.h"
 
-int totalroads = 16;
+int totalroads = 17;
 int totalhouses = 3;
-int totalparking = 15;
+int totalparking = 16;
 int totalcar = 8;
 int totaltree = 9;
 int totaltgarage = 2;

@@ -35,20 +35,20 @@ private:
 	/// @brief the person in the level that you need to pick up
 	MyPerson* myperson;
 	/// @brief the car in the level that you need to pick up
-	MyCar* mycar[8];
+	MyCar* mycar[7];
 	/// @brief the tree in the level that you need to pick up
 	MyTree* mytree[8];
 	
 	/// @brief the garage in the background of the level
-	BasicEntity* mygarage[2];
+	BasicEntity* mygarage[1];
 	/// @brief the bush in the background of the level
-	BasicEntity* mybush[4];
+	BasicEntity* mybush[3];
 	/// @brief the road in the background of the level
 	BasicEntity* myroads[16];
 	/// @brief the house in the background of the level
-	BasicEntity* myhouse[3];
+	BasicEntity* myhouse[2];
 	/// @brief the parkingspot in the background of the level
-	BasicEntity* myparking[14];
+	BasicEntity* myparking[15];
 
 };
 
