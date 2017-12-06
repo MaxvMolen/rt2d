@@ -254,18 +254,13 @@ void MyScene::collision(float xe, float ye, float re) {
 	// ###############################################################
 	// Collision ufo
 	// ###############################################################
-	
+
 	// collision
 	if ((xa - xe)*(xa - xe) + (ya - ye)*(ya - ye) < ra*re) {
+		std::cout << n << std::endl; // print number of current object ufo collides with
 		myufo->sprite()->color.r = 0;
 		myufo->sprite()->color.g = 255;
 		myufo->sprite()->color.b = 0;
 	}
 
-	// no collision
-	else {
-		/*myufo->sprite()->color.r = 255;
-		myufo->sprite()->color.g = 0;
-		myufo->sprite()->color.b = 0;*/
-	}
 }
