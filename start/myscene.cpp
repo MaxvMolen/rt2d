@@ -75,10 +75,20 @@ MyScene::MyScene() : CoreScene()
 		}
 		layers[4]->addChild(myparking[n]);
 	}
+
 	// ###############################################################
 	// create cars for the level
 	// ###############################################################
 	for (n = 0; n < totalcar; ++n) {
+		/*
+		MyCar* car = new MyCar();
+		mycar.push_back(car);
+		car->position = Point2(n * 125 + 1170, 338);
+		if (n >= 4) {
+			car->rotation.z = 3.14;
+			car->position = Point2(n * 125 + 670, 715);
+		}
+		layers[5]->addChild(car);*/
 		mycar[n] = new MyCar();
 		mycar[n]->position = Point2(n * 125 + 1170, 338);
 		if (n >= 4) {
@@ -166,12 +176,17 @@ MyScene::~MyScene()
 		this->removeChild(myhouse[n]);
 		delete myhouse[n];
 	}
-
+	
 	for (n = 0; n < totalparking; ++n) {
 		this->removeChild(myparking[n]);
 		delete myparking[n];
 	}
-
+	/*
+	for (n = 0; n < mycar.size(); ++n) {
+		delete mycar[n];
+		mycar[n] = NULL;
+	}
+	mycar.clear();*/
 	for (n = 0; n < totalcar; ++n) {
 		this->removeChild(mycar[n]);
 		delete mycar[n];
@@ -208,7 +223,7 @@ void MyScene::update(float deltaTime)
 	// ###############################################################
 	xa = myufo->position.x;
 	ya = myufo->position.y;
-
+	
 	// ###############################################################
 	// Escape key stops the Scene
 	// ###############################################################
@@ -237,7 +252,7 @@ void MyScene::collision(float xe, float ye, float re) {
 	// ###############################################################
 	// Collision ufo
 	// ###############################################################
-
+	
 	// collision
 	if ((xa - xe)*(xa - xe) + (ya - ye)*(ya - ye) < ra*re) {
 		myufo->sprite()->color.r = 0;
