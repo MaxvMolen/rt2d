@@ -8,6 +8,7 @@
 #include <sstream>
 #include "myscene.h"
 
+// amount of objects
 int totalroads = 17;
 int totalhouses = 3;
 int totalparking = 16;
@@ -16,6 +17,7 @@ int totaltree = 9;
 int totaltgarage = 2;
 int totaltbush = 4;
 int totalperson = 2;
+
 int n;
 
 //myufo
@@ -90,14 +92,6 @@ MyScene::MyScene() : CoreScene()
 			car->position = Point2(n * 125 + 670, 715);
 		}
 		layers[5]->addChild(car);
-
-		/*mycar[n] = new MyCar();
-		mycar[n]->position = Point2(n * 125 + 1170, 338);
-		if (n >= 4) {
-			mycar[n]->rotation.z = 3.14;
-			mycar[n]->position = Point2(n * 125 + 670, 715);
-		}
-		layers[5]->addChild(mycar[n]);*/
 	}
 	// ###############################################################
 	// create trees	for the level
@@ -172,11 +166,6 @@ MyScene::~MyScene()
 {
 	// deconstruct and delete the Tree
 	this->removeChild(myufo);
-	/*
-	for (n = 0; n < totalroads; ++n) {
-		this->removeChild(myroads[n]);
-		delete myroads[n];
-	}*/
 
 	for (n = 0; n < myroads.size(); ++n) {
 		delete myroads[n];
