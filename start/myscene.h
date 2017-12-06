@@ -10,9 +10,7 @@
 #define MYSCENE_H
 
 #include <rt2d/scene.h>
-#include <vector>
 #include "corescene.h"
-#include "myufo.h"
 
 /// @brief The MyScene class is the Scene implementation.
 class MyScene : public CoreScene
@@ -34,29 +32,29 @@ private:
 	/// @brief the rotating ufo you play in the game
 	MyUfo* myufo;
 	/// @brief the person in the level that you need to pick up
-	MyPerson* myperson[2];
-	//std::vector<MyPerson*> myperson;
+	//MyPerson* myperson[2];
+	std::vector<MyPerson*> myperson;
 	/// @brief the car in the level that you need to pick up
-	MyCar* mycar[8];
-	//std::vector<MyCar*> mycar;
+	//MyCar* mycar[8];
+	std::vector<MyCar*> mycar;
 	/// @brief the tree in the level that you need to pick up
-	MyTree* mytree[9];
-	//std::vector<MyTree*> mytree;
+	//MyTree* mytree[9];
+	std::vector<MyTree*> mytree;
 	/// @brief the garage in the background of the level
-	BasicEntity* mygarage[2];
-	//std::vector<BasicEntity*> mygarage;
+	//BasicEntity* mygarage[2];
+	std::vector<BasicEntity*> mygarage;
 	/// @brief the bush in the background of the level
-	BasicEntity* mybush[4];
-	//std::vector<BasicEntity*> mybush;
+	//BasicEntity* mybush[4];
+	std::vector<BasicEntity*> mybush;
 	/// @brief the road in the background of the level
-	BasicEntity* myroads[17];
-	//std::vector<BasicEntity*> myroads;
+	//BasicEntity* myroads[17];
+	std::vector<BasicEntity*> myroads;
 	/// @brief the house in the background of the level
-	BasicEntity* myhouse[3];
-	//std::vector<BasicEntity*> myhouse;
+	//BasicEntity* myhouse[3];
+	std::vector<BasicEntity*> myhouse;
 	/// @brief the parkingspot in the background of the level
-	BasicEntity* myparking[15];
-	//std::vector<BasicEntity*> myparking;
+	//BasicEntity* myparking[15];
+	std::vector<BasicEntity*> myparking;
 };
 
 #endif /* MYSCENE_H */

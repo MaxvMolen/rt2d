@@ -6,7 +6,6 @@
 
 #include <fstream>
 #include <sstream>
-
 #include "myscene.h"
 
 int totalroads = 17;
@@ -26,61 +25,63 @@ float ra = 25; // radius myufo
 
 MyScene::MyScene() : CoreScene()
 {
-
 	// ###############################################################
 	// create roads for the level
 	// ###############################################################
 	for (n = 0; n < totalroads; ++n) {
-		myroads[n] = new BasicEntity();
-		myroads[n]->addSprite("assets/StartRoad.tga");
-		myroads[n]->position = Point2(125 + n * 250, 125);
-		myroads[n]->rotation.z = 1.57;
+		BasicEntity* roads = new BasicEntity();
+		myroads.push_back(roads);
+		//myroads[n] = new BasicEntity();
+		roads->addSprite("assets/StartRoad.tga");
+		roads->position = Point2(125 + n * 250, 125);
+		roads->rotation.z = 1.57;
 		if (n>=8) {
-			myroads[n]->position = Point2(SWIDTH / 2, (n - 8)* 200 + 352.5);
-			myroads[n]->rotation.z = 0;
+			roads->position = Point2(SWIDTH / 2, (n - 8)* 200 + 352.5);
+			roads->rotation.z = 0;
 		}
 		if(n>=12) {
-			myroads[n]->position = Point2(SWIDTH / 2 + 227.5 +(n-12)*256, SHEIGHT / 2-13);
-			myroads[n]->rotation.z = 1.57;
+			roads->position = Point2(SWIDTH / 2 + 227.5 +(n-12)*256, SHEIGHT / 2-13);
+			roads->rotation.z = 1.57;
 		}
-		layers[4]->addChild(myroads[n]);
+		layers[4]->addChild(roads);
 	}
 	// ###############################################################
 	// create houses for the level
 	// ###############################################################
 	for (n = 0; n < totalhouses; ++n) {
-		myhouse[n] = new BasicEntity();
-		myhouse[n]->addSprite("assets/StartHouse.tga");
-		myhouse[n]->position = Point2(n * 260 + 180,395);
-		myhouse[n]->sprite()->color.r = 255;
-		myhouse[n]->sprite()->color.g = 88;
-		myhouse[n]->sprite()->color.b = 30;
+		BasicEntity* house = new BasicEntity();
+		myhouse.push_back(house);
+		house->addSprite("assets/StartHouse.tga");
+		house->position = Point2(n * 260 + 180,395);
+		house->sprite()->color.r = 255;
+		house->sprite()->color.g = 88;
+		house->sprite()->color.b = 30;
 		if (n >= 2) {
-			myhouse[n]->position = Point2(n* 260 + 180,635);
-			myhouse[n]->rotation.z = 1.57;
+			house->position = Point2(n* 260 + 180,635);
+			house->rotation.z = 1.57;
 		}
-		layers[4]->addChild(myhouse[n]);
+		layers[4]->addChild(house);
 	}
 	// ###############################################################
 	// create parking sports for the level
 	// ###############################################################
 	for (n = 0; n < totalparking; ++n) {
-		myparking[n] = new BasicEntity();
-		myparking[n]->addSprite("assets/StartPark.tga");
-		myparking[n]->position = Point2(n* 125 + 1170, 335);
-		myparking[n]->rotation.z = 3.14;
+		BasicEntity* park = new BasicEntity();
+		myparking.push_back(park);
+		park->addSprite("assets/StartPark.tga");
+		park->position = Point2(n* 125 + 1170, 335);
+		park->rotation.z = 3.14;
 		if (n >= 8) {
-			myparking[n]->position = Point2((n-4) * 125 + 670, 718);
-			myparking[n]->rotation.z = 0;
+			park->position = Point2((n-4) * 125 + 670, 718);
+			park->rotation.z = 0;
 		}
-		layers[4]->addChild(myparking[n]);
+		layers[4]->addChild(park);
 	}
 
 	// ###############################################################
 	// create cars for the level
 	// ###############################################################
 	for (n = 0; n < totalcar; ++n) {
-		/*
 		MyCar* car = new MyCar();
 		mycar.push_back(car);
 		car->position = Point2(n * 125 + 1170, 338);
@@ -88,69 +89,74 @@ MyScene::MyScene() : CoreScene()
 			car->rotation.z = 3.14;
 			car->position = Point2(n * 125 + 670, 715);
 		}
-		layers[5]->addChild(car);*/
-		mycar[n] = new MyCar();
+		layers[5]->addChild(car);
+
+		/*mycar[n] = new MyCar();
 		mycar[n]->position = Point2(n * 125 + 1170, 338);
 		if (n >= 4) {
 			mycar[n]->rotation.z = 3.14;
 			mycar[n]->position = Point2(n * 125 + 670, 715);
 		}
-		layers[5]->addChild(mycar[n]);
+		layers[5]->addChild(mycar[n]);*/
 	}
 	// ###############################################################
 	// create trees	for the level
 	// ###############################################################
 	for (n = 0; n < totaltree; ++n) {
-		mytree[n] = new MyTree();
-		mytree[n]->position = Point2(n * 200 + 1170, 855);
+		MyTree* tree = new MyTree();
+		mytree.push_back(tree);
+		tree->position = Point2(n * 200 + 1170, 855);
 		if (n >= 4) {
-			mytree[n]->position = Point2(n * 200 + 465, 982);
-			mytree[n]->rotation.z = 3.14;
+			tree->position = Point2(n * 200 + 465, 982);
+			tree->rotation.z = 3.14;
 		}
 		if (n >= 8) {
-			mytree[n]->position = Point2(655,425 );
+			tree->position = Point2(655,425 );
 		}
-		layers[5]->addChild(mytree[n]);
+		layers[5]->addChild(tree);
 	}
 	// ###############################################################
 	// create garages for the level
 	// ###############################################################
 	for (n = 0; n < totaltgarage; ++n) {
-		mygarage[n] = new BasicEntity();
-		mygarage[n]->addSprite("assets/StartGarage.tga");
-		mygarage[n]->sprite()->color.r = 171;
-		mygarage[n]->sprite()->color.g = 167;
-		mygarage[n]->sprite()->color.b = 154;
-		mygarage[n]->position = Point2(-25, 420);
-		mygarage[n]->scale = Point(0.7f, 0.7f);
+		BasicEntity* garage = new BasicEntity();
+		mygarage.push_back(garage);
+		garage->addSprite("assets/StartGarage.tga");
+		garage->sprite()->color.r = 171;
+		garage->sprite()->color.g = 167;
+		garage->sprite()->color.b = 154;
+		garage->position = Point2(-25, 420);
+		garage->scale = Point(0.7f, 0.7f);
 		if (n >= 1) {
-			mygarage[n]->position = Point2(680, 840);
-			mygarage[n]->rotation.z = 1.57;
+			garage->position = Point2(680, 840);
+			garage->rotation.z = 1.57;
 		}
-		layers[5]->addChild(mygarage[n]);
+		layers[5]->addChild(garage);
 	}
 	// ###############################################################
 	// create bushes for the level
 	// ###############################################################
 	for (n = 0; n < totaltbush; ++n) {
-		mybush[n] = new BasicEntity();
-		mybush[n]->addSprite("assets/StartBush.tga");
-		mybush[n]->sprite()->color.r = 78;
-		mybush[n]->sprite()->color.g = 203;
-		mybush[n]->sprite()->color.b = 22;
-		mybush[n]->position = Point2(n * 100 + 615, 310);
+		BasicEntity* bush = new BasicEntity();
+		mybush.push_back(bush);
+		bush->addSprite("assets/StartBush.tga");
+		bush->sprite()->color.r = 78;
+		bush->sprite()->color.g = 203;
+		bush->sprite()->color.b = 22;
+		bush->position = Point2(n * 100 + 615, 310);
 		if (n >= 2) {
-			mybush[n]->position = Point2(790, (n - 2) * 100 + 370);
+			bush->position = Point2(790, (n - 2) * 100 + 370);
 		}
-		layers[5]->addChild(mybush[n]);
+		layers[5]->addChild(bush);
 	}
 	// ###############################################################
 	// create persons for the level
 	// ###############################################################
 	for (n = 0; n < totalperson; ++n) {
-		myperson[n] = new MyPerson();
-		myperson[n]->position = Point2(n * 125 + 200, 700);
-		layers[5]->addChild(myperson[n]);
+		MyPerson* person = new MyPerson();
+		myperson.push_back(person);
+		person->position = Point2(n * 125 + 200, 700);
+		layers[5]->addChild(person);
 	}
 
 	// ###############################################################
@@ -166,51 +172,58 @@ MyScene::~MyScene()
 {
 	// deconstruct and delete the Tree
 	this->removeChild(myufo);
-
+	/*
 	for (n = 0; n < totalroads; ++n) {
 		this->removeChild(myroads[n]);
 		delete myroads[n];
-	}
+	}*/
 
-	for (n = 0; n < totalhouses; ++n) {
-		this->removeChild(myhouse[n]);
+	for (n = 0; n < myroads.size(); ++n) {
+		delete myroads[n];
+		myroads[n] = NULL;
+	}
+	myroads.clear();
+
+	for (n = 0; n < myhouse.size(); ++n) {
 		delete myhouse[n];
+		myhouse[n] = NULL;
 	}
+	myhouse.clear();
 	
-	for (n = 0; n < totalparking; ++n) {
-		this->removeChild(myparking[n]);
+	for (n = 0; n < myparking.size(); ++n) {
 		delete myparking[n];
+		myparking[n] = NULL;
 	}
-	/*
+	myparking.clear();
+	
 	for (n = 0; n < mycar.size(); ++n) {
 		delete mycar[n];
 		mycar[n] = NULL;
 	}
-	mycar.clear();*/
-	for (n = 0; n < totalcar; ++n) {
-		this->removeChild(mycar[n]);
-		delete mycar[n];
-	}
+	mycar.clear();
 
-	for (n = 0; n < totaltree; ++n) {
-		this->removeChild(mytree[n]);
+	for (n = 0; n < mytree.size(); ++n) {
 		delete mytree[n];
+		mytree[n] = NULL;
 	}
+	mytree.clear();
 
 	for (n = 0; n < totaltgarage; ++n) {
 		this->removeChild(mygarage[n]);
 		delete mygarage[n];
 	}
 
-	for (n = 0; n < totaltbush; ++n) {
-		this->removeChild(mybush[n]);
+	for (n = 0; n < mybush.size(); ++n) {
 		delete mybush[n];
+		mybush[n] = NULL;
 	}
+	mybush.clear();
 
-	for (n = 0; n < totalperson; ++n) {
-		this->removeChild(myperson[n]);
+	for (n = 0; n < myperson.size(); ++n) {
 		delete myperson[n];
+		myperson[n] = NULL;
 	}
+	myperson.clear();
 
 	delete myufo;
 
@@ -234,15 +247,15 @@ void MyScene::update(float deltaTime)
 	// ###############################################################
 	// Update X and Y position and set radius
 	// ###############################################################
-	for (n = 0; n < totalcar; ++n) {
+	for (n = 0; n < mycar.size(); ++n) {
 		collision(mycar[n]->position.x, mycar[n]->position.y, 125);
 	}
 
-	for (n = 0; n < totaltree; ++n) {
+	for (n = 0; n < mytree.size(); ++n) {
 		collision(mytree[n]->position.x, mytree[n]->position.y, 50);
 	}
 
-	for (n = 0; n < totalperson; ++n) {
+	for (n = 0; n < myperson.size(); ++n) {
 		collision(myperson[n]->position.x, myperson[n]->position.y, 25);
 	}
 

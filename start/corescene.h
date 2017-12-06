@@ -14,10 +14,10 @@
 #include <rt2d/scene.h>
 #include <rt2d/text.h>
 #include "basicentity.h"
-
 #include "myperson.h"
 #include "mycar.h"
 #include "mytree.h"
+#include "myufo.h"
 
 /// @brief The CoreScene class is the Scene implementation.
 class CoreScene : public Scene
