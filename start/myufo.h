@@ -16,9 +16,8 @@ class MyUfo : public Entity
 
 {
 public:
-	MyUfo();
 	/// @brief Constructor
-	//MyUfo();
+	MyUfo();
 	/// @brief Destructor
 	virtual ~MyUfo();
 
@@ -26,8 +25,17 @@ public:
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
 	virtual void update(float deltaTime);
+	/// @brief movement is automatically called every frame
+	/// @brief used to move the player
+	/// @return void
 	virtual void MyUfo::movement();
+	/// @brief changeUfo is automatically called every frame
+	/// @brief used to change the players look and color
+	/// @return void
 	virtual void MyUfo::changeUfo();
+	/// @brief bounderies is automatically called every frame
+	/// @brief used to keep the player in the set bounderies
+	/// @return void
 	virtual void MyUfo::bounderies();
 
 private:
