@@ -25,6 +25,12 @@ public:
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
 	virtual void update(float deltaTime);
+	/// @brief collision is automatically called every frame
+	/// @param xe the x-position of the object
+	/// @param ye the y-position of the object
+	/// @param re the radius of the object
+	/// @brief this function turns myufo green on collision with the given object
+	/// @return void
 	virtual void collision(float xe, float ye, float re);
 protected:
 	
