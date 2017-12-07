@@ -10,8 +10,8 @@ MyCar::MyCar() : Entity()
 {
 	this->addSprite("assets/StartCar.tga");
 	this->sprite()->color.r = 255;
-	this->sprite()->color.g = 0;
-	this->sprite()->color.b = 0;
+	this->sprite()->color.g = 121;
+	this->sprite()->color.b = 13;
 }
 
 MyCar::~MyCar()

@@ -9,9 +9,9 @@
 MyTree::MyTree() : Entity()
 {
 	this->addSprite("assets/StartTree.tga");
-	this->sprite()->color.r = 12;
+	this->sprite()->color.r = 140;
 	this->sprite()->color.g = 255;
-	this->sprite()->color.b = 0;
+	this->sprite()->color.b = 27;
 }
 
 MyTree::~MyTree()

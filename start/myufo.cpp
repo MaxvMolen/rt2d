@@ -13,7 +13,7 @@ MyUfo::MyUfo() : Entity()
 {
 	this->addSprite("assets/StartUfo2.tga");
 	this->sprite()->color.r = 255;
-	this->sprite()->color.g = 0;
+	this->sprite()->color.g = 90;
 	this->sprite()->color.b = 0;
 }
 
@@ -87,15 +87,15 @@ void MyUfo::changeUfo() {
 		this->addSprite("assets/StartUfo2.tga");
 		this->scale = Point(1.0f, 1.0f);
 		this->sprite()->color.r = 255;
-		this->sprite()->color.g = 0;
+		this->sprite()->color.g = 90;
 		this->sprite()->color.b = 0;
 	}
 	if (input()->getKey('D')) {
 		this->addSprite("assets/StartUfo3.tga");
 		this->scale = Point(1.0f, 1.0f);
-		this->sprite()->color.r = 0;
-		this->sprite()->color.g = 255;
-		this->sprite()->color.b = 0;
+		this->sprite()->color.r = 110;
+		this->sprite()->color.g = 156;
+		this->sprite()->color.b = 56;
 	}
 
 }
