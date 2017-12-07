@@ -109,6 +109,9 @@ void MyUfo::changeUfo() {
 }
 
 void MyUfo::bounderies() {
+	// ###############################################################
+	// Check if player exeeds given position and push it back
+	// ###############################################################
 	if (this->position.x >= 1920) {
 		this->position.x += -10;
 	}
