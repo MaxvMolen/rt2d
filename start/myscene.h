@@ -26,6 +26,7 @@ public:
 	/// @return void
 	virtual void update(float deltaTime);
 	virtual void collision(float xe, float ye, float re);
+	virtual void Bounderies();
 protected:
 	
 private:
