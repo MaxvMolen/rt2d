@@ -259,5 +259,25 @@ void MyScene::collision(float xe, float ye, float re) {
 		myufo->sprite()->color.r = 0;
 		myufo->sprite()->color.g = 255;
 		myufo->sprite()->color.b = 0;
+
+		// use w to break the lock on and pick the item up
+		if (input()->getKey('W')) {
+			
+		}
+		else {
+			// lock the ufo in place on collision of object 
+			if (myufo->position.x >= xe) {
+				myufo->position.x += -10;
+			}
+			if (myufo->position.x <= xe) {
+				myufo->position.x += 10;
+			}
+			if (myufo->position.y >= ye) {
+				myufo->position.y += -10;
+			}
+			if (myufo->position.y <= ye) {
+				myufo->position.y += 10;
+			}
+		}
 	}
 }
