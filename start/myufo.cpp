@@ -49,9 +49,18 @@ void MyUfo::update(float deltaTime)
 			this->rotation.z += TWO_PI;
 		}
 	}
-
+	// ###############################################################
+	// Update Movement
+	// ###############################################################
 	movement();
+	// ###############################################################
+	// Update ChangeUfo
+	// ###############################################################
 	changeUfo();
+	// ###############################################################
+	// Update Bounderies
+	// ###############################################################
+	bounderies();
 }
 
 void MyUfo::movement() {
@@ -97,5 +106,19 @@ void MyUfo::changeUfo() {
 		this->sprite()->color.g = 156;
 		this->sprite()->color.b = 56;
 	}
+}
 
+void MyUfo::bounderies() {
+	if (this->position.x >= 1920) {
+		this->position.x += -10;
+	}
+	if (this->position.x <= 0) {
+		this->position.x += 10;
+	}
+	if (this->position.y >= 1080) {
+		this->position.y += -10;
+	}
+	if (this->position.y <= 0) {
+		this->position.y += 10;
+	}
 }

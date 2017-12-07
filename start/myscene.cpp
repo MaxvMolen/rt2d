@@ -233,10 +233,6 @@ void MyScene::update(float deltaTime)
 		this->stop();
 	}
 	// ###############################################################
-	// Update Bounderies
-	// ###############################################################
-	Bounderies();
-	// ###############################################################
 	// Update X and Y position and set radius
 	// ###############################################################
 	for (n = 0; n < mycar.size(); ++n) {
@@ -264,20 +260,5 @@ void MyScene::collision(float xe, float ye, float re) {
 		myufo->sprite()->color.r = 0;
 		myufo->sprite()->color.g = 255;
 		myufo->sprite()->color.b = 0;
-	}
-}
-
-void MyScene::Bounderies() {
-	if (myufo->position.x >= 1920) {
-		myufo->position.x += -10;
-	}
-	if (myufo->position.x <= 0) {
-		myufo->position.x += 10;
-	}
-	if (myufo->position.y >= 1080) {
-		myufo->position.y += -10;
-	}
-	if (myufo->position.y <= 0) {
-		myufo->position.y += 10;
 	}
 }

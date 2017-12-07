@@ -28,6 +28,7 @@ public:
 	virtual void update(float deltaTime);
 	virtual void MyUfo::movement();
 	virtual void MyUfo::changeUfo();
+	virtual void MyUfo::bounderies();
 
 private:
 	/* add your private declarations */
