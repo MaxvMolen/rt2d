@@ -26,9 +26,9 @@ public:
 	/// @return void
 	virtual void update(float deltaTime);
 	/// @brief collision is automatically called every frame
-	/// @brief this function turns myufo green on collision with the given object
-	/// @brief it also will lock the player on the object it collided with
-	/// @brief the player can free itself with w
+	/// @brief this function turns myufo green on collision with the given object.
+	/// @brief it also will lock the player on the object it collided with.
+	/// @brief the player can free itself with the w key.
 	/// @param xe the x-position of the object
 	/// @param ye the y-position of the object
 	/// @param re the radius of the object
