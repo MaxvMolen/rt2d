@@ -255,12 +255,11 @@ void MyScene::collision(float xe, float ye, float re) {
 	// ###############################################################
 	// collision
 	if ((xa - xe)*(xa - xe) + (ya - ye)*(ya - ye) < ra*re) {
-		std::cout << n << std::endl; // print number of current object ufo collides with
 		myufo->sprite()->color.r = 0;
 		myufo->sprite()->color.g = 255;
 		myufo->sprite()->color.b = 0;
 
-		// use w to break the lock on and pick the item up
+		// use w to break the lock and pick the item up
 		if (input()->getKey('W')) {
 			
 		}
