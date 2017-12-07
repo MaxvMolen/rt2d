@@ -9,7 +9,10 @@
  *
  * @section intro Introduction
  *
- * Detailed description of Ufo Game.
+ * In this game you play as an ufo. 
+ * This ufo can transform with the use of the a,s and d keys. 
+ * You use the different forms to pick up different objects for score.
+ * But you need to use the right ufo otherwise you'll lose points.
  */
 #include <rt2d/core.h>
 
