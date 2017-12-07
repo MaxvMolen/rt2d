@@ -35,8 +35,10 @@ public:
 	virtual void MyUfo::changeUfo();
 	/// @brief bounderies is automatically called every frame
 	/// @brief used to keep the player in the set bounderies
+	/// @param width indicates the width of the playroom
+	/// @param height indicates the height of the playroom
 	/// @return void
-	virtual void MyUfo::bounderies();
+	virtual void MyUfo::bounderies(float width, float height);
 
 private:
 	/* add your private declarations */

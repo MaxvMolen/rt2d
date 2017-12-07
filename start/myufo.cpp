@@ -60,7 +60,7 @@ void MyUfo::update(float deltaTime)
 	// ###############################################################
 	// Update Bounderies
 	// ###############################################################
-	bounderies();
+	bounderies(1920,1080);
 }
 
 void MyUfo::movement() {
@@ -108,17 +108,17 @@ void MyUfo::changeUfo() {
 	}
 }
 
-void MyUfo::bounderies() {
+void MyUfo::bounderies(float width, float height) {
 	// ###############################################################
 	// Check if player exeeds given position and push it back
 	// ###############################################################
-	if (this->position.x >= 1920) {
+	if (this->position.x >= width) {
 		this->position.x += -10;
 	}
 	if (this->position.x <= 0) {
 		this->position.x += 10;
 	}
-	if (this->position.y >= 1080) {
+	if (this->position.y >= height) {
 		this->position.y += -10;
 	}
 	if (this->position.y <= 0) {
