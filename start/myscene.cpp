@@ -18,6 +18,7 @@ int totaltgarage = 2;
 int totaltbush = 4;
 int totalperson = 2;
 int totalpath = 14;
+int totalGarden = 3;
 
 int n;
 
@@ -92,7 +93,7 @@ MyScene::MyScene() : CoreScene()
 			car->rotation.z = 3.14;
 			car->position = Point2(n * 125 + 670, 715);
 		}
-		layers[5]->addChild(car);
+		layers[6]->addChild(car);
 	}
 	// ###############################################################
 	// create trees	for the level
@@ -108,7 +109,7 @@ MyScene::MyScene() : CoreScene()
 		if (n >= 8) {
 			tree->position = Point2(655,425 );
 		}
-		layers[5]->addChild(tree);
+		layers[6]->addChild(tree);
 	}
 	// ###############################################################
 	// create garages for the level
@@ -151,7 +152,7 @@ MyScene::MyScene() : CoreScene()
 		MyPerson* person = new MyPerson();
 		myperson.push_back(person);
 		person->position = Point2(n * 125 + 200, 700);
-		layers[5]->addChild(person);
+		layers[6]->addChild(person);
 	}
 	// ###############################################################
 	// create path for the level
@@ -184,6 +185,28 @@ MyScene::MyScene() : CoreScene()
 			path->rotation.z = 1.57;
 		}
 		layers[5]->addChild(path);
+	}
+	// ###############################################################
+	// create garden for the level
+	// ###############################################################
+	for (n = 0; n < totalGarden; ++n) {
+		BasicEntity* garden = new BasicEntity();
+		mygarden.push_back(garden);
+		garden->addSprite("assets/StartGarden.tga");
+		garden->sprite()->color.r = 205;
+		garden->sprite()->color.g = 102;
+		garden->sprite()->color.b = 44;
+		garden->position = Point2(180, 620);
+		garden->scale = Point(0.8f, 0.8f);
+		if (n >= 1) {
+			garden->position = Point2(n * 115 +225, 620);
+			garden->addSprite("assets/StartGardenAlt.tga");
+			garden->sprite()->color.r = 205;
+			garden->sprite()->color.g = 102;
+			garden->sprite()->color.b = 44;
+			garden->rotation.z = 3.14;
+		}
+		layers[5]->addChild(garden);
 	}
 
 	// ###############################################################
@@ -251,6 +274,12 @@ MyScene::~MyScene()
 		mypath[n] = NULL;
 	}
 	mypath.clear();
+
+	for (n = 0; n < mygarden.size(); ++n) {
+		delete mygarden[n];
+		mygarden[n] = NULL;
+	}
+	mygarden.clear();
 
 	delete myufo;
 
