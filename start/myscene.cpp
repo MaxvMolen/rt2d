@@ -160,9 +160,6 @@ MyScene::MyScene() : CoreScene()
 		BasicEntity* path = new BasicEntity();
 		mypath.push_back(path);
 		path->addSprite("assets/StartPRoad.tga");
-		/*path->sprite()->color.r = 171;
-		path->sprite()->color.g = 167;
-		path->sprite()->color.b = 154;*/
 		path->rotation.z = 1.57;
 		path->position = Point2((n * -75)+787.5, 1043);
 		path->scale = Point(0.7f, 0.7f);
