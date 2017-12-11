@@ -12,7 +12,7 @@
 int totalroads = 17;
 int totalhouses = 3;
 int totalparking = 16;
-int totalcar = 8;
+int totalcar = 7;
 int totaltree = 9;
 int totaltgarage = 2;
 int totaltbush = 4;
@@ -89,9 +89,16 @@ MyScene::MyScene() : CoreScene()
 		MyCar* car = new MyCar();
 		mycar.push_back(car);
 		car->position = Point2(n * 125 + 1170, 338);
+		if (n >= 2) {
+			car->position = Point2(4 * 125 + 1170, 338);
+		}
+		if (n >= 3) {
+			car->rotation.z = 3.14;
+			car->position = Point2((n-2) * 125 + 1170, 715);
+		}
 		if (n >= 4) {
 			car->rotation.z = 3.14;
-			car->position = Point2(n * 125 + 670, 715);
+			car->position = Point2((n - 1) * 125 + 1170, 715);
 		}
 		layers[6]->addChild(car);
 	}
