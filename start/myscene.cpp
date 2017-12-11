@@ -17,6 +17,7 @@ int totaltree = 9;
 int totaltgarage = 2;
 int totaltbush = 4;
 int totalperson = 2;
+int totalpath = 14;
 
 int n;
 
@@ -152,6 +153,41 @@ MyScene::MyScene() : CoreScene()
 		person->position = Point2(n * 125 + 200, 700);
 		layers[5]->addChild(person);
 	}
+	// ###############################################################
+	// create path for the level
+	// ###############################################################
+	for (n = 0; n < totalpath; ++n) {
+		BasicEntity* path = new BasicEntity();
+		mypath.push_back(path);
+		path->addSprite("assets/StartPRoad.tga");
+		/*path->sprite()->color.r = 171;
+		path->sprite()->color.g = 167;
+		path->sprite()->color.b = 154;*/
+		path->rotation.z = 1.57;
+		path->position = Point2((n * -75)+787.5, 1043);
+		path->scale = Point(0.7f, 0.7f);
+		if (n >= 5) {
+			path->position = Point2((n * -75) + 787.5, 1036);
+			path->addSprite("assets/StartPRoadCurve.tga");
+			path->rotation.z = 3.14;
+		}
+		if (n >= 6) {
+			path->position = Point2(((5) * -75) + 787.5,(n-5)*-75 +1036);
+			path->addSprite("assets/StartPRoad.tga");
+			path->rotation.z = 0;
+		}
+		if (n >= 8) {
+			path->position = Point2(((5) * -75) + 787.5, (n - 5)*-75 + 1036);
+			path->addSprite("assets/StartPRoadCurve.tga");
+			path->rotation.z = 6.27;
+		}
+		if (n >= 9) {
+			path->position = Point2(((n -2.9) * -75) + 787.5, (3.18) * -75 + 1043);
+			path->addSprite("assets/StartPRoad.tga");
+			path->rotation.z = 1.57;
+		}
+		layers[5]->addChild(path);
+	}
 
 	// ###############################################################
 	// create ufo for the level
@@ -212,7 +248,12 @@ MyScene::~MyScene()
 		delete myperson[n];
 		myperson[n] = NULL;
 	}
-	myperson.clear();
+
+	for (n = 0; n < mypath.size(); ++n) {
+		delete mypath[n];
+		mypath[n] = NULL;
+	}
+	mypath.clear();
 
 	delete myufo;
 

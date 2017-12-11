@@ -55,6 +55,8 @@ private:
 	std::vector<BasicEntity*> myhouse;
 	/// @brief the parkingspot in the background of the level
 	std::vector<BasicEntity*> myparking;
+	/// @brief the foorpath in the background of the level
+	std::vector<BasicEntity*> mypath;
 };
 
 #endif /* MYSCENE_H */
