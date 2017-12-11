@@ -253,7 +253,6 @@ void MyScene::collision(float xe, float ye, float re) {
 	// ###############################################################
 	// Collision ufo
 	// ###############################################################
-	// collision
 	if ((xa - xe)*(xa - xe) + (ya - ye)*(ya - ye) < ra*re) {
 		myufo->sprite()->color.r = 0;
 		myufo->sprite()->color.g = 255;
