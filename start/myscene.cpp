@@ -16,7 +16,7 @@ int totalcar = 8;
 int totaltree = 9;
 int totaltgarage = 2;
 int totaltbush = 4;
-int totalperson = 2;
+int totalperson = 4;
 int totalpath = 14;
 int totalGarden = 3;
 
@@ -166,7 +166,17 @@ MyScene::MyScene() : CoreScene()
 	for (n = 0; n < totalperson; ++n) {
 		MyPerson* person = new MyPerson();
 		myperson.push_back(person);
-		person->position = Point2(n * 125 + 200, 700);
+		person->position = Point2(n * 218 + 190, 576);
+		person->scale = Point(0.7f, 0.7f);
+		person->rotation.z = 3.14;
+		if (n >= 2) {
+			person->position = Point2((n-1) * 190 + 180, 650);
+			person->rotation.z = 1.57;
+		}
+		if (n >= 3) {
+			person->position = Point2(200,810);
+			person->rotation.z = 4.7;
+		}
 		layers[6]->addChild(person);
 	}
 	// ###############################################################
@@ -336,8 +346,8 @@ void MyScene::collision(float xe, float ye, float re) {
 	// Collision ufo
 	// ###############################################################
 	if ((xa - xe)*(xa - xe) + (ya - ye)*(ya - ye) < ra*re) {
-		myufo->sprite()->color.r = 0;
-		myufo->sprite()->color.g = 255;
+		myufo->sprite()->color.r = 255;
+		myufo->sprite()->color.g = 0;
 		myufo->sprite()->color.b = 0;
 
 		// use w to break the lock and pick the item up
