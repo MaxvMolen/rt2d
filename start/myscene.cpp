@@ -110,7 +110,7 @@ MyScene::MyScene() : CoreScene()
 		}
 		if (n >= 8) {
 			car->rotation.z = 1.57;
-			car->position = Point2(1, 60);
+			car->position = Point2(-79, 60);
 		}
 		layers[5]->addChild(car);
 	}
@@ -344,8 +344,11 @@ void MyScene::update(float deltaTime)
 	// ###############################################################
 	// Move car over the road
 	// ###############################################################
-	mycar[8]->position.x += 10;
+	// movement car + the speed
+	mycar[8]->position.x += 6;
 	
+	// bounderies car
+	// if car reaches bounderies it gets placed at its starting point
 	if (mycar[8]->position.x >= 1980) {
 		mycar[8]->position.x = -79;
 	}
@@ -371,16 +374,16 @@ void MyScene::collision(float xe, float ye, float re) {
 		else {
 			// lock the ufo in place on collision of object 
 			if (myufo->position.x >= xe) {
-				myufo->position.x += -10;
+				myufo->position.x += -11;
 			}
 			if (myufo->position.x <= xe) {
-				myufo->position.x += 10;
+				myufo->position.x += 11;
 			}
 			if (myufo->position.y >= ye) {
-				myufo->position.y += -10;
+				myufo->position.y += -11;
 			}
 			if (myufo->position.y <= ye) {
-				myufo->position.y += 10;
+				myufo->position.y += 11;
 			}
 		}
 	}
