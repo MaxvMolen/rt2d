@@ -32,7 +32,7 @@ public:
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
 	virtual void update(float deltaTime);
-
+	virtual void quit(float deltaTime);
 	static int activescene;
 
 protected:

@@ -325,9 +325,10 @@ void MyScene::update(float deltaTime)
 	// ###############################################################
 	// Escape key stops the Scene
 	// ###############################################################
-	CoreScene::update(deltaTime);
+	CoreScene::quit(deltaTime);
+
 	// ###############################################################
-	// Update X and Y position and set radius
+	// Call collision function and set radius of object
 	// ###############################################################
 	for (n = 0; n < mycar.size(); ++n) {
 		collision(mycar[n]->position.x, mycar[n]->position.y, 125);
@@ -355,7 +356,6 @@ void MyScene::update(float deltaTime)
 	if (mycar[8]->position.x <= -80) {
 		mycar[8]->position.x = 1980;
 	}
-
 }
 
 void MyScene::collision(float xe, float ye, float re) {
