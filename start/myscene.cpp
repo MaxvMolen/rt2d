@@ -81,7 +81,6 @@ MyScene::MyScene() : CoreScene()
 		}
 		layers[4]->addChild(park);
 	}
-
 	// ###############################################################
 	// create cars for the level
 	// ###############################################################
@@ -237,7 +236,6 @@ MyScene::MyScene() : CoreScene()
 		}
 		layers[5]->addChild(garden);
 	}
-
 	// ###############################################################
 	// create ufo for the level
 	// ###############################################################
@@ -321,12 +319,10 @@ void MyScene::update(float deltaTime)
 	// ###############################################################
 	xa = myufo->position.x;
 	ya = myufo->position.y;
-	
 	// ###############################################################
 	// Escape key stops the Scene
 	// ###############################################################
-	CoreScene::quit(deltaTime);
-
+	CoreScene::quit();
 	// ###############################################################
 	// Call collision function and set radius of object
 	// ###############################################################
@@ -341,7 +337,6 @@ void MyScene::update(float deltaTime)
 	for (n = 0; n < myperson.size(); ++n) {
 		collision(myperson[n]->position.x, myperson[n]->position.y, 25);
 	}
-
 	// ###############################################################
 	// Move car over the road
 	// ###############################################################

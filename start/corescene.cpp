@@ -11,13 +11,17 @@ int CoreScene::activescene = 0;
 CoreScene::CoreScene() : Scene()
 {
 	top_layer = 7; // 8 layers (0-7)
-
+	// ###############################################################
+	// Create layers
+	// ###############################################################
 	for (unsigned int i = 0; i <= top_layer; i++) {
 		BasicEntity* layer = new BasicEntity();
 		layers.push_back(layer);
 		this->addChild(layer);
 	}
-
+	// ###############################################################
+	// Create lines
+	// ###############################################################
 	for (unsigned int i = 0; i < 16; i++) {
 		Text* line = new Text();
 		line->scale = Point2(0.5f, 0.5f);
@@ -61,7 +65,10 @@ void CoreScene::update(float deltaTime)
 
 }
 
-void CoreScene::quit(float deltaTime) {
+void CoreScene::quit() {
+	// ###############################################################
+	// Escape key stops the Scene
+	// ###############################################################
 	if (input()->getKeyUp(KeyCode::Escape)) {
 		this->stop();
 	}

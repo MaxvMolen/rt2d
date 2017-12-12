@@ -8,11 +8,13 @@
 
 MyPerson::MyPerson() : Entity()
 {
+	// ###############################################################
+	// Set texture and color of object
+	// ###############################################################
 	this->addSprite("assets/StartPerson.tga");
 	this->sprite()->color.r = 255;
 	this->sprite()->color.g = 171;
 	this->sprite()->color.b = 103;
-
 }
 
 MyPerson::~MyPerson()
