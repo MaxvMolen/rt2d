@@ -177,7 +177,7 @@ MyScene::MyScene() : CoreScene()
 			person->rotation.z = 1.57;
 		}
 		if (n >= 3) {
-			person->position = Point2(200,810);
+			person->position = Point2(800,1050);
 			person->rotation.z = 4.7;
 		}
 		layers[6]->addChild(person);
@@ -350,6 +350,24 @@ void MyScene::update(float deltaTime)
 	}
 	if (mycar[8]->position.x <= -80) {
 		mycar[8]->position.x = 1980;
+	}
+	// ###############################################################
+	// Move person over the road
+	// ###############################################################
+	myperson[3]->position.x -= 6;
+	if (myperson[3]->position.x <= 400) {
+		myperson[3]->position.x += 6;
+		myperson[3]->position.y -= 6;
+		myperson[3]->rotation.z = 0;
+	}
+	if (myperson[3]->position.y <= 800) {
+		myperson[3]->rotation.z = 4.7;
+		myperson[3]->position.x -= 6;
+		myperson[3]->position.y += 6;
+	}
+	if (myperson[3]->position.x <= -40) {
+		myperson[3]->position.x = 800;
+		myperson[3]->position.y = 1050;
 	}
 }
 
