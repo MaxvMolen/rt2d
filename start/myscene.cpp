@@ -321,9 +321,7 @@ void MyScene::update(float deltaTime)
 	// ###############################################################
 	// Escape key stops the Scene
 	// ###############################################################
-	if (input()->getKeyUp(KeyCode::Escape)) {
-		this->stop();
-	}
+	CoreScene::update(deltaTime);
 	// ###############################################################
 	// Update X and Y position and set radius
 	// ###############################################################

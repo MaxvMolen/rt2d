@@ -7,7 +7,7 @@
 #include "myufo.h"
 
 int rotationSpeed = 12; // speed of rotation
-int speed = 10; // speed of player
+int speed = 5; // speed of player
 
 MyUfo::MyUfo() : Entity()
 {
@@ -58,7 +58,7 @@ void MyUfo::update(float deltaTime)
 	// ###############################################################
 	changeUfo();
 	// ###############################################################
-	// Update Bounderies
+	// Update Bounderies  width,height
 	// ###############################################################
 	bounderies(1920,1080);
 }

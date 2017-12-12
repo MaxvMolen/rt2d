@@ -58,5 +58,7 @@ CoreScene::~CoreScene()
 
 void CoreScene::update(float deltaTime)
 {
-
+	if (input()->getKeyUp(KeyCode::Escape)) {
+		this->stop();
+	}
 }
