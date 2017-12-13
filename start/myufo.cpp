@@ -6,7 +6,7 @@
 
 #include "myufo.h"
 
-int rotationSpeed = 12; // speed of rotation
+int rotationSpeed = 10; // speed of rotation
 int speed = 5; // speed of player
 
 MyUfo::MyUfo() : Entity()
