@@ -10,7 +10,7 @@ int CoreScene::activescene = 0;
 
 CoreScene::CoreScene() : Scene()
 {
-	top_layer = 7; // 8 layers (0-7)
+	top_layer = 8;
 	// ###############################################################
 	// Create layers
 	// ###############################################################

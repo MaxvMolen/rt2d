@@ -237,11 +237,21 @@ MyScene::MyScene() : CoreScene()
 		layers[5]->addChild(garden);
 	}
 	// ###############################################################
+	// create ufo light for the level
+	// ###############################################################
+	light = new BasicEntity();
+	light->addSprite("assets/StartUfoLight.tga");
+	light->scale = Point(0.7f, 0.7f);
+	light->sprite()->color.r = 252;
+	light->sprite()->color.g = 255;
+	light->sprite()->color.b = 36;
+	layers[6]->addChild(light);
+	// ###############################################################
 	// create ufo for the level
 	// ###############################################################
 	myufo = new MyUfo();
 	myufo->position = Point2(SWIDTH / 2, SHEIGHT / 2);
-	layers[6]->addChild(myufo);
+	layers[7]->addChild(myufo);
 }
 
 
@@ -249,6 +259,7 @@ MyScene::~MyScene()
 {
 	// deconstruct and delete the Tree
 	this->removeChild(myufo);
+	this->removeChild(light);
 
 	for (n = 0; n < myroads.size(); ++n) {
 		delete myroads[n];
@@ -309,11 +320,17 @@ MyScene::~MyScene()
 	mygarden.clear();
 
 	delete myufo;
+	delete light;
 
 }
 
 void MyScene::update(float deltaTime)
 {
+	// ###############################################################
+	// Update X and Y position of light
+	// ###############################################################
+	light->position.x = myufo->position.x;
+	light->position.y = myufo->position.y;
 	// ###############################################################
 	// Update X and Y position of myufo
 	// ###############################################################
