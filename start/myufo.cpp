@@ -12,9 +12,9 @@ int speed = 5; // speed of player
 MyUfo::MyUfo() : Entity()
 {
 	this->addSprite("assets/StartUfo2.tga");
-	this->sprite()->color.r = 255;
-	this->sprite()->color.g = 90;
-	this->sprite()->color.b = 0;
+	this->sprite()->color.r = 236;
+	this->sprite()->color.g = 16;
+	this->sprite()->color.b = 18;
 }
 
 MyUfo::~MyUfo()
@@ -95,9 +95,9 @@ void MyUfo::changeUfo() {
 	if (input()->getKey('S')) {
 		this->addSprite("assets/StartUfo2.tga");
 		this->scale = Point(1.0f, 1.0f);
-		this->sprite()->color.r = 255;
-		this->sprite()->color.g = 90;
-		this->sprite()->color.b = 0;
+		this->sprite()->color.r = 236;
+		this->sprite()->color.g = 16;
+		this->sprite()->color.b = 18;
 	}
 	if (input()->getKey('D')) {
 		this->addSprite("assets/StartUfo3.tga");

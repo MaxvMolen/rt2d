@@ -12,9 +12,9 @@ MyCar::MyCar() : Entity()
 	// Set texture and color of object
 	// ###############################################################
 	this->addSprite("assets/StartCar.tga");
-	this->sprite()->color.r = 255;
-	this->sprite()->color.g = 121;
-	this->sprite()->color.b = 13;
+	this->sprite()->color.r = 236;
+	this->sprite()->color.g = 16;
+	this->sprite()->color.b = 18;
 }
 
 MyCar::~MyCar()

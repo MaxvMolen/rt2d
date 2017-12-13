@@ -154,9 +154,9 @@ MyScene::MyScene() : CoreScene()
 		BasicEntity* bush = new BasicEntity();
 		mybush.push_back(bush);
 		bush->addSprite("assets/StartBush.tga");
-		bush->sprite()->color.r = 78;
-		bush->sprite()->color.g = 203;
-		bush->sprite()->color.b = 22;
+		bush->sprite()->color.r = 110;
+		bush->sprite()->color.g = 156;
+		bush->sprite()->color.b = 56;
 		bush->position = Point2(n * 100 + 615, 310);
 		if (n >= 2) {
 			bush->position = Point2(790, (n - 2) * 100 + 370);

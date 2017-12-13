@@ -12,9 +12,9 @@ MyTree::MyTree() : Entity()
 	// Set texture and color of object
 	// ###############################################################
 	this->addSprite("assets/StartTree.tga");
-	this->sprite()->color.r = 140;
-	this->sprite()->color.g = 255;
-	this->sprite()->color.b = 27;
+	this->sprite()->color.r = 110;
+	this->sprite()->color.g = 156;
+	this->sprite()->color.b = 56;
 }
 
 MyTree::~MyTree()
