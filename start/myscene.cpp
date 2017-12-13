@@ -406,18 +406,8 @@ void MyScene::collision(float xe, float ye, float re) {
 		}
 		else {
 			// lock the ufo in place on collision of object 
-			if (myufo->position.x >= xe) {
-				myufo->position.x += -11;
-			}
-			if (myufo->position.x <= xe) {
-				myufo->position.x += 11;
-			}
-			if (myufo->position.y >= ye) {
-				myufo->position.y += -11;
-			}
-			if (myufo->position.y <= ye) {
-				myufo->position.y += 11;
-			}
+			myufo->position.x = xe;
+			myufo->position.y = ye;
 		}
 	}
 }
