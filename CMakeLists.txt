@@ -172,6 +172,8 @@ IF(MAKE_START)
 		start/myscore/h
 		start/corescene.cpp
 		start/corescene.h
+		start/myscenebegin.cpp
+		start/myscenebegin.h
 	)
 	target_link_libraries(start
 		${ALL_GRAPHICS_LIBS}

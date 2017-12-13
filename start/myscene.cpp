@@ -237,7 +237,7 @@ MyScene::MyScene() : CoreScene()
 		layers[5]->addChild(garden);
 	}
 	// ###############################################################
-	// create ufo light for the level
+	// create light for underneath the ufo
 	// ###############################################################
 	light = new BasicEntity();
 	light->addSprite("assets/StartUfoLight.tga");

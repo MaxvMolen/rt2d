@@ -37,9 +37,10 @@ public:
 protected:
 	
 private:
-	BasicEntity* light;
 	/// @brief the rotating ufo you play in the game
 	MyUfo* myufo;
+	/// @brief the light underneath the ufo
+	BasicEntity* light;
 	/// @brief the person in the level that you need to pick up
 	std::vector<MyPerson*> myperson;
 	/// @brief the car in the level that you need to pick up
