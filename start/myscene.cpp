@@ -242,9 +242,9 @@ MyScene::MyScene() : CoreScene()
 	light = new BasicEntity();
 	light->addSprite("assets/StartUfoLight.tga");
 	light->scale = Point(0.7f, 0.7f);
-	light->sprite()->color.r = 252;
-	light->sprite()->color.g = 255;
-	light->sprite()->color.b = 36;
+	light->sprite()->color.r = 181;
+	light->sprite()->color.g = 181;
+	light->sprite()->color.b = 181;
 	layers[6]->addChild(light);
 	// ###############################################################
 	// create ufo for the level
