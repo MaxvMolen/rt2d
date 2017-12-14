@@ -10,49 +10,63 @@
 
 int totalroads00 = 17;
 int totalcar00 = 2;
-int n0;
+int totalhouses00 = 3;
+
+int n00;
 
 MyScene00::MyScene00() : CoreScene()
 {
 	// ###############################################################
 	// create roads for the level
 	// ###############################################################
-	for (n0 = 0; n0 < totalroads00; ++n0) {
+	for (n00 = 0; n00 < totalroads00; ++n00) {
 		BasicEntity* roads = new BasicEntity();
 		myroads.push_back(roads);
 		roads->addSprite("assets/StartRoad.tga");
-		roads->position = Point2(125 + n0 * 250, 960);
+		roads->position = Point2(125 + n00 * 250, 960);
 		roads->rotation.z = 1.57;
 		layers[4]->addChild(roads);
 	}
 	// ###############################################################
 	// create cars for the level
 	// ###############################################################
-	for (n0 = 0; n0 < totalcar00; ++n0) {
+	for (n00 = 0; n00 < totalcar00; ++n00) {
 		MyCar* car = new MyCar();
 		mycar.push_back(car);
 		car->position = Point2(-500, 1030);
 		car->rotation.z = 1.57;
 		layers[5]->addChild(car);
-		if (n0 >= 1) {
+		if (n00 >= 1) {
 			car->position = Point2(1950, 890);
 			car->rotation.z = 4.7;
 		}
-		
+	}
+	// ###############################################################
+	// create houses for the level
+	// ###############################################################
+	for (n00 = 0; n00 < totalhouses00; ++n00) {
+		BasicEntity* house = new BasicEntity();
+		myhouse.push_back(house);
+		house->addSprite("assets/StartHouse.tga");
+		house->position = Point2(400, n00 * 260 +395);
+		house->sprite()->color.r = 255;
+		house->sprite()->color.g = 88;
+		house->sprite()->color.b = 30;
+		layers[4]->addChild(house);
 	}
 }
 
 MyScene00::~MyScene00()
 {
-	for (n0 = 0; n0 < myroads.size(); ++n0) {
-		delete myroads[n0];
-		myroads[n0] = NULL;
+	for (n00 = 0; n00 < myroads.size(); ++n00) {
+		delete myroads[n00];
+		myroads[n00] = NULL;
 	}
 	myroads.clear();
 
-	for (n0 = 0; n0 < mycar.size(); ++n0) {
-		delete mycar[n0];
-		mycar[n0] = NULL;
+	for (n00 = 0; n00 < mycar.size(); ++n00) {
+		delete mycar[n00];
+		mycar[n00] = NULL;
 	}
 	myroads.clear();
 }
@@ -65,7 +79,7 @@ void MyScene00::update(float deltaTime)
 	CoreScene::quit();
 
 	// ###############################################################
-	// Move cars over the road
+	// Move car over the road
 	// ###############################################################
 	mycar[0]->position.x += 6;
 	if (mycar[0]->position.x >= 1980) {
