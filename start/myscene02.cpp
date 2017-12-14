@@ -6,7 +6,7 @@
 
 #include <fstream>
 #include <sstream>
-#include "myscene.h"
+#include "myscene02.h"
 
 // amount of objects
 int totalroads = 17;
@@ -27,7 +27,7 @@ float xa = 1; // x position myufo
 float ya = 1; // y position myufo
 float ra = 25; // radius myufo
 
-MyScene::MyScene() : CoreScene()
+MyScene02::MyScene02() : CoreScene()
 {
 	// ###############################################################
 	// create roads for the level
@@ -255,7 +255,7 @@ MyScene::MyScene() : CoreScene()
 }
 
 
-MyScene::~MyScene()
+MyScene02::~MyScene02()
 {
 	// deconstruct and delete the Tree
 	this->removeChild(myufo);
@@ -324,7 +324,7 @@ MyScene::~MyScene()
 
 }
 
-void MyScene::update(float deltaTime)
+void MyScene02::update(float deltaTime)
 {
 	// ###############################################################
 	// Update X and Y position of light
@@ -391,7 +391,7 @@ void MyScene::update(float deltaTime)
 	}
 }
 
-void MyScene::collision(float xe, float ye, float re) {
+void MyScene02::collision(float xe, float ye, float re) {
 	// ###############################################################
 	// Collision ufo
 	// ###############################################################

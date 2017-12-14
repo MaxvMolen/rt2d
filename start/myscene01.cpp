@@ -6,10 +6,10 @@
 
 #include <fstream>
 #include <sstream>
-#include "myscenebegin.h"
+#include "myscene01.h"
 
 
-MySceneBegin::MySceneBegin() : CoreScene()
+MyScene01::MyScene01() : CoreScene()
 {
 	// ###############################################################
 	// create myexampleright
@@ -29,7 +29,7 @@ MySceneBegin::MySceneBegin() : CoreScene()
 }
 
 
-MySceneBegin::~MySceneBegin()
+MyScene01::~MyScene01()
 {
 	this->removeChild(myexamplewrong);
 	delete myexamplewrong;
@@ -38,7 +38,7 @@ MySceneBegin::~MySceneBegin()
 	delete myexampleright;
 }
 
-void MySceneBegin::update(float deltaTime)
+void MyScene01::update(float deltaTime)
 {
 	// ###############################################################
 	// Escape key stops the Scene

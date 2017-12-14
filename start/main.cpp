@@ -16,8 +16,8 @@
  */
 #include <rt2d/core.h>
 
-#include "myscene.h"
-#include "myscenebegin.h"
+#include "myscene02.h"
+#include "myscene01.h"
 /// @brief main entry point
 int main( void )
 {
@@ -25,8 +25,8 @@ int main( void )
 	Core core;
 
 	std::vector<CoreScene*> myscenes;
-	myscenes.push_back(new MySceneBegin());
-	myscenes.push_back(new MyScene());
+	myscenes.push_back(new MyScene01());
+	myscenes.push_back(new MyScene02());
 	int s = myscenes.size();
 
 	// Scene01

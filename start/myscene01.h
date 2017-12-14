@@ -13,13 +13,13 @@
 #include "corescene.h"
 
 /// @brief The MyScene class is the Scene implementation.
-class MySceneBegin : public CoreScene
+class MyScene01 : public CoreScene
 {
 public:
 	/// @brief Constructor
-	MySceneBegin();
+	MyScene01();
 	/// @brief Destructor
-	virtual ~MySceneBegin();
+	virtual ~MyScene01();
 
 	/// @brief update is automatically called every frame
 	/// @param deltaTime the elapsed time in seconds

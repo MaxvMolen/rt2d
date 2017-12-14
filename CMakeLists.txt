@@ -160,8 +160,10 @@ IF(MAKE_START)
 		start/myufo.h
 		start/mycar.cpp
 		start/mycar.h
-		start/myscene.cpp
-		start/myscene.h
+		start/myscene01.cpp
+		start/myscene01.h
+		start/myscene02.cpp
+		start/myscene02.h
 		start/basicentity.cpp
 		start/basicentity.h
 		start/myperson.cpp
@@ -172,8 +174,7 @@ IF(MAKE_START)
 		start/myscore/h
 		start/corescene.cpp
 		start/corescene.h
-		start/myscenebegin.cpp
-		start/myscenebegin.h
+
 	)
 	target_link_libraries(start
 		${ALL_GRAPHICS_LIBS}
