@@ -160,6 +160,8 @@ IF(MAKE_START)
 		start/myufo.h
 		start/mycar.cpp
 		start/mycar.h
+		start/myscene00.cpp
+		start/myscene00.h
 		start/myscene01.cpp
 		start/myscene01.h
 		start/myscene02.cpp
