@@ -292,8 +292,8 @@ MyScene::~MyScene()
 	mytree.clear();
 
 	for (n = 0; n < totaltgarage; ++n) {
-		this->removeChild(mygarage[n]);
 		delete mygarage[n];
+		mygarage[n] = NULL;
 	}
 
 	for (n = 0; n < mybush.size(); ++n) {
