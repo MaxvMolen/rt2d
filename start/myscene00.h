@@ -29,7 +29,8 @@ public:
 protected:
 	
 private:
-	BasicEntity* test;
+	/// @brief the road in the background of the level
+	std::vector<BasicEntity*> myroads;
 };
 
 #endif /* MYSCENE00_H */

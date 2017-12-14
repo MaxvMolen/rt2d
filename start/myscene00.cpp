@@ -8,20 +8,32 @@
 #include <sstream>
 #include "myscene00.h"
 
+int totalroads00 = 17;
+int n0;
 
 MyScene00::MyScene00() : CoreScene()
 {
-	test = new BasicEntity();
-	test->addSprite("assets/StartGarage.tga");
-	test->position = Point2(SWIDTH / 2, SHEIGHT / 2);
-	layers[7]->addChild(test);
+	// ###############################################################
+	// create roads for the level
+	// ###############################################################
+	for (n0 = 0; n0 < totalroads00; ++n0) {
+		BasicEntity* roads = new BasicEntity();
+		myroads.push_back(roads);
+		roads->addSprite("assets/StartRoad.tga");
+		roads->position = Point2(125 + n0 * 250, 960);
+		roads->rotation.z = 1.57;
+		layers[4]->addChild(roads);
+	}
 }
 
 
 MyScene00::~MyScene00()
 {
-	this->removeChild(test);
-	delete test;
+	for (n0 = 0; n0 < myroads.size(); ++n0) {
+		delete myroads[n0];
+		myroads[n0] = NULL;
+	}
+	myroads.clear();
 }
 
 void MyScene00::update(float deltaTime)
