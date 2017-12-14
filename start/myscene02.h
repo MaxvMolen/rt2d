@@ -1,13 +1,13 @@
 /**
  * Copyright 2017 Max van der Molen <maxharm1811@gmail.com>
  *
- * @file myscene.h
+ * @file myscene02.h
  *
- * @brief description of MyScene behavior.
+ * @brief description of MyScene02 behavior.
  */
 
-#ifndef MYSCENE_H
-#define MYSCENE_H
+#ifndef MYSCENE02_H
+#define MYSCENE02_H
 
 #include <rt2d/scene.h>
 #include "corescene.h"
@@ -63,4 +63,4 @@ private:
 	std::vector<BasicEntity*> mygarden;
 };
 
-#endif /* MYSCENE_H */
+#endif /* MYSCENE02_H */

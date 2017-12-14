@@ -1,5 +1,5 @@
 /**
-* This class describes MyScene behavior.
+* This class describes MyScene02 behavior.
 *
 * Copyright 2017 Max van der Molen <maxharm1811@gmail.com>
 */

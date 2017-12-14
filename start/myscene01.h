@@ -1,13 +1,13 @@
 /**
  * Copyright 2017 Max van der Molen <maxharm1811@gmail.com>
  *
- * @file myscenebegin.h
+ * @file myscene01.h
  *
- * @brief description of MySceneBegin behavior.
+ * @brief description of MyScene01 behavior.
  */
 
-#ifndef MYSCENEBEGIN_H
-#define MYSCENEBEGIN_H
+#ifndef MYSCENE01_H
+#define MYSCENE01_H
 
 #include <rt2d/scene.h>
 #include "corescene.h"
@@ -33,4 +33,4 @@ private:
 	BasicEntity* myexamplewrong;
 };
 
-#endif /* MYSCENEBEGIN_H */
+#endif /* MYSCENE01_H */
