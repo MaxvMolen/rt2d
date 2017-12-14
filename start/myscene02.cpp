@@ -9,16 +9,16 @@
 #include "myscene02.h"
 
 // amount of objects
-int totalroads = 17;
-int totalhouses = 3;
-int totalparking = 16;
-int totalcar = 9;
-int totaltree = 9;
-int totaltgarage = 2;
-int totaltbush = 4;
-int totalperson = 4;
-int totalpath = 14;
-int totalGarden = 3;
+int totalroads02 = 17;
+int totalhouses02 = 3;
+int totalparking02 = 16;
+int totalcar02 = 9;
+int totaltree02 = 9;
+int totaltgarage02 = 2;
+int totaltbush02 = 4;
+int totalperson02 = 4;
+int totalpath02 = 14;
+int totalgarden02 = 3;
 
 int n02;
 
@@ -32,7 +32,7 @@ MyScene02::MyScene02() : CoreScene()
 	// ###############################################################
 	// create roads for the level
 	// ###############################################################
-	for (n02 = 0; n02 < totalroads; ++n02) {
+	for (n02 = 0; n02 < totalroads02; ++n02) {
 		BasicEntity* roads = new BasicEntity();
 		myroads.push_back(roads);
 		roads->addSprite("assets/StartRoad.tga");
@@ -51,7 +51,7 @@ MyScene02::MyScene02() : CoreScene()
 	// ###############################################################
 	// create houses for the level
 	// ###############################################################
-	for (n02 = 0; n02 < totalhouses; ++n02) {
+	for (n02 = 0; n02 < totalhouses02; ++n02) {
 		BasicEntity* house = new BasicEntity();
 		myhouse.push_back(house);
 		house->addSprite("assets/StartHouse.tga");
@@ -68,7 +68,7 @@ MyScene02::MyScene02() : CoreScene()
 	// ###############################################################
 	// create parking sports for the level
 	// ###############################################################
-	for (n02 = 0; n02 < totalparking; ++n02) {
+	for (n02 = 0; n02 < totalparking02; ++n02) {
 		BasicEntity* park = new BasicEntity();
 		myparking.push_back(park);
 		park->addSprite("assets/StartPark.tga");
@@ -83,7 +83,7 @@ MyScene02::MyScene02() : CoreScene()
 	// ###############################################################
 	// create cars for the level
 	// ###############################################################
-	for (n02 = 0; n02 < totalcar; ++n02) {
+	for (n02 = 0; n02 < totalcar02; ++n02) {
 		MyCar* car = new MyCar();
 		mycar.push_back(car);
 		car->position = Point2(n02 * 125 + 1170, 338);
@@ -115,7 +115,7 @@ MyScene02::MyScene02() : CoreScene()
 	// ###############################################################
 	// create trees	for the level
 	// ###############################################################
-	for (n02 = 0; n02 < totaltree; ++n02) {
+	for (n02 = 0; n02 < totaltree02; ++n02) {
 		MyTree* tree = new MyTree();
 		mytree.push_back(tree);
 		tree->position = Point2(n02 * 200 + 1170, 855);
@@ -131,7 +131,7 @@ MyScene02::MyScene02() : CoreScene()
 	// ###############################################################
 	// create garages for the level
 	// ###############################################################
-	for (n02 = 0; n02 < totaltgarage; ++n02) {
+	for (n02 = 0; n02 < totaltgarage02; ++n02) {
 		BasicEntity* garage = new BasicEntity();
 		mygarage.push_back(garage);
 		garage->addSprite("assets/StartGarage.tga");
@@ -149,7 +149,7 @@ MyScene02::MyScene02() : CoreScene()
 	// ###############################################################
 	// create bushes for the level
 	// ###############################################################
-	for (n02 = 0; n02 < totaltbush; ++n02) {
+	for (n02 = 0; n02 < totaltbush02; ++n02) {
 		BasicEntity* bush = new BasicEntity();
 		mybush.push_back(bush);
 		bush->addSprite("assets/StartBush.tga");
@@ -165,7 +165,7 @@ MyScene02::MyScene02() : CoreScene()
 	// ###############################################################
 	// create persons for the level
 	// ###############################################################
-	for (n02 = 0; n02 < totalperson; ++n02) {
+	for (n02 = 0; n02 < totalperson02; ++n02) {
 		MyPerson* person = new MyPerson();
 		myperson.push_back(person);
 		person->position = Point2(n02 * 218 + 190, 576);
@@ -184,7 +184,7 @@ MyScene02::MyScene02() : CoreScene()
 	// ###############################################################
 	// create path for the level
 	// ###############################################################
-	for (n02 = 0; n02 < totalpath; ++n02) {
+	for (n02 = 0; n02 < totalpath02; ++n02) {
 		BasicEntity* path = new BasicEntity();
 		mypath.push_back(path);
 		path->addSprite("assets/StartPRoad.tga");
@@ -216,7 +216,7 @@ MyScene02::MyScene02() : CoreScene()
 	// ###############################################################
 	// create garden for the level
 	// ###############################################################
-	for (n02 = 0; n02 < totalGarden; ++n02) {
+	for (n02 = 0; n02 < totalgarden02; ++n02) {
 		BasicEntity* garden = new BasicEntity();
 		mygarden.push_back(garden);
 		garden->addSprite("assets/StartGarden.tga");
@@ -290,7 +290,7 @@ MyScene02::~MyScene02()
 	}
 	mytree.clear();
 
-	for (n02 = 0; n02 < totaltgarage; ++n02) {
+	for (n02 = 0; n02 < totaltgarage02; ++n02) {
 		delete mygarage[n02];
 		mygarage[n02] = NULL;
 	}
