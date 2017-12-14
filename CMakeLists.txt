@@ -160,12 +160,6 @@ IF(MAKE_START)
 		start/myufo.h
 		start/mycar.cpp
 		start/mycar.h
-		start/myscene00.cpp
-		start/myscene00.h
-		start/myscene01.cpp
-		start/myscene01.h
-		start/myscene02.cpp
-		start/myscene02.h
 		start/basicentity.cpp
 		start/basicentity.h
 		start/myperson.cpp
@@ -174,6 +168,12 @@ IF(MAKE_START)
 		start/mytree.h
 		start/myscore.cpp
 		start/myscore/h
+		start/myscene00.cpp
+		start/myscene00.h
+		start/myscene01.cpp
+		start/myscene01.h
+		start/myscene02.cpp
+		start/myscene02.h
 		start/corescene.cpp
 		start/corescene.h
 
