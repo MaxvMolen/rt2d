@@ -11,13 +11,31 @@
 
 MySceneBegin::MySceneBegin() : CoreScene()
 {
-	
+	// ###############################################################
+	// create myexampleright
+	// ###############################################################
+	myexampleright = new BasicEntity();
+	myexampleright->addSprite("assets/ExampleGameplayRight.tga");
+	myexampleright->position = Point2(SWIDTH / 2 -300, SHEIGHT / 2 + 250);
+	layers[7]->addChild(myexampleright);
+
+	// ###############################################################
+	// create examplewrong
+	// ###############################################################
+	myexamplewrong = new BasicEntity();
+	myexamplewrong->addSprite("assets/ExampleGameplayWrong.tga");
+	myexamplewrong->position = Point2(SWIDTH / 2 + 300, SHEIGHT / 2 + 250);
+	layers[7]->addChild(myexamplewrong);
 }
 
 
 MySceneBegin::~MySceneBegin()
 {
+	this->removeChild(myexamplewrong);
+	delete myexamplewrong;
 
+	this->removeChild(myexampleright);
+	delete myexampleright;
 }
 
 void MySceneBegin::update(float deltaTime)

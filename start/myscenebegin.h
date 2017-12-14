@@ -29,7 +29,8 @@ public:
 protected:
 	
 private:
-	
+	BasicEntity* myexampleright;
+	BasicEntity* myexamplewrong;
 };
 
 #endif /* MYSCENEBEGIN_H */
