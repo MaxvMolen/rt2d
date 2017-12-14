@@ -72,4 +72,13 @@ void CoreScene::quit() {
 	if (input()->getKeyUp(KeyCode::Escape)) {
 		this->stop();
 	}
+	// ###############################################################
+	// '[' and ']' switch scenes
+	// ###############################################################
+	if (input()->getKeyUp(KeyCode::LeftBracket)) {
+		activescene--;
+	}
+	if (input()->getKeyUp(KeyCode::RightBracket)) {
+		activescene++;
+	}
 }
