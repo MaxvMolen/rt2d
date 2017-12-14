@@ -65,10 +65,9 @@ void MyScene00::update(float deltaTime)
 	CoreScene::quit();
 
 	// ###############################################################
-	// Move car over the road
+	// Move cars over the road
 	// ###############################################################
 	mycar[0]->position.x += 6;
-
 	if (mycar[0]->position.x >= 1980) {
 		mycar[0]->position.x = -500;
 	}
