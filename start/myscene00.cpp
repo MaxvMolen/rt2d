@@ -8,10 +8,11 @@
 #include <sstream>
 #include "myscene00.h"
 
+// amount of objects
 int totalroads00 = 18;
 int totalcar00 = 2;
 int totalhouses00 = 6;
-
+int totaltree00 = 7;
 int n00;
 
 MyScene00::MyScene00() : CoreScene()
@@ -35,17 +36,16 @@ MyScene00::MyScene00() : CoreScene()
 		}
 		layers[1]->addChild(roads);
 	}
-
 	// ###############################################################
 	// create cars for the level
 	// ###############################################################
 	for (n00 = 0; n00 < totalcar00; ++n00) {
 		MyCar* car = new MyCar();
 		mycar.push_back(car);
-		car->position = Point2(-500, 1030);
+		car->position = Point2(-500, 1020);
 		car->rotation.z = 1.57;
 		if (n00 >= 1) {
-			car->position = Point2(1950, 890);
+			car->position = Point2(1950, 900);
 			car->rotation.z = 4.7;
 		}
 		layers[3]->addChild(car);
@@ -68,6 +68,15 @@ MyScene00::MyScene00() : CoreScene()
 		}
 		layers[2]->addChild(house);
 	}
+	// ###############################################################
+	// create trees	for the level
+	// ###############################################################
+	for (n00 = 0; n00 < totaltree00; ++n00) {
+		MyTree* tree = new MyTree();
+		mytree.push_back(tree);
+		tree->position = Point2(n00 * 108 + 640, 780);
+		layers[6]->addChild(tree);
+	}
 }
 
 MyScene00::~MyScene00()
@@ -89,6 +98,12 @@ MyScene00::~MyScene00()
 		myhouse[n00] = NULL;
 	}
 	myhouse.clear();
+
+	for (n00 = 0; n00 < mytree.size(); ++n00) {
+		delete mytree[n00];
+		mytree[n00] = NULL;
+	}
+	mytree.clear();
 }
 
 void MyScene00::update(float deltaTime)
@@ -97,7 +112,6 @@ void MyScene00::update(float deltaTime)
 	// Escape key stops the Scene
 	// ###############################################################
 	CoreScene::quit();
-
 	// ###############################################################
 	// Move car over the road
 	// ###############################################################

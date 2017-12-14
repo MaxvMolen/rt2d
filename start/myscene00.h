@@ -35,6 +35,8 @@ private:
 	std::vector<MyCar*> mycar;
 	/// @brief the house in the background of the level
 	std::vector<BasicEntity*> myhouse;
+	/// @brief the tree in the level that you need to pick up
+	std::vector<MyTree*> mytree;
 };
 
 #endif /* MYSCENE00_H */
