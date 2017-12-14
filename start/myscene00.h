@@ -29,7 +29,7 @@ public:
 protected:
 	
 private:
-
+	BasicEntity* test;
 };
 
 #endif /* MYSCENE00_H */

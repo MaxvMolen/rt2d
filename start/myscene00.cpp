@@ -11,13 +11,17 @@
 
 MyScene00::MyScene00() : CoreScene()
 {
-
+	test = new BasicEntity();
+	test->addSprite("assets/StartGarage.tga");
+	test->position = Point2(SWIDTH / 2, SHEIGHT / 2);
+	layers[7]->addChild(test);
 }
 
 
 MyScene00::~MyScene00()
 {
-
+	this->removeChild(test);
+	delete test;
 }
 
 void MyScene00::update(float deltaTime)
