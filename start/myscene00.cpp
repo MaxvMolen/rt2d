@@ -8,7 +8,7 @@
 #include <sstream>
 #include "myscene00.h"
 
-int totalroads00 = 17;
+int totalroads00 = 18;
 int totalcar00 = 2;
 int totalhouses00 = 6;
 
@@ -25,8 +25,17 @@ MyScene00::MyScene00() : CoreScene()
 		roads->addSprite("assets/StartRoad.tga");
 		roads->position = Point2(125 + n00 * 250, 960);
 		roads->rotation.z = 1.57;
+		if (n00 >= 8) {
+			roads->position = Point2(465, (n00 - 8) * 200 - 68);
+			roads->rotation.z = 0;
+		}
+		if (n00 >= 13) {
+			roads->position = Point2(1980-515, (n00 - 13) * 200 - 68);
+			roads->rotation.z = 0;
+		}
 		layers[1]->addChild(roads);
 	}
+
 	// ###############################################################
 	// create cars for the level
 	// ###############################################################
