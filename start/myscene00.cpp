@@ -74,6 +74,12 @@ MyScene00::~MyScene00()
 		mycar[n00] = NULL;
 	}
 	myroads.clear();
+
+	for (n00 = 0; n00 < myhouse.size(); ++n00) {
+		delete myhouse[n00];
+		myhouse[n00] = NULL;
+	}
+	myhouse.clear();
 }
 
 void MyScene00::update(float deltaTime)
