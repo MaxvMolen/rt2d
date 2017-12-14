@@ -31,6 +31,8 @@ protected:
 private:
 	/// @brief the road in the background of the level
 	std::vector<BasicEntity*> myroads;
+	/// @brief the car in the level that you need to pick up
+	std::vector<MyCar*> mycar;
 };
 
 #endif /* MYSCENE00_H */
