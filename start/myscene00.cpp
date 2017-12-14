@@ -10,7 +10,7 @@
 
 int totalroads00 = 17;
 int totalcar00 = 2;
-int totalhouses00 = 3;
+int totalhouses00 = 6;
 
 int n00;
 
@@ -25,7 +25,7 @@ MyScene00::MyScene00() : CoreScene()
 		roads->addSprite("assets/StartRoad.tga");
 		roads->position = Point2(125 + n00 * 250, 960);
 		roads->rotation.z = 1.57;
-		layers[4]->addChild(roads);
+		layers[1]->addChild(roads);
 	}
 	// ###############################################################
 	// create cars for the level
@@ -35,11 +35,11 @@ MyScene00::MyScene00() : CoreScene()
 		mycar.push_back(car);
 		car->position = Point2(-500, 1030);
 		car->rotation.z = 1.57;
-		layers[5]->addChild(car);
 		if (n00 >= 1) {
 			car->position = Point2(1950, 890);
 			car->rotation.z = 4.7;
 		}
+		layers[3]->addChild(car);
 	}
 	// ###############################################################
 	// create houses for the level
@@ -48,11 +48,16 @@ MyScene00::MyScene00() : CoreScene()
 		BasicEntity* house = new BasicEntity();
 		myhouse.push_back(house);
 		house->addSprite("assets/StartHouse.tga");
-		house->position = Point2(400, n00 * 260 +395);
+		house->position = Point2(200, n00 * 260 +150);
 		house->sprite()->color.r = 255;
 		house->sprite()->color.g = 88;
 		house->sprite()->color.b = 30;
-		layers[4]->addChild(house);
+		house->rotation.z = 1.57;
+		if (n00 >= 3) {
+			house->position = Point2(1980-250, (n00-3) * 260 +150);
+			house->rotation.z = 4.7;
+		}
+		layers[2]->addChild(house);
 	}
 }
 
