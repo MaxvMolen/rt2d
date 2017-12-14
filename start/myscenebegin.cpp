@@ -22,5 +22,8 @@ MySceneBegin::~MySceneBegin()
 
 void MySceneBegin::update(float deltaTime)
 {
-	
+	// ###############################################################
+	// Escape key stops the Scene
+	// ###############################################################
+	CoreScene::quit();
 }
