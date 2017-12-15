@@ -345,11 +345,9 @@ void MyScene02::update(float deltaTime)
 	for (n02 = 0; n02 < mycar.size(); ++n02) {
 		collision(mycar[n02]->position.x, mycar[n02]->position.y, 125);
 	}
-
 	for (n02 = 0; n02 < mytree.size(); ++n02) {
 		collision(mytree[n02]->position.x, mytree[n02]->position.y, 50);
 	}
-
 	for (n02 = 0; n02 < myperson.size(); ++n02) {
 		collision(myperson[n02]->position.x, myperson[n02]->position.y, 25);
 	}

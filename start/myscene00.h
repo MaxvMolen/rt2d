@@ -33,6 +33,8 @@ private:
 	MyUfo* myufo;
 	/// @brief the light underneath the ufo
 	BasicEntity* light;
+	/// @brief the header
+	BasicEntity* myheader;
 	/// @brief the road in the background of the level
 	std::vector<BasicEntity*> myroads;
 	/// @brief the car in the level that you need to pick up

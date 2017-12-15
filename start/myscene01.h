@@ -29,8 +29,12 @@ public:
 protected:
 	
 private:
+	/// @brief example gameplay
 	BasicEntity* myexampleright;
+	/// @brief example gameplay
 	BasicEntity* myexamplewrong;
+	/// @brief the header
+	BasicEntity* myheader;
 };
 
 #endif /* MYSCENE01_H */

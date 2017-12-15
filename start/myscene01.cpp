@@ -26,6 +26,13 @@ MyScene01::MyScene01() : CoreScene()
 	myexamplewrong->addSprite("assets/ExampleGameplayWrong.tga");
 	myexamplewrong->position = Point2(SWIDTH / 2 + 300, SHEIGHT / 2 + 250);
 	layers[7]->addChild(myexamplewrong);
+	// ###############################################################
+	// create header for the level
+	// ###############################################################
+	myheader = new BasicEntity();
+	myheader->addSprite("assets/StartHeader.tga");
+	myheader->position = Point2(SWIDTH / 2, 125);
+	layers[6]->addChild(myheader);
 }
 
 
@@ -36,6 +43,9 @@ MyScene01::~MyScene01()
 
 	this->removeChild(myexampleright);
 	delete myexampleright;
+
+	this->removeChild(myheader);
+	delete myheader;
 }
 
 void MyScene01::update(float deltaTime)

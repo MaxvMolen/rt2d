@@ -127,11 +127,20 @@ MyScene00::MyScene00() : CoreScene()
 	myufo = new MyUfo();
 	myufo->position = Point2(SWIDTH / 2, SHEIGHT / 2);
 	layers[7]->addChild(myufo);
+	// ###############################################################
+	// create header for the level
+	// ###############################################################
+	myheader = new BasicEntity();
+	myheader->addSprite("assets/StartHeader.tga");
+	myheader->position = Point2(SWIDTH / 2, 125);
+	layers[6]->addChild(myheader);
 }
 
 MyScene00::~MyScene00()
 {
 	this->removeChild(myufo);
+	this->removeChild(light);
+	this->removeChild(myheader);
 
 	for (n00 = 0; n00 < myroads.size(); ++n00) {
 		delete myroads[n00];
@@ -164,6 +173,8 @@ MyScene00::~MyScene00()
 	mygarden.clear();
 
 	delete myufo;
+	delete light;
+	delete myheader;
 }
 
 void MyScene00::update(float deltaTime)
@@ -196,5 +207,4 @@ void MyScene00::update(float deltaTime)
 	if (mycar[3]->position.x >= 1980) {
 		mycar[3]->position.x = -500;
 	}
-
 }
