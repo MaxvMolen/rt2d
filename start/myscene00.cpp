@@ -10,7 +10,7 @@
 
 // amount of objects
 int totalroads00 = 18;
-int totalcar00 = 2;
+int totalcar00 = 4;
 int totalhouses00 = 6;
 int totaltree00 = 21;
 int totalgarden00 = 6;
@@ -48,6 +48,14 @@ MyScene00::MyScene00() : CoreScene()
 		if (n00 >= 1) {
 			car->position = Point2(1950, 900);
 			car->rotation.z = 4.7;
+		}
+		if (n00 >= 2) {
+			car->position = Point2(500, 900);
+			car->rotation.z = 4.7;
+		}
+		if (n00 >= 3) {
+			car->position = Point2(700, 1020);
+			car->rotation.z = 1.57;
 		}
 		layers[3]->addChild(car);
 	}
@@ -176,10 +184,17 @@ void MyScene00::update(float deltaTime)
 	if (mycar[0]->position.x >= 1980) {
 		mycar[0]->position.x = -500;
 	}
-
 	mycar[1]->position.x -= 6;
 	if (mycar[1]->position.x <= -200) {
 		mycar[1]->position.x = 2000;
+	}
+	mycar[2]->position.x -= 6;
+	if (mycar[2]->position.x <= -200) {
+		mycar[2]->position.x = 2000;
+	}
+	mycar[3]->position.x += 6;
+	if (mycar[3]->position.x >= 1980) {
+		mycar[3]->position.x = -500;
 	}
 
 }
