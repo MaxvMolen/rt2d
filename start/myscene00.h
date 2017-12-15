@@ -29,6 +29,10 @@ public:
 protected:
 	
 private:
+	/// @brief the rotating ufo you play in the game
+	MyUfo* myufo;
+	/// @brief the light underneath the ufo
+	BasicEntity* light;
 	/// @brief the road in the background of the level
 	std::vector<BasicEntity*> myroads;
 	/// @brief the car in the level that you need to pick up
@@ -37,6 +41,8 @@ private:
 	std::vector<BasicEntity*> myhouse;
 	/// @brief the tree in the level that you need to pick up
 	std::vector<MyTree*> mytree;
+	/// @brief the garden in the background of the level
+	std::vector<BasicEntity*> mygarden;
 };
 
 #endif /* MYSCENE00_H */

@@ -12,7 +12,8 @@
 int totalroads00 = 18;
 int totalcar00 = 2;
 int totalhouses00 = 6;
-int totaltree00 = 7;
+int totaltree00 = 21;
+int totalgarden00 = 6;
 int n00;
 
 MyScene00::MyScene00() : CoreScene()
@@ -69,18 +70,61 @@ MyScene00::MyScene00() : CoreScene()
 		layers[2]->addChild(house);
 	}
 	// ###############################################################
+	// create garden for the level
+	// ###############################################################
+	for (n00 = 0; n00 < totalgarden00; ++n00) {
+		BasicEntity* garden = new BasicEntity();
+		mygarden.push_back(garden);
+		garden->addSprite("assets/StartGarden.tga");
+		garden->sprite()->color.r = 205;
+		garden->sprite()->color.g = 102;
+		garden->sprite()->color.b = 44;
+		garden->position = Point2(-20, n00 * 260 + 150);
+		garden->scale = Point(0.8f, 0.8f);
+		if (n00 >= 3) {
+			garden->position = Point2(1980 - 30, (n00 - 3) * 260 + 150);
+			garden->rotation.z = 3.14;
+		}
+		layers[2]->addChild(garden);
+	}
+	// ###############################################################
 	// create trees	for the level
 	// ###############################################################
 	for (n00 = 0; n00 < totaltree00; ++n00) {
 		MyTree* tree = new MyTree();
 		mytree.push_back(tree);
 		tree->position = Point2(n00 * 108 + 640, 780);
-		layers[6]->addChild(tree);
+
+		if (n00 >= 7) {
+			tree->position = Point2(640, (n00-7) * 108 + 40);
+		}
+		if (n00 >= 14) {
+			tree->position = Point2(1290, (n00 - 14) * 108 + 40);
+		}
+		layers[2]->addChild(tree);
 	}
+	// ###############################################################
+	// create light for underneath the ufo
+	// ###############################################################
+	light = new BasicEntity();
+	light->addSprite("assets/StartUfoLight.tga");
+	light->scale = Point(0.7f, 0.7f);
+	light->sprite()->color.r = 181;
+	light->sprite()->color.g = 181;
+	light->sprite()->color.b = 181;
+	layers[6]->addChild(light);
+	// ###############################################################
+	// create ufo for the level
+	// ###############################################################
+	myufo = new MyUfo();
+	myufo->position = Point2(SWIDTH / 2, SHEIGHT / 2);
+	layers[7]->addChild(myufo);
 }
 
 MyScene00::~MyScene00()
 {
+	this->removeChild(myufo);
+
 	for (n00 = 0; n00 < myroads.size(); ++n00) {
 		delete myroads[n00];
 		myroads[n00] = NULL;
@@ -104,6 +148,14 @@ MyScene00::~MyScene00()
 		mytree[n00] = NULL;
 	}
 	mytree.clear();
+
+	for (n00 = 0; n00 < mygarden.size(); ++n00) {
+		delete mygarden[n00];
+		mygarden[n00] = NULL;
+	}
+	mygarden.clear();
+
+	delete myufo;
 }
 
 void MyScene00::update(float deltaTime)
@@ -112,6 +164,11 @@ void MyScene00::update(float deltaTime)
 	// Escape key stops the Scene
 	// ###############################################################
 	CoreScene::quit();
+	// ###############################################################
+	// Update X and Y position of light
+	// ###############################################################
+	light->position.x = myufo->position.x;
+	light->position.y = myufo->position.y;
 	// ###############################################################
 	// Move car over the road
 	// ###############################################################
@@ -124,4 +181,5 @@ void MyScene00::update(float deltaTime)
 	if (mycar[1]->position.x <= -200) {
 		mycar[1]->position.x = 2000;
 	}
+
 }
