@@ -30,7 +30,7 @@ MyScene01::MyScene01() : CoreScene()
 	// create header for the level
 	// ###############################################################
 	myheader = new BasicEntity();
-	myheader->addSprite("assets/StartHeader.tga");
+	myheader->addSprite("assets/StartHeaderTutorial.tga");
 	myheader->position = Point2(SWIDTH / 2, 125);
 	layers[6]->addChild(myheader);
 }
