@@ -132,7 +132,7 @@ MyScene00::MyScene00() : CoreScene()
 	myheader = new BasicEntity();
 	myheader->addSprite("assets/StartHeader.tga");
 	myheader->position = Point2(SWIDTH / 2, 125);
-	layers[6]->addChild(myheader);
+	layers[5]->addChild(myheader);
 }
 
 MyScene00::~MyScene00()
