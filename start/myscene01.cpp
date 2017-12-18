@@ -18,7 +18,6 @@ MyScene01::MyScene01() : CoreScene()
 	myexampleright->addSprite("assets/ExampleGameplayRight.tga");
 	myexampleright->position = Point2(SWIDTH / 2 -300, SHEIGHT / 2 + 250);
 	layers[7]->addChild(myexampleright);
-
 	// ###############################################################
 	// create examplewrong
 	// ###############################################################

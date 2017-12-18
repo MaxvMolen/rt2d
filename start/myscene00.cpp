@@ -102,7 +102,6 @@ MyScene00::MyScene00() : CoreScene()
 		MyTree* tree = new MyTree();
 		mytree.push_back(tree);
 		tree->position = Point2(n00 * 108 + 640, 780);
-
 		if (n00 >= 7) {
 			tree->position = Point2(640, (n00-7) * 108 + 40);
 		}

@@ -36,9 +36,13 @@ void MyUfo::update(float deltaTime)
 	// ###############################################################
 	if (input()->getKey('W')) {
 		this->rotation.z -= rotationSpeed * deltaTime; // 90 deg/sec
+		speed = 10;
 		if (this->rotation.z > TWO_PI) {
 			this->rotation.z -= TWO_PI;
 		}
+	}
+	else {
+		speed = 5;
 	}
 	// ###############################################################
 	// Slow down rotation with E slows down to 0 if W isnt held
