@@ -52,6 +52,8 @@ private:
 	std::vector<MyTree*> mytree;
 	/// @brief the garden in the background of the level
 	std::vector<BasicEntity*> mygarden;
+	/// @brief the background
+	BasicEntity* myback;
 };
 
 #endif /* MYSCENE00_H */

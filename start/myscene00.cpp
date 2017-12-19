@@ -24,6 +24,13 @@ float ra0 = 25; // radius myufo
 MyScene00::MyScene00() : CoreScene()
 {
 	// ###############################################################
+	// create background
+	// ###############################################################
+	myback = new BasicEntity();
+	myback->addSprite("assets/StartBackground.tga");
+	myback->position = Point2(SWIDTH / 2, SHEIGHT / 2);
+	layers[0]->addChild(myback);
+	// ###############################################################
 	// create roads for the level
 	// ###############################################################
 	for (n00 = 0; n00 < totalroads00; ++n00) {
@@ -142,10 +149,10 @@ MyScene00::MyScene00() : CoreScene()
 
 MyScene00::~MyScene00()
 {
+	this->removeChild(myback);
 	this->removeChild(myufo);
 	this->removeChild(light);
 	this->removeChild(myheader);
-
 	for (n00 = 0; n00 < myroads.size(); ++n00) {
 		delete myroads[n00];
 		myroads[n00] = NULL;
@@ -176,6 +183,7 @@ MyScene00::~MyScene00()
 	}
 	mygarden.clear();
 
+	delete myback;
 	delete myufo;
 	delete light;
 	delete myheader;
