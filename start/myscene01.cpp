@@ -19,6 +19,14 @@ MyScene01::MyScene01() : CoreScene()
 	myback->position = Point2(SWIDTH / 2, SHEIGHT / 2);
 	layers[0]->addChild(myback);
 	// ###############################################################
+	// create back text
+	// ###############################################################
+	mytext = new BasicEntity();
+	mytext->addSprite("assets/StartText.tga");
+	mytext->position = Point2(SWIDTH / 2 + 25, SHEIGHT / 2 - 50);
+	layers[1]->addChild(mytext);
+	mytext->scale = Point2(1.0f, 0.6f);
+	// ###############################################################
 	// create myexampleright
 	// ###############################################################
 	myexampleright = new BasicEntity();
@@ -68,6 +76,9 @@ MyScene01::~MyScene01()
 {
 	this->removeChild(myback);
 	delete myback;
+
+	this->removeChild(mytext);
+	delete mytext;
 
 	this->removeChild(myexamplewrong);
 	delete myexamplewrong;

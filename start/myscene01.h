@@ -37,6 +37,8 @@ private:
 	BasicEntity* myheader;
 	/// @brief the background
 	BasicEntity* myback;
+	/// @brief the background
+	BasicEntity* mytext;
 };
 
 #endif /* MYSCENE01_H */
