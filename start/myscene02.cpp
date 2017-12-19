@@ -352,13 +352,10 @@ void MyScene02::update(float deltaTime)
 		collision(myperson[n02]->position.x, myperson[n02]->position.y, 25);
 	}
 	// ###############################################################
-	// Move car over the road
+	// Move car over the road + bounderies
 	// ###############################################################
-	// movement car + the speed
 	mycar[8]->position.x += 6;
 	
-	// bounderies car
-	// if car reaches bounderies it gets placed at its starting point
 	if (mycar[8]->position.x >= 1980) {
 		mycar[8]->position.x = -79;
 	}
@@ -393,9 +390,6 @@ void MyScene02::collision(float xe, float ye, float re) {
 	// Collision ufo
 	// ###############################################################
 	if ((xa - xe)*(xa - xe) + (ya - ye)*(ya - ye) < ra*re) {
-		myufo->sprite()->color.r = 255;
-		myufo->sprite()->color.g = 0;
-		myufo->sprite()->color.b = 0;
 
 		// use w to break the lock and pick the item up
 		if (input()->getKey('W')) {

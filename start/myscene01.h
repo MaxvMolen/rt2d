@@ -29,9 +29,9 @@ public:
 protected:
 	
 private:
-	/// @brief example gameplay
+	/// @brief example gameplay right
 	BasicEntity* myexampleright;
-	/// @brief example gameplay
+	/// @brief example gameplay wrong
 	BasicEntity* myexamplewrong;
 	/// @brief the header
 	BasicEntity* myheader;
