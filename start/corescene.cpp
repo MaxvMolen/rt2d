@@ -24,7 +24,7 @@ CoreScene::CoreScene() : Scene()
 	// ###############################################################
 	for (unsigned int i = 0; i < 16; i++) {
 		Text* line = new Text();
-		line->scale = Point2(0.7f, 0.7f);
+		line->scale = Point2(0.5f, 0.5f);
 
 		text.push_back(line);
 		line->position = Point2(15, 0+i*27);

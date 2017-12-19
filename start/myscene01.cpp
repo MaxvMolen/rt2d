@@ -12,6 +12,13 @@
 MyScene01::MyScene01() : CoreScene()
 {
 	// ###############################################################
+	// create background
+	// ###############################################################
+	myback = new BasicEntity();
+	myback->addSprite("assets/StartBackgroundTut.tga");
+	myback->position = Point2(SWIDTH / 2, SHEIGHT / 2);
+	layers[0]->addChild(myback);
+	// ###############################################################
 	// create myexampleright
 	// ###############################################################
 	myexampleright = new BasicEntity();
@@ -33,19 +40,24 @@ MyScene01::MyScene01() : CoreScene()
 	myheader->position = Point2(SWIDTH / 2, 125);
 	layers[5]->addChild(myheader);
 	// ###############################################################
-	// Text instruction
+	// text instruction
 	// ###############################################################
+	//messages with instructions gameplay
 	text[2]->message("Y", RED);
 	text[3]->message("N", RED);
 	text[4]->message("Use arrowkeys to move", RED);
 	text[5]->message("A,S and D to change form", RED);
 	text[6]->message("Use W to pickup objects and to go faster", RED);
+	text[7]->message("In this game your objective is to pickup the right object with the right ufo", RED);
+	text[8]->message("If you were to use the wrong ufo to pickup and object you will lose points", RED);
 	//Position text
 	text[2]->position = Point2(SWIDTH / 2 + 380, SHEIGHT / 2 - 270);
 	text[3]->position = Point2(SWIDTH / 2 + 380, SHEIGHT / 2 + 270);
 	text[4]->position = Point2(50, 500);
 	text[5]->position = Point2(50, 30 +500);
 	text[6]->position = Point2(50, 60 +500);
+	text[7]->position = Point2(50, 500-90);
+	text[8]->position = Point2(50, 500-60);
 	//Scale text
 	text[2]->scale = Point2(1.0f, 1.0f);
 	text[3]->scale = Point2(1.0f, 1.0f);
@@ -54,6 +66,9 @@ MyScene01::MyScene01() : CoreScene()
 
 MyScene01::~MyScene01()
 {
+	this->removeChild(myback);
+	delete myback;
+
 	this->removeChild(myexamplewrong);
 	delete myexamplewrong;
 

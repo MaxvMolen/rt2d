@@ -35,6 +35,8 @@ private:
 	BasicEntity* myexamplewrong;
 	/// @brief the header
 	BasicEntity* myheader;
+	/// @brief the background
+	BasicEntity* myback;
 };
 
 #endif /* MYSCENE01_H */
