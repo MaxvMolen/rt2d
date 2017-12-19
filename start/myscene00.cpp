@@ -16,6 +16,11 @@ int totaltree00 = 21;
 int totalgarden00 = 6;
 int n00;
 
+//myufo
+float xa0 = 1; // x position myufo
+float ya0 = 1; // y position myufo
+float ra0 = 25; // radius myufo
+
 MyScene00::MyScene00() : CoreScene()
 {
 	// ###############################################################
@@ -188,6 +193,11 @@ void MyScene00::update(float deltaTime)
 	light->position.x = myufo->position.x;
 	light->position.y = myufo->position.y;
 	// ###############################################################
+	// Update X and Y position of myufo
+	// ###############################################################
+	xa0 = myufo->position.x;
+	ya0 = myufo->position.y;
+	// ###############################################################
 	// Move car over the road
 	// ###############################################################
 	mycar[0]->position.x += 6;
@@ -205,5 +215,32 @@ void MyScene00::update(float deltaTime)
 	mycar[3]->position.x += 6;
 	if (mycar[3]->position.x >= 1980) {
 		mycar[3]->position.x = -500;
+	}
+	// ###############################################################
+	// Call collision function and set radius of object
+	// ###############################################################
+	for (n00 = 0; n00 < mycar.size(); ++n00) {
+		collision(mycar[n00]->position.x, mycar[n00]->position.y, 125);
+	}
+	for (n00 = 0; n00 < mytree.size(); ++n00) {
+		collision(mytree[n00]->position.x, mytree[n00]->position.y, 50);
+	}
+}
+
+void MyScene00::collision(float xe, float ye, float re) {
+	// ###############################################################
+	// Collision ufo
+	// ###############################################################
+	if ((xa0 - xe)*(xa0 - xe) + (ya0 - ye)*(ya0 - ye) < ra0*re) {
+
+		// use w to break the lock and pick the item up
+		if (input()->getKey('W')) {
+
+		}
+		else {
+			// lock the ufo in place on collision of object 
+			myufo->position.x = xe;
+			myufo->position.y = ye;
+		}
 	}
 }

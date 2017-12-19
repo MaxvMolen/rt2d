@@ -25,7 +25,7 @@ public:
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
 	virtual void update(float deltaTime);
-	
+	virtual void collision(float xe, float ye, float re);
 protected:
 	
 private:
