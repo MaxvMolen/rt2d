@@ -46,7 +46,7 @@ MyScene02::MyScene02() : CoreScene()
 		roads->position = Point2(125 + n02 * 250, 125);
 		roads->rotation.z = 1.57;
 		if (n02>=8) {
-			roads->position = Point2(SWIDTH / 2, (n02 - 8)* 200 + 352.5);
+			roads->position = Point2(SWIDTH / 2, (n02 - 8)* 256 + 352.5);
 			roads->rotation.z = 0;
 		}
 		if(n02>=12) {
