@@ -20,7 +20,6 @@ public:
 	MyUfo();
 	/// @brief Destructor
 	virtual ~MyUfo();
-
 	/// @brief update is automatically called every frame
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
@@ -29,11 +28,9 @@ public:
 	/// @brief used to move the player
 	/// @return void
 	virtual void MyUfo::movement();
-	/// @brief changeUfo is automatically called every frame
 	/// @brief used to change the players look and color
 	/// @return void
 	virtual void MyUfo::changeUfo();
-	/// @brief bounderies is automatically called every frame
 	/// @brief used to keep the player in the set bounderies
 	/// @param width indicates the width of the playroom
 	/// @param height indicates the height of the playroom

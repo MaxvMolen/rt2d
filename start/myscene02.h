@@ -25,7 +25,6 @@ public:
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
 	virtual void update(float deltaTime);
-	/// @brief collision is automatically called every frame
 	/// @brief this function turns myufo red on collision with the given object.
 	/// @brief it also will lock the player on the object it collided with.
 	/// @brief the player can free itself with the w key.
