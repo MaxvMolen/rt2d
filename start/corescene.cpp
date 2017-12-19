@@ -31,8 +31,7 @@ CoreScene::CoreScene() : Scene()
 		layers[top_layer]->addChild(line);
 	}
 
-	text[1]->message("<ESC> quit game",YELLOW);
-	text[2]->message("Score: 0", YELLOW);
+	text[1]->message("Score: 0", YELLOW);
 
 	// create the scene 'tree'
 	// add myentity to this Scene as a child.

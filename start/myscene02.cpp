@@ -393,7 +393,13 @@ void MyScene02::collision(float xe, float ye, float re) {
 
 		// use w to break the lock and pick the item up
 		if (input()->getKey('W')) {
-			
+			// check if right ufo
+			//if true
+			//addscore
+			//score += 10;
+			//else
+			//score -= 10;
+			//delete object
 		}
 		else {
 			// lock the ufo in place on collision of object 
