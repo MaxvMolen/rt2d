@@ -360,6 +360,8 @@ void MyScene02::update(float deltaTime)
 	for (n02 = 0; n02 < myperson.size(); ++n02) {
 		collision(myperson[n02]->position.x, myperson[n02]->position.y, 25);
 	}
+	//test
+	//collision(myhouse[2]->position.x, myhouse[2]->position.y, 200);
 	// ###############################################################
 	// Move car over the road + bounderies
 	// ###############################################################
@@ -402,13 +404,11 @@ void MyScene02::collision(float xe, float ye, float re) {
 
 		// use w to break the lock and pick the item up
 		if (input()->getKey('W')) {
-			// check if right ufo
-			//if true
-			//addscore
-			//score += 10;
-			//else
-			//score -= 10;
-			//delete object
+					
+			std::cout << "+10";
+			std::cout << "-10";
+
+			std::cout << "Delete";
 		}
 		else {
 			// lock the ufo in place on collision of object 

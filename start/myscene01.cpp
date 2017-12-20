@@ -23,7 +23,7 @@ MyScene01::MyScene01() : CoreScene()
 	// ###############################################################
 	mytext = new BasicEntity();
 	mytext->addSprite("assets/StartText.tga");
-	mytext->position = Point2(SWIDTH / 2 + 25, SHEIGHT / 2 - 50);
+	mytext->position = Point2(SWIDTH / 2 + 25, SHEIGHT / 2 - 40);
 	layers[1]->addChild(mytext);
 	mytext->scale = Point2(1.0f, 0.6f);
 	// ###############################################################
@@ -51,21 +51,27 @@ MyScene01::MyScene01() : CoreScene()
 	// text instruction
 	// ###############################################################
 	//messages with instructions gameplay
-	text[2]->message("Y", WHITE);
-	text[3]->message("N", WHITE);
+	text[2]->message("Right", WHITE);
+	text[3]->message("Wrong", WHITE);
 	text[4]->message("Use arrowkeys to move", WHITE);
 	text[5]->message("A,S and D to change form", WHITE);
-	text[6]->message("Use W to pickup objects and to go faster", WHITE);
-	text[7]->message("In this game your objective is to pickup the right object with the right ufo", WHITE);
-	text[8]->message("If you were to use the wrong ufo to pickup and object you will lose points", WHITE);
+	text[6]->message("Use W to pickup objects and to go faster.", WHITE);
+	text[7]->message("In this game your objective is to pickup the right object with the right ufo.", WHITE);
+	text[8]->message("If you were to use the wrong ufo to pickup and object you will lose points.", WHITE);
+	text[9]->message("Use the --INSERT-COLOR-- ship to pick up humans, use the red ship to pick up", WHITE);
+	text[10]->message("car's and use the green ship to pick up trees.", WHITE);
+	text[11]->message("_______________________________________________________________________________", WHITE);
 	//Position text
-	text[2]->position = Point2(SWIDTH / 2 + 380, SHEIGHT / 2 - 270);
-	text[3]->position = Point2(SWIDTH / 2 + 380, SHEIGHT / 2 + 270);
-	text[4]->position = Point2(50, 500);
-	text[5]->position = Point2(50, 30 +500);
-	text[6]->position = Point2(50, 60 +500);
+	text[2]->position = Point2(SWIDTH / 2 + 295, SHEIGHT / 2 - 270);
+	text[3]->position = Point2(SWIDTH / 2 + 295, SHEIGHT / 2 + 270);
+	text[4]->position = Point2(50, 560);
+	text[5]->position = Point2(50, 30 + 560);
+	text[6]->position = Point2(50, 60 + 560);
 	text[7]->position = Point2(50, 500-90);
 	text[8]->position = Point2(50, 500-60);
+	text[9]->position = Point2(50, 500 - 30);
+	text[10]->position = Point2(50, 500 - 0);
+	text[11]->position = Point2(50, 500 + 30);
 	//Scale text
 	text[2]->scale = Point2(1.0f, 1.0f);
 	text[3]->scale = Point2(1.0f, 1.0f);
