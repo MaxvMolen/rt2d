@@ -43,8 +43,11 @@ public:
 	virtual void sceneselect(int ds);
 
 protected:
+	/// @brief the top layer
 	unsigned int top_layer;
+	/// @brief list of layers
 	std::vector<BasicEntity*> layers;
+	/// @brief list of text
 	std::vector<Text*> text;
 private:
 	/* add your private declarations */

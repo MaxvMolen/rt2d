@@ -25,7 +25,7 @@ int main( void )
 {
 	// Core instance
 	Core core;
-
+	//list of scenes
 	std::vector<CoreScene*> myscenes;
 	myscenes.push_back(new MyScene00());
 	myscenes.push_back(new MyScene01());
@@ -44,13 +44,6 @@ int main( void )
 		core.showFrameRate(5); // show framerate in output every n seconds
 		if (!scene->isRunning()) { running = 0; } // check status of Scene every frame
 	}
-
-	/*
-	MyScene* myscene = new MyScene(); // create Scene on the heap
-	while(myscene->isRunning()) { // check status of Scene every frame
-		core.run(myscene); // update and render the current scene
-		core.showFrameRate(5); // show framerate in output every n seconds
-	}*/
 
 	//delete all scenes
 	for (int i = 0; i < s; i++) {
