@@ -14,6 +14,7 @@
 #include <rt2d/scene.h>
 #include <rt2d/text.h>
 #include "basicentity.h"
+#include "myscore.h"
 #include "myperson.h"
 #include "mycar.h"
 #include "mytree.h"
@@ -49,6 +50,8 @@ protected:
 	std::vector<BasicEntity*> layers;
 	/// @brief list of text
 	std::vector<Text*> text;
+	/// @brief the players score
+	MyScore score;
 private:
 	/* add your private declarations */
 };

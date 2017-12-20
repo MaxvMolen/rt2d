@@ -24,6 +24,12 @@ public:
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
 	virtual void update(float deltaTime);
+	/// @brief keeps track of the current score
+	static int currentscore;
+	/// @brief add core to the currenscore
+	virtual void addscore(int amount);
+	/// @brief subtract score from the currenscore
+	virtual void subtractscore(int amount);
 
 private:
 	/* add your private declarations */

@@ -33,7 +33,6 @@ CoreScene::CoreScene() : Scene()
 			layers[5]->addChild(line);
 		}
 	}
-
 	text[1]->message("Score: 0", YELLOW);
 
 	// create the scene 'tree'

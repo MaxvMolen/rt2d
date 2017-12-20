@@ -243,7 +243,14 @@ void MyScene00::collision(float xe, float ye, float re) {
 
 		// use w to break the lock and pick the item up
 		if (input()->getKey('W')) {
-
+			std::cout << score.currentscore;
+			std::cout << "|";
+			//if right ufo
+			score.addscore(10);
+			//if wrong ufo
+			score.subtractscore(10);
+			//delete object
+			//std::cout << "Delete";
 		}
 		else {
 			// lock the ufo in place on collision of object 
