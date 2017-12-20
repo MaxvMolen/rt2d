@@ -36,7 +36,11 @@ public:
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
 	virtual void quit();
+	/// @brief keeps track of the current active scene
 	static int activescene;
+	/// @brief will bring you back to the main menu of the game
+	/// @return void
+	virtual void sceneselect(int ds);
 
 protected:
 	unsigned int top_layer;
