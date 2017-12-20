@@ -57,8 +57,8 @@ MyScene01::MyScene01() : CoreScene()
 	text[5]->message("A,S and D to change form", WHITE);
 	text[6]->message("Use W to pickup objects and to go faster.", WHITE);
 	text[7]->message("In this game your objective is to pickup the right object with the right ufo.", WHITE);
-	text[8]->message("If you were to use the wrong ufo to pickup and object you will lose points.", WHITE);
-	text[9]->message("Use the --INSERT-COLOR-- ship to pick up humans, use the red ship to pick up", WHITE);
+	text[8]->message("If you were to use the wrong ufo to pickup a object you will lose points.", WHITE);
+	text[9]->message("Use the beige ship to pick up humans, use the red ship to pick up", WHITE);
 	text[10]->message("car's and use the green ship to pick up trees.", WHITE);
 	text[11]->message("_______________________________________________________________________________", WHITE);
 	//Position text
