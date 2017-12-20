@@ -75,6 +75,7 @@ MyScene01::MyScene01() : CoreScene()
 	//Scale text
 	text[2]->scale = Point2(1.0f, 1.0f);
 	text[3]->scale = Point2(1.0f, 1.0f);
+	//text will deleted in corescene.cpp
 }
 
 
