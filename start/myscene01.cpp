@@ -120,6 +120,13 @@ MyScene01::~MyScene01()
 void MyScene01::update(float deltaTime)
 {
 	// ###############################################################
+	// Currentscore counter top right
+	// ###############################################################
+	std::stringstream cs;
+	cs << "Score: " << score.currentscore;
+	text[0]->message(cs.str());
+	text[0]->position.y = 30;
+	// ###############################################################
 	// Escape key stops the Scene
 	// ###############################################################
 	CoreScene::quit();

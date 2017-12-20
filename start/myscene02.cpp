@@ -335,6 +335,14 @@ MyScene02::~MyScene02()
 void MyScene02::update(float deltaTime)
 {
 	// ###############################################################
+	// Currentscore counter top right
+	// ###############################################################
+	std::stringstream cs;
+	cs << "Score: " << score.currentscore;
+	text[0]->message(cs.str());
+	text[0]->position.y = 30;
+
+	// ###############################################################
 	// Update X and Y position of light
 	// ###############################################################
 	light->position.x = myufo->position.x;
@@ -415,7 +423,7 @@ void MyScene02::collision(float xe, float ye, float re) {
 			//if right ufo
 			score.addscore(10);
 			//if wrong ufo
-			score.subtractscore(10);
+			//score.subtractscore(10);
 			//delete object
 			//std::cout << "Delete";
 		}
