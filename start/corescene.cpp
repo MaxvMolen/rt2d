@@ -29,6 +29,9 @@ CoreScene::CoreScene() : Scene()
 		text.push_back(line);
 		line->position = Point2(15, 0+i*27);
 		layers[top_layer]->addChild(line);
+		if (i > 1) {
+			layers[5]->addChild(line);
+		}
 	}
 
 	text[1]->message("Score: 0", YELLOW);
