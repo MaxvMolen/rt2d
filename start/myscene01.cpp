@@ -48,6 +48,22 @@ MyScene01::MyScene01() : CoreScene()
 	myheader->position = Point2(SWIDTH / 2, 125);
 	layers[5]->addChild(myheader);
 	// ###############################################################
+	// create light for underneath the ufo
+	// ###############################################################
+	light = new BasicEntity();
+	light->addSprite("assets/StartUfoLight.tga");
+	light->scale = Point(0.7f, 0.7f);
+	light->sprite()->color.r = 181;
+	light->sprite()->color.g = 181;
+	light->sprite()->color.b = 181;
+	layers[6]->addChild(light);
+	// ###############################################################
+	// create ufo for the level
+	// ###############################################################
+	myufo = new MyUfo();
+	myufo->position = Point2(SWIDTH / 2, SHEIGHT / 2);
+	layers[7]->addChild(myufo);
+	// ###############################################################
 	// text instruction
 	// ###############################################################
 	//messages with instructions gameplay
@@ -81,6 +97,10 @@ MyScene01::MyScene01() : CoreScene()
 
 MyScene01::~MyScene01()
 {
+	this->removeChild(myufo);
+	delete myufo;
+	this->removeChild(light);
+	delete light;
 	this->removeChild(myback);
 	delete myback;
 
@@ -103,4 +123,9 @@ void MyScene01::update(float deltaTime)
 	// Escape key stops the Scene
 	// ###############################################################
 	CoreScene::quit();
+	// ###############################################################
+	// Update X and Y position of light
+	// ###############################################################
+	light->position.x = myufo->position.x;
+	light->position.y = myufo->position.y;
 }

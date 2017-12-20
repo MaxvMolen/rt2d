@@ -29,6 +29,10 @@ public:
 protected:
 	
 private:
+	/// @brief the rotating ufo you play in the game
+	MyUfo* myufo;
+	/// @brief the light underneath the ufo
+	BasicEntity* light;
 	/// @brief example gameplay right
 	BasicEntity* myexampleright;
 	/// @brief example gameplay wrong
