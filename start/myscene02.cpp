@@ -394,6 +394,12 @@ void MyScene02::update(float deltaTime)
 		myperson[3]->position.x = 800;
 		myperson[3]->position.y = 1050;
 	}
+	// ###############################################################
+	// Change scene when all items are removed
+	// ###############################################################
+	if (mytree.size() == 0 && myperson.size() == 0 && mycar.size() == 0) {
+		CoreScene::sceneselect(0); // main menu
+	}
 }
 
 void MyScene02::collision(float xe, float ye, float re) {
