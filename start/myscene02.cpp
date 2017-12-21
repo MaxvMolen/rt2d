@@ -305,13 +305,13 @@ void MyScene02::update(float deltaTime)
 	// Call collision function and set radius of object
 	// ###############################################################
 	for (n02 = 0; n02 < mycar.size(); ++n02) {
-		collision(mycar[n02]->position.x, mycar[n02]->position.y, 125);
+		collision(xa2, ya2, ra2,mycar[n02]->position.x, mycar[n02]->position.y, 125);
 	}
 	for (n02 = 0; n02 < mytree.size(); ++n02) {
-		collision(mytree[n02]->position.x, mytree[n02]->position.y, 50);
+		collision(xa2, ya2, ra2,mytree[n02]->position.x, mytree[n02]->position.y, 50);
 	}
 	for (n02 = 0; n02 < myperson.size(); ++n02) {
-		collision(myperson[n02]->position.x, myperson[n02]->position.y, 26);
+		collision(xa2, ya2, ra2,myperson[n02]->position.x, myperson[n02]->position.y, 26);
 	}
 	// ###############################################################
 	// Change scene when all items are removed
@@ -321,11 +321,11 @@ void MyScene02::update(float deltaTime)
 	}
 }
 
-void MyScene02::collision(float xe, float ye, float re) {
+void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, float re) {
 	// ###############################################################
 	// Collision ufo
 	// ###############################################################
-	if ((xa2 - xe)*(xa2 - xe) + (ya2 - ye)*(ya2 - ye) < ra2*re) {
+	if ((xu - xe)*(xu - xe) + (yu - ye)*(yu - ye) < ru*re) {
 
 		// use w to break the lock and pick the item up
 		if (input()->getKey('W')) {
