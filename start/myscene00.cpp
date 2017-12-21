@@ -231,38 +231,5 @@ void MyScene00::update(float deltaTime)
 	if (mycar[3]->position.x >= 1980) {
 		mycar[3]->position.x = -500;
 	}
-	// ###############################################################
-	// Call collision function and set radius of object
-	// ###############################################################
-	for (n00 = 0; n00 < mycar.size(); ++n00) {
-		collision(mycar[n00]->position.x, mycar[n00]->position.y, 125);
-	}
-	for (n00 = 0; n00 < mytree.size(); ++n00) {
-		collision(mytree[n00]->position.x, mytree[n00]->position.y, 50);
-	}
 }
 
-void MyScene00::collision(float xe, float ye, float re) {
-	// ###############################################################
-	// Collision ufo
-	// ###############################################################
-	if ((xa0 - xe)*(xa0 - xe) + (ya0 - ye)*(ya0 - ye) < ra0*re) {
-
-		// use w to break the lock and pick the item up
-		if (input()->getKey('W')) {
-			std::cout << score.currentscore;
-			std::cout << "|";
-			//if right ufo
-			score.addscore(10);
-			//if wrong ufo
-			//score.subtractscore(10);
-			//delete object
-			//std::cout << "Delete";
-		}
-		else {
-			// lock the ufo in place on collision of object 
-			myufo->position.x = xe;
-			myufo->position.y = ye;
-		}
-	}
-}

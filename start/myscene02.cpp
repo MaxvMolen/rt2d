@@ -138,13 +138,6 @@ MyScene02::MyScene02() : CoreScene()
 	myufo = new MyUfo();
 	myufo->position = Point2(SWIDTH / 2, SHEIGHT / 2);
 	layers[7]->addChild(myufo);
-	// ###############################################################
-	// create header for the level
-	// ###############################################################
-	myheader = new BasicEntity();
-	myheader->addSprite("assets/StartHeader.tga");
-	myheader->position = Point2(SWIDTH / 2, 125);
-	layers[5]->addChild(myheader);
 }
 
 
@@ -153,7 +146,6 @@ MyScene02::~MyScene02()
 	this->removeChild(myback);
 	this->removeChild(myufo);
 	this->removeChild(light);
-	this->removeChild(myheader);
 	for (n02 = 0; n02 < myroads.size(); ++n02) {
 		delete myroads[n02];
 		myroads[n02] = NULL;
@@ -187,7 +179,6 @@ MyScene02::~MyScene02()
 	delete myback;
 	delete myufo;
 	delete light;
-	delete myheader;
 }
 
 void MyScene02::update(float deltaTime)
