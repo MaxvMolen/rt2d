@@ -16,7 +16,7 @@ int totaltree02 = 21;
 int totalgarden02 = 6;
 int totalbench02 = 2;
 int totalsmallbench02 = 4;
-int totalperson02 = 4;
+int totalperson02 = 8;
 int n02;
 
 //myufo
@@ -170,6 +170,14 @@ MyScene02::MyScene02() : CoreScene()
 		if (n02 >= 2) {
 			person->rotation.z = 1.57 + 1.57 + 1.57;
 			person->position = Point2(1250 - 50, (n02 - 2) * 550 + 100);
+		}
+		if (n02 >= 4) {
+			person->rotation.z = 0;
+			person->position = Point2((n02-4) * 380 + 770, 432);
+		}
+		if (n02 >= 6) {
+			person->rotation.z = 1.57+1.57;
+			person->position = Point2((n02 - 6) * 330 + 820, 317);
 		}
 		layers[2]->addChild(person);
 	}
