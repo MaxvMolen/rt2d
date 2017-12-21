@@ -15,6 +15,7 @@ int totalhouses02 = 6;
 int totaltree02 = 21;
 int totalgarden02 = 6;
 int totalbench02 = 2;
+int totalsmallbench02 = 4;
 int n02;
 
 //myufo
@@ -140,6 +141,24 @@ MyScene02::MyScene02() : CoreScene()
 		layers[2]->addChild(bbench);
 	}
 	// ###############################################################
+	// create small benches for the level
+	// ###############################################################
+	for (n02 = 0; n02 < totalsmallbench02; ++n02) {
+		BasicEntity* sbench = new BasicEntity();
+		mybenchs.push_back(sbench);
+		sbench->addSprite("assets/StartSmallBench.tga");
+		sbench->sprite()->color.r = 205;
+		sbench->sprite()->color.g = 102;
+		sbench->sprite()->color.b = 44;
+		sbench->position = Point2(675, (n02) * 550 + 100);
+		sbench->rotation.z = 1.57;
+		if (n02 >= 2) {
+			sbench->rotation.z = 1.57 + 1.57 + 1.57;
+			sbench->position = Point2(1250, (n02 - 2) * 550 + 100);
+		}
+		layers[2]->addChild(sbench);
+	}
+	// ###############################################################
 	// create light for underneath the ufo
 	// ###############################################################
 	light = new BasicEntity();
@@ -192,6 +211,12 @@ MyScene02::~MyScene02()
 		mybenchb[n02] = NULL;
 	}
 	mybenchb.clear();
+
+	for (n02 = 0; n02 < mybenchs.size(); ++n02) {
+		delete mybenchs[n02];
+		mybenchs[n02] = NULL;
+	}
+	mybenchs.clear();
 
 	for (n02 = 0; n02 < mygarden.size(); ++n02) {
 		delete mygarden[n02];
