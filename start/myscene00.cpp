@@ -14,6 +14,9 @@ int totalcar00 = 4;
 int totalhouses00 = 6;
 int totaltree00 = 21;
 int totalgarden00 = 6;
+int totalbench00 = 2;
+int totalsmallbench00 = 4;
+int totalperson00 = 8;
 int n00;
 
 //myufo
@@ -121,6 +124,63 @@ MyScene00::MyScene00() : CoreScene()
 			tree->position = Point2(1290, (n00 - 14) * 108 + 40);
 		}
 		layers[2]->addChild(tree);
+	}
+	// ###############################################################
+	// create big benches for the level
+	// ###############################################################
+	for (n00 = 0; n00 < totalbench00; ++n00) {
+		BasicEntity* bbench = new BasicEntity();
+		mybenchb.push_back(bbench);
+		bbench->addSprite("assets/StartBench.tga");
+		bbench->sprite()->color.r = 205;
+		bbench->sprite()->color.g = 102;
+		bbench->sprite()->color.b = 44;
+		bbench->position = Point2(0 * 108 + 800, 375);
+		if (n00 >= 1) {
+			bbench->position = Point2((n00 + 2) * 108 + 800, 375);
+		}
+		layers[2]->addChild(bbench);
+	}
+	// ###############################################################
+	// create small benches for the level
+	// ###############################################################
+	for (n00 = 0; n00 < totalsmallbench00; ++n00) {
+		BasicEntity* sbench = new BasicEntity();
+		mybenchs.push_back(sbench);
+		sbench->addSprite("assets/StartSmallBench.tga");
+		sbench->sprite()->color.r = 205;
+		sbench->sprite()->color.g = 102;
+		sbench->sprite()->color.b = 44;
+		sbench->position = Point2(675 + 75, (n00) * 550 + 100);
+		sbench->rotation.z = -1.57;
+		if (n00 >= 2) {
+			sbench->rotation.z = -1.57 - 1.57 - 1.57;
+			sbench->position = Point2(1250 - 75, (n00 - 2) * 550 + 100);
+		}
+		layers[2]->addChild(sbench);
+	}
+	// ###############################################################
+	// create persons for the level
+	// ###############################################################
+	for (n00 = 0; n00 < totalperson00; ++n00) {
+		MyPerson* person = new MyPerson();
+		myperson.push_back(person);
+		person->position = Point2(675 + 50, (n00) * 550 + 100);
+		person->rotation.z = 1.57;
+		person->scale = Point(0.8f, 0.8f);
+		if (n00 >= 2) {
+			person->rotation.z = 1.57 + 1.57 + 1.57;
+			person->position = Point2(1250 - 50, (n00 - 2) * 550 + 100);
+		}
+		if (n00 >= 4) {
+			person->rotation.z = 0;
+			person->position = Point2((n00 - 4) * 380 + 770, 432);
+		}
+		if (n00 >= 6) {
+			person->rotation.z = 1.57 + 1.57;
+			person->position = Point2((n00 - 6) * 330 + 820, 317);
+		}
+		layers[2]->addChild(person);
 	}
 	// ###############################################################
 	// create light for underneath the ufo
