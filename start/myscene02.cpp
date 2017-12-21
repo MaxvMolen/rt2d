@@ -167,6 +167,7 @@ MyScene02::MyScene02() : CoreScene()
 		myperson.push_back(person);
 		person->position = Point2(675 + 50, (n02) * 550 + 100);
 		person->rotation.z = 1.57;
+		person->scale = Point(0.8f, 0.8f);
 		if (n02 >= 2) {
 			person->rotation.z = 1.57 + 1.57 + 1.57;
 			person->position = Point2(1250 - 50, (n02 - 2) * 550 + 100);
