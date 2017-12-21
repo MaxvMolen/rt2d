@@ -16,6 +16,7 @@ int totaltree02 = 21;
 int totalgarden02 = 6;
 int totalbench02 = 2;
 int totalsmallbench02 = 4;
+int totalperson02 = 4;
 int n02;
 
 //myufo
@@ -150,13 +151,27 @@ MyScene02::MyScene02() : CoreScene()
 		sbench->sprite()->color.r = 205;
 		sbench->sprite()->color.g = 102;
 		sbench->sprite()->color.b = 44;
-		sbench->position = Point2(675, (n02) * 550 + 100);
-		sbench->rotation.z = 1.57;
+		sbench->position = Point2(675 + 75, (n02) * 550 + 100);
+		sbench->rotation.z = -1.57;
 		if (n02 >= 2) {
-			sbench->rotation.z = 1.57 + 1.57 + 1.57;
-			sbench->position = Point2(1250, (n02 - 2) * 550 + 100);
+			sbench->rotation.z = -1.57 - 1.57 - 1.57;
+			sbench->position = Point2(1250 - 75, (n02 - 2) * 550 + 100);
 		}
 		layers[2]->addChild(sbench);
+	}
+	// ###############################################################
+	// create persons for the level
+	// ###############################################################
+	for (n02 = 0; n02 < totalperson02; ++n02) {
+		MyPerson* person = new MyPerson();
+		myperson.push_back(person);
+		person->position = Point2(675 + 50, (n02) * 550 + 100);
+		person->rotation.z = 1.57;
+		if (n02 >= 2) {
+			person->rotation.z = 1.57 + 1.57 + 1.57;
+			person->position = Point2(1250 - 50, (n02 - 2) * 550 + 100);
+		}
+		layers[2]->addChild(person);
 	}
 	// ###############################################################
 	// create light for underneath the ufo
@@ -224,6 +239,12 @@ MyScene02::~MyScene02()
 	}
 	mygarden.clear();
 
+	for (n02 = 0; n02 < myperson.size(); ++n02) {
+		delete myperson[n02];
+		myperson[n02] = NULL;
+	}
+	myperson.clear();
+
 	delete myback;
 	delete myufo;
 	delete light;
@@ -279,6 +300,15 @@ void MyScene02::update(float deltaTime)
 	}
 	for (n02 = 0; n02 < mytree.size(); ++n02) {
 		collision(mytree[n02]->position.x, mytree[n02]->position.y, 50);
+	}
+	for (n02 = 0; n02 < myperson.size(); ++n02) {
+		collision(myperson[n02]->position.x, myperson[n02]->position.y, 26);
+	}
+	// ###############################################################
+	// Change scene when all items are removed
+	// ###############################################################
+	if (mytree.size() == 0 && myperson.size() == 0 && mycar.size() == 0) {
+		CoreScene::sceneselect(0); // main menu
 	}
 }
 
