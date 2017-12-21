@@ -40,11 +40,11 @@ MyScene00::MyScene00() : CoreScene()
 		roads->position = Point2(125 + n00 * 250, 960);
 		roads->rotation.z = 1.57;
 		if (n00 >= 8) {
-			roads->position = Point2(465, (n00 - 8) * 200 - 68);
+			roads->position = Point2(465, (n00 - 8) * 250 - 267);
 			roads->rotation.z = 0;
 		}
 		if (n00 >= 13) {
-			roads->position = Point2(1980-515, (n00 - 13) * 200 - 68);
+			roads->position = Point2(1980-515, (n00 - 13) * 250 - 267);
 			roads->rotation.z = 0;
 		}
 		layers[1]->addChild(roads);
