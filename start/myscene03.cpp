@@ -341,7 +341,12 @@ void MyScene03::update(float deltaTime)
 	cs << "Score: " << score.currentscore;
 	text[0]->message(cs.str());
 	text[0]->position.y = 30;
-
+	// ###############################################################
+	// Change scene when all items are removed
+	// ###############################################################
+	if (mytree.size() == 0 && myperson.size() == 0 && mycar.size() == 0) {
+		CoreScene::sceneselect(0); // main menu
+	}
 	// ###############################################################
 	// Update X and Y position of light
 	// ###############################################################
@@ -402,12 +407,6 @@ void MyScene03::update(float deltaTime)
 		myperson[3]->position.x = 800;
 		myperson[3]->position.y = 1050;
 	}
-	// ###############################################################
-	// Change scene when all items are removed
-	// ###############################################################
-	if (mytree.size() == 0 && myperson.size() == 0 && mycar.size() == 0) {
-		CoreScene::sceneselect(0); // main menu
-	}
 }
 
 void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, float re) {
@@ -431,6 +430,7 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 			// lock the ufo in place on collision of object 
 			myufo->position.x = xe;
 			myufo->position.y = ye;
+			//return;
 		}
 	}
 }

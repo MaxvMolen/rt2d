@@ -269,6 +269,12 @@ void MyScene02::update(float deltaTime)
 	text[0]->message(cs.str());
 	text[0]->position.y = 30;
 	// ###############################################################
+	// Change scene when all items are removed
+	// ###############################################################
+	if (mytree.size() == 0 && myperson.size() == 0 && mycar.size() == 0) {
+		CoreScene::sceneselect(0); // main menu
+	}
+	// ###############################################################
 	// Escape key stops the Scene
 	// ###############################################################
 	CoreScene::quit();
@@ -312,12 +318,6 @@ void MyScene02::update(float deltaTime)
 	}
 	for (n02 = 0; n02 < myperson.size(); ++n02) {
 		collision(xa2, ya2, ra2,myperson[n02]->position.x, myperson[n02]->position.y, 26);
-	}
-	// ###############################################################
-	// Change scene when all items are removed
-	// ###############################################################
-	if (mytree.size() == 0 && myperson.size() == 0 && mycar.size() == 0) {
-		CoreScene::sceneselect(0); // main menu
 	}
 }
 
