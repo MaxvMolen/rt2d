@@ -50,6 +50,8 @@ private:
 	std::vector<MyTree*> mytree;
 	/// @brief the garden in the background of the level
 	std::vector<BasicEntity*> mygarden;
+	/// @brief the big bench in the background of the level
+	std::vector<BasicEntity*> mybenchb;
 	/// @brief the background
 	BasicEntity* myback;
 };

@@ -14,6 +14,7 @@ int totalcar02 = 4;
 int totalhouses02 = 6;
 int totaltree02 = 21;
 int totalgarden02 = 6;
+int totalbench02 = 2;
 int n02;
 
 //myufo
@@ -123,6 +124,22 @@ MyScene02::MyScene02() : CoreScene()
 		layers[2]->addChild(tree);
 	}
 	// ###############################################################
+	// create big benches for the level
+	// ###############################################################
+	for (n02 = 0; n02 < totalbench02; ++n02) {
+		BasicEntity* bbench = new BasicEntity();
+		mybenchb.push_back(bbench);
+		bbench->addSprite("assets/StartBench.tga");
+		bbench->sprite()->color.r = 205;
+		bbench->sprite()->color.g = 102;
+		bbench->sprite()->color.b = 44;
+		bbench->position = Point2(0 * 108 + 800, 375);
+		if (n02 >= 1) {
+			bbench->position = Point2((n02+2) * 108 + 800, 375);
+		}
+		layers[2]->addChild(bbench);
+	}
+	// ###############################################################
 	// create light for underneath the ufo
 	// ###############################################################
 	light = new BasicEntity();
@@ -169,6 +186,12 @@ MyScene02::~MyScene02()
 		mytree[n02] = NULL;
 	}
 	mytree.clear();
+
+	for (n02 = 0; n02 < mybenchb.size(); ++n02) {
+		delete mybenchb[n02];
+		mybenchb[n02] = NULL;
+	}
+	mybenchb.clear();
 
 	for (n02 = 0; n02 < mygarden.size(); ++n02) {
 		delete mygarden[n02];
