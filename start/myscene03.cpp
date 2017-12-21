@@ -9,23 +9,23 @@
 #include "myscene03.h"
 
 // amount of objects
-int totalroads02 = 17;
-int totalhouses02 = 3;
-int totalparking02 = 16;
-int totalcar02 = 9;
-int totaltree02 = 9;
-int totaltgarage02 = 2;
-int totaltbush02 = 4;
-int totalperson02 = 4;
-int totalpath02 = 14;
-int totalgarden02 = 3;
+int totalroads03 = 17;
+int totalhouses03 = 3;
+int totalparking03 = 16;
+int totalcar03 = 9;
+int totaltree03 = 9;
+int totaltgarage03 = 2;
+int totaltbush03 = 4;
+int totalperson03 = 4;
+int totalpath03 = 14;
+int totalgarden03 = 3;
 
-int n02;
+int n03;
 
 //myufo
-float xa = 1; // x position myufo
-float ya = 1; // y position myufo
-float ra = 25; // radius myufo
+float xa3 = 1; // x position myufo
+float ya3 = 1; // y position myufo
+float ra3 = 25; // radius myufo
 
 MyScene03::MyScene03() : CoreScene()
 {
@@ -39,18 +39,18 @@ MyScene03::MyScene03() : CoreScene()
 	// ###############################################################
 	// create roads for the level
 	// ###############################################################
-	for (n02 = 0; n02 < totalroads02; ++n02) {
+	for (n03 = 0; n03 < totalroads03; ++n03) {
 		BasicEntity* roads = new BasicEntity();
 		myroads.push_back(roads);
 		roads->addSprite("assets/StartRoad.tga");
-		roads->position = Point2(125 + n02 * 250, 125);
+		roads->position = Point2(125 + n03 * 250, 125);
 		roads->rotation.z = 1.57;
-		if (n02>=8) {
-			roads->position = Point2(SWIDTH / 2, (n02 - 8)* 256 + 352.5);
+		if (n03>=8) {
+			roads->position = Point2(SWIDTH / 2, (n03 - 8)* 256 + 352.5);
 			roads->rotation.z = 0;
 		}
-		if(n02>=12) {
-			roads->position = Point2(SWIDTH / 2 + 227.5 +(n02-12)*256, SHEIGHT / 2-13);
+		if(n03>=12) {
+			roads->position = Point2(SWIDTH / 2 + 227.5 +(n03-12)*256, SHEIGHT / 2-13);
 			roads->rotation.z = 1.57;
 		}
 		layers[4]->addChild(roads);
@@ -58,16 +58,16 @@ MyScene03::MyScene03() : CoreScene()
 	// ###############################################################
 	// create houses for the level
 	// ###############################################################
-	for (n02 = 0; n02 < totalhouses02; ++n02) {
+	for (n03 = 0; n03 < totalhouses03; ++n03) {
 		BasicEntity* house = new BasicEntity();
 		myhouse.push_back(house);
 		house->addSprite("assets/StartHouse.tga");
-		house->position = Point2(n02 * 260 + 180,395);
+		house->position = Point2(n03 * 260 + 180,395);
 		house->sprite()->color.r = 255;
 		house->sprite()->color.g = 88;
 		house->sprite()->color.b = 30;
-		if (n02 >= 2) {
-			house->position = Point2(n02* 260 + 180,635);
+		if (n03 >= 2) {
+			house->position = Point2(n03* 260 + 180,635);
 			house->rotation.z = 1.57;
 		}
 		layers[4]->addChild(house);
@@ -75,14 +75,14 @@ MyScene03::MyScene03() : CoreScene()
 	// ###############################################################
 	// create parking sports for the level
 	// ###############################################################
-	for (n02 = 0; n02 < totalparking02; ++n02) {
+	for (n03 = 0; n03 < totalparking03; ++n03) {
 		BasicEntity* park = new BasicEntity();
 		myparking.push_back(park);
 		park->addSprite("assets/StartPark.tga");
-		park->position = Point2(n02* 125 + 1170, 335);
+		park->position = Point2(n03* 125 + 1170, 335);
 		park->rotation.z = 3.14;
-		if (n02 >= 8) {
-			park->position = Point2((n02-4) * 125 + 670, 718);
+		if (n03 >= 8) {
+			park->position = Point2((n03-4) * 125 + 670, 718);
 			park->rotation.z = 0;
 		}
 		layers[4]->addChild(park);
@@ -90,30 +90,30 @@ MyScene03::MyScene03() : CoreScene()
 	// ###############################################################
 	// create cars for the level
 	// ###############################################################
-	for (n02 = 0; n02 < totalcar02; ++n02) {
+	for (n03 = 0; n03 < totalcar03; ++n03) {
 		MyCar* car = new MyCar();
 		mycar.push_back(car);
-		car->position = Point2(n02 * 125 + 1170, 338);
-		if (n02 >= 2) {
+		car->position = Point2(n03 * 125 + 1170, 338);
+		if (n03 >= 2) {
 			car->position = Point2(4 * 125 + 1170, 338);
 		}
-		if (n02 >= 3) {
+		if (n03 >= 3) {
 			car->rotation.z = 3.14;
-			car->position = Point2((n02-2) * 125 + 1170, 715);
+			car->position = Point2((n03-2) * 125 + 1170, 715);
 		}
-		if (n02 >= 4) {
+		if (n03 >= 4) {
 			car->rotation.z = 3.14;
-			car->position = Point2((n02 - 1) * 125 + 1170, 715);
+			car->position = Point2((n03 - 1) * 125 + 1170, 715);
 		}
-		if (n02 >= 4) {
+		if (n03 >= 4) {
 			car->rotation.z = 3.14;
-			car->position = Point2((n02 - 1) * 125 + 1170, 715);
+			car->position = Point2((n03 - 1) * 125 + 1170, 715);
 		}
-		if (n02 >= 7) {
+		if (n03 >= 7) {
 			car->rotation.z = 1.57;
 			car->position = Point2(750, 840);
 		}
-		if (n02 >= 8) {
+		if (n03 >= 8) {
 			car->rotation.z = 1.57;
 			car->position = Point2(-79, 60);
 		}
@@ -122,15 +122,15 @@ MyScene03::MyScene03() : CoreScene()
 	// ###############################################################
 	// create trees	for the level
 	// ###############################################################
-	for (n02 = 0; n02 < totaltree02; ++n02) {
+	for (n03 = 0; n03 < totaltree03; ++n03) {
 		MyTree* tree = new MyTree();
 		mytree.push_back(tree);
-		tree->position = Point2(n02 * 200 + 1170, 855);
-		if (n02 >= 4) {
-			tree->position = Point2(n02 * 200 + 465, 982);
+		tree->position = Point2(n03 * 200 + 1170, 855);
+		if (n03 >= 4) {
+			tree->position = Point2(n03 * 200 + 465, 982);
 			tree->rotation.z = 3.14;
 		}
-		if (n02 >= 8) {
+		if (n03 >= 8) {
 			tree->position = Point2(655,425 );
 		}
 		layers[6]->addChild(tree);
@@ -138,7 +138,7 @@ MyScene03::MyScene03() : CoreScene()
 	// ###############################################################
 	// create garages for the level
 	// ###############################################################
-	for (n02 = 0; n02 < totaltgarage02; ++n02) {
+	for (n03 = 0; n03 < totaltgarage03; ++n03) {
 		BasicEntity* garage = new BasicEntity();
 		mygarage.push_back(garage);
 		garage->addSprite("assets/StartGarage.tga");
@@ -147,7 +147,7 @@ MyScene03::MyScene03() : CoreScene()
 		garage->sprite()->color.b = 154;
 		garage->position = Point2(-25, 420);
 		garage->scale = Point(0.7f, 0.7f);
-		if (n02 >= 1) {
+		if (n03 >= 1) {
 			garage->position = Point2(680, 840);
 			garage->rotation.z = 1.57;
 		}
@@ -156,33 +156,33 @@ MyScene03::MyScene03() : CoreScene()
 	// ###############################################################
 	// create bushes for the level
 	// ###############################################################
-	for (n02 = 0; n02 < totaltbush02; ++n02) {
+	for (n03 = 0; n03 < totaltbush03; ++n03) {
 		BasicEntity* bush = new BasicEntity();
 		mybush.push_back(bush);
 		bush->addSprite("assets/StartBush.tga");
 		bush->sprite()->color.r = 110;
 		bush->sprite()->color.g = 156;
 		bush->sprite()->color.b = 56;
-		bush->position = Point2(n02 * 100 + 615, 310);
-		if (n02 >= 2) {
-			bush->position = Point2(790, (n02 - 2) * 100 + 370);
+		bush->position = Point2(n03 * 100 + 615, 310);
+		if (n03 >= 2) {
+			bush->position = Point2(790, (n03 - 2) * 100 + 370);
 		}
 		layers[5]->addChild(bush);
 	}
 	// ###############################################################
 	// create persons for the level
 	// ###############################################################
-	for (n02 = 0; n02 < totalperson02; ++n02) {
+	for (n03 = 0; n03 < totalperson03; ++n03) {
 		MyPerson* person = new MyPerson();
 		myperson.push_back(person);
-		person->position = Point2(n02 * 218 + 190, 576);
+		person->position = Point2(n03 * 218 + 190, 576);
 		person->scale = Point(0.7f, 0.7f);
 		person->rotation.z = 3.14;
-		if (n02 >= 2) {
-			person->position = Point2((n02-1) * 190 + 180, 650);
+		if (n03 >= 2) {
+			person->position = Point2((n03-1) * 190 + 180, 650);
 			person->rotation.z = 1.57;
 		}
-		if (n02 >= 3) {
+		if (n03 >= 3) {
 			person->position = Point2(800,1050);
 			person->rotation.z = 4.7;
 		}
@@ -191,30 +191,30 @@ MyScene03::MyScene03() : CoreScene()
 	// ###############################################################
 	// create path for the level
 	// ###############################################################
-	for (n02 = 0; n02 < totalpath02; ++n02) {
+	for (n03 = 0; n03 < totalpath03; ++n03) {
 		BasicEntity* path = new BasicEntity();
 		mypath.push_back(path);
 		path->addSprite("assets/StartPRoad.tga");
 		path->rotation.z = 1.57;
-		path->position = Point2((n02 * -75)+787.5, 1043);
+		path->position = Point2((n03 * -75)+787.5, 1043);
 		path->scale = Point(0.7f, 0.7f);
-		if (n02 >= 5) {
-			path->position = Point2((n02 * -75) + 787.5, 1036);
+		if (n03 >= 5) {
+			path->position = Point2((n03 * -75) + 787.5, 1036);
 			path->addSprite("assets/StartPRoadCurve.tga");
 			path->rotation.z = 3.14;
 		}
-		if (n02 >= 6) {
-			path->position = Point2(((5) * -75) + 787.5,(n02-5)*-75 +1036);
+		if (n03 >= 6) {
+			path->position = Point2(((5) * -75) + 787.5,(n03-5)*-75 +1036);
 			path->addSprite("assets/StartPRoad.tga");
 			path->rotation.z = 0;
 		}
-		if (n02 >= 8) {
-			path->position = Point2(((5) * -75) + 787.5, (n02 - 5)*-75 + 1036);
+		if (n03 >= 8) {
+			path->position = Point2(((5) * -75) + 787.5, (n03 - 5)*-75 + 1036);
 			path->addSprite("assets/StartPRoadCurve.tga");
 			path->rotation.z = 6.27;
 		}
-		if (n02 >= 9) {
-			path->position = Point2(((n02 -2.9) * -75) + 787.5, (3.18) * -75 + 1043);
+		if (n03 >= 9) {
+			path->position = Point2(((n03 -2.9) * -75) + 787.5, (3.18) * -75 + 1043);
 			path->addSprite("assets/StartPRoad.tga");
 			path->rotation.z = 1.57;
 		}
@@ -223,7 +223,7 @@ MyScene03::MyScene03() : CoreScene()
 	// ###############################################################
 	// create garden for the level
 	// ###############################################################
-	for (n02 = 0; n02 < totalgarden02; ++n02) {
+	for (n03 = 0; n03 < totalgarden03; ++n03) {
 		BasicEntity* garden = new BasicEntity();
 		mygarden.push_back(garden);
 		garden->addSprite("assets/StartGarden.tga");
@@ -232,8 +232,8 @@ MyScene03::MyScene03() : CoreScene()
 		garden->sprite()->color.b = 44;
 		garden->position = Point2(180, 620);
 		garden->scale = Point(0.8f, 0.8f);
-		if (n02 >= 1) {
-			garden->position = Point2(n02 * 115 +225, 620);
+		if (n03 >= 1) {
+			garden->position = Point2(n03 * 115 +225, 620);
 			garden->addSprite("assets/StartGardenAlt.tga");
 			garden->sprite()->color.r = 205;
 			garden->sprite()->color.g = 102;
@@ -268,61 +268,61 @@ MyScene03::~MyScene03()
 	this->removeChild(myufo);
 	this->removeChild(light);
 
-	for (n02 = 0; n02 < myroads.size(); ++n02) {
-		delete myroads[n02];
-		myroads[n02] = NULL;
+	for (n03 = 0; n03 < myroads.size(); ++n03) {
+		delete myroads[n03];
+		myroads[n03] = NULL;
 	}
 	myroads.clear();
 
-	for (n02 = 0; n02 < myhouse.size(); ++n02) {
-		delete myhouse[n02];
-		myhouse[n02] = NULL;
+	for (n03 = 0; n03 < myhouse.size(); ++n03) {
+		delete myhouse[n03];
+		myhouse[n03] = NULL;
 	}
 	myhouse.clear();
 	
-	for (n02 = 0; n02 < myparking.size(); ++n02) {
-		delete myparking[n02];
-		myparking[n02] = NULL;
+	for (n03 = 0; n03 < myparking.size(); ++n03) {
+		delete myparking[n03];
+		myparking[n03] = NULL;
 	}
 	myparking.clear();
 	
-	for (n02 = 0; n02 < mycar.size(); ++n02) {
-		delete mycar[n02];
-		mycar[n02] = NULL;
+	for (n03 = 0; n03 < mycar.size(); ++n03) {
+		delete mycar[n03];
+		mycar[n03] = NULL;
 	}
 	mycar.clear();
 
-	for (n02 = 0; n02 < mytree.size(); ++n02) {
-		delete mytree[n02];
-		mytree[n02] = NULL;
+	for (n03 = 0; n03 < mytree.size(); ++n03) {
+		delete mytree[n03];
+		mytree[n03] = NULL;
 	}
 	mytree.clear();
 
-	for (n02 = 0; n02 < totaltgarage02; ++n02) {
-		delete mygarage[n02];
-		mygarage[n02] = NULL;
+	for (n03 = 0; n03 < totaltgarage03; ++n03) {
+		delete mygarage[n03];
+		mygarage[n03] = NULL;
 	}
 
-	for (n02 = 0; n02 < mybush.size(); ++n02) {
-		delete mybush[n02];
-		mybush[n02] = NULL;
+	for (n03 = 0; n03 < mybush.size(); ++n03) {
+		delete mybush[n03];
+		mybush[n03] = NULL;
 	}
 	mybush.clear();
 
-	for (n02 = 0; n02 < myperson.size(); ++n02) {
-		delete myperson[n02];
-		myperson[n02] = NULL;
+	for (n03 = 0; n03 < myperson.size(); ++n03) {
+		delete myperson[n03];
+		myperson[n03] = NULL;
 	}
 
-	for (n02 = 0; n02 < mypath.size(); ++n02) {
-		delete mypath[n02];
-		mypath[n02] = NULL;
+	for (n03 = 0; n03 < mypath.size(); ++n03) {
+		delete mypath[n03];
+		mypath[n03] = NULL;
 	}
 	mypath.clear();
 
-	for (n02 = 0; n02 < mygarden.size(); ++n02) {
-		delete mygarden[n02];
-		mygarden[n02] = NULL;
+	for (n03 = 0; n03 < mygarden.size(); ++n03) {
+		delete mygarden[n03];
+		mygarden[n03] = NULL;
 	}
 	mygarden.clear();
 
@@ -350,8 +350,8 @@ void MyScene03::update(float deltaTime)
 	// ###############################################################
 	// Update X and Y position of myufo
 	// ###############################################################
-	xa = myufo->position.x;
-	ya = myufo->position.y;
+	xa3 = myufo->position.x;
+	ya3 = myufo->position.y;
 	// ###############################################################
 	// Escape key stops the Scene
 	// ###############################################################
@@ -359,14 +359,14 @@ void MyScene03::update(float deltaTime)
 	// ###############################################################
 	// Call collision function and set radius of object
 	// ###############################################################
-	for (n02 = 0; n02 < mycar.size(); ++n02) {
-		collision(mycar[n02]->position.x, mycar[n02]->position.y, 125);
+	for (n03 = 0; n03 < mycar.size(); ++n03) {
+		collision(mycar[n03]->position.x, mycar[n03]->position.y, 125);
 	}
-	for (n02 = 0; n02 < mytree.size(); ++n02) {
-		collision(mytree[n02]->position.x, mytree[n02]->position.y, 50);
+	for (n03 = 0; n03 < mytree.size(); ++n03) {
+		collision(mytree[n03]->position.x, mytree[n03]->position.y, 50);
 	}
-	for (n02 = 0; n02 < myperson.size(); ++n02) {
-		collision(myperson[n02]->position.x, myperson[n02]->position.y, 25);
+	for (n03 = 0; n03 < myperson.size(); ++n03) {
+		collision(myperson[n03]->position.x, myperson[n03]->position.y, 25);
 	}
 	//test
 	//collision(myhouse[2]->position.x, myhouse[2]->position.y, 200);
@@ -414,7 +414,7 @@ void MyScene03::collision(float xe, float ye, float re) {
 	// ###############################################################
 	// Collision ufo
 	// ###############################################################
-	if ((xa - xe)*(xa - xe) + (ya - ye)*(ya - ye) < ra*re) {
+	if ((xa3 - xe)*(xa3 - xe) + (ya3 - ye)*(ya3 - ye) < ra3*re) {
 
 		// use w to break the lock and pick the item up
 		if (input()->getKey('W')) {

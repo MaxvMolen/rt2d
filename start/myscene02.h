@@ -40,24 +40,16 @@ private:
 	MyUfo* myufo;
 	/// @brief the light underneath the ufo
 	BasicEntity* light;
-	/// @brief the person in the level that you need to pick up
-	std::vector<MyPerson*> myperson;
-	/// @brief the car in the level that you need to pick up
-	std::vector<MyCar*> mycar;
-	/// @brief the tree in the level that you need to pick up
-	std::vector<MyTree*> mytree;
-	/// @brief the garage in the background of the level
-	std::vector<BasicEntity*> mygarage;
-	/// @brief the bush in the background of the level
-	std::vector<BasicEntity*> mybush;
+	/// @brief the header
+	BasicEntity* myheader;
 	/// @brief the road in the background of the level
 	std::vector<BasicEntity*> myroads;
+	/// @brief the car in the level that you need to pick up
+	std::vector<MyCar*> mycar;
 	/// @brief the house in the background of the level
 	std::vector<BasicEntity*> myhouse;
-	/// @brief the parkingspot in the background of the level
-	std::vector<BasicEntity*> myparking;
-	/// @brief the footpath in the background of the level
-	std::vector<BasicEntity*> mypath;
+	/// @brief the tree in the level that you need to pick up
+	std::vector<MyTree*> mytree;
 	/// @brief the garden in the background of the level
 	std::vector<BasicEntity*> mygarden;
 	/// @brief the background
