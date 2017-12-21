@@ -12,7 +12,7 @@
 int totalroads02 = 18;
 int totalcar02 = 4;
 int totalhouses02 = 6;
-int totaltree02 = 21;
+int totaltree02 = 24;
 int totalgarden02 = 6;
 int totalbench02 = 2;
 int totalsmallbench02 = 4;
@@ -122,6 +122,9 @@ MyScene02::MyScene02() : CoreScene()
 		}
 		if (n02 >= 14) {
 			tree->position = Point2(1290, (n02 - 14) * 108 + 40);
+		}
+		if (n02 >= 21) {
+			tree->position = Point2(SWIDTH / 2, SHEIGHT / 2-260 + (n02 - 21) * 100);
 		}
 		layers[2]->addChild(tree);
 	}
