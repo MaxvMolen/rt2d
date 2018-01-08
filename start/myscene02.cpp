@@ -366,7 +366,6 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 				//nou3 = 3;
 				if (MyUfo::noa == 2) {
 					score.addscore(10);
-
 				}
 				else {
 					score.subtractscore(10);

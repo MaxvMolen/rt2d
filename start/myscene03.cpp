@@ -417,7 +417,6 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 		if (input()->getKey('W')) {
 			//std::cout << score.currentscore;
 			//std::cout << "|";
-
 			if (no == 1){
 				std::cout << "Car";
 				std::cout << "|";
@@ -447,7 +446,6 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 				std::cout << "|";
 				if (MyUfo::noa == 2) {
 					score.addscore(10);
-					
 				}
 				else {
 					score.subtractscore(10);
