@@ -314,17 +314,17 @@ void MyScene02::update(float deltaTime)
 	// Call collision function and set radius of object
 	// ###############################################################
 	for (n02 = 0; n02 < mycar.size(); ++n02) {
-		collision(xa2, ya2, ra2,mycar[n02]->position.x, mycar[n02]->position.y, 125);
+		collision(xa2, ya2, ra2,mycar[n02]->position.x, mycar[n02]->position.y, 125, 1);
 	}
 	for (n02 = 0; n02 < mytree.size(); ++n02) {
-		collision(xa2, ya2, ra2,mytree[n02]->position.x, mytree[n02]->position.y, 50);
+		collision(xa2, ya2, ra2,mytree[n02]->position.x, mytree[n02]->position.y, 50, 2);
 	}
 	for (n02 = 0; n02 < myperson.size(); ++n02) {
-		collision(xa2, ya2, ra2,myperson[n02]->position.x, myperson[n02]->position.y, 26);
+		collision(xa2, ya2, ra2,myperson[n02]->position.x, myperson[n02]->position.y, 26, 3);
 	}
 }
 
-void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, float re) {
+void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, float re, float no) {
 	// ###############################################################
 	// Collision ufo
 	// ###############################################################
@@ -332,20 +332,55 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 
 		// use w to break the lock and pick the item up
 		if (input()->getKey('W')) {
-			std::cout << score.currentscore;
-			std::cout << "|";
-			//if right ufo
-			score.addscore(10);
-			//if wrong ufo
-			//score.subtractscore(10);
-			//delete object
-			//std::cout << "Delete";
+			//std::cout << score.currentscore;
+			//std::cout << "|";
+			if (no == 1) {
+				std::cout << "Car";
+				std::cout << "|";
+				//nou3 = 1;
+				if (MyUfo::noa == 1) {
+					score.addscore(10);
+				}
+				else {
+					score.subtractscore(10);
+				}
+				//remove object
+			}
+
+			else if (no == 2) {
+				std::cout << "Tree";
+				std::cout << "|";
+				//nou3 = 2;
+				if (MyUfo::noa == 3) {
+					score.addscore(10);
+				}
+				else {
+					score.subtractscore(10);
+				}
+				//remove object
+			}
+
+			else if (no == 3) {
+				std::cout << "Person";
+				std::cout << "|";
+				//nou3 = 3;
+				if (MyUfo::noa == 2) {
+					score.addscore(10);
+
+				}
+				else {
+					score.subtractscore(10);
+				}
+				//remove object
+			}
 		}
 		else {
 			// lock the ufo in place on collision of object 
 			myufo->position.x = xe;
 			myufo->position.y = ye;
+			//return;
 		}
 	}
 }
+
 

@@ -21,7 +21,6 @@ int totalpath03 = 14;
 int totalgarden03 = 3;
 
 int n03;
-
 //myufo
 float xa3 = 1; // x position myufo
 float ya3 = 1; // y position myufo
@@ -408,8 +407,6 @@ void MyScene03::update(float deltaTime)
 		myperson[3]->position.y = 1050;
 	}
 }
-// float no (number object) |1 = car|2 = tree|3 = person|
-// if is specific object number do this and that
 void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, float re, float no) {
 	// ###############################################################
 	// Collision ufo
@@ -418,33 +415,44 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 
 		// use w to break the lock and pick the item up
 		if (input()->getKey('W')) {
-			std::cout << score.currentscore;
-			std::cout << "|";
-			//if right ufo
-			score.addscore(10);
-			//if wrong ufo
-			//score.subtractscore(10);
-			//delete object
-			//std::cout << "Delete";
+			//std::cout << score.currentscore;
+			//std::cout << "|";
+
 			if (no == 1){
 				std::cout << "Car";
 				std::cout << "|";
+				if (MyUfo::noa == 1) {
+					score.addscore(10);
+				}
+				else {
+					score.subtractscore(10);
+				}
 				//remove object
-				//mycar.dosomething;
 			}
 
 			else if (no == 2) {
 				std::cout << "Tree";
 				std::cout << "|";
+				if (MyUfo::noa == 3) {
+					score.addscore(10);
+				}
+				else {
+					score.subtractscore(10);
+				}
 				//remove object
-				//mytree.dosomething;
 			}
 
 			else if (no == 3) {
 				std::cout << "Person";
 				std::cout << "|";
+				if (MyUfo::noa == 2) {
+					score.addscore(10);
+					
+				}
+				else {
+					score.subtractscore(10);
+				}
 				//remove object
-				//myperson.dosomething;
 			}
 		}
 		else {

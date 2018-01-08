@@ -9,6 +9,8 @@
 int rotationSpeed = 10; // speed of rotation
 int speed = 5; // speed of player
 
+int MyUfo::noa = 1;
+
 MyUfo::MyUfo() : Entity()
 {
 	this->addSprite("assets/StartUfo2.tga");
@@ -95,6 +97,7 @@ void MyUfo::changeUfo() {
 		this->sprite()->color.r = 255;
 		this->sprite()->color.g = 171;
 		this->sprite()->color.b = 103;
+		noa = 2;
 	}
 	if (input()->getKey('S')) {
 		this->addSprite("assets/StartUfo2.tga");
@@ -102,6 +105,7 @@ void MyUfo::changeUfo() {
 		this->sprite()->color.r = 236;
 		this->sprite()->color.g = 16;
 		this->sprite()->color.b = 18;
+		noa = 1;
 	}
 	if (input()->getKey('D')) {
 		this->addSprite("assets/StartUfo3.tga");
@@ -109,6 +113,7 @@ void MyUfo::changeUfo() {
 		this->sprite()->color.r = 110;
 		this->sprite()->color.g = 156;
 		this->sprite()->color.b = 56;
+		noa = 3;
 	}
 }
 
@@ -128,4 +133,11 @@ void MyUfo::bounderies(float width, float height) {
 	if (this->position.y <= 0) {
 		this->position.y += 10;
 	}
+}
+
+void MyUfo::number() {
+	// ###############################################################
+	// Number of ship
+	// ###############################################################
+	noa;
 }
