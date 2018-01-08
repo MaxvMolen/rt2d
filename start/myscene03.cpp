@@ -365,13 +365,13 @@ void MyScene03::update(float deltaTime)
 	// Call collision function and set radius of object
 	// ###############################################################
 	for (n03 = 0; n03 < mycar.size(); ++n03) {
-		collision(xa3, ya3, ra3,mycar[n03]->position.x, mycar[n03]->position.y, 125);
+		collision(xa3, ya3, ra3,mycar[n03]->position.x, mycar[n03]->position.y, 125, 1);
 	}
 	for (n03 = 0; n03 < mytree.size(); ++n03) {
-		collision(xa3, ya3, ra3,mytree[n03]->position.x, mytree[n03]->position.y, 50);
+		collision(xa3, ya3, ra3,mytree[n03]->position.x, mytree[n03]->position.y, 50, 2);
 	}
 	for (n03 = 0; n03 < myperson.size(); ++n03) {
-		collision(xa3, ya3, ra3,myperson[n03]->position.x, myperson[n03]->position.y, 25);
+		collision(xa3, ya3, ra3,myperson[n03]->position.x, myperson[n03]->position.y, 25, 3);
 	}
 	//test
 	//collision(myhouse[2]->position.x, myhouse[2]->position.y, 200);
@@ -408,8 +408,9 @@ void MyScene03::update(float deltaTime)
 		myperson[3]->position.y = 1050;
 	}
 }
-
-void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, float re) {
+// float no (number object) |1 = car|2 = tree|3 = person|
+// if is specific object number do this and that
+void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, float re, float no) {
 	// ###############################################################
 	// Collision ufo
 	// ###############################################################
@@ -425,6 +426,26 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 			//score.subtractscore(10);
 			//delete object
 			//std::cout << "Delete";
+			if (no == 1){
+				std::cout << "Car";
+				std::cout << "|";
+				//remove object
+				//mycar.dosomething;
+			}
+
+			else if (no == 2) {
+				std::cout << "Tree";
+				std::cout << "|";
+				//remove object
+				//mytree.dosomething;
+			}
+
+			else if (no == 3) {
+				std::cout << "Person";
+				std::cout << "|";
+				//remove object
+				//myperson.dosomething;
+			}
 		}
 		else {
 			// lock the ufo in place on collision of object 
