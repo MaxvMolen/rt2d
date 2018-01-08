@@ -428,7 +428,6 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 				}
 				//remove object
 			}
-
 			else if (no == 2) {
 				//std::cout << "Tree";
 				//std::cout << "|";
@@ -440,7 +439,6 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 				}
 				//remove object
 			}
-
 			else if (no == 3) {
 				//std::cout << "Person";
 				//std::cout << "|";

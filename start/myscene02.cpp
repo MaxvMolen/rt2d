@@ -337,7 +337,6 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 			if (no == 1) {
 				//std::cout << "Car";
 				//std::cout << "|";
-				//nou3 = 1;
 				if (MyUfo::noa == 1) {
 					score.addscore(10);
 				}
@@ -346,11 +345,9 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 				}
 				//remove object
 			}
-
 			else if (no == 2) {
 				//std::cout << "Tree";
 				//std::cout << "|";
-				//nou3 = 2;
 				if (MyUfo::noa == 3) {
 					score.addscore(10);
 				}
@@ -359,11 +356,9 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 				}
 				//remove object
 			}
-
 			else if (no == 3) {
 				//std::cout << "Person";
 				//std::cout << "|";
-				//nou3 = 3;
 				if (MyUfo::noa == 2) {
 					score.addscore(10);
 				}
