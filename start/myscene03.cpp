@@ -431,7 +431,6 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 				else {
 					score.subtractscore(10);
 				}
-				int counter = 0;
 				//remove object
 			}
 			else if (no == 2) {
@@ -444,7 +443,6 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 				else {
 					score.subtractscore(10);
 				}
-				int counter = 0;
 				//remove object
 			}
 			else if (no == 3) {
@@ -458,18 +456,18 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 					score.subtractscore(10);
 				}/*
 				std::vector<MyPerson*>::iterator it = myperson.begin();
-				int counter = 0;
-				while (it != myperson.end){
-					if (no == 3) {
+				while (it != myperson.end()){
+					if (no == 3) { // causes the problems if the same as the object
+						*it;
 						delete(*it);
 						it = myperson.erase(it);
 					}
 					else {
 						++it;
 					}
-					++counter;
-				}*/
+				}
 				//remove object
+			*/
 			}
 		}
 		else {
