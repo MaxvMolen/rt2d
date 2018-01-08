@@ -19,8 +19,8 @@ int totaltbush03 = 4;
 int totalperson03 = 4;
 int totalpath03 = 14;
 int totalgarden03 = 3;
-
 int n03;
+
 //myufo
 float xa3 = 1; // x position myufo
 float ya3 = 1; // y position myufo
@@ -302,16 +302,19 @@ MyScene03::~MyScene03()
 		mygarage[n03] = NULL;
 	}
 
+	mygarage.clear();
+
 	for (n03 = 0; n03 < mybush.size(); ++n03) {
 		delete mybush[n03];
 		mybush[n03] = NULL;
 	}
 	mybush.clear();
-
+	
 	for (n03 = 0; n03 < myperson.size(); ++n03) {
 		delete myperson[n03];
 		myperson[n03] = NULL;
 	}
+	myperson.clear();
 
 	for (n03 = 0; n03 < mypath.size(); ++n03) {
 		delete mypath[n03];
@@ -407,6 +410,7 @@ void MyScene03::update(float deltaTime)
 		myperson[3]->position.y = 1050;
 	}
 }
+
 void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, float re, float no) {
 	// ###############################################################
 	// Collision ufo
@@ -418,6 +422,7 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 			//std::cout << score.currentscore;
 			//std::cout << "|";
 			if (no == 1){
+				//collision object
 				//std::cout << "Car";
 				//std::cout << "|";
 				if (MyUfo::noa == 1) {
@@ -426,9 +431,11 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 				else {
 					score.subtractscore(10);
 				}
+				int counter = 0;
 				//remove object
 			}
 			else if (no == 2) {
+				//collision object
 				//std::cout << "Tree";
 				//std::cout << "|";
 				if (MyUfo::noa == 3) {
@@ -437,9 +444,11 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 				else {
 					score.subtractscore(10);
 				}
+				int counter = 0;
 				//remove object
 			}
 			else if (no == 3) {
+				//collision object
 				//std::cout << "Person";
 				//std::cout << "|";
 				if (MyUfo::noa == 2) {
@@ -447,7 +456,19 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 				}
 				else {
 					score.subtractscore(10);
-				}
+				}/*
+				std::vector<MyPerson*>::iterator it = myperson.begin();
+				int counter = 0;
+				while (it != myperson.end){
+					if (no == 3) {
+						delete(*it);
+						it = myperson.erase(it);
+					}
+					else {
+						++it;
+					}
+					++counter;
+				}*/
 				//remove object
 			}
 		}
@@ -459,4 +480,3 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 		}
 	}
 }
-
