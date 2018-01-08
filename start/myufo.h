@@ -36,7 +36,7 @@ public:
 	/// @param height indicates the height of the playroom
 	/// @return void
 	virtual void MyUfo::bounderies(float width, float height);
-	/// @brief set current number of ship
+	/// @brief current number of ship
 	static int noa;
 private:
 	/* add your private declarations */
