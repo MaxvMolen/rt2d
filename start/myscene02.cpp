@@ -375,7 +375,6 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 			// lock the ufo in place on collision of object 
 			myufo->position.x = xe;
 			myufo->position.y = ye;
-			//return;
 		}
 	}
 }

@@ -457,7 +457,7 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 				}/*
 				std::vector<MyPerson*>::iterator it = myperson.begin();
 				while (it != myperson.end()){
-					if (no == 3) { // causes the problems if the same as the object
+					if (no == 2) { // causes the problems if the same as the object 3
 						*it;
 						delete(*it);
 						it = myperson.erase(it);
@@ -474,7 +474,6 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 			// lock the ufo in place on collision of object 
 			myufo->position.x = xe;
 			myufo->position.y = ye;
-			//return;
 		}
 	}
 }
