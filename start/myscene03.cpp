@@ -391,20 +391,19 @@ void MyScene03::update(float deltaTime)
 	// ###############################################################
 	// Move person over the road
 	// ###############################################################
-	if (myperson[3]->position.x != 420) {
+	if (myperson[3]->position.x != 420 && myperson[3]->position.y >= 810) {
 		myperson[3]->rotation.z = 4.7;
-		if (myperson[3]->position.y >= 810) {
-			myperson[3]->position.x -= 200 * deltaTime;
-		}
+		myperson[3]->position.x -= 200 * deltaTime;
 	}
-	if (myperson[3]->position.x <= 420) {
+	if (myperson[3]->position.y >= 800 && myperson[3]->position.x <= 415) {
 		myperson[3]->position.y -= 200 * deltaTime;
 		myperson[3]->position.x += 200 * deltaTime;
 		myperson[3]->rotation.z = 0;
 	}
-	if (myperson[3]->position.y == 800) {
-		myperson[3]->rotation.z = 4.7;
+	if (myperson[3]->position.y >= 800 && myperson[3]->position.y <= 810) {
+		myperson[3]->position.y += 200 * deltaTime;
 		myperson[3]->position.x -= 200 * deltaTime;
+		myperson[3]->rotation.z = 4.7;
 	}
 	if (myperson[3]->position.x <= -40) {
 		myperson[3]->position.x = 800;
