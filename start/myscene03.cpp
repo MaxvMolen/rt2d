@@ -380,7 +380,7 @@ void MyScene03::update(float deltaTime)
 	// ###############################################################
 	// Move car over the road + bounderies
 	// ###############################################################
-	mycar[8]->position.x += 6;
+	mycar[8]->position.x += 600 * deltaTime;
 	
 	if (mycar[8]->position.x >= 1980) {
 		mycar[8]->position.x = -79;
@@ -394,16 +394,17 @@ void MyScene03::update(float deltaTime)
 	if (myperson[3]->position.x != 420) {
 		myperson[3]->rotation.z = 4.7;
 		if (myperson[3]->position.y >= 810) {
-			myperson[3]->position.x -= 2;
+			myperson[3]->position.x -= 200 * deltaTime;
 		}
 	}
-	if (myperson[3]->position.x == 420) {
-		myperson[3]->position.y -= 2;
+	if (myperson[3]->position.x <= 420) {
+		myperson[3]->position.y -= 200 * deltaTime;
+		myperson[3]->position.x += 200 * deltaTime;
 		myperson[3]->rotation.z = 0;
 	}
 	if (myperson[3]->position.y == 800) {
 		myperson[3]->rotation.z = 4.7;
-		myperson[3]->position.x -= 2;
+		myperson[3]->position.x -= 200 * deltaTime;
 	}
 	if (myperson[3]->position.x <= -40) {
 		myperson[3]->position.x = 800;
