@@ -73,12 +73,12 @@ void CoreScene::quit() {
 		this->stop();
 	}
 	// ###############################################################
-	// '[' and ']' switch scenes
+	// 'Space' and 'BackSpace' to switch scenes
 	// ###############################################################
-	if (input()->getKeyUp(KeyCode::LeftBracket)) {
+	if (input()->getKeyUp(KeyCode::Backspace)) {
 		activescene--;
 	}
-	if (input()->getKeyUp(KeyCode::RightBracket)) {
+	if (input()->getKeyUp(KeyCode::Space)) {
 		activescene++;
 	}
 }
