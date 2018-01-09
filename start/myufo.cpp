@@ -7,7 +7,7 @@
 #include "myufo.h"
 
 int rotationSpeed = 10; // speed of rotation
-int speed = 5; // speed of player
+int speed; // speed of player
 
 int MyUfo::noa = 1;
 
@@ -38,13 +38,13 @@ void MyUfo::update(float deltaTime)
 	// ###############################################################
 	if (input()->getKey('W')) {
 		this->rotation.z -= rotationSpeed * deltaTime; // 90 deg/sec
-		speed = 10;
+		speed = 600;
 		if (this->rotation.z > TWO_PI) {
 			this->rotation.z -= TWO_PI;
 		}
 	}
 	else {
-		speed = 5;
+		speed = 300;
 	}
 	// ###############################################################
 	// Slow down rotation with E slows down to 0 if W isnt held
@@ -55,10 +55,11 @@ void MyUfo::update(float deltaTime)
 			this->rotation.z += TWO_PI;
 		}
 	}
+
 	// ###############################################################
 	// Update Movement
 	// ###############################################################
-	movement();
+	movement(deltaTime);
 	// ###############################################################
 	// Update ChangeUfo
 	// ###############################################################
@@ -69,21 +70,21 @@ void MyUfo::update(float deltaTime)
 	bounderies(1920,1080);
 }
 
-void MyUfo::movement() {
+void MyUfo::movement(float deltaTime) {
 	// ###############################################################
 	// Move myentity with arrowkeys
 	// ###############################################################
 	if (input()->getKey(KeyCode::Up)) {
-		this->position.y -= speed;
+		this->position.y -= speed * deltaTime;
 	}
 	if (input()->getKey(KeyCode::Down)) {
-		this->position.y += speed;
+		this->position.y += speed * deltaTime;
 	}
 	if (input()->getKey(KeyCode::Left)) {
-		this->position.x -= speed;
+		this->position.x -= speed * deltaTime;
 	}
 	if (input()->getKey(KeyCode::Right)) {
-		this->position.x += speed;
+		this->position.x += speed * deltaTime;
 	}
 }
 

@@ -27,7 +27,7 @@ public:
 	/// @brief movement is automatically called every frame
 	/// @brief used to move the player
 	/// @return void
-	virtual void MyUfo::movement();
+	virtual void MyUfo::movement(float deltaTime);
 	/// @brief used to change the players look and color
 	/// @return void
 	virtual void MyUfo::changeUfo();
