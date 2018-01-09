@@ -331,7 +331,6 @@ MyScene03::~MyScene03()
 	delete myback;
 	delete myufo;
 	delete light;
-
 }
 
 void MyScene03::update(float deltaTime)
@@ -454,7 +453,7 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 				}
 				else {
 					score.subtractscore(10);
-				}/*
+				}//
 				std::vector<MyPerson*>::iterator it = myperson.begin();
 				while (it != myperson.end()){
 					if (no == 2) { // causes the problems if the same as the object 3
@@ -467,7 +466,6 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 					}
 				}
 				//remove object
-			*/
 			}
 		}
 		else {
