@@ -24,16 +24,16 @@ void MyScore::update(float deltaTime)
 
 }
 
-void MyScore::addscore(int amount) {
+void MyScore::addscore(float deltaTime) {
 	// ###############################################################
 	// Add to the currentscore
 	// ###############################################################
-	currentscore += amount;
+	currentscore += 1000 * deltaTime;
 }
 
-void MyScore::subtractscore(int amount) {
+void MyScore::subtractscore(float deltaTime) {
 	// ###############################################################
 	// Subtract from the currentscore
 	// ###############################################################
-	currentscore -= amount;
+	currentscore -= 1000 * deltaTime;
 }

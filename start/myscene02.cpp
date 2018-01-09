@@ -314,17 +314,17 @@ void MyScene02::update(float deltaTime)
 	// Call collision function and set radius of object
 	// ###############################################################
 	for (n02 = 0; n02 < mycar.size(); ++n02) {
-		collision(xa2, ya2, ra2,mycar[n02]->position.x, mycar[n02]->position.y, 125, 1);
+		collision(xa2, ya2, ra2,mycar[n02]->position.x, mycar[n02]->position.y, 125, 1, deltaTime);
 	}
 	for (n02 = 0; n02 < mytree.size(); ++n02) {
-		collision(xa2, ya2, ra2,mytree[n02]->position.x, mytree[n02]->position.y, 50, 2);
+		collision(xa2, ya2, ra2,mytree[n02]->position.x, mytree[n02]->position.y, 50, 2, deltaTime);
 	}
 	for (n02 = 0; n02 < myperson.size(); ++n02) {
-		collision(xa2, ya2, ra2,myperson[n02]->position.x, myperson[n02]->position.y, 26, 3);
+		collision(xa2, ya2, ra2,myperson[n02]->position.x, myperson[n02]->position.y, 26, 3, deltaTime);
 	}
 }
 
-void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, float re, float no) {
+void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, float re, float no, float deltaTime) {
 	// ###############################################################
 	// Collision ufo
 	// ###############################################################
@@ -339,10 +339,10 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 				//std::cout << "Car";
 				//std::cout << "|";
 				if (MyUfo::noa == 1) {
-					score.addscore(10);
+					score.addscore(deltaTime);
 				}
 				else {
-					score.subtractscore(10);
+					score.subtractscore(deltaTime);
 				}
 				//remove object
 			}
@@ -351,10 +351,10 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 				//std::cout << "Tree";
 				//std::cout << "|";
 				if (MyUfo::noa == 3) {
-					score.addscore(10);
+					score.addscore(deltaTime);
 				}
 				else {
-					score.subtractscore(10);
+					score.subtractscore(deltaTime);
 				}
 				//remove object
 			}
@@ -363,10 +363,10 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 				//std::cout << "Person";
 				//std::cout << "|";
 				if (MyUfo::noa == 2) {
-					score.addscore(10);
+					score.addscore(deltaTime);
 				}
 				else {
-					score.subtractscore(10);
+					score.subtractscore(deltaTime);
 				}
 				//remove object
 			}

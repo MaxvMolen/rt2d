@@ -366,13 +366,13 @@ void MyScene03::update(float deltaTime)
 	// Call collision function and set radius of object
 	// ###############################################################
 	for (n03 = 0; n03 < mycar.size(); ++n03) {
-		collision(xa3, ya3, ra3,mycar[n03]->position.x, mycar[n03]->position.y, 125, 1);
+		collision(xa3, ya3, ra3,mycar[n03]->position.x, mycar[n03]->position.y, 125, 1, deltaTime);
 	}
 	for (n03 = 0; n03 < mytree.size(); ++n03) {
-		collision(xa3, ya3, ra3,mytree[n03]->position.x, mytree[n03]->position.y, 50, 2);
+		collision(xa3, ya3, ra3,mytree[n03]->position.x, mytree[n03]->position.y, 50, 2, deltaTime);
 	}
 	for (n03 = 0; n03 < myperson.size(); ++n03) {
-		collision(xa3, ya3, ra3,myperson[n03]->position.x, myperson[n03]->position.y, 25, 3);
+		collision(xa3, ya3, ra3,myperson[n03]->position.x, myperson[n03]->position.y, 25, 3, deltaTime);
 	}
 	//test
 	//collision(myhouse[2]->position.x, myhouse[2]->position.y, 200);
@@ -410,7 +410,7 @@ void MyScene03::update(float deltaTime)
 	}
 }
 
-void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, float re, float no) {
+void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, float re, float no, float deltaTime) {
 	// ###############################################################
 	// Collision ufo
 	// ###############################################################
@@ -425,10 +425,10 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 				//std::cout << "Car";
 				//std::cout << "|";
 				if (MyUfo::noa == 1) {
-					score.addscore(10);
+					score.addscore(deltaTime);
 				}
 				else {
-					score.subtractscore(10);
+					score.subtractscore(deltaTime);
 				}
 				//remove object
 			}
@@ -437,10 +437,10 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 				//std::cout << "Tree";
 				//std::cout << "|";
 				if (MyUfo::noa == 3) {
-					score.addscore(10);
+					score.addscore(deltaTime);
 				}
 				else {
-					score.subtractscore(10);
+					score.subtractscore(deltaTime);
 				}
 				//remove object
 			}
@@ -449,10 +449,10 @@ void MyScene03::collision(float xu, float yu, float ru, float xe, float ye, floa
 				//std::cout << "Person";
 				//std::cout << "|";
 				if (MyUfo::noa == 2) {
-					score.addscore(10);
+					score.addscore(deltaTime);
 				}
 				else {
-					score.subtractscore(10);
+					score.subtractscore(deltaTime);
 				}//
 				std::vector<MyPerson*>::iterator it = myperson.begin();
 				while (it != myperson.end()){

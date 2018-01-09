@@ -27,9 +27,9 @@ public:
 	/// @brief keeps track of the current score
 	static int currentscore;
 	/// @brief add core to the currenscore
-	virtual void addscore(int amount);
+	virtual void addscore(float deltaTime);
 	/// @brief subtract score from the currenscore
-	virtual void subtractscore(int amount);
+	virtual void subtractscore(float deltaTime);
 
 private:
 	/* add your private declarations */

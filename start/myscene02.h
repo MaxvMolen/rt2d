@@ -36,7 +36,7 @@ public:
 	/// @param re the radius of the object
 	/// @param no the number specific to the object
 	/// @return void
-	virtual void collision(float xu, float yu, float ru, float xe, float ye, float re, float no);
+	virtual void collision(float xu, float yu, float ru, float xe, float ye, float re, float no, float deltaTime);
 protected:
 	
 private:
