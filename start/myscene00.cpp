@@ -257,6 +257,12 @@ void MyScene00::update(float deltaTime)
 	text[0]->message(cs.str());
 	text[0]->position.y = 30;
 	// ###############################################################
+	// Menu button
+	// ###############################################################
+	if (input()->getKey(Enter)) {
+		CoreScene::sceneselect(2); // First level
+	}
+	// ###############################################################
 	// Escape key stops the Scene
 	// ###############################################################
 	CoreScene::quit();
