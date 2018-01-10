@@ -23,9 +23,9 @@ MyScene01::MyScene01() : CoreScene()
 	// ###############################################################
 	mytext = new BasicEntity();
 	mytext->addSprite("assets/StartText.tga");
-	mytext->position = Point2(SWIDTH / 2 + 25, SHEIGHT / 2 - 25);
+	mytext->position = Point2(SWIDTH / 2 + 25, SHEIGHT / 2 - 15);
 	layers[1]->addChild(mytext);
-	mytext->scale = Point2(1.0f, 0.6f);
+	mytext->scale = Point2(1.0f, 0.7f);
 	// ###############################################################
 	// create myexampleright
 	// ###############################################################
@@ -77,7 +77,8 @@ MyScene01::MyScene01() : CoreScene()
 	text[9]->message("Use the beige ship to pick up humans, use the red ship to pick up", WHITE);
 	text[10]->message("car's and use the green ship to pick up trees.", WHITE);
 	text[11]->message("_______________________________________________________________________________", WHITE);
-	text[12]->message("Use H key to go back to the menu", WHITE);
+	text[12]->message("Use the H key to go back to the menu", WHITE);
+	text[13]->message("Use the P key to go pause the game, press p again to resume the game", WHITE);
 	//Position text
 	text[2]->position = Point2(SWIDTH / 2 + 295, SHEIGHT / 2 - 270);
 	text[3]->position = Point2(SWIDTH / 2 + 295, SHEIGHT / 2 + 270);
@@ -90,6 +91,7 @@ MyScene01::MyScene01() : CoreScene()
 	text[10]->position = Point2(50, 500 - 0);
 	text[11]->position = Point2(50, 500 + 30);
 	text[12]->position = Point2(50, 90 + 560);
+	text[13]->position = Point2(50, 120 + 560);
 	//Scale text
 	text[2]->scale = Point2(1.0f, 1.0f);
 	text[3]->scale = Point2(1.0f, 1.0f);
