@@ -19,11 +19,6 @@ int totalsmallbench00 = 4;
 int totalperson00 = 8;
 int n00;
 
-//myufo
-float xa0 = 1; // x position myufo
-float ya0 = 1; // y position myufo
-float ra0 = 25; // radius myufo
-
 MyScene00::MyScene00() : CoreScene()
 {
 	// ###############################################################
@@ -186,22 +181,6 @@ MyScene00::MyScene00() : CoreScene()
 		layers[2]->addChild(person);
 	}
 	// ###############################################################
-	// create light for underneath the ufo
-	// ###############################################################
-	light = new BasicEntity();
-	light->addSprite("assets/StartUfoLight.tga");
-	light->scale = Point(0.7f, 0.7f);
-	light->sprite()->color.r = 181;
-	light->sprite()->color.g = 181;
-	light->sprite()->color.b = 181;
-	layers[6]->addChild(light);
-	// ###############################################################
-	// create ufo for the level
-	// ###############################################################
-	myufo = new MyUfo();
-	myufo->position = Point2(SWIDTH / 2, SHEIGHT / 2);
-	layers[7]->addChild(myufo);
-	// ###############################################################
 	// create header for the level
 	// ###############################################################
 	myheader = new BasicEntity();
@@ -213,8 +192,6 @@ MyScene00::MyScene00() : CoreScene()
 MyScene00::~MyScene00()
 {
 	this->removeChild(myback);
-	this->removeChild(myufo);
-	this->removeChild(light);
 	this->removeChild(myheader);
 	for (n00 = 0; n00 < myroads.size(); ++n00) {
 		delete myroads[n00];
@@ -247,8 +224,6 @@ MyScene00::~MyScene00()
 	mygarden.clear();
 
 	delete myback;
-	delete myufo;
-	delete light;
 	delete myheader;
 }
 
@@ -265,16 +240,6 @@ void MyScene00::update(float deltaTime)
 	// Escape key stops the Scene
 	// ###############################################################
 	CoreScene::quit();
-	// ###############################################################
-	// Update X and Y position of light
-	// ###############################################################
-	light->position.x = myufo->position.x;
-	light->position.y = myufo->position.y;
-	// ###############################################################
-	// Update X and Y position of myufo
-	// ###############################################################
-	xa0 = myufo->position.x;
-	ya0 = myufo->position.y;
 	// ###############################################################
 	// Move car over the road
 	// ###############################################################
