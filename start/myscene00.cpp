@@ -187,12 +187,30 @@ MyScene00::MyScene00() : CoreScene()
 	myheader->addSprite("assets/StartHeader.tga");
 	myheader->position = Point2(SWIDTH / 2, 125);
 	layers[5]->addChild(myheader);
+	// ###############################################################
+	// create Start header
+	// ###############################################################
+	myheaderstart = new BasicEntity();
+	myheaderstart->addSprite("assets/StartHStart.tga");
+	myheaderstart->position = Point2(SWIDTH / 2, 335);
+	myheaderstart->scale = Point(0.8f, 0.8f);
+	layers[5]->addChild(myheaderstart);
+	// ###############################################################
+	// create Tutorial header
+	// ###############################################################
+	myheadertutorial = new BasicEntity();
+	myheadertutorial->addSprite("assets/StartHTutorial.tga");
+	myheadertutorial->position = Point2(SWIDTH / 2, 525);
+	myheadertutorial->scale = Point(0.8f, 0.8f);
+	layers[5]->addChild(myheadertutorial);
 }
 
 MyScene00::~MyScene00()
 {
 	this->removeChild(myback);
 	this->removeChild(myheader);
+	this->removeChild(myheaderstart);
+	this->removeChild(myheadertutorial);
 	for (n00 = 0; n00 < myroads.size(); ++n00) {
 		delete myroads[n00];
 		myroads[n00] = NULL;
@@ -225,6 +243,8 @@ MyScene00::~MyScene00()
 
 	delete myback;
 	delete myheader;
+	delete myheaderstart;
+	delete myheadertutorial;
 }
 
 void MyScene00::update(float deltaTime)
