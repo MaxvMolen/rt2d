@@ -6,7 +6,7 @@
 
 #include "myufo.h"
 
-bool MyUfo::movementonoff = true;
+//bool MyUfo::movementonoff = true;
 
 int rotationSpeed = 10; // speed of rotation
 int speed; // speed of player
@@ -31,7 +31,6 @@ void MyUfo::update(float deltaTime)
 	// ###############################################################
 	// Rotate player automatic
 	// ###############################################################
-	if (movementonoff == true) {
 		this->rotation.z -= rotationSpeed * deltaTime; // 90 deg/sec
 		if (this->rotation.z > TWO_PI) {
 			this->rotation.z -= TWO_PI;
@@ -57,7 +56,6 @@ void MyUfo::update(float deltaTime)
 	// Update ChangeUfo
 	// ###############################################################
 		changeUfo();
-	} // movementonoff
 	// ###############################################################
 	// Update Bounderies  width,height
 	// ###############################################################

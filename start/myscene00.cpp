@@ -215,7 +215,6 @@ MyScene00::MyScene00() : CoreScene()
 	// ###############################################################
 	myufo = new MyUfo();
 	myufo->position = Point2(SWIDTH / 2, SHEIGHT / 2);
-	myufo->movementonoff = true;
 	layers[7]->addChild(myufo);
 	// ###############################################################
 	// create light
@@ -278,6 +277,7 @@ void MyScene00::update(float deltaTime)
 	// ###############################################################
 	if (mytree.size() == 0 && myperson.size() == 0 && mycar.size() == 0) {
 		CoreScene::sceneselect(2); // next level
+		started = false;
 	}
 	// ###############################################################
 	// Currentscore counter top right
@@ -287,18 +287,24 @@ void MyScene00::update(float deltaTime)
 	text[0]->message(cs.str());
 	text[0]->position.y = 30;
 	// ###############################################################
+	// Menu
+	// ###############################################################
+	if (input()->getKeyUp(KeyCode::H)) {
+		started = false;
+	}
+	// ###############################################################
 	// Start game
 	// ###############################################################
 	if (started != true) {
 		if (input()->getKey(Enter)) {
-			myufo->movementonoff = true;
+			//myufo->movementonoff = true;
 			myheader->position.x = -500;
 			myheaderstart->position.x = -500;
 			myheadertutorial->position.x = -500;
 			started = true;
 		}
 		else {
-			myufo->movementonoff = false;
+			//myufo->movementonoff = false;
 			myufo->position.x = -100;
 			myufo->position.y = -100;
 			light->position.x = -100;
@@ -307,12 +313,6 @@ void MyScene00::update(float deltaTime)
 			myheaderstart->position = Point2(SWIDTH / 2, 335);
 			myheadertutorial->position = Point2(SWIDTH / 2, 525);
 		}
-	}
-
-	// ###############################################################
-	// Go to tutorial
-	// ###############################################################
-	if (started != true) {
 		if (input()->getKeyUp(KeyCode::Space)) {
 			activescene++;
 		}
@@ -321,8 +321,9 @@ void MyScene00::update(float deltaTime)
 	// last level (for testing)
 	// ##############################################################################################################################
 	if (input()->getKeyUp(KeyCode::RightBracket)) {
-		started = false;
+		//started = true;
 		CoreScene::sceneselect(2);
+		started = false;
 	}
 	// ###############################################################
 	// Escape key stops the Scene
@@ -405,7 +406,7 @@ void MyScene00::collision(float xu, float yu, float ru, float xe, float ye, floa
 			}
 			else if (no == 2) {
 				//collision object
-				//std::cout << "Tree";
+				//
 				//std::cout << "|";
 				if (MyUfo::noa == 3) {
 					score.addscore(deltaTime);

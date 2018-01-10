@@ -121,7 +121,6 @@ MyScene01::~MyScene01()
 
 void MyScene01::update(float deltaTime)
 {
-	myufo->movementonoff = true;
 	// ###############################################################
 	// Currentscore counter top right
 	// ###############################################################
