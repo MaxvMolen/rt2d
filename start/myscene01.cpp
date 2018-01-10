@@ -23,7 +23,7 @@ MyScene01::MyScene01() : CoreScene()
 	// ###############################################################
 	mytext = new BasicEntity();
 	mytext->addSprite("assets/StartText.tga");
-	mytext->position = Point2(SWIDTH / 2 + 25, SHEIGHT / 2 - 40);
+	mytext->position = Point2(SWIDTH / 2 + 25, SHEIGHT / 2 - 25);
 	layers[1]->addChild(mytext);
 	mytext->scale = Point2(1.0f, 0.6f);
 	// ###############################################################
@@ -77,6 +77,7 @@ MyScene01::MyScene01() : CoreScene()
 	text[9]->message("Use the beige ship to pick up humans, use the red ship to pick up", WHITE);
 	text[10]->message("car's and use the green ship to pick up trees.", WHITE);
 	text[11]->message("_______________________________________________________________________________", WHITE);
+	text[12]->message("Use Space to go to the next scene and Backspace to go back a scene", WHITE);
 	//Position text
 	text[2]->position = Point2(SWIDTH / 2 + 295, SHEIGHT / 2 - 270);
 	text[3]->position = Point2(SWIDTH / 2 + 295, SHEIGHT / 2 + 270);
@@ -88,6 +89,7 @@ MyScene01::MyScene01() : CoreScene()
 	text[9]->position = Point2(50, 500 - 30);
 	text[10]->position = Point2(50, 500 - 0);
 	text[11]->position = Point2(50, 500 + 30);
+	text[12]->position = Point2(50, 90 + 560);
 	//Scale text
 	text[2]->scale = Point2(1.0f, 1.0f);
 	text[3]->scale = Point2(1.0f, 1.0f);
