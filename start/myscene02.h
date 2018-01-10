@@ -3,23 +3,23 @@
  *
  * @file myscene03.h
  *
- * @brief description of MyScene03 behavior.
+ * @brief description of MyScene02 behavior.
  */
 
-#ifndef MYSCENE03_H
-#define MYSCENE03_H
+#ifndef MYSCENE02_H
+#define MYSCENE02_H
 
 #include <rt2d/scene.h>
 #include "corescene.h"
 
 /// @brief The MyScene class is the Scene implementation.
-class MyScene03 : public CoreScene
+class MyScene02 : public CoreScene
 {
 public:
 	/// @brief Constructor
-	MyScene03();
+	MyScene02();
 	/// @brief Destructor
-	virtual ~MyScene03();
+	virtual ~MyScene02();
 
 	/// @brief update is automatically called every frame
 	/// @param deltaTime the elapsed time in seconds
@@ -68,4 +68,4 @@ private:
 	BasicEntity* myback;
 };
 
-#endif /* MYSCENE03_H */
+#endif /* MYSCENE02_H */
