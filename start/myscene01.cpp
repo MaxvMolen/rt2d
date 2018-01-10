@@ -77,7 +77,7 @@ MyScene01::MyScene01() : CoreScene()
 	text[9]->message("Use the beige ship to pick up humans, use the red ship to pick up", WHITE);
 	text[10]->message("car's and use the green ship to pick up trees.", WHITE);
 	text[11]->message("_______________________________________________________________________________", WHITE);
-	text[12]->message("Use Space to go to the next scene and Backspace to go back a scene", WHITE);
+	text[12]->message("Use H key to go back to the menu", WHITE);
 	//Position text
 	text[2]->position = Point2(SWIDTH / 2 + 295, SHEIGHT / 2 - 270);
 	text[3]->position = Point2(SWIDTH / 2 + 295, SHEIGHT / 2 + 270);
@@ -121,6 +121,7 @@ MyScene01::~MyScene01()
 
 void MyScene01::update(float deltaTime)
 {
+	myufo->movementonoff = true;
 	// ###############################################################
 	// Currentscore counter top right
 	// ###############################################################
@@ -137,4 +138,10 @@ void MyScene01::update(float deltaTime)
 	// ###############################################################
 	light->position.x = myufo->position.x;
 	light->position.y = myufo->position.y;
+	// ###############################################################
+	// Menu
+	// ###############################################################
+	if (input()->getKeyUp(KeyCode::H)) {
+		CoreScene::sceneselect(0);
+	}
 }

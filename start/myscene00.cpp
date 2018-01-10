@@ -19,6 +19,13 @@ int totalsmallbench00 = 4;
 int totalperson00 = 8;
 int n00;
 
+bool started = false;
+
+//myufo
+float xa0 = 1; // x position myufo
+float ya0 = 1; // y position myufo
+float ra0 = 25; // radius myufo
+
 MyScene00::MyScene00() : CoreScene()
 {
 	// ###############################################################
@@ -203,6 +210,23 @@ MyScene00::MyScene00() : CoreScene()
 	myheadertutorial->position = Point2(SWIDTH / 2, 525);
 	myheadertutorial->scale = Point(0.8f, 0.8f);
 	layers[5]->addChild(myheadertutorial);
+	// ###############################################################
+	// create Ufo
+	// ###############################################################
+	myufo = new MyUfo();
+	myufo->position = Point2(SWIDTH / 2, SHEIGHT / 2);
+	myufo->movementonoff = true;
+	layers[7]->addChild(myufo);
+	// ###############################################################
+	// create light
+	// ###############################################################
+	light = new BasicEntity();
+	light->addSprite("assets/StartUfoLight.tga");
+	light->scale = Point(0.7f, 0.7f);
+	light->sprite()->color.r = 181;
+	light->sprite()->color.g = 181;
+	light->sprite()->color.b = 181;
+	layers[6]->addChild(light);
 }
 
 MyScene00::~MyScene00()
@@ -250,6 +274,12 @@ MyScene00::~MyScene00()
 void MyScene00::update(float deltaTime)
 {
 	// ###############################################################
+	// Change scene when all items are removed
+	// ###############################################################
+	if (mytree.size() == 0 && myperson.size() == 0 && mycar.size() == 0) {
+		CoreScene::sceneselect(2); // next level
+	}
+	// ###############################################################
 	// Currentscore counter top right
 	// ###############################################################
 	std::stringstream cs;
@@ -257,14 +287,151 @@ void MyScene00::update(float deltaTime)
 	text[0]->message(cs.str());
 	text[0]->position.y = 30;
 	// ###############################################################
-	// Menu button
+	// Start game
 	// ###############################################################
-	if (input()->getKey(Enter)) {
-		CoreScene::sceneselect(2); // First level
+	if (started != true) {
+		if (input()->getKey(Enter)) {
+			myufo->movementonoff = true;
+			myheader->position.x = -500;
+			myheaderstart->position.x = -500;
+			myheadertutorial->position.x = -500;
+			started = true;
+		}
+		else {
+			myufo->movementonoff = false;
+			myufo->position.x = -100;
+			myufo->position.y = -100;
+			light->position.x = -100;
+			light->position.y = -100;
+			myheader->position = Point2(SWIDTH / 2, 125);
+			myheaderstart->position = Point2(SWIDTH / 2, 335);
+			myheadertutorial->position = Point2(SWIDTH / 2, 525);
+		}
+	}
+
+	// ###############################################################
+	// Go to tutorial
+	// ###############################################################
+	if (started != true) {
+		if (input()->getKeyUp(KeyCode::Space)) {
+			activescene++;
+		}
+	}
+	// ##############################################################################################################################
+	// last level (for testing)
+	// ##############################################################################################################################
+	if (input()->getKeyUp(KeyCode::RightBracket)) {
+		started = false;
+		CoreScene::sceneselect(2);
 	}
 	// ###############################################################
 	// Escape key stops the Scene
 	// ###############################################################
 	CoreScene::quit();
+	// ###############################################################
+	// Update X and Y position of light
+	// ###############################################################
+	if (started == true) {
+		light->position.x = myufo->position.x;
+		light->position.y = myufo->position.y;
+	}
+	// ###############################################################
+	// Update X and Y position of myufo
+	// ###############################################################
+	if (started == true) {
+		xa0 = myufo->position.x;
+		ya0 = myufo->position.y;
+	}
+	// ###############################################################
+	// Move car over the road
+	// ###############################################################
+	if (started == true) {
+		mycar[0]->position.x += 600 * deltaTime;
+		if (mycar[0]->position.x >= 1980) {
+			mycar[0]->position.x = -500;
+		}
+		mycar[1]->position.x -= 600 * deltaTime;
+		if (mycar[1]->position.x <= -200) {
+			mycar[1]->position.x = 2000;
+		}
+		mycar[2]->position.x -= 600 * deltaTime;
+		if (mycar[2]->position.x <= -200) {
+			mycar[2]->position.x = 2000;
+		}
+		mycar[3]->position.x += 600 * deltaTime;
+		if (mycar[3]->position.x >= 1980) {
+			mycar[3]->position.x = -500;
+		}
+	}
+	// ###############################################################
+	// Call collision function and set radius of object
+	// ###############################################################
+	if (started == true) {
+		for (n00 = 0; n00 < mycar.size(); ++n00) {
+			collision(xa0, ya0, ra0, mycar[n00]->position.x, mycar[n00]->position.y, 125, 1, deltaTime);
+		}
+		for (n00 = 0; n00 < mytree.size(); ++n00) {
+			collision(xa0, ya0, ra0, mytree[n00]->position.x, mytree[n00]->position.y, 50, 2, deltaTime);
+		}
+		for (n00 = 0; n00 < myperson.size(); ++n00) {
+			collision(xa0, ya0, ra0, myperson[n00]->position.x, myperson[n00]->position.y, 26, 3, deltaTime);
+		}
+	}
 }
 
+
+
+void MyScene00::collision(float xu, float yu, float ru, float xe, float ye, float re, float no, float deltaTime) {
+	// ###############################################################
+	// Collision ufo
+	// ###############################################################
+	if ((xu - xe)*(xu - xe) + (yu - ye)*(yu - ye) < ru*re) {
+
+		// use w to break the lock and pick the item up
+		if (input()->getKey('W')) {
+			//std::cout << score.currentscore;
+			//std::cout << "|";
+			if (no == 1) {
+				//collision object
+				//std::cout << "Car";
+				//std::cout << "|";
+				if (MyUfo::noa == 1) {
+					score.addscore(deltaTime);
+				}
+				else {
+					score.subtractscore(deltaTime);
+				}
+				//remove object
+			}
+			else if (no == 2) {
+				//collision object
+				//std::cout << "Tree";
+				//std::cout << "|";
+				if (MyUfo::noa == 3) {
+					score.addscore(deltaTime);
+				}
+				else {
+					score.subtractscore(deltaTime);
+				}
+				//remove object
+			}
+			else if (no == 3) {
+				//collision object
+				//std::cout << "Person";
+				//std::cout << "|";
+				if (MyUfo::noa == 2) {
+					score.addscore(deltaTime);
+				}
+				else {
+					score.subtractscore(deltaTime);
+				}
+				//remove object
+			}
+		}
+		else {
+			// lock the ufo in place on collision of object 
+			myufo->position.x = xe;
+			myufo->position.y = ye;
+		}
+	}
+}

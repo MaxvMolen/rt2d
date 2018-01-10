@@ -172,8 +172,6 @@ IF(MAKE_START)
 		start/myscene00.h
 		start/myscene01.cpp
 		start/myscene01.h
-		start/myscene02.cpp
-		start/myscene02.h
 		start/myscene03.cpp
 		start/myscene03.h
 		start/corescene.cpp

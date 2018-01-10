@@ -72,7 +72,7 @@ void CoreScene::quit() {
 	if (input()->getKeyUp(KeyCode::Escape)) {
 		this->stop();
 	}
-	// ###############################################################
+	/*// ###############################################################
 	// 'Space' and 'BackSpace' to switch scenes
 	// ###############################################################
 	if (input()->getKeyUp(KeyCode::Backspace)) {
@@ -80,7 +80,7 @@ void CoreScene::quit() {
 	}
 	if (input()->getKeyUp(KeyCode::Space)) {
 		activescene++;
-	}
+	}*/
 }
 
 void CoreScene::sceneselect(int ds) {

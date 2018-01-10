@@ -349,6 +349,12 @@ void MyScene03::update(float deltaTime)
 		CoreScene::sceneselect(0); // main menu
 	}
 	// ###############################################################
+	// Menu
+	// ###############################################################
+	if (input()->getKeyUp(KeyCode::H)) {
+		CoreScene::sceneselect(0);
+	}
+	// ###############################################################
 	// Update X and Y position of light
 	// ###############################################################
 	light->position.x = myufo->position.x;
@@ -374,8 +380,6 @@ void MyScene03::update(float deltaTime)
 	for (n03 = 0; n03 < myperson.size(); ++n03) {
 		collision(xa3, ya3, ra3,myperson[n03]->position.x, myperson[n03]->position.y, 25, 3, deltaTime);
 	}
-	//test
-	//collision(myhouse[2]->position.x, myhouse[2]->position.y, 200);
 	// ###############################################################
 	// Move car over the road + bounderies
 	// ###############################################################

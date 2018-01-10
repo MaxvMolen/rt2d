@@ -18,7 +18,6 @@
 
 #include "myscene00.h"
 #include "myscene01.h"
-#include "myscene02.h"
 #include "myscene03.h"
 
 /// @brief main entry point
@@ -30,7 +29,6 @@ int main( void )
 	std::vector<CoreScene*> myscenes;
 	myscenes.push_back(new MyScene00());
 	myscenes.push_back(new MyScene01());
-	myscenes.push_back(new MyScene02());
 	myscenes.push_back(new MyScene03());
 	int s = myscenes.size();
 

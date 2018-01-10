@@ -6,6 +6,8 @@
 
 #include "myufo.h"
 
+bool MyUfo::movementonoff = true;
+
 int rotationSpeed = 10; // speed of rotation
 int speed; // speed of player
 
@@ -29,41 +31,39 @@ void MyUfo::update(float deltaTime)
 	// ###############################################################
 	// Rotate player automatic
 	// ###############################################################
-	this->rotation.z -= rotationSpeed * deltaTime; // 90 deg/sec
-	if (this->rotation.z > TWO_PI) {
-		this->rotation.z -= TWO_PI;
-	}
-	// ###############################################################
-	// Rotate player faster with W
-	// ###############################################################
-	if (input()->getKey('W')) {
+	if (movementonoff == true) {
 		this->rotation.z -= rotationSpeed * deltaTime; // 90 deg/sec
-		speed = 600;
 		if (this->rotation.z > TWO_PI) {
 			this->rotation.z -= TWO_PI;
 		}
 	}
-	else {
-		speed = 300;
-	}
 	// ###############################################################
-	// Slow down rotation with E slows down to 0 if W isnt held
+	// Rotate player faster with W
 	// ###############################################################
-	if (input()->getKey('E')) {
-		this->rotation.z += rotationSpeed * deltaTime; // 90 deg/sec
-		if (this->rotation.z > TWO_PI) {
-			this->rotation.z += TWO_PI;
+	if (movementonoff == true) {
+		if (input()->getKey('W')) {
+			this->rotation.z -= rotationSpeed * deltaTime; // 90 deg/sec
+			speed = 600;
+			if (this->rotation.z > TWO_PI) {
+				this->rotation.z -= TWO_PI;
+			}
+		}
+		else {
+			speed = 300;
 		}
 	}
-
 	// ###############################################################
 	// Update Movement
 	// ###############################################################
-	movement(deltaTime);
+	if (movementonoff == true) {
+		movement(deltaTime);
+	}
 	// ###############################################################
 	// Update ChangeUfo
 	// ###############################################################
-	changeUfo();
+	if (movementonoff == true) {
+		changeUfo();
+	}
 	// ###############################################################
 	// Update Bounderies  width,height
 	// ###############################################################
