@@ -19,7 +19,6 @@ public:
 	MyScore();
 	/// @brief Destructor
 	virtual ~MyScore();
-
 	/// @brief update is automatically called every frame
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void

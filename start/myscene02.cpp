@@ -264,8 +264,13 @@ MyScene02::~MyScene02()
 {
 	// deconstruct and delete the Tree
 	this->removeChild(myback);
+	delete myback;
+
 	this->removeChild(myufo);
+	delete myufo;
+
 	this->removeChild(light);
+	delete light;
 
 	for (n02 = 0; n02 < myroads.size(); ++n02) {
 		delete myroads[n02];
@@ -327,10 +332,6 @@ MyScene02::~MyScene02()
 		mygarden[n02] = NULL;
 	}
 	mygarden.clear();
-
-	delete myback;
-	delete myufo;
-	delete light;
 }
 
 void MyScene02::update(float deltaTime)

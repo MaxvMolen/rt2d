@@ -38,6 +38,7 @@ public:
 	virtual void MyUfo::bounderies(float width, float height);
 	/// @brief current number of ship
 	static int noa;
+
 private:
 	/* add your private declarations */
 };

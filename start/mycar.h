@@ -19,7 +19,6 @@ public:
 	MyCar();
 	/// @brief Destructor
 	virtual ~MyCar();
-
 	/// @brief update is automatically called every frame
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void

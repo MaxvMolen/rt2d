@@ -231,9 +231,17 @@ MyScene00::MyScene00() : CoreScene()
 MyScene00::~MyScene00()
 {
 	this->removeChild(myback);
+	delete myback;
+
 	this->removeChild(myheader);
+	delete myheader;
+
 	this->removeChild(myheaderstart);
+	delete myheaderstart;
+
 	this->removeChild(myheadertutorial);
+	delete myheadertutorial;
+
 	for (n00 = 0; n00 < myroads.size(); ++n00) {
 		delete myroads[n00];
 		myroads[n00] = NULL;
@@ -263,11 +271,6 @@ MyScene00::~MyScene00()
 		mygarden[n00] = NULL;
 	}
 	mygarden.clear();
-
-	delete myback;
-	delete myheader;
-	delete myheaderstart;
-	delete myheadertutorial;
 }
 
 void MyScene00::update(float deltaTime)

@@ -20,7 +20,6 @@ public:
 	MyScene00();
 	/// @brief Destructor
 	virtual ~MyScene00();
-
 	/// @brief update is automatically called every frame
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
@@ -37,7 +36,6 @@ public:
 	/// @param no the number specific to the object
 	/// @return void
 	virtual void collision(float xu, float yu, float ru, float xe, float ye, float re, float no, float deltaTime);
-protected:
 	
 private:
 	/// @brief the rotating ufo you play in the game
@@ -66,7 +64,7 @@ private:
 	std::vector<BasicEntity*> mybenchb;
 	/// @brief the small bench in the background of the level
 	std::vector<BasicEntity*> mybenchs;
-	/// @brief the background
+	/// @brief the background of the scene
 	BasicEntity* myback;
 };
 

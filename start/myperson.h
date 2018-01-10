@@ -19,7 +19,6 @@ public:
 	MyPerson();
 	/// @brief Destructor
 	virtual ~MyPerson();
-
 	/// @brief update is automatically called every frame
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void

@@ -101,8 +101,10 @@ MyScene01::~MyScene01()
 {
 	this->removeChild(myufo);
 	delete myufo;
+
 	this->removeChild(light);
 	delete light;
+
 	this->removeChild(myback);
 	delete myback;
 

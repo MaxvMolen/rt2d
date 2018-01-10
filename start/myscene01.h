@@ -20,13 +20,10 @@ public:
 	MyScene01();
 	/// @brief Destructor
 	virtual ~MyScene01();
-
 	/// @brief update is automatically called every frame
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
 	virtual void update(float deltaTime);
-	
-protected:
 	
 private:
 	/// @brief the rotating ufo you play in the game
@@ -39,9 +36,9 @@ private:
 	BasicEntity* myexamplewrong;
 	/// @brief the header
 	BasicEntity* myheader;
-	/// @brief the background
+	/// @brief the background of the scene
 	BasicEntity* myback;
-	/// @brief the background
+	/// @brief the background of the text
 	BasicEntity* mytext;
 };
 
