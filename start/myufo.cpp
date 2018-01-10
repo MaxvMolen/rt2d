@@ -6,8 +6,6 @@
 
 #include "myufo.h"
 
-//bool MyUfo::movementonoff = true;
-
 int rotationSpeed = 10; // speed of rotation
 int speed; // speed of player
 

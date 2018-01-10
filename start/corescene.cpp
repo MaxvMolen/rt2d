@@ -33,10 +33,8 @@ CoreScene::CoreScene() : Scene()
 			layers[5]->addChild(line);
 		}
 	}
-
 	// create the scene 'tree'
 	// add myentity to this Scene as a child.
-
 }
 CoreScene::~CoreScene()
 {	
@@ -56,7 +54,6 @@ CoreScene::~CoreScene()
 		text[i] = NULL;
 	}
 	text.clear();
-
 	// delete myentity from the heap (there was a 'new' in the constructor)
 }
 
@@ -72,15 +69,6 @@ void CoreScene::quit() {
 	if (input()->getKeyUp(KeyCode::Escape)) {
 		this->stop();
 	}
-	/*// ###############################################################
-	// 'Space' and 'BackSpace' to switch scenes
-	// ###############################################################
-	if (input()->getKeyUp(KeyCode::Backspace)) {
-		activescene--;
-	}
-	if (input()->getKeyUp(KeyCode::Space)) {
-		activescene++;
-	}*/
 }
 
 void CoreScene::sceneselect(int ds) {

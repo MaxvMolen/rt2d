@@ -297,7 +297,6 @@ void MyScene00::update(float deltaTime)
 	// ###############################################################
 	if (started != true) {
 		if (input()->getKey(Enter)) {
-			//myufo->movementonoff = true;
 			myufo->position.x = SWIDTH / 2;
 			myufo->position.y = SHEIGHT / 2;
 			myheader->position.x = -500;
@@ -306,7 +305,6 @@ void MyScene00::update(float deltaTime)
 			started = true;
 		}
 		else {
-			//myufo->movementonoff = false;
 			myufo->position.x = -100;
 			myufo->position.y = -100;
 			light->position.x = -100;
@@ -323,7 +321,6 @@ void MyScene00::update(float deltaTime)
 	// last level (for testing)
 	// ##############################################################################################################################
 	if (input()->getKeyUp(KeyCode::RightBracket)) {
-		//started = true;
 		CoreScene::sceneselect(2);
 		started = false;
 	}
