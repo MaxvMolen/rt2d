@@ -6,6 +6,8 @@
 
 #include "myufo.h"
 
+bool MyUfo::movementonoff = true;
+
 int rotationSpeed = 10; // speed of rotation
 int speed; // speed of player
 
@@ -26,34 +28,36 @@ MyUfo::~MyUfo()
 
 void MyUfo::update(float deltaTime)
 {
-	// ###############################################################
-	// Rotate player automatic
-	// ###############################################################
-	this->rotation.z -= rotationSpeed * deltaTime; // 90 deg/sec
-	if (this->rotation.z > TWO_PI) {
-		this->rotation.z -= TWO_PI;
-	}
-	// ###############################################################
-	// Rotate player faster with W
-	// ###############################################################
-	if (input()->getKey('W')) {
+	if (movementonoff == true) {
+		// ###############################################################
+		// Rotate player automatic
+		// ###############################################################
 		this->rotation.z -= rotationSpeed * deltaTime; // 90 deg/sec
-		speed = 600;
 		if (this->rotation.z > TWO_PI) {
 			this->rotation.z -= TWO_PI;
 		}
+		// ###############################################################
+		// Rotate player faster with W
+		// ###############################################################
+		if (input()->getKey('W')) {
+			this->rotation.z -= rotationSpeed * deltaTime; // 90 deg/sec
+			speed = 600;
+			if (this->rotation.z > TWO_PI) {
+				this->rotation.z -= TWO_PI;
+			}
+		}
+		else {
+			speed = 300;
+		}
+		// ###############################################################
+		// Update Movement
+		// ###############################################################
+		movement(deltaTime);
+		// ###############################################################
+		// Update ChangeUfo
+		// ###############################################################
+		changeUfo();
 	}
-	else {
-		speed = 300;
-	}
-	// ###############################################################
-	// Update Movement
-	// ###############################################################
-	movement(deltaTime);
-	// ###############################################################
-	// Update ChangeUfo
-	// ###############################################################
-	changeUfo();
 	// ###############################################################
 	// Update Bounderies  width,height
 	// ###############################################################

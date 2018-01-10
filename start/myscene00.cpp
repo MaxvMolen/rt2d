@@ -19,7 +19,7 @@ int totalsmallbench00 = 4;
 int totalperson00 = 8;
 int n00;
 
-bool started = false;
+bool started00 = false;
 
 //myufo
 float xa0 = 1; // x position myufo
@@ -280,7 +280,7 @@ void MyScene00::update(float deltaTime)
 	// ###############################################################
 	if (mytree.size() == 0 && myperson.size() == 0 && mycar.size() == 0) {
 		CoreScene::sceneselect(2); // next level
-		started = false;
+		started00 = false;
 	}
 	// ###############################################################
 	// Currentscore counter top right
@@ -293,19 +293,19 @@ void MyScene00::update(float deltaTime)
 	// Menu
 	// ###############################################################
 	if (input()->getKeyUp(KeyCode::H)) {
-		started = false;
+		started00 = false;
 	}
 	// ###############################################################
 	// Start game
 	// ###############################################################
-	if (started != true) {
+	if (started00 != true) {
 		if (input()->getKey(Enter)) {
 			myufo->position.x = SWIDTH / 2;
 			myufo->position.y = SHEIGHT / 2;
 			myheader->position.x = -500;
 			myheaderstart->position.x = -500;
 			myheadertutorial->position.x = -500;
-			started = true;
+			started00 = true;
 		}
 		else {
 			myufo->position.x = -100;
@@ -325,7 +325,7 @@ void MyScene00::update(float deltaTime)
 	// ##############################################################################################################################
 	if (input()->getKeyUp(KeyCode::RightBracket)) {
 		CoreScene::sceneselect(2);
-		started = false;
+		started00 = false;
 	}
 	// ###############################################################
 	// Escape key stops the Scene
@@ -334,21 +334,21 @@ void MyScene00::update(float deltaTime)
 	// ###############################################################
 	// Update X and Y position of light
 	// ###############################################################
-	if (started == true) {
+	if (started00 == true) {
 		light->position.x = myufo->position.x;
 		light->position.y = myufo->position.y;
 	}
 	// ###############################################################
 	// Update X and Y position of myufo
 	// ###############################################################
-	if (started == true) {
+	if (started00 == true) {
 		xa0 = myufo->position.x;
 		ya0 = myufo->position.y;
 	}
 	// ###############################################################
 	// Move car over the road
 	// ###############################################################
-	if (started == true) {
+	if (started00 == true) {
 		mycar[0]->position.x += 600 * deltaTime;
 		if (mycar[0]->position.x >= 1980) {
 			mycar[0]->position.x = -500;
@@ -369,7 +369,7 @@ void MyScene00::update(float deltaTime)
 	// ###############################################################
 	// Call collision function and set radius of object
 	// ###############################################################
-	if (started == true) {
+	if (started00 == true) {
 		for (n00 = 0; n00 < mycar.size(); ++n00) {
 			collision(xa0, ya0, ra0, mycar[n00]->position.x, mycar[n00]->position.y, 125, 1, deltaTime);
 		}

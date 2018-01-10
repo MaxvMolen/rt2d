@@ -21,6 +21,10 @@ int totalpath02 = 14;
 int totalgarden02 = 3;
 int n02;
 
+int pcounter02;
+
+bool started02 = true;
+
 //myufo
 float xa2 = 1; // x position myufo
 float ya2 = 1; // y position myufo
@@ -356,15 +360,32 @@ void MyScene02::update(float deltaTime)
 		CoreScene::sceneselect(0);
 	}
 	// ###############################################################
+	// Pause game by pressing p
+	// ###############################################################
+	if (input()->getKeyDown(P)) {
+		started02 = false;
+		myufo->movementonoff = false;
+		pcounter02++;
+	}
+	if (pcounter02 == 2){
+		started02 = true;
+		myufo->movementonoff = true;
+		pcounter02 = 0;
+	}
+	// ###############################################################
 	// Update X and Y position of light
 	// ###############################################################
-	light->position.x = myufo->position.x;
-	light->position.y = myufo->position.y;
+	if (started02 == true) {
+		light->position.x = myufo->position.x;
+		light->position.y = myufo->position.y;
+	}
 	// ###############################################################
 	// Update X and Y position of myufo
 	// ###############################################################
-	xa2 = myufo->position.x;
-	ya2 = myufo->position.y;
+	if (started02 == true) {
+		xa2 = myufo->position.x;
+		ya2 = myufo->position.y;
+	}
 	// ###############################################################
 	// Escape key stops the Scene
 	// ###############################################################
@@ -372,46 +393,52 @@ void MyScene02::update(float deltaTime)
 	// ###############################################################
 	// Call collision function and set radius of object
 	// ###############################################################
-	for (n02 = 0; n02 < mycar.size(); ++n02) {
-		collision(xa2, ya2, ra2,mycar[n02]->position.x, mycar[n02]->position.y, 125, 1, deltaTime);
-	}
-	for (n02 = 0; n02 < mytree.size(); ++n02) {
-		collision(xa2, ya2, ra2,mytree[n02]->position.x, mytree[n02]->position.y, 50, 2, deltaTime);
-	}
-	for (n02 = 0; n02 < myperson.size(); ++n02) {
-		collision(xa2, ya2, ra2,myperson[n02]->position.x, myperson[n02]->position.y, 25, 3, deltaTime);
+	if (started02 == true) {
+		for (n02 = 0; n02 < mycar.size(); ++n02) {
+			collision(xa2, ya2, ra2, mycar[n02]->position.x, mycar[n02]->position.y, 125, 1, deltaTime);
+		}
+		for (n02 = 0; n02 < mytree.size(); ++n02) {
+			collision(xa2, ya2, ra2, mytree[n02]->position.x, mytree[n02]->position.y, 50, 2, deltaTime);
+		}
+		for (n02 = 0; n02 < myperson.size(); ++n02) {
+			collision(xa2, ya2, ra2, myperson[n02]->position.x, myperson[n02]->position.y, 25, 3, deltaTime);
+		}
 	}
 	// ###############################################################
 	// Move car over the road + bounderies
 	// ###############################################################
-	mycar[8]->position.x += 600 * deltaTime;
-	
-	if (mycar[8]->position.x >= 1980) {
-		mycar[8]->position.x = -79;
-	}
-	if (mycar[8]->position.x <= -80) {
-		mycar[8]->position.x = 1980;
+	if (started02 == true) {
+		mycar[8]->position.x += 600 * deltaTime;
+
+		if (mycar[8]->position.x >= 1980) {
+			mycar[8]->position.x = -79;
+		}
+		if (mycar[8]->position.x <= -80) {
+			mycar[8]->position.x = 1980;
+		}
 	}
 	// ###############################################################
 	// Move person over the road
 	// ###############################################################
-	if (myperson[3]->position.x != 420 && myperson[3]->position.y >= 810) {
-		myperson[3]->rotation.z = 4.7;
-		myperson[3]->position.x -= 200 * deltaTime;
-	}
-	if (myperson[3]->position.y >= 800 && myperson[3]->position.x <= 415) {
-		myperson[3]->position.y -= 200 * deltaTime;
-		myperson[3]->position.x += 200 * deltaTime;
-		myperson[3]->rotation.z = 0;
-	}
-	if (myperson[3]->position.y >= 800 && myperson[3]->position.y <= 810) {
-		myperson[3]->position.y += 200 * deltaTime;
-		myperson[3]->position.x -= 200 * deltaTime;
-		myperson[3]->rotation.z = 4.7;
-	}
-	if (myperson[3]->position.x <= -40) {
-		myperson[3]->position.x = 800;
-		myperson[3]->position.y = 1050;
+	if (started02 == true) {
+		if (myperson[3]->position.x != 420 && myperson[3]->position.y >= 810) {
+			myperson[3]->rotation.z = 4.7;
+			myperson[3]->position.x -= 200 * deltaTime;
+		}
+		if (myperson[3]->position.y >= 800 && myperson[3]->position.x <= 415) {
+			myperson[3]->position.y -= 200 * deltaTime;
+			myperson[3]->position.x += 200 * deltaTime;
+			myperson[3]->rotation.z = 0;
+		}
+		if (myperson[3]->position.y >= 800 && myperson[3]->position.y <= 810) {
+			myperson[3]->position.y += 200 * deltaTime;
+			myperson[3]->position.x -= 200 * deltaTime;
+			myperson[3]->rotation.z = 4.7;
+		}
+		if (myperson[3]->position.x <= -40) {
+			myperson[3]->position.x = 800;
+			myperson[3]->position.y = 1050;
+		}
 	}
 }
 
