@@ -265,6 +265,15 @@ MyScene02::~MyScene02()
 void MyScene02::update(float deltaTime)
 {
 	// ###############################################################
+	// Reset car position
+	// ###############################################################
+	if (input()->getKey(Space)) {
+		mycar[0]->position = Point2(-500, 1020);
+		mycar[1]->position = Point2(1950, 900);
+		mycar[2]->position = Point2(500, 900);
+		mycar[3]->position = Point2(700, 1020);
+	}
+	// ###############################################################
 	// Currentscore counter top right
 	// ###############################################################
 	std::stringstream cs;
