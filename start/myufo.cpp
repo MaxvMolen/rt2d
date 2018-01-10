@@ -36,11 +36,9 @@ void MyUfo::update(float deltaTime)
 		if (this->rotation.z > TWO_PI) {
 			this->rotation.z -= TWO_PI;
 		}
-	}
 	// ###############################################################
 	// Rotate player faster with W
 	// ###############################################################
-	if (movementonoff == true) {
 		if (input()->getKey('W')) {
 			this->rotation.z -= rotationSpeed * deltaTime; // 90 deg/sec
 			speed = 600;
@@ -51,19 +49,15 @@ void MyUfo::update(float deltaTime)
 		else {
 			speed = 300;
 		}
-	}
 	// ###############################################################
 	// Update Movement
 	// ###############################################################
-	if (movementonoff == true) {
 		movement(deltaTime);
-	}
 	// ###############################################################
 	// Update ChangeUfo
 	// ###############################################################
-	if (movementonoff == true) {
 		changeUfo();
-	}
+	} // movementonoff
 	// ###############################################################
 	// Update Bounderies  width,height
 	// ###############################################################
