@@ -298,6 +298,8 @@ void MyScene00::update(float deltaTime)
 	if (started != true) {
 		if (input()->getKey(Enter)) {
 			//myufo->movementonoff = true;
+			myufo->position.x = SWIDTH / 2;
+			myufo->position.y = SHEIGHT / 2;
 			myheader->position.x = -500;
 			myheaderstart->position.x = -500;
 			myheadertutorial->position.x = -500;
