@@ -1,7 +1,7 @@
 /**
  * Copyright 2017 Max van der Molen <maxharm1811@gmail.com>
  *
- * @file myscene03.h
+ * @file myscene02.h
  *
  * @brief description of MyScene02 behavior.
  */
