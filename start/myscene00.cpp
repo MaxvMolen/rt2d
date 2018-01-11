@@ -346,7 +346,7 @@ void MyScene00::update(float deltaTime)
 			myheadertutorial->position = Point2(SWIDTH / 2, 525);
 		}
 		if (input()->getKeyUp(KeyCode::Space)) {
-			myufo->movementonoff = true;
+			//myufo->movementonoff = true;
 			myufo->standard();
 			layers[0]->addChild(mypause);
 			activescene++;

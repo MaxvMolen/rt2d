@@ -10,7 +10,7 @@
 
 int pcounter01 = 0;
 
-bool started01 = false;
+bool started01 = true;
 bool switchs01 = false;
 
 MyScene01::MyScene01() : CoreScene()
