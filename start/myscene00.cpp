@@ -283,16 +283,10 @@ void MyScene00::update(float deltaTime)
 	// ###############################################################
 	if (started00 == false) {
 		myufo->movementonoff = false;
+		menu = true;
 	}
 	else {
 		myufo->movementonoff = true;
-	}
-	// ###############################################################
-	// Change scene when all items are removed
-	// ###############################################################
-	if (mytree.size() == 0 && myperson.size() == 0 && mycar.size() == 0 && menu == false) {
-		CoreScene::sceneselect(2); // next level
-		started00 = false;
 	}
 	// ###############################################################
 	// Currentscore counter top right
@@ -409,6 +403,13 @@ void MyScene00::update(float deltaTime)
 		for (n00 = 0; n00 < myperson.size(); ++n00) {
 			collision(xa0, ya0, ra0, myperson[n00]->position.x, myperson[n00]->position.y, 26, 3, deltaTime);
 		}
+	}
+	// ###############################################################
+	// Change scene when all items are removed
+	// ###############################################################
+	if (mytree.size() == 0 && myperson.size() == 0 && mycar.size() == 0 && menu == false) {
+		CoreScene::sceneselect(2); // next level
+		started00 = false;
 	}
 }
 
