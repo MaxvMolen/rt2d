@@ -145,6 +145,7 @@ void MyScene01::update(float deltaTime)
 	// Menu
 	// ###############################################################
 	if (input()->getKeyUp(KeyCode::H)) {
+		myufo->standard();
 		CoreScene::sceneselect(0);
 	}
 }
