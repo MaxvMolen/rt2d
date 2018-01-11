@@ -28,6 +28,10 @@ public:
 private:
 	/// @brief the background of the scene
 	BasicEntity* myback;
+	/// @brief the background of the text
+	BasicEntity* mytext;
+	/// @brief the header for start
+	BasicEntity* myheader;
 };
 
 #endif /* MYSCENE03_H */
