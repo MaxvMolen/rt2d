@@ -23,7 +23,7 @@ int pcounter00 = 0;
 
 bool started00 = false;
 bool menu = true;
-bool pause = false;
+bool switchs = false;
 
 //myufo
 float xa0 = 1; // x position myufo
@@ -284,8 +284,9 @@ void MyScene00::update(float deltaTime)
 	// ###############################################################
 	if (started00 == false) {
 		myufo->movementonoff = false;
-		if (pause == true) {
+		if (switchs == true) {
 			menu = true;
+			switchs = false;
 		}
 	}
 	else {
@@ -339,22 +340,21 @@ void MyScene00::update(float deltaTime)
 		started00 = false;
 		myufo->movementonoff = false;
 		pcounter00++;
-		pause == true;
 	}
 	if (pcounter00 == 2) {
 		started00 = true;
 		myufo->movementonoff = true;
 		pcounter00 = 0;
-		pause == false;
 	}
 	std::cout << pcounter00;
 	// ##############################################################################################################################
 	// last level (for testing)
 	// ##############################################################################################################################
 	if (input()->getKeyUp(KeyCode::RightBracket)) {
-		CoreScene::sceneselect(2);
 		myufo->movementonoff = true;
 		started00 = false;
+		switchs = true;
+		CoreScene::sceneselect(2);
 	}
 	// ###############################################################
 	// Escape key stops the Scene
