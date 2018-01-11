@@ -287,6 +287,7 @@ void MyScene00::update(float deltaTime)
 		if (switchs == true) {
 			menu = true;
 			switchs = false;
+			pcounter00 = 0;
 		}
 	}
 	else {
