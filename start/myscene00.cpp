@@ -326,6 +326,7 @@ void MyScene00::update(float deltaTime)
 	// ###############################################################
 	if (menu != false) {
 		if (input()->getKey(Enter)) {
+			pcounter00 = 0;
 			layers[0]->addChild(mypause);
 			myufo->movementonoff = true;
 			layers[7]->addChild(myufo);
