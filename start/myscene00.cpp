@@ -23,6 +23,7 @@ int pcounter00 = 0;
 
 bool started00 = false;
 bool menu = true;
+bool pause = false;
 
 //myufo
 float xa0 = 1; // x position myufo
@@ -283,7 +284,9 @@ void MyScene00::update(float deltaTime)
 	// ###############################################################
 	if (started00 == false) {
 		myufo->movementonoff = false;
-		menu = true;
+		if (pause == true) {
+			menu = true;
+		}
 	}
 	else {
 		myufo->movementonoff = true;
@@ -336,11 +339,13 @@ void MyScene00::update(float deltaTime)
 		started00 = false;
 		myufo->movementonoff = false;
 		pcounter00++;
+		pause == true;
 	}
 	if (pcounter00 == 2) {
 		started00 = true;
 		myufo->movementonoff = true;
 		pcounter00 = 0;
+		pause == false;
 	}
 	std::cout << pcounter00;
 	// ##############################################################################################################################
