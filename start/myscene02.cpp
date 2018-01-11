@@ -355,6 +355,12 @@ MyScene02::~MyScene02()
 void MyScene02::update(float deltaTime)
 {
 	// ###############################################################
+	// Credits (for testing purposes)
+	// ###############################################################
+	if (input()->getKeyUp(KeyCode::RightBracket)) {
+		CoreScene::sceneselect(3);
+	}
+	// ###############################################################
 	// Set Movement off / on
 	// ###############################################################
 	if (started02 == false) {
@@ -377,7 +383,7 @@ void MyScene02::update(float deltaTime)
 	if (mytree.size() == 0 && myperson.size() == 0 && mycar.size() == 0) {
 		myufo->standard();
 		layers[0]->addChild(mypause);
-		CoreScene::sceneselect(0); // main menu
+		CoreScene::sceneselect(3); // main menu
 	}
 	// ###############################################################
 	// Menu

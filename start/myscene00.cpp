@@ -377,7 +377,6 @@ void MyScene00::update(float deltaTime)
 		myufo->standard();
 		layers[0]->addChild(mypause);
 		CoreScene::sceneselect(2);
-
 	}
 	// ###############################################################
 	// Escape key stops the Scene
