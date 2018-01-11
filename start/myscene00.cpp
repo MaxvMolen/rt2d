@@ -336,7 +336,7 @@ void MyScene00::update(float deltaTime)
 		}
 	}
 	// ###############################################################
-	// Pause game by pressing p //Not working correctly at the moment
+	// Pause game by pressing p
 	// ###############################################################
 	if (input()->getKeyDown(P) && menu == false) {
 		started00 = false;
