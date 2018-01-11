@@ -290,7 +290,7 @@ void MyScene00::update(float deltaTime)
 	// ###############################################################
 	// Change scene when all items are removed
 	// ###############################################################
-	if (mytree.size() == 0 && myperson.size() == 0 && mycar.size() == 0) {
+	if (mytree.size() == 0 && myperson.size() == 0 && mycar.size() == 0 && menu == false) {
 		CoreScene::sceneselect(2); // next level
 		started00 = false;
 	}
