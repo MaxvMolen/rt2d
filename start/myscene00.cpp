@@ -359,10 +359,14 @@ void MyScene00::update(float deltaTime)
 			mycredits->position = Point2(SWIDTH / 2, 715);
 		}
 		if (input()->getKeyUp(KeyCode::Space)) {
-			//myufo->movementonoff = true;
 			myufo->standard();
 			layers[0]->addChild(mypause);
 			activescene++;
+		}
+		if (input()->getKeyUp(KeyCode::LeftAlt)) {
+			myufo->standard();
+			layers[0]->addChild(mypause);
+			CoreScene::sceneselect(3);
 		}
 	}
 	// ###############################################################
