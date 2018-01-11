@@ -341,6 +341,15 @@ MyScene02::~MyScene02()
 void MyScene02::update(float deltaTime)
 {
 	// ###############################################################
+	// Set Movement off / on
+	// ###############################################################
+	if (started02 == false) {
+		myufo->movementonoff = false;
+	}
+	else{
+		myufo->movementonoff = true;
+	}
+	// ###############################################################
 	// Currentscore counter top right
 	// ###############################################################
 	std::stringstream cs;
@@ -367,7 +376,7 @@ void MyScene02::update(float deltaTime)
 		myufo->movementonoff = false;
 		pcounter02++;
 	}
-	if (pcounter02 == 2){
+	if (pcounter02 == 2) {
 		started02 = true;
 		myufo->movementonoff = true;
 		pcounter02 = 0;

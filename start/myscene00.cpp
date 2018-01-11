@@ -19,7 +19,10 @@ int totalsmallbench00 = 4;
 int totalperson00 = 8;
 int n00;
 
+int pcounter00 = 0;
+
 bool started00 = false;
+bool menu = true;
 
 //myufo
 float xa0 = 1; // x position myufo
@@ -34,7 +37,7 @@ MyScene00::MyScene00() : CoreScene()
 	myback = new BasicEntity();
 	myback->addSprite("assets/StartBackground.tga");
 	myback->position = Point2(SWIDTH / 2, SHEIGHT / 2);
-	layers[0]->addChild(myback);
+	layers[1]->addChild(myback);
 	// ###############################################################
 	// create roads for the level
 	// ###############################################################
@@ -276,6 +279,15 @@ MyScene00::~MyScene00()
 void MyScene00::update(float deltaTime)
 {
 	// ###############################################################
+	// Set Movement off / on
+	// ###############################################################
+	if (started00 == false) {
+		myufo->movementonoff = false;
+	}
+	else {
+		myufo->movementonoff = true;
+	}
+	// ###############################################################
 	// Change scene when all items are removed
 	// ###############################################################
 	if (mytree.size() == 0 && myperson.size() == 0 && mycar.size() == 0) {
@@ -294,22 +306,24 @@ void MyScene00::update(float deltaTime)
 	// ###############################################################
 	if (input()->getKeyUp(KeyCode::H)) {
 		started00 = false;
+		menu = true;
 	}
 	// ###############################################################
 	// Start game
 	// ###############################################################
-	if (started00 != true) {
+	if (menu != false) {
 		if (input()->getKey(Enter)) {
-			myufo->position.x = SWIDTH / 2;
-			myufo->position.y = SHEIGHT / 2;
+			myufo->movementonoff = true;
+			layers[7]->addChild(myufo);
 			myheader->position.x = -500;
 			myheaderstart->position.x = -500;
 			myheadertutorial->position.x = -500;
 			started00 = true;
+			menu = false;
 		}
 		else {
-			myufo->position.x = -100;
-			myufo->position.y = -100;
+			layers[0]->addChild(myufo);
+			myufo->movementonoff = false;
 			light->position.x = -100;
 			light->position.y = -100;
 			myheader->position = Point2(SWIDTH / 2, 125);
@@ -317,14 +331,30 @@ void MyScene00::update(float deltaTime)
 			myheadertutorial->position = Point2(SWIDTH / 2, 525);
 		}
 		if (input()->getKeyUp(KeyCode::Space)) {
+			myufo->movementonoff = true;
 			activescene++;
 		}
 	}
+	// ###############################################################
+	// Pause game by pressing p //Not working correctly at the moment
+	// ###############################################################
+	if (input()->getKeyDown(P) && menu == false) {
+		started00 = false;
+		myufo->movementonoff = false;
+		pcounter00++;
+	}
+	if (pcounter00 == 2) {
+		started00 = true;
+		myufo->movementonoff = true;
+		pcounter00 = 0;
+	}
+	std::cout << pcounter00;
 	// ##############################################################################################################################
 	// last level (for testing)
 	// ##############################################################################################################################
 	if (input()->getKeyUp(KeyCode::RightBracket)) {
 		CoreScene::sceneselect(2);
+		myufo->movementonoff = true;
 		started00 = false;
 	}
 	// ###############################################################
