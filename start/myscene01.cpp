@@ -8,6 +8,10 @@
 #include <sstream>
 #include "myscene01.h"
 
+int pcounter01 = 0;
+
+bool started01 = false;
+bool switchs01 = false;
 
 MyScene01::MyScene01() : CoreScene()
 {
@@ -17,7 +21,7 @@ MyScene01::MyScene01() : CoreScene()
 	myback = new BasicEntity();
 	myback->addSprite("assets/StartBackgroundTut.tga");
 	myback->position = Point2(SWIDTH / 2, SHEIGHT / 2);
-	layers[0]->addChild(myback);
+	layers[1]->addChild(myback);
 	// ###############################################################
 	// create back text
 	// ###############################################################
@@ -96,6 +100,16 @@ MyScene01::MyScene01() : CoreScene()
 	text[2]->scale = Point2(1.0f, 1.0f);
 	text[3]->scale = Point2(1.0f, 1.0f);
 	//text will deleted in corescene.cpp
+	// ###############################################################
+	// create pause
+	// ###############################################################
+	mypause = new BasicEntity();
+	mypause->addSprite("assets/StartPause.tga");
+	mypause->position = Point2(SWIDTH / 1 - 75, 0 + 75);
+	mypause->sprite()->color.r = 255;
+	mypause->sprite()->color.g = 223;
+	mypause->sprite()->color.b = 5;
+	layers[0]->addChild(mypause);
 }
 
 
@@ -121,10 +135,26 @@ MyScene01::~MyScene01()
 
 	this->removeChild(myheader);
 	delete myheader;
+
+	this->removeChild(mypause);
+	delete mypause;
 }
 
 void MyScene01::update(float deltaTime)
 {
+	// ###############################################################
+	// Set Movement off / on
+	// ###############################################################
+	if (started01 == false) {
+		myufo->movementonoff = false;
+		if (switchs01 == true) {
+			switchs01 = false;
+			pcounter01 = 0;
+		}
+	}
+	else {
+		myufo->movementonoff = true;
+	}
 	// ###############################################################
 	// Currentscore counter top right
 	// ###############################################################
@@ -147,5 +177,20 @@ void MyScene01::update(float deltaTime)
 	if (input()->getKeyUp(KeyCode::H)) {
 		myufo->standard();
 		CoreScene::sceneselect(0);
+	}
+	// ###############################################################
+	// Pause game by pressing p
+	// ###############################################################
+	if (input()->getKeyDown(P)) {
+		started01 = false;
+		myufo->movementonoff = false;
+		pcounter01++;
+		layers[8]->addChild(mypause);
+	}
+	if (pcounter01 == 2) {
+		started01 = true;
+		myufo->movementonoff = true;
+		pcounter01 = 0;
+		layers[0]->addChild(mypause);
 	}
 }

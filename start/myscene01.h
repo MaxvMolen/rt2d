@@ -40,6 +40,8 @@ private:
 	BasicEntity* myback;
 	/// @brief the background of the text
 	BasicEntity* mytext;
+	/// @brief the pause icon
+	BasicEntity* mypause;
 };
 
 #endif /* MYSCENE01_H */
