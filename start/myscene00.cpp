@@ -331,6 +331,7 @@ void MyScene00::update(float deltaTime)
 		}
 		if (input()->getKeyUp(KeyCode::Space)) {
 			myufo->movementonoff = true;
+			myufo->standard();
 			activescene++;
 		}
 	}
@@ -355,6 +356,7 @@ void MyScene00::update(float deltaTime)
 		myufo->movementonoff = true;
 		started00 = false;
 		switchs = true;
+		myufo->standard();
 		CoreScene::sceneselect(2);
 	}
 	// ###############################################################
@@ -416,11 +418,10 @@ void MyScene00::update(float deltaTime)
 	if (mytree.size() == 0 && myperson.size() == 0 && mycar.size() == 0 && menu == false) {
 		started00 = false;
 		switchs = true;
+		myufo->standard();
 		CoreScene::sceneselect(2); // next level
 	}
 }
-
-
 
 void MyScene00::collision(float xu, float yu, float ru, float xe, float ye, float re, float no, float deltaTime) {
 	// ###############################################################

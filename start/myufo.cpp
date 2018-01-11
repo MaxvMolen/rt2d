@@ -130,3 +130,15 @@ void MyUfo::bounderies(float width, float height) {
 	}
 }
 
+void MyUfo::standard() {
+	// ###############################################################
+	// Sets default
+	// ###############################################################
+	this->addSprite("assets/StartUfo2.tga");
+	this->scale = Point(1.0f, 1.0f);
+	this->sprite()->color.r = 236;
+	this->sprite()->color.g = 16;
+	this->sprite()->color.b = 18;
+	noa = 1;
+}
+

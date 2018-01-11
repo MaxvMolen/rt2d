@@ -360,12 +360,14 @@ void MyScene02::update(float deltaTime)
 	// Change scene when all items are removed
 	// ###############################################################
 	if (mytree.size() == 0 && myperson.size() == 0 && mycar.size() == 0) {
+		myufo->standard();
 		CoreScene::sceneselect(0); // main menu
 	}
 	// ###############################################################
 	// Menu
 	// ###############################################################
 	if (input()->getKeyUp(KeyCode::H)) {
+		myufo->standard();
 		CoreScene::sceneselect(0);
 	}
 	// ###############################################################

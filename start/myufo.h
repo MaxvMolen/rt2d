@@ -36,6 +36,8 @@ public:
 	/// @param height indicates the height of the playroom
 	/// @return void
 	virtual void MyUfo::bounderies(float width, float height);
+	/// @brief sets standard form
+	virtual void MyUfo::standard();
 	/// @brief current number of ship
 	static int noa;
 	/// @brief movement on off
