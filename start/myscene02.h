@@ -64,6 +64,8 @@ private:
 	std::vector<BasicEntity*> mygarden;
 	/// @brief the background of the scene
 	BasicEntity* myback;
+	/// @brief the pause icon
+	BasicEntity* mypause;
 };
 
 #endif /* MYSCENE02_H */

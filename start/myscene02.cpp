@@ -261,6 +261,16 @@ MyScene02::MyScene02() : CoreScene()
 	myufo = new MyUfo();
 	myufo->position = Point2(SWIDTH / 2, SHEIGHT / 2);
 	layers[7]->addChild(myufo);
+	// ###############################################################
+	// create pause
+	// ###############################################################
+	mypause = new BasicEntity();
+	mypause->addSprite("assets/StartPause.tga");
+	mypause->position = Point2(SWIDTH / 1 - 75, 0 + 75);
+	mypause->sprite()->color.r = 255;
+	mypause->sprite()->color.g = 223;
+	mypause->sprite()->color.b = 5;
+	layers[0]->addChild(mypause);
 }
 
 
@@ -275,6 +285,10 @@ MyScene02::~MyScene02()
 
 	this->removeChild(light);
 	delete light;
+
+
+	this->removeChild(mypause);
+	delete mypause;
 
 	for (n02 = 0; n02 < myroads.size(); ++n02) {
 		delete myroads[n02];
@@ -345,6 +359,7 @@ void MyScene02::update(float deltaTime)
 	// ###############################################################
 	if (started02 == false) {
 		myufo->movementonoff = false;
+		layers[8]->addChild(mypause);
 	}
 	else{
 		myufo->movementonoff = true;
@@ -361,6 +376,7 @@ void MyScene02::update(float deltaTime)
 	// ###############################################################
 	if (mytree.size() == 0 && myperson.size() == 0 && mycar.size() == 0) {
 		myufo->standard();
+		layers[0]->addChild(mypause);
 		CoreScene::sceneselect(0); // main menu
 	}
 	// ###############################################################
@@ -368,6 +384,7 @@ void MyScene02::update(float deltaTime)
 	// ###############################################################
 	if (input()->getKeyUp(KeyCode::H)) {
 		myufo->standard();
+		layers[0]->addChild(mypause);
 		CoreScene::sceneselect(0);
 	}
 	// ###############################################################
@@ -377,11 +394,13 @@ void MyScene02::update(float deltaTime)
 		started02 = false;
 		myufo->movementonoff = false;
 		pcounter02++;
+		layers[8]->addChild(mypause);
 	}
 	if (pcounter02 == 2) {
 		started02 = true;
 		myufo->movementonoff = true;
 		pcounter02 = 0;
+		layers[0]->addChild(mypause);
 	}
 	// ###############################################################
 	// Update X and Y position of light

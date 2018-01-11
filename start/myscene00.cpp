@@ -230,6 +230,16 @@ MyScene00::MyScene00() : CoreScene()
 	light->sprite()->color.g = 181;
 	light->sprite()->color.b = 181;
 	layers[6]->addChild(light);
+	// ###############################################################
+	// create pause
+	// ###############################################################
+	mypause = new BasicEntity();
+	mypause->addSprite("assets/StartPause.tga");
+	mypause->position = Point2(SWIDTH / 1-75, 0+75);
+	mypause->sprite()->color.r = 255;
+	mypause->sprite()->color.g = 223;
+	mypause->sprite()->color.b = 5;
+	layers[0]->addChild(mypause);
 }
 
 MyScene00::~MyScene00()
@@ -245,6 +255,9 @@ MyScene00::~MyScene00()
 
 	this->removeChild(myheadertutorial);
 	delete myheadertutorial;
+
+	this->removeChild(mypause);
+	delete mypause;
 
 	for (n00 = 0; n00 < myroads.size(); ++n00) {
 		delete myroads[n00];
@@ -332,6 +345,7 @@ void MyScene00::update(float deltaTime)
 		if (input()->getKeyUp(KeyCode::Space)) {
 			myufo->movementonoff = true;
 			myufo->standard();
+			layers[0]->addChild(mypause);
 			activescene++;
 		}
 	}
@@ -342,11 +356,13 @@ void MyScene00::update(float deltaTime)
 		started00 = false;
 		myufo->movementonoff = false;
 		pcounter00++;
+		layers[8]->addChild(mypause);
 	}
 	if (pcounter00 == 2) {
 		started00 = true;
 		myufo->movementonoff = true;
 		pcounter00 = 0;
+		layers[0]->addChild(mypause);
 	}
 	// ##############################################################################################################################
 	// last level (for testing)
@@ -356,7 +372,9 @@ void MyScene00::update(float deltaTime)
 		started00 = false;
 		switchs = true;
 		myufo->standard();
+		layers[0]->addChild(mypause);
 		CoreScene::sceneselect(2);
+
 	}
 	// ###############################################################
 	// Escape key stops the Scene
@@ -418,6 +436,7 @@ void MyScene00::update(float deltaTime)
 		started00 = false;
 		switchs = true;
 		myufo->standard();
+		layers[0]->addChild(mypause);
 		CoreScene::sceneselect(2); // next level
 	}
 }
