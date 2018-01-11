@@ -32,6 +32,8 @@ private:
 	BasicEntity* mytext;
 	/// @brief the header for start
 	BasicEntity* myheader;
+	/// @brief the logo for the level
+	BasicEntity* mylogo;
 };
 
 #endif /* MYSCENE03_H */

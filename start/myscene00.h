@@ -48,6 +48,8 @@ private:
 	BasicEntity* myheaderstart;
 	/// @brief the header for tutorial
 	BasicEntity* myheadertutorial;
+	/// @brief the header for the credits
+	BasicEntity* mycredits;
 	/// @brief the road in the background of the level
 	std::vector<BasicEntity*> myroads;
 	/// @brief the car in the level that you need to pick up

@@ -215,6 +215,14 @@ MyScene00::MyScene00() : CoreScene()
 	myheadertutorial->scale = Point(0.8f, 0.8f);
 	layers[5]->addChild(myheadertutorial);
 	// ###############################################################
+	// create Credits header
+	// ###############################################################
+	mycredits = new BasicEntity();
+	mycredits->addSprite("assets/StartCredits.tga");
+	mycredits->position = Point2(SWIDTH / 2, 715);
+	mycredits->scale = Point(0.8f, 0.8f);
+	layers[5]->addChild(mycredits);
+	// ###############################################################
 	// create Ufo
 	// ###############################################################
 	myufo = new MyUfo();
@@ -255,6 +263,9 @@ MyScene00::~MyScene00()
 
 	this->removeChild(myheadertutorial);
 	delete myheadertutorial;
+
+	this->removeChild(mycredits);
+	delete mycredits;
 
 	this->removeChild(mypause);
 	delete mypause;
@@ -333,6 +344,7 @@ void MyScene00::update(float deltaTime)
 			myheader->position.x = -500;
 			myheaderstart->position.x = -500;
 			myheadertutorial->position.x = -500;
+			mycredits->position.x = -500;
 			started00 = true;
 			menu = false;
 		}
@@ -344,6 +356,7 @@ void MyScene00::update(float deltaTime)
 			myheader->position = Point2(SWIDTH / 2, 125);
 			myheaderstart->position = Point2(SWIDTH / 2, 335);
 			myheadertutorial->position = Point2(SWIDTH / 2, 525);
+			mycredits->position = Point2(SWIDTH / 2, 715);
 		}
 		if (input()->getKeyUp(KeyCode::Space)) {
 			//myufo->movementonoff = true;

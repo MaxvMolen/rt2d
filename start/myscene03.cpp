@@ -25,6 +25,13 @@ MyScene03::MyScene03() : CoreScene()
 	myheader->position = Point2(SWIDTH / 2, 125);
 	layers[5]->addChild(myheader);
 	// ###############################################################
+	// create logo for the level
+	// ###############################################################
+	mylogo = new BasicEntity();
+	mylogo->addSprite("assets/StartCredits.tga"); 
+	mylogo->position = Point2(1650, 900);
+	layers[5]->addChild(mylogo);
+	// ###############################################################
 	// create back text
 	// ###############################################################
 	mytext = new BasicEntity();
