@@ -34,6 +34,8 @@ private:
 	BasicEntity* myheader;
 	/// @brief the logo for the level
 	BasicEntity* mylogo;
+	/// @brief AC-Logo
+	BasicEntity* myaclogo;
 };
 
 #endif /* MYSCENE03_H */

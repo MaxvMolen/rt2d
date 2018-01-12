@@ -27,10 +27,11 @@ MyScene03::MyScene03() : CoreScene()
 	// ###############################################################
 	// create logo for the level
 	// ###############################################################
-	mylogo = new BasicEntity();
-	mylogo->addSprite("assets/StartCredits.tga"); 
-	mylogo->position = Point2(1650, 900);
-	layers[5]->addChild(mylogo);
+	myaclogo = new BasicEntity();
+	myaclogo->addSprite("assets/AC-Logo.tga");
+	myaclogo->position = Point2(1650+31, 1080-59);
+	layers[5]->addChild(myaclogo);
+	myaclogo->scale = Point2(0.3f, 0.3f);
 	// ###############################################################
 	// create back text
 	// ###############################################################
@@ -66,6 +67,9 @@ MyScene03::~MyScene03()
 
 	this->removeChild(mytext);
 	delete mytext;
+
+	this->removeChild(myaclogo);
+	delete myaclogo;
 }
 
 void MyScene03::update(float deltaTime)
