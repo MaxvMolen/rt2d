@@ -14,7 +14,7 @@ MyScene03::MyScene03() : CoreScene()
 	// create background
 	// ###############################################################
 	myback = new BasicEntity();
-	myback->addSprite("assets/StartBackground.tga");
+	myback->addSprite("assets/StartBackgroundTut.tga");
 	myback->position = Point2(SWIDTH / 2, SHEIGHT / 2);
 	layers[0]->addChild(myback);
 	// ###############################################################
