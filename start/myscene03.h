@@ -36,6 +36,8 @@ private:
 	BasicEntity* mylogo;
 	/// @brief AC-Logo
 	BasicEntity* myaclogo;
+	/// @brief the road in the background of the level
+	std::vector<BasicEntity*> myroads;
 };
 
 #endif /* MYSCENE03_H */

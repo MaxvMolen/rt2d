@@ -8,6 +8,10 @@
 #include <sstream>
 #include "myscene03.h"
 
+int totalroads03 = 8;
+int totalcar03 = 4;
+int n03;
+
 MyScene03::MyScene03() : CoreScene()
 {
 	// ###############################################################
@@ -29,7 +33,7 @@ MyScene03::MyScene03() : CoreScene()
 	// ###############################################################
 	myaclogo = new BasicEntity();
 	myaclogo->addSprite("assets/AC-Logo.tga");
-	myaclogo->position = Point2(1650+31, 1080-59);
+	myaclogo->position = Point2(1650-500, 1080-59);
 	layers[5]->addChild(myaclogo);
 	myaclogo->scale = Point2(0.3f, 0.3f);
 	// ###############################################################
@@ -53,12 +57,29 @@ MyScene03::MyScene03() : CoreScene()
 	text[3]->position = Point2(50, 500 - 30);
 	text[4]->position = Point2(50, 500 - 0);
 	//text will deleted in corescene.cpp
+	// ###############################################################
+	// create roads for the level
+	// ###############################################################
+	for (n03 = 0; n03 < totalroads03; ++n03) {
+		BasicEntity* roads = new BasicEntity();
+		myroads.push_back(roads);
+		roads->addSprite("assets/StartRoad.tga");
+		roads->position = Point2(1790, (n03) * 250 - 267);
+		roads->rotation.z = 0;
+		layers[1]->addChild(roads);
+	}
 }
 
 
 MyScene03::~MyScene03()
 {
 	// deconstruct and delete the Tree
+	for (n03 = 0; n03 < myroads.size(); ++n03) {
+		delete myroads[n03];
+		myroads[n03] = NULL;
+	}
+	myroads.clear();
+
 	this->removeChild(myback);
 	delete myback;
 
