@@ -137,4 +137,23 @@ void MyScene03::update(float deltaTime)
 	// Escape key stops the Scene
 	// ###############################################################
 	CoreScene::quit();
+	// ###############################################################
+	// Move car over the road
+	// ###############################################################
+	mycar[0]->position.x += 600 * deltaTime;
+	if (mycar[0]->position.x >= 1980) {
+		mycar[0]->position.x = -500;
+	}
+	mycar[1]->position.x -= 600 * deltaTime;
+	if (mycar[1]->position.x <= -200) {
+		mycar[1]->position.x = 2000;
+	}
+	mycar[2]->position.x -= 600 * deltaTime;
+	if (mycar[2]->position.x <= -200) {
+		mycar[2]->position.x = 2000;
+	}
+	mycar[3]->position.x += 600 * deltaTime;
+	if (mycar[3]->position.x >= 1980) {
+		mycar[3]->position.x = -500;
+	}
 }
