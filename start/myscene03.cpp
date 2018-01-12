@@ -8,7 +8,7 @@
 #include <sstream>
 #include "myscene03.h"
 
-int totalroads03 = 8;
+int totalroads03 = 16;
 int totalcar03 = 4;
 int n03;
 
@@ -67,6 +67,10 @@ MyScene03::MyScene03() : CoreScene()
 		roads->position = Point2(1790, (n03) * 250 - 267);
 		roads->rotation.z = 0;
 		layers[1]->addChild(roads);
+		if (n03 >= 8) {
+			roads->position = Point2(1790-200, (n03-8) * 250 - 267);
+			roads->rotation.z = 0;
+		}
 	}
 }
 
