@@ -218,7 +218,7 @@ MyScene00::MyScene00() : CoreScene()
 	// create Credits header
 	// ###############################################################
 	mycredits = new BasicEntity();
-	mycredits->addSprite("assets/StartCredits.tga");
+	mycredits->addSprite("assets/StartCreditsM.tga");
 	mycredits->position = Point2(SWIDTH / 2, 715);
 	mycredits->scale = Point(0.8f, 0.8f);
 	layers[5]->addChild(mycredits);
@@ -363,7 +363,12 @@ void MyScene00::update(float deltaTime)
 			layers[0]->addChild(mypause);
 			activescene++;
 		}
-		if (input()->getKeyUp(KeyCode::LeftAlt)) {
+		if (input()->getKeyUp(KeyCode::RightShift)) {
+			myufo->standard();
+			layers[0]->addChild(mypause);
+			CoreScene::sceneselect(3);
+		}
+		if (input()->getKeyUp(KeyCode::LeftShift)) {
 			myufo->standard();
 			layers[0]->addChild(mypause);
 			CoreScene::sceneselect(3);
