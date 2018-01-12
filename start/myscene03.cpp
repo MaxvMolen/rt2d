@@ -72,6 +72,28 @@ MyScene03::MyScene03() : CoreScene()
 			roads->rotation.z = 0;
 		}
 	}
+	// ###############################################################
+	// create cars for the level
+	// ###############################################################
+	for (n03 = 0; n03 < totalcar03; ++n03) {
+		MyCar* car = new MyCar();
+		mycar.push_back(car);
+		car->position = Point2(-500, 1020);
+		car->rotation.z = 1.57;
+		if (n03 >= 1) {
+			car->position = Point2(1950, 900);
+			car->rotation.z = 4.7;
+		}
+		if (n03 >= 2) {
+			car->position = Point2(500, 900);
+			car->rotation.z = 4.7;
+		}
+		if (n03 >= 3) {
+			car->position = Point2(700, 1020);
+			car->rotation.z = 1.57;
+		}
+		layers[3]->addChild(car);
+	}
 }
 
 
@@ -83,6 +105,12 @@ MyScene03::~MyScene03()
 		myroads[n03] = NULL;
 	}
 	myroads.clear();
+
+	for (n03 = 0; n03 < mycar.size(); ++n03) {
+		delete mycar[n03];
+		mycar[n03] = NULL;
+	}
+	mycar.clear();
 
 	this->removeChild(myback);
 	delete myback;
