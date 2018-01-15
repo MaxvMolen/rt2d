@@ -53,7 +53,7 @@ MyScene02::MyScene02() : CoreScene()
 			roads->rotation.z = 0;
 		}
 		if(n02>=12) {
-			roads->position = Point2(SWIDTH / 2 + 227.5 +(n02-12)*256, SHEIGHT / 2-13);
+			roads->position = Point2(SWIDTH / 2 + 227.5 + (n02-12)*256, SHEIGHT / 2-13);
 			roads->rotation.z = 1.57;
 		}
 		layers[4]->addChild(roads);
@@ -266,7 +266,7 @@ MyScene02::MyScene02() : CoreScene()
 	// ###############################################################
 	mypause = new BasicEntity();
 	mypause->addSprite("assets/StartPause.tga");
-	mypause->position = Point2(SWIDTH / 1 - 75, 0 + 75);
+	mypause->position = Point2(SWIDTH / 1 - 75, 75);
 	mypause->sprite()->color.r = 255;
 	mypause->sprite()->color.g = 223;
 	mypause->sprite()->color.b = 5;

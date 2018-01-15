@@ -35,7 +35,7 @@ MyScene01::MyScene01() : CoreScene()
 	// ###############################################################
 	myexampleright = new BasicEntity();
 	myexampleright->addSprite("assets/ExampleGameplayRight.tga");
-	myexampleright->position = Point2(SWIDTH / 2 + 700, SHEIGHT / 2-270);
+	myexampleright->position = Point2(SWIDTH / 2 + 700, SHEIGHT / 2 - 270);
 	layers[7]->addChild(myexampleright);
 	// ###############################################################
 	// create examplewrong
@@ -87,15 +87,15 @@ MyScene01::MyScene01() : CoreScene()
 	text[2]->position = Point2(SWIDTH / 2 + 295, SHEIGHT / 2 - 270);
 	text[3]->position = Point2(SWIDTH / 2 + 295, SHEIGHT / 2 + 270);
 	text[4]->position = Point2(50, 560);
-	text[5]->position = Point2(50, 30 + 560);
-	text[6]->position = Point2(50, 60 + 560);
-	text[7]->position = Point2(50, 500-90);
-	text[8]->position = Point2(50, 500-60);
-	text[9]->position = Point2(50, 500 - 30);
-	text[10]->position = Point2(50, 500 - 0);
-	text[11]->position = Point2(50, 500 + 30);
-	text[12]->position = Point2(50, 90 + 560);
-	text[13]->position = Point2(50, 120 + 560);
+	text[5]->position = Point2(50, 590);
+	text[6]->position = Point2(50, 620);
+	text[7]->position = Point2(50, 410);
+	text[8]->position = Point2(50, 440);
+	text[9]->position = Point2(50, 470);
+	text[10]->position = Point2(50, 500);
+	text[11]->position = Point2(50, 530);
+	text[12]->position = Point2(50, 650);
+	text[13]->position = Point2(50, 680);
 	//Scale text
 	text[2]->scale = Point2(1.0f, 1.0f);
 	text[3]->scale = Point2(1.0f, 1.0f);
@@ -105,7 +105,7 @@ MyScene01::MyScene01() : CoreScene()
 	// ###############################################################
 	mypause = new BasicEntity();
 	mypause->addSprite("assets/StartPause.tga");
-	mypause->position = Point2(SWIDTH / 1 - 75, 0 + 75);
+	mypause->position = Point2(SWIDTH / 1 - 75, 75);
 	mypause->sprite()->color.r = 255;
 	mypause->sprite()->color.g = 223;
 	mypause->sprite()->color.b = 5;

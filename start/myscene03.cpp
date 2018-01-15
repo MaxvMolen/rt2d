@@ -39,7 +39,7 @@ MyScene03::MyScene03() : CoreScene()
 	// ###############################################################
 	myaclogo = new BasicEntity();
 	myaclogo->addSprite("assets/AC-Logo.tga");
-	myaclogo->position = Point2(SWIDTH / 2, 1080 - 59);
+	myaclogo->position = Point2(SWIDTH / 2, 1021);
 	layers[5]->addChild(myaclogo);
 	myaclogo->scale = Point2(0.3f, 0.3f);
 	// ###############################################################
@@ -58,10 +58,10 @@ MyScene03::MyScene03() : CoreScene()
 	text[3]->message("Art: Max van der molen", WHITE);
 	text[4]->message("Thanks for playing my game!", WHITE);
 	//Position text
-	text[1]->position = Point2(50 + 615, 500 - 90);
-	text[2]->position = Point2(50 + 615, 500 - 30);
-	text[3]->position = Point2(50 + 615, 500 - 0);
-	text[4]->position = Point2(50 + 615, 500 + 60);
+	text[1]->position = Point2(665, 410);
+	text[2]->position = Point2(665, 470);
+	text[3]->position = Point2(665, 500);
+	text[4]->position = Point2(665, 560);
 	//Scale text
 	text[1]->scale = Point2(0.7f, 0.7f);
 	//text will deleted in corescene.cpp
@@ -75,7 +75,7 @@ MyScene03::MyScene03() : CoreScene()
 		roads->position = Point2(1799, (n03) * 250 - 267);
 		roads->rotation.z = 0;
 		if (n03 >= 8) {
-			roads->position = Point2(1790-230, (n03-8) * 250 - 267);
+			roads->position = Point2(1560, (n03-8) * 250 - 267);
 			roads->rotation.z = 0;
 		}
 		// left side
@@ -84,7 +84,7 @@ MyScene03::MyScene03() : CoreScene()
 			roads->rotation.z = 0;
 		}
 		if (n03 >= 24) {
-			roads->position = Point2(384-25, (n03 - 24) * 250 - 267);
+			roads->position = Point2(359, (n03 - 24) * 250 - 267);
 			roads->rotation.z = 0;
 		}
 		layers[1]->addChild(roads);
@@ -95,64 +95,64 @@ MyScene03::MyScene03() : CoreScene()
 	for (n03 = 0; n03 < totalcar03; ++n03) {
 		MyCar* car = new MyCar();
 		mycar.push_back(car);
-		car->position = Point2(1790 - 290, 1020);
-		car->rotation.z = 1.57 + 1.57;
+		car->position = Point2(1500, 1020);
+		car->rotation.z = 3.14;
 		if (n03 == 1) {
-			car->position = Point2(1790 - 175, 900);
-			car->rotation.z = 1.57 + 1.57;
+			car->position = Point2(1615, 900);
+			car->rotation.z = 3.14;
 		}
 		if (n03 == 2) {
-			car->position = Point2(1790 + 60 + 9, 900);
+			car->position = Point2(1859, 900);
 			car->rotation.z = 0;
 		}
 		if (n03 == 3) {
-			car->position = Point2(1790 - 60  +9, 1020);
+			car->position = Point2(1739, 1020);
 			car->rotation.z = 0;
 		}
 		if (n03 == 4) {
-			car->position = Point2(1790 - 60 + 9, 700);
+			car->position = Point2(1739, 700);
 			car->rotation.z = 0;
 		}
 		if (n03 == 5) {
-			car->position = Point2(1790 - 175, 200);
-			car->rotation.z = 1.57 + 1.57;
+			car->position = Point2(1615, 200);
+			car->rotation.z = 3.14;
 		}
 		if (n03 == 6) {
-			car->position = Point2(1790 - 290, 200);
-			car->rotation.z = 1.57 + 1.57;
+			car->position = Point2(1500, 200);
+			car->rotation.z = 3.14;
 		}
 		if (n03 == 7) {
-			car->position = Point2(1790 + 60 + 9, 0);
+			car->position = Point2(1859, 0);
 			car->rotation.z = 0;
 		}
 		// Road left side of the screen
 		if (n03 == 8) {
-			car->position = Point2(60, 1020 + 200);
-			car->rotation.z = 1.57 + 1.57;
+			car->position = Point2(60, 1220);
+			car->rotation.z = 3.14;
 		}
 		if (n03 == 9) {
-			car->position = Point2(190, 900 + 200);
-			car->rotation.z = 1.57 + 1.57;
+			car->position = Point2(190, 1100);
+			car->rotation.z = 3.14;
 		}
 		if (n03 == 10) {
-			car->position = Point2(420, 900 + 200);
+			car->position = Point2(420, 1100);
 			car->rotation.z = 0;
 		}
 		if (n03 == 11) {
-			car->position = Point2(420 - 120, 1020 + 200);
+			car->position = Point2(300, 1220);
 			car->rotation.z = 0;
 		}
 		if (n03 == 12) {
-			car->position = Point2(420 - 120, 700 + 200);
+			car->position = Point2(300, 900);
 			car->rotation.z = 0;
 		}
 		if (n03 == 13) {
-			car->position = Point2(190, 200 + 200);
-			car->rotation.z = 1.57 + 1.57;
+			car->position = Point2(190, 400);
+			car->rotation.z = 3.14;
 		}
 		if (n03 == 14) {
-			car->position = Point2(60, 200 + 200);
-			car->rotation.z = 1.57 + 1.57;
+			car->position = Point2(60, 400);
+			car->rotation.z = 3.14;
 		}
 		layers[3]->addChild(car);
 	}
@@ -164,14 +164,14 @@ MyScene03::MyScene03() : CoreScene()
 		mytree.push_back(tree);
 		tree->position = Point2(1385, (n03) * 108 + 47);
 		if (n03 >= 10) {
-			tree->position = Point2(1385-100, (n03 - 10) * 108 + 47);
+			tree->position = Point2(1285, (n03 - 10) * 108 + 47);
 		}
 		//left side
 		if (n03 >= 20) {
 			tree->position = Point2(535, (n03 - 20) * 108 + 47);
 		}
 		if (n03 >= 30) {
-			tree->position = Point2(535 + 100, (n03 - 30) * 108 + 47);
+			tree->position = Point2(635, (n03 - 30) * 108 + 47);
 		}
 		layers[2]->addChild(tree);
 

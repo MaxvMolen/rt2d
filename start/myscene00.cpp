@@ -87,13 +87,13 @@ MyScene00::MyScene00() : CoreScene()
 		BasicEntity* house = new BasicEntity();
 		myhouse.push_back(house);
 		house->addSprite("assets/StartHouse.tga");
-		house->position = Point2(200, n00 * 260 +150);
+		house->position = Point2(200, n00 * 260 + 150);
 		house->sprite()->color.r = 255;
 		house->sprite()->color.g = 88;
 		house->sprite()->color.b = 30;
 		house->rotation.z = 1.57;
 		if (n00 >= 3) {
-			house->position = Point2(1980-250, (n00-3) * 260 +150);
+			house->position = Point2(1730, (n00-3) * 260 +150);
 			house->rotation.z = 4.7;
 		}
 		layers[2]->addChild(house);
@@ -160,10 +160,10 @@ MyScene00::MyScene00() : CoreScene()
 		sbench->sprite()->color.r = 205;
 		sbench->sprite()->color.g = 102;
 		sbench->sprite()->color.b = 44;
-		sbench->position = Point2(675 + 75, (n00) * 550 + 100);
+		sbench->position = Point2(750, (n00) * 550 + 100);
 		sbench->rotation.z = -1.57;
 		if (n00 >= 2) {
-			sbench->rotation.z = -1.57 - 1.57 - 1.57;
+			sbench->rotation.z = -4.71;
 			sbench->position = Point2(1250 - 75, (n00 - 2) * 550 + 100);
 		}
 		layers[2]->addChild(sbench);
@@ -243,7 +243,7 @@ MyScene00::MyScene00() : CoreScene()
 	// ###############################################################
 	mypause = new BasicEntity();
 	mypause->addSprite("assets/StartPause.tga");
-	mypause->position = Point2(SWIDTH / 1-75, 0+75);
+	mypause->position = Point2(SWIDTH / 1-75, 75);
 	mypause->sprite()->color.r = 255;
 	mypause->sprite()->color.g = 223;
 	mypause->sprite()->color.b = 5;
