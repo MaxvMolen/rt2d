@@ -14,7 +14,7 @@ int totalroads03 = 32;
 int totalcar03 = 15;
 int totaltree03 = 40;
 
-int n03;
+int n03 = 0;
 // location ufo
 int pcount = 0;
 

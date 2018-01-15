@@ -17,7 +17,7 @@ int totalgarden00 = 6;
 int totalbench00 = 2;
 int totalsmallbench00 = 4;
 int totalperson00 = 8;
-int n00;
+int n00 = 0;
 
 int pcounter00 = 0;
 

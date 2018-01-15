@@ -19,9 +19,9 @@ int totaltbush02 = 4;
 int totalperson02 = 4;
 int totalpath02 = 14;
 int totalgarden02 = 3;
-int n02;
+int n02 = 0;
 
-int pcounter02;
+int pcounter02 = 0;
 
 bool started02 = true;
 

@@ -9,7 +9,7 @@
 bool MyUfo::movementonoff = true;
 
 int rotationSpeed = 10; // speed of rotation
-int speed; // speed of player
+int speed = 5; // speed of player
 
 int MyUfo::noa = 1;
 
