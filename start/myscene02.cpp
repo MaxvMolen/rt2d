@@ -369,7 +369,7 @@ void MyScene02::update(float deltaTime)
 	// ###############################################################
 	std::stringstream cs;
 	cs << "Score: " << score.currentscore;
-	text[0]->message(cs.str());
+	text[0]->message(cs.str(), YELLOW);
 	text[0]->position.y = 30;
 	// ###############################################################
 	// Change scene when all items are removed

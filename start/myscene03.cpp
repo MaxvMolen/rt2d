@@ -241,6 +241,13 @@ MyScene03::~MyScene03()
 void MyScene03::update(float deltaTime)
 {
 	// ###############################################################
+	// Currentscore counter top right
+	// ###############################################################
+	std::stringstream cs;
+	cs << "Score: " << score.currentscore;
+	text[0]->message(cs.str()), YELLOW;
+	text[0]->position.y = 30;
+	// ###############################################################
 	// unufo automatic rotation
 	// ###############################################################
 	unufo->rotation.z -= 10 * deltaTime; // 90 deg/sec
@@ -300,13 +307,6 @@ void MyScene03::update(float deltaTime)
 	if (input()->getKeyUp(KeyCode::H)) {
 		CoreScene::sceneselect(0);
 	}
-	// ###############################################################
-	// Currentscore counter top right
-	// ###############################################################
-	std::stringstream cs;
-	cs << "Score: " << score.currentscore;
-	text[0]->message(cs.str());
-	text[0]->position.y = 30;
 	// ###############################################################
 	// Escape key stops the Scene
 	// ###############################################################
