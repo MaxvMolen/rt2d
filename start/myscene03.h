@@ -26,6 +26,10 @@ public:
 	virtual void update(float deltaTime);
 	
 private:
+	/// @brief the light underneath the ufo
+	BasicEntity* unufo;
+	/// @brief the light underneath the ufo
+	BasicEntity* light;
 	/// @brief the background of the scene
 	BasicEntity* myback;
 	/// @brief the background of the text

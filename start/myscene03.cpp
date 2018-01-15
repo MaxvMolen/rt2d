@@ -8,11 +8,15 @@
 #include <sstream>
 #include "myscene03.h"
 
+
+// amount of objects
 int totalroads03 = 16;
 int totalcar03 = 8;
 int totaltree03 = 18;
 
 int n03;
+// location ufo
+int pcount = 0;
 
 MyScene03::MyScene03() : CoreScene()
 {
@@ -126,6 +130,26 @@ MyScene03::MyScene03() : CoreScene()
 		}
 		layers[2]->addChild(tree);
 	}
+	// ###############################################################
+	// create light
+	// ###############################################################
+	light = new BasicEntity();
+	light->addSprite("assets/StartUfoLight.tga");
+	light->scale = Point(0.7f, 0.7f);
+	light->sprite()->color.r = 181;
+	light->sprite()->color.g = 181;
+	light->sprite()->color.b = 181;
+	layers[6]->addChild(light);
+	// ###############################################################
+	// create unufo this ufo is is not controllable by the player
+	// ###############################################################
+	unufo = new BasicEntity();
+	unufo->addSprite("assets/StartUfo2.tga");
+	unufo->sprite()->color.r = 236;
+	unufo->sprite()->color.g = 16;
+	unufo->sprite()->color.b = 18;
+	unufo->position = Point2(-300, 325);
+	layers[7]->addChild(unufo);
 }
 
 MyScene03::~MyScene03()
@@ -166,15 +190,75 @@ MyScene03::~MyScene03()
 void MyScene03::update(float deltaTime)
 {
 	// ###############################################################
+	// unufo automatic rotation
+	// ###############################################################
+	unufo->rotation.z -= 10 * deltaTime; // 90 deg/sec
+	if (unufo->rotation.z > TWO_PI) {
+		unufo->rotation.z -= TWO_PI;
+	}
+	// ###############################################################
+	// unufo move allong path
+	// ###############################################################
+	if (unufo->position.x <= 1000 && pcount == 0) {
+		unufo->position.x += 300 * deltaTime;
+		if (unufo->position.x >= 990 && unufo->position.x <= 1000) {
+			pcount++;
+			//std::cout << "pcount++";
+		}
+	}
+	if (unufo->position.x >= 990 && pcount == 1) {
+		unufo->position.y += 300 * deltaTime;
+		if (unufo->position.y >= 800 && unufo->position.y <= 810) {
+			pcount++;
+			//std::cout << "pcount++";
+		}
+	}
+	if (unufo->position.y >= 800 && pcount == 2) {
+		unufo->position.x -= 300 * deltaTime;
+		if (unufo->position.x >= -500 && unufo->position.x <= -490) {
+			pcount++;
+			unufo->position = Point2(1400, -300);
+			unufo->addSprite("assets/StartUfo1.tga");
+			unufo->sprite()->color.r = 255;
+			unufo->sprite()->color.g = 171;
+			unufo->sprite()->color.b = 103;
+			//std::cout << "pcount++";
+		}
+	}
+	if (unufo->position.y <= 1200 && pcount == 3) {
+		unufo->position.y += 300 * deltaTime;
+		if (unufo->position.y >= 1190 && unufo->position.y <= 1200) {
+			pcount = 0;
+			unufo->position = Point2(-300, 325);
+			unufo->addSprite("assets/StartUfo2.tga");
+			unufo->sprite()->color.r = 236;
+			unufo->sprite()->color.g = 16;
+			unufo->sprite()->color.b = 18;
+			//std::cout << "pcount = 0";
+		}
+	}
+	// ###############################################################
 	// Menu
 	// ###############################################################
 	if (input()->getKeyUp(KeyCode::H)) {
 		CoreScene::sceneselect(0);
 	}
 	// ###############################################################
+	// Currentscore counter top right
+	// ###############################################################
+	std::stringstream cs;
+	cs << "Score: " << score.currentscore;
+	text[0]->message(cs.str());
+	text[0]->position.y = 30;
+	// ###############################################################
 	// Escape key stops the Scene
 	// ###############################################################
 	CoreScene::quit();
+	// ###############################################################
+	// Update X and Y position of light
+	// ###############################################################
+	light->position.x = unufo->position.x;
+	light->position.y = unufo->position.y;
 	// ###############################################################
 	// Move car over the road
 	// ###############################################################
