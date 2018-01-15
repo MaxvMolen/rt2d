@@ -11,7 +11,7 @@
 
 // amount of objects
 int totalroads03 = 32;
-int totalcar03 = 8;
+int totalcar03 = 15;
 int totaltree03 = 18;
 
 int n03;
@@ -48,7 +48,7 @@ MyScene03::MyScene03() : CoreScene()
 	mytext = new BasicEntity();
 	mytext->addSprite("assets/StartText.tga");
 	mytext->position = Point2(SWIDTH / 2 - 500, SHEIGHT / 2 - 15);
-	layers[3]->addChild(mytext);
+	layers[5]->addChild(mytext);
 	mytext->scale = Point2(0.5f, 0.7f);
 	// ###############################################################
 	// text
@@ -119,9 +119,42 @@ MyScene03::MyScene03() : CoreScene()
 		if (n03 == 6) {
 			car->position = Point2(1790 - 290, 200);
 			car->rotation.z = 1.57 + 1.57;
-		}
+		}/////
 		if (n03 == 7) {
 			car->position = Point2(1790 + 60 + 9, 0);
+			car->rotation.z = 0;
+		}
+		/////
+		if (n03 == 8) {
+			car->position = Point2(60, 1020);
+			car->rotation.z = 1.57 + 1.57;
+		}
+		if (n03 == 9) {
+			car->position = Point2(190, 900);
+			car->rotation.z = 1.57 + 1.57;
+		}
+		if (n03 == 10) {
+			car->position = Point2(420, 900);
+			car->rotation.z = 0;
+		}
+		if (n03 == 11) {
+			car->position = Point2(420 - 120, 1020);
+			car->rotation.z = 0;
+		}
+		if (n03 == 12) {
+			car->position = Point2(420 - 120, 700);
+			car->rotation.z = 0;
+		}
+		if (n03 == 13) {
+			car->position = Point2(190, 200);
+			car->rotation.z = 1.57 + 1.57;
+		}
+		if (n03 == 14) {
+			car->position = Point2(60, 200);
+			car->rotation.z = 1.57 + 1.57;
+		}
+		if (n03 == 15) {
+			car->position = Point2(420, 0);
 			car->rotation.z = 0;
 		}
 		layers[3]->addChild(car);
@@ -163,6 +196,11 @@ MyScene03::MyScene03() : CoreScene()
 MyScene03::~MyScene03()
 {
 	// deconstruct and delete the Tree
+	this->removeChild(unufo);
+	delete unufo;
+
+	this->removeChild(light);
+	delete light;
 
 	this->removeChild(myback);
 	delete myback;
@@ -301,5 +339,38 @@ void MyScene03::update(float deltaTime)
 	mycar[7]->position.y -= 600 * deltaTime; //driving up
 	if (mycar[7]->position.y <= -100) {
 		mycar[7]->position.y = 1300;
+	}
+	// other road
+	mycar[8]->position.y += 600 * deltaTime; //driving up
+	if (mycar[8]->position.y >= 1180) {
+		mycar[8]->position.y = -500;
+	}
+	mycar[9]->position.y += 800 * deltaTime; //driving up
+	if (mycar[9]->position.y >= 1280) {
+		mycar[9]->position.y = -100;
+	}
+	mycar[10]->position.y -= 600 * deltaTime; //driving down
+	if (mycar[10]->position.y <= -200) {
+		mycar[10]->position.y = 1100;
+	}
+	mycar[11]->position.y -= 800 * deltaTime; //driving down
+	if (mycar[11]->position.y <= -50) {
+		mycar[11]->position.y = 1200;
+	}
+	mycar[12]->position.y -= 800 * deltaTime; //driving down
+	if (mycar[12]->position.y <= -50) {
+		mycar[12]->position.y = 1200;
+	}
+	mycar[13]->position.y += 800 * deltaTime; //driving up
+	if (mycar[13]->position.y >= 1280) {
+		mycar[13]->position.y = -100;
+	}
+	mycar[14]->position.y += 600 * deltaTime; //driving down
+	if (mycar[14]->position.y >= 1180) {
+		mycar[14]->position.y = -500;
+	}
+	mycar[15]->position.y -= 600 * deltaTime; //driving up
+	if (mycar[15]->position.y <= -100) {
+		mycar[15]->position.y = 1300;
 	}
 }
