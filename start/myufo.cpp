@@ -6,11 +6,15 @@
 
 #include "myufo.h"
 
+// toggle movement on of
 bool MyUfo::movementonoff = true;
 
-int rotationSpeed = 10; // speed of rotation
-int speed = 5; // speed of player
+// speed of rotation
+int rotationSpeed = 10;
+// speed of player
+int speed = 300;
 
+// number of the ufo that corresponds to the number of a object
 int MyUfo::noa = 1;
 
 MyUfo::MyUfo() : Entity()

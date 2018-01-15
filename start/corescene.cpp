@@ -6,6 +6,7 @@
 
 #include "corescene.h"
 
+// The current scene
 int CoreScene::activescene = 0;
 
 CoreScene::CoreScene() : Scene()

@@ -19,10 +19,14 @@ int totalsmallbench00 = 4;
 int totalperson00 = 8;
 int n00 = 0;
 
+// pause counter if its 0 its not paused if its 1 the game is paused
 int pcounter00 = 0;
 
+// has the game started yes or no
 bool started00 = false;
+// are you on the menu yes or no
 bool menu = true;
+// switch movement on and of
 bool switchs = false;
 
 //myufo

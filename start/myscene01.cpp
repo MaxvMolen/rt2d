@@ -8,9 +8,12 @@
 #include <sstream>
 #include "myscene01.h"
 
+// pause counter if its 0 its not paused if its 1 the game is paused
 int pcounter01 = 0;
 
+// has the game started yes or no
 bool started01 = true;
+// switch movement on and of
 bool switchs01 = false;
 
 MyScene01::MyScene01() : CoreScene()

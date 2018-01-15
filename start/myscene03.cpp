@@ -15,7 +15,8 @@ int totalcar03 = 15;
 int totaltree03 = 40;
 
 int n03 = 0;
-// location ufo
+
+// Checkpoints ufo
 int pcount = 0;
 
 MyScene03::MyScene03() : CoreScene()
@@ -78,7 +79,7 @@ MyScene03::MyScene03() : CoreScene()
 			roads->position = Point2(1560, (n03-8) * 250 - 267);
 			roads->rotation.z = 0;
 		}
-		// left side
+		// Roads at the left side of the screen
 		if (n03 >= 16) {
 			roads->position = Point2(128, (n03-16) * 250 - 267);
 			roads->rotation.z = 0;
@@ -125,7 +126,7 @@ MyScene03::MyScene03() : CoreScene()
 			car->position = Point2(1859, 0);
 			car->rotation.z = 0;
 		}
-		// Road left side of the screen
+		// Cars at the left side of the screen
 		if (n03 == 8) {
 			car->position = Point2(60, 1220);
 			car->rotation.z = 3.14;
@@ -166,7 +167,7 @@ MyScene03::MyScene03() : CoreScene()
 		if (n03 >= 10) {
 			tree->position = Point2(1285, (n03 - 10) * 108 + 47);
 		}
-		//left side
+		// Trees at the left side of the screen
 		if (n03 >= 20) {
 			tree->position = Point2(535, (n03 - 20) * 108 + 47);
 		}
