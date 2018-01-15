@@ -54,8 +54,8 @@ MyScene03::MyScene03() : CoreScene()
 	// text
 	// ###############################################################
 	text[1]->message("Ufo Game", WHITE);
-	text[2]->message("Developer: Max van der molen", WHITE);
-	text[3]->message("Art: Max van der molen", WHITE);
+	text[2]->message("Developer: Max van der Molen", WHITE);
+	text[3]->message("Art: Max van der Molen", WHITE);
 	text[4]->message("Thanks for playing my game!", WHITE);
 	//Position text
 	text[1]->position = Point2(665, 410);
