@@ -196,11 +196,22 @@ MyScene03::MyScene03() : CoreScene()
 	unufo->sprite()->color.b = 18;
 	unufo->position = Point2(580, 250);
 	layers[7]->addChild(unufo);
+	// ###############################################################
+	// create background score counter
+	// ###############################################################
+	mybscore = new BasicEntity();
+	mybscore->addSprite("assets/StartBScore.tga");
+	mybscore->position = Point2(50, 0);
+	mybscore->scale = Point(1.5f, 1.0f);
+	layers[7]->addChild(mybscore);
 }
 
 MyScene03::~MyScene03()
 {
 	// deconstruct and delete the Tree
+	this->removeChild(mybscore);
+	delete mybscore;
+
 	this->removeChild(unufo);
 	delete unufo;
 
@@ -245,7 +256,7 @@ void MyScene03::update(float deltaTime)
 	// ###############################################################
 	std::stringstream cs;
 	cs << "Score: " << score.currentscore;
-	text[0]->message(cs.str(), YELLOW);
+	text[0]->message(cs.str(), YELLOW); // add background so it can be seen better
 	text[0]->position.y = 30;
 	// ###############################################################
 	// unufo automatic rotation

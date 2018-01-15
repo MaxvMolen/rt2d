@@ -26,6 +26,8 @@ public:
 	virtual void update(float deltaTime);
 	
 private:
+	/// @brief the background for the score counter
+	BasicEntity* mybscore;
 	/// @brief the light underneath the ufo
 	BasicEntity* unufo;
 	/// @brief the light underneath the ufo

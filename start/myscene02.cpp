@@ -271,12 +271,23 @@ MyScene02::MyScene02() : CoreScene()
 	mypause->sprite()->color.g = 223;
 	mypause->sprite()->color.b = 5;
 	layers[0]->addChild(mypause);
+	// ###############################################################
+	// create background score counter
+	// ###############################################################
+	mybscore = new BasicEntity();
+	mybscore->addSprite("assets/StartBScore.tga");
+	mybscore->position = Point2(50, 0);
+	mybscore->scale = Point(1.5f, 1.0f);
+	layers[7]->addChild(mybscore);
 }
 
 
 MyScene02::~MyScene02()
 {
 	// deconstruct and delete the Tree
+	this->removeChild(mybscore);
+	delete mybscore;
+
 	this->removeChild(myback);
 	delete myback;
 

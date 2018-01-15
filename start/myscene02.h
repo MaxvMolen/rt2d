@@ -38,6 +38,8 @@ public:
 	virtual void collision(float xu, float yu, float ru, float xe, float ye, float re, float no, float deltaTime);
 	
 private:
+	/// @brief the background for the score counter
+	BasicEntity* mybscore;
 	/// @brief the rotating ufo you play in the game
 	MyUfo* myufo;
 	/// @brief the light underneath the ufo
