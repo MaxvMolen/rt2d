@@ -20,7 +20,7 @@ MyScene03::MyScene03() : CoreScene()
 	// create background
 	// ###############################################################
 	myback = new BasicEntity();
-	myback->addSprite("assets/StartBackgroundTut.tga");
+	myback->addSprite("assets/StartBackground.tga");
 	myback->position = Point2(SWIDTH / 2, SHEIGHT / 2);
 	layers[0]->addChild(myback);
 	// ###############################################################
@@ -52,12 +52,14 @@ MyScene03::MyScene03() : CoreScene()
 	text[1]->message("Ufo Game", WHITE);
 	text[2]->message("Developer: Max van der molen", WHITE);
 	text[3]->message("Art: Max van der molen", WHITE);
-	text[4]->message("......................", WHITE);
+	text[4]->message("Thanks for playing my game!", WHITE);
 	//Position text
 	text[1]->position = Point2(50, 500 - 90);
-	text[2]->position = Point2(50, 500 - 60);
-	text[3]->position = Point2(50, 500 - 30);
-	text[4]->position = Point2(50, 500 - 0);
+	text[2]->position = Point2(50, 500 - 30);
+	text[3]->position = Point2(50, 500 - 0);
+	text[4]->position = Point2(50, 500 + 60);
+	//Scale text
+	text[1]->scale = Point2(0.7f, 0.7f);
 	//text will deleted in corescene.cpp
 	// ###############################################################
 	// create roads for the level
