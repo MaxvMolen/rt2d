@@ -12,7 +12,7 @@
 // amount of objects
 int totalroads03 = 32;
 int totalcar03 = 15;
-int totaltree03 = 18;
+int totaltree03 = 38;
 
 int n03;
 // location ufo
@@ -165,7 +165,14 @@ MyScene03::MyScene03() : CoreScene()
 		if (n03 >= 9) {
 			tree->position = Point2(1385-100, (n03 - 9) * 108 + 40);
 		}
+		if (n03 >= 18) {
+			tree->position = Point2(535, (n03 - 18) * 108 + 40);
+		}
+		if (n03 >= 28) {
+			tree->position = Point2(535 + 100, (n03 - 28) * 108 + 40);
+		}
 		layers[2]->addChild(tree);
+
 	}
 	// ###############################################################
 	// create light
