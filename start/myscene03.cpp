@@ -245,7 +245,7 @@ void MyScene03::update(float deltaTime)
 	// ###############################################################
 	std::stringstream cs;
 	cs << "Score: " << score.currentscore;
-	text[0]->message(cs.str()), YELLOW;
+	text[0]->message(cs.str(), YELLOW);
 	text[0]->position.y = 30;
 	// ###############################################################
 	// unufo automatic rotation
