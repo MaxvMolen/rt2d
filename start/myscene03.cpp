@@ -10,7 +10,7 @@
 
 
 // amount of objects
-int totalroads03 = 16;
+int totalroads03 = 32;
 int totalcar03 = 8;
 int totaltree03 = 18;
 
@@ -48,7 +48,7 @@ MyScene03::MyScene03() : CoreScene()
 	mytext = new BasicEntity();
 	mytext->addSprite("assets/StartText.tga");
 	mytext->position = Point2(SWIDTH / 2 - 500, SHEIGHT / 2 - 15);
-	layers[1]->addChild(mytext);
+	layers[3]->addChild(mytext);
 	mytext->scale = Point2(0.5f, 0.7f);
 	// ###############################################################
 	// text
@@ -74,11 +74,19 @@ MyScene03::MyScene03() : CoreScene()
 		roads->addSprite("assets/StartRoad.tga");
 		roads->position = Point2(1799, (n03) * 250 - 267);
 		roads->rotation.z = 0;
-		layers[1]->addChild(roads);
 		if (n03 >= 8) {
 			roads->position = Point2(1790-230, (n03-8) * 250 - 267);
 			roads->rotation.z = 0;
 		}
+		if (n03 >= 16) {
+			roads->position = Point2(128, (n03-16) * 250 - 267);
+			roads->rotation.z = 0;
+		}
+		if (n03 >= 24) {
+			roads->position = Point2(384-25, (n03 - 24) * 250 - 267);
+			roads->rotation.z = 0;
+		}
+		layers[1]->addChild(roads);
 	}
 	// ###############################################################
 	// create cars for the level
