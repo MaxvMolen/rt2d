@@ -17,6 +17,7 @@ int totalgarden00 = 6;
 int totalbench00 = 2;
 int totalsmallbench00 = 4;
 int totalperson00 = 8;
+
 int n00 = 0;
 
 // pause counter if its 0 its not paused if its 1 the game is paused
@@ -357,6 +358,7 @@ void MyScene00::update(float deltaTime)
 	// Start game
 	// ###############################################################
 	if (menu != false) {
+		// game started
 		if (input()->getKey(Enter)) {
 			pcounter00 = 0;
 			layers[0]->addChild(mypause);
@@ -369,6 +371,7 @@ void MyScene00::update(float deltaTime)
 			started00 = true;
 			menu = false;
 		}
+		// game not started / menu
 		else {
 			layers[0]->addChild(myufo);
 			myufo->movementonoff = false;
@@ -379,16 +382,19 @@ void MyScene00::update(float deltaTime)
 			myheadertutorial->position = Point2(SWIDTH / 2, 525);
 			mycredits->position = Point2(SWIDTH / 2, 715);
 		}
+		// go to tutorial
 		if (input()->getKeyUp(KeyCode::Space)) {
 			myufo->standard();
 			layers[0]->addChild(mypause);
 			activescene++;
 		}
+		// go to credits
 		if (input()->getKeyUp(KeyCode::RightShift)) {
 			myufo->standard();
 			layers[0]->addChild(mypause);
 			CoreScene::sceneselect(3);
 		}
+		// go to credits
 		if (input()->getKeyUp(KeyCode::LeftShift)) {
 			myufo->standard();
 			layers[0]->addChild(mypause);
@@ -398,12 +404,14 @@ void MyScene00::update(float deltaTime)
 	// ###############################################################
 	// Pause game by pressing p
 	// ###############################################################
+	// paused the game
 	if (input()->getKeyDown(P) && menu == false) {
 		started00 = false;
 		myufo->movementonoff = false;
 		pcounter00++;
 		layers[8]->addChild(mypause);
 	}
+	// resume game
 	if (pcounter00 == 2) {
 		started00 = true;
 		myufo->movementonoff = true;

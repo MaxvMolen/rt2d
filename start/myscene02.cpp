@@ -19,6 +19,7 @@ int totaltbush02 = 4;
 int totalperson02 = 4;
 int totalpath02 = 14;
 int totalgarden02 = 3;
+
 int n02 = 0;
 
 // pause counter if its 0 its not paused if its 1 the game is paused
