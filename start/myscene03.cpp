@@ -119,12 +119,12 @@ MyScene03::MyScene03() : CoreScene()
 		if (n03 == 6) {
 			car->position = Point2(1790 - 290, 200);
 			car->rotation.z = 1.57 + 1.57;
-		}/////
+		}
 		if (n03 == 7) {
 			car->position = Point2(1790 + 60 + 9, 0);
 			car->rotation.z = 0;
 		}
-		/////
+		// Road left side of the screen
 		if (n03 == 8) {
 			car->position = Point2(60, 1020);
 			car->rotation.z = 1.57 + 1.57;
@@ -152,10 +152,6 @@ MyScene03::MyScene03() : CoreScene()
 		if (n03 == 14) {
 			car->position = Point2(60, 200);
 			car->rotation.z = 1.57 + 1.57;
-		}
-		if (n03 == 15) {
-			car->position = Point2(420, 0);
-			car->rotation.z = 0;
 		}
 		layers[3]->addChild(car);
 	}
@@ -310,22 +306,22 @@ void MyScene03::update(float deltaTime)
 	// ###############################################################
 	mycar[0]->position.y += 600 * deltaTime; //driving up
 	if (mycar[0]->position.y >= 1180) {
-		mycar[0]->position.y = -500;
+		mycar[0]->position.y = -100;
 	}
 	mycar[1]->position.y += 800 * deltaTime; //driving up
 	if (mycar[1]->position.y >= 1280) {
 		mycar[1]->position.y = -100;
 	}
 	mycar[2]->position.y -= 600 * deltaTime; //driving down
-	if (mycar[2]->position.y <= -200) {
-		mycar[2]->position.y = 1100;
+	if (mycar[2]->position.y <= -100) {
+		mycar[2]->position.y = 1200;
 	}
 	mycar[3]->position.y -= 800 * deltaTime; //driving down
-	if (mycar[3]->position.y <= -50) {
+	if (mycar[3]->position.y <= -100) {
 		mycar[3]->position.y = 1200;
 	}
 	mycar[4]->position.y -= 800 * deltaTime; //driving down
-	if (mycar[4]->position.y <= -50) {
+	if (mycar[4]->position.y <= -100) {
 		mycar[4]->position.y = 1200;
 	}
 	mycar[5]->position.y += 800 * deltaTime; //driving up
@@ -334,31 +330,31 @@ void MyScene03::update(float deltaTime)
 	}
 	mycar[6]->position.y += 600 * deltaTime; //driving down
 	if (mycar[6]->position.y >= 1180) {
-		mycar[6]->position.y = -500;
+		mycar[6]->position.y = -100;
 	}
 	mycar[7]->position.y -= 600 * deltaTime; //driving up
 	if (mycar[7]->position.y <= -100) {
-		mycar[7]->position.y = 1300;
+		mycar[7]->position.y = 1200;
 	}
-	// other road
+	//other road
 	mycar[8]->position.y += 600 * deltaTime; //driving up
 	if (mycar[8]->position.y >= 1180) {
-		mycar[8]->position.y = -500;
+		mycar[8]->position.y = -100;
 	}
 	mycar[9]->position.y += 800 * deltaTime; //driving up
 	if (mycar[9]->position.y >= 1280) {
 		mycar[9]->position.y = -100;
 	}
 	mycar[10]->position.y -= 600 * deltaTime; //driving down
-	if (mycar[10]->position.y <= -200) {
-		mycar[10]->position.y = 1100;
+	if (mycar[10]->position.y <= -100) {
+		mycar[10]->position.y = 1200;
 	}
 	mycar[11]->position.y -= 800 * deltaTime; //driving down
-	if (mycar[11]->position.y <= -50) {
+	if (mycar[11]->position.y <= -100) {
 		mycar[11]->position.y = 1200;
 	}
 	mycar[12]->position.y -= 800 * deltaTime; //driving down
-	if (mycar[12]->position.y <= -50) {
+	if (mycar[12]->position.y <= -100) {
 		mycar[12]->position.y = 1200;
 	}
 	mycar[13]->position.y += 800 * deltaTime; //driving up
@@ -367,10 +363,6 @@ void MyScene03::update(float deltaTime)
 	}
 	mycar[14]->position.y += 600 * deltaTime; //driving down
 	if (mycar[14]->position.y >= 1180) {
-		mycar[14]->position.y = -500;
-	}
-	mycar[15]->position.y -= 600 * deltaTime; //driving up
-	if (mycar[15]->position.y <= -100) {
-		mycar[15]->position.y = 1300;
+		mycar[14]->position.y = -100;
 	}
 }
