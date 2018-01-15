@@ -355,12 +355,6 @@ MyScene02::~MyScene02()
 void MyScene02::update(float deltaTime)
 {
 	// ###############################################################
-	// Credits (for testing purposes)
-	// ###############################################################
-	if (input()->getKeyUp(KeyCode::RightBracket)) {
-		CoreScene::sceneselect(3);
-	}
-	// ###############################################################
 	// Set Movement off / on
 	// ###############################################################
 	if (started02 == false) {
