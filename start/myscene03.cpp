@@ -126,31 +126,31 @@ MyScene03::MyScene03() : CoreScene()
 		}
 		// Road left side of the screen
 		if (n03 == 8) {
-			car->position = Point2(60, 1020);
+			car->position = Point2(60, 1020 + 200);
 			car->rotation.z = 1.57 + 1.57;
 		}
 		if (n03 == 9) {
-			car->position = Point2(190, 900);
+			car->position = Point2(190, 900 + 200);
 			car->rotation.z = 1.57 + 1.57;
 		}
 		if (n03 == 10) {
-			car->position = Point2(420, 900);
+			car->position = Point2(420, 900 + 200);
 			car->rotation.z = 0;
 		}
 		if (n03 == 11) {
-			car->position = Point2(420 - 120, 1020);
+			car->position = Point2(420 - 120, 1020 + 200);
 			car->rotation.z = 0;
 		}
 		if (n03 == 12) {
-			car->position = Point2(420 - 120, 700);
+			car->position = Point2(420 - 120, 700 + 200);
 			car->rotation.z = 0;
 		}
 		if (n03 == 13) {
-			car->position = Point2(190, 200);
+			car->position = Point2(190, 200 + 200);
 			car->rotation.z = 1.57 + 1.57;
 		}
 		if (n03 == 14) {
-			car->position = Point2(60, 200);
+			car->position = Point2(60, 200 + 200);
 			car->rotation.z = 1.57 + 1.57;
 		}
 		layers[3]->addChild(car);
@@ -185,7 +185,7 @@ MyScene03::MyScene03() : CoreScene()
 	unufo->sprite()->color.r = 236;
 	unufo->sprite()->color.g = 16;
 	unufo->sprite()->color.b = 18;
-	unufo->position = Point2(-300, 325);
+	unufo->position = Point2(580, 250);
 	layers[7]->addChild(unufo);
 }
 
@@ -241,41 +241,31 @@ void MyScene03::update(float deltaTime)
 	// ###############################################################
 	// unufo move allong path
 	// ###############################################################
-	if (unufo->position.x <= 1000 && pcount == 0) {
+	if (unufo->position.y <= 900 && pcount == 0) {
+		unufo->position.y += 300 * deltaTime;
+		if (unufo->position.y >= 890 && unufo->position.y <= 900) {
+			pcount++;
+			//std::cout << "pcount++";
+		}
+	}
+	if (unufo->position.x <= 1350 && pcount == 1) {
 		unufo->position.x += 300 * deltaTime;
-		if (unufo->position.x >= 990 && unufo->position.x <= 1000) {
+		if (unufo->position.x >= 1340 && unufo->position.x <= 1350) {
 			pcount++;
 			//std::cout << "pcount++";
 		}
 	}
-	if (unufo->position.x >= 990 && pcount == 1) {
-		unufo->position.y += 300 * deltaTime;
-		if (unufo->position.y >= 800 && unufo->position.y <= 810) {
+	if (unufo->position.y >= 250 && pcount == 2) {
+		unufo->position.y -= 300 * deltaTime;
+		if (unufo->position.y >= 240 && unufo->position.y <= 250) {
 			pcount++;
 			//std::cout << "pcount++";
 		}
 	}
-	if (unufo->position.y >= 800 && pcount == 2) {
+	if (unufo->position.x >= 580 && pcount == 3) {
 		unufo->position.x -= 300 * deltaTime;
-		if (unufo->position.x >= -500 && unufo->position.x <= -490) {
-			pcount++;
-			unufo->position = Point2(1400, -300);
-			unufo->addSprite("assets/StartUfo1.tga");
-			unufo->sprite()->color.r = 255;
-			unufo->sprite()->color.g = 171;
-			unufo->sprite()->color.b = 103;
-			//std::cout << "pcount++";
-		}
-	}
-	if (unufo->position.y <= 1200 && pcount == 3) {
-		unufo->position.y += 300 * deltaTime;
-		if (unufo->position.y >= 1190 && unufo->position.y <= 1200) {
+		if (unufo->position.x >= 570 && unufo->position.x <= 580) {
 			pcount = 0;
-			unufo->position = Point2(-300, 325);
-			unufo->addSprite("assets/StartUfo2.tga");
-			unufo->sprite()->color.r = 236;
-			unufo->sprite()->color.g = 16;
-			unufo->sprite()->color.b = 18;
 			//std::cout << "pcount = 0";
 		}
 	}
