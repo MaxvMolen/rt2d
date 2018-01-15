@@ -374,10 +374,10 @@ void MyScene02::update(float deltaTime)
 	// ###############################################################
 	// Change scene when all items are removed
 	// ###############################################################
-	if (mytree.size() == 0 && myperson.size() == 0 && mycar.size() == 0) {
+	if (mytree.size() == NULL && myperson.size() == NULL && mycar.size() == NULL) {
 		myufo->standard();
 		layers[0]->addChild(mypause);
-		CoreScene::sceneselect(3); // main menu
+		CoreScene::sceneselect(3); // credits
 	}
 	// ###############################################################
 	// Menu
