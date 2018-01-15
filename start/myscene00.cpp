@@ -253,7 +253,7 @@ MyScene00::MyScene00() : CoreScene()
 	// ###############################################################
 	mybscore = new BasicEntity();
 	mybscore->addSprite("assets/StartBScore.tga");
-	mybscore->position = Point2(50, 0);
+	mybscore->position = Point2(95, 0);
 	mybscore->scale = Point(1.5f, 1.0f);
 	layers[7]->addChild(mybscore);
 }
