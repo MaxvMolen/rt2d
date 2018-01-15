@@ -252,6 +252,12 @@ MyScene00::MyScene00() : CoreScene()
 
 MyScene00::~MyScene00()
 {
+	this->removeChild(myufo);
+	delete myufo;
+
+	this->removeChild(light);
+	delete light;
+
 	this->removeChild(myback);
 	delete myback;
 
