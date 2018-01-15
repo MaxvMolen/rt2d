@@ -38,8 +38,10 @@ private:
 	BasicEntity* myaclogo;
 	/// @brief the road in the background of the level
 	std::vector<BasicEntity*> myroads;
-	/// @brief the car in the level that you need to pick up
+	/// @brief the car in the level
 	std::vector<MyCar*> mycar;
+	/// @brief the tree in the level
+	std::vector<MyTree*> mytree;
 };
 
 #endif /* MYSCENE03_H */
