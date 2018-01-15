@@ -245,6 +245,10 @@ void MyScene03::update(float deltaTime)
 		unufo->position.y += 300 * deltaTime;
 		if (unufo->position.y >= 890 && unufo->position.y <= 900) {
 			pcount++;
+			unufo->addSprite("assets/StartUfo3.tga");
+			unufo->sprite()->color.r = 110;
+			unufo->sprite()->color.g = 156;
+			unufo->sprite()->color.b = 56;
 			//std::cout << "pcount++";
 		}
 	}
@@ -252,6 +256,10 @@ void MyScene03::update(float deltaTime)
 		unufo->position.x += 300 * deltaTime;
 		if (unufo->position.x >= 1340 && unufo->position.x <= 1350) {
 			pcount++;
+			unufo->addSprite("assets/StartUfo1.tga");
+			unufo->sprite()->color.r = 255;
+			unufo->sprite()->color.g = 171;
+			unufo->sprite()->color.b = 103;
 			//std::cout << "pcount++";
 		}
 	}
@@ -259,6 +267,10 @@ void MyScene03::update(float deltaTime)
 		unufo->position.y -= 300 * deltaTime;
 		if (unufo->position.y >= 240 && unufo->position.y <= 250) {
 			pcount++;
+			unufo->addSprite("assets/StartUfo2.tga");
+			unufo->sprite()->color.r = 236;
+			unufo->sprite()->color.g = 16;
+			unufo->sprite()->color.b = 18;
 			//std::cout << "pcount++";
 		}
 	}
@@ -266,6 +278,10 @@ void MyScene03::update(float deltaTime)
 		unufo->position.x -= 300 * deltaTime;
 		if (unufo->position.x >= 570 && unufo->position.x <= 580) {
 			pcount = 0;
+			unufo->addSprite("assets/StartUfo1.tga");
+			unufo->sprite()->color.r = 255;
+			unufo->sprite()->color.g = 171;
+			unufo->sprite()->color.b = 103;
 			//std::cout << "pcount = 0";
 		}
 	}
