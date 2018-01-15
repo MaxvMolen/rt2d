@@ -12,7 +12,7 @@
 // amount of objects
 int totalroads03 = 32;
 int totalcar03 = 15;
-int totaltree03 = 38;
+int totaltree03 = 40;
 
 int n03;
 // location ufo
@@ -39,7 +39,7 @@ MyScene03::MyScene03() : CoreScene()
 	// ###############################################################
 	myaclogo = new BasicEntity();
 	myaclogo->addSprite("assets/AC-Logo.tga");
-	myaclogo->position = Point2(1650 - 456, 1080 - 59);
+	myaclogo->position = Point2(SWIDTH / 2, 1080 - 59);
 	layers[5]->addChild(myaclogo);
 	myaclogo->scale = Point2(0.3f, 0.3f);
 	// ###############################################################
@@ -78,6 +78,7 @@ MyScene03::MyScene03() : CoreScene()
 			roads->position = Point2(1790-230, (n03-8) * 250 - 267);
 			roads->rotation.z = 0;
 		}
+		// left side
 		if (n03 >= 16) {
 			roads->position = Point2(128, (n03-16) * 250 - 267);
 			roads->rotation.z = 0;
@@ -161,15 +162,16 @@ MyScene03::MyScene03() : CoreScene()
 	for (n03 = 0; n03 < totaltree03; ++n03) {
 		MyTree* tree = new MyTree();
 		mytree.push_back(tree);
-		tree->position = Point2(1385, (n03) * 108 + 40);
-		if (n03 >= 9) {
-			tree->position = Point2(1385-100, (n03 - 9) * 108 + 40);
+		tree->position = Point2(1385, (n03) * 108 + 47);
+		if (n03 >= 10) {
+			tree->position = Point2(1385-100, (n03 - 10) * 108 + 47);
 		}
-		if (n03 >= 18) {
-			tree->position = Point2(535, (n03 - 18) * 108 + 40);
+		//left side
+		if (n03 >= 20) {
+			tree->position = Point2(535, (n03 - 20) * 108 + 47);
 		}
-		if (n03 >= 28) {
-			tree->position = Point2(535 + 100, (n03 - 28) * 108 + 40);
+		if (n03 >= 30) {
+			tree->position = Point2(535 + 100, (n03 - 30) * 108 + 47);
 		}
 		layers[2]->addChild(tree);
 
