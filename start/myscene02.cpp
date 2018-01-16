@@ -12,7 +12,7 @@
 int totalroads02 = 17;
 int totalhouses02 = 3;
 int totalparking02 = 16;
-int totalcar02 = 9;
+int totalcar02 = 10;
 int totaltree02 = 9;
 int totaltgarage02 = 2;
 int totaltbush02 = 4;
@@ -122,6 +122,10 @@ MyScene02::MyScene02() : CoreScene()
 		if (n02 >= 8) {
 			car->rotation.z = 1.57;
 			car->position = Point2(-79, 185);
+		}
+		if (n02 >= 9) {
+			car->rotation.z = -1.57;
+			car->position = Point2(2000, 60);
 		}
 		layers[5]->addChild(car);
 	}
@@ -451,7 +455,7 @@ void MyScene02::update(float deltaTime)
 		}
 	}
 	// ###############################################################
-	// Move car over the road + bounderies
+	// Move car over the road
 	// ###############################################################
 	if (started02 == true) {
 		mycar[8]->position.x += 600 * deltaTime;
@@ -459,8 +463,11 @@ void MyScene02::update(float deltaTime)
 		if (mycar[8]->position.x >= 1980) {
 			mycar[8]->position.x = -79;
 		}
-		if (mycar[8]->position.x <= -80) {
-			mycar[8]->position.x = 1980;
+
+		mycar[9]->position.x -= 600 * deltaTime;
+
+		if (mycar[9]->position.x <= -60) {
+			mycar[9]->position.x = 2000;
 		}
 	}
 	// ###############################################################
