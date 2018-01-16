@@ -321,6 +321,18 @@ MyScene00::~MyScene00()
 		mygarden[n00] = NULL;
 	}
 	mygarden.clear();
+
+	for (n00 = 0; n00 < mybenchb.size(); ++n00) {
+		delete mybenchb[n00];
+		mybenchb[n00] = NULL;
+	}
+	mybenchb.clear();
+
+	for (n00 = 0; n00 < mybenchs.size(); ++n00) {
+		delete mybenchs[n00];
+		mybenchs[n00] = NULL;
+	}
+	mybenchs.clear();
 }
 
 void MyScene00::update(float deltaTime)
