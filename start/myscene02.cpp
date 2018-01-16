@@ -121,7 +121,7 @@ MyScene02::MyScene02() : CoreScene()
 		}
 		if (n02 >= 8) {
 			car->rotation.z = 1.57;
-			car->position = Point2(-79, 60);
+			car->position = Point2(-79, 185);
 		}
 		layers[5]->addChild(car);
 	}
