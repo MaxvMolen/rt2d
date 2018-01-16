@@ -30,7 +30,7 @@ MyScene01::MyScene01() : CoreScene()
 	// ###############################################################
 	mytext = new BasicEntity();
 	mytext->addSprite("assets/StartText2.tga");
-	mytext->position = Point2(SWIDTH / 2+5, SHEIGHT / 2 - 15);
+	mytext->position = Point2(SWIDTH / 2+5, SHEIGHT / 2 +10);
 	layers[1]->addChild(mytext);
 	mytext->scale = Point2(1.0f, 1.0f);
 	// ###############################################################
