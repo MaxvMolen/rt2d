@@ -66,7 +66,7 @@ void MyUfo::update(float deltaTime)
 	// ###############################################################
 	// Update Bounderies  width,height
 	// ###############################################################
-	bounderies(1920,1080);
+	bounderies(SWIDTH,SHEIGHT);
 }
 
 void MyUfo::movement(float deltaTime) {
