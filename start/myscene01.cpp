@@ -76,16 +76,16 @@ MyScene01::MyScene01() : CoreScene()
 	//messages with instructions gameplay
 	text[2]->message("Right", WHITE);
 	text[3]->message("Wrong", WHITE);
-	text[4]->message("Use arrowkeys to move", WHITE);
-	text[5]->message("A,S and D to change form", WHITE);
+	text[4]->message("Use arrowkeys to move.", WHITE);
+	text[5]->message("A,S and D to change form.", WHITE);
 	text[6]->message("Use W to pickup objects and to go faster.", WHITE);
 	text[7]->message("In this game your objective is to pickup the right object with the right ufo.", WHITE);
 	text[8]->message("If you were to use the wrong ufo to pickup a object you will lose points.", WHITE);
 	text[9]->message("Use the beige ship to pick up humans, use the red ship to pick up", WHITE);
 	text[10]->message("car's and use the green ship to pick up trees.", WHITE);
 	text[11]->message("_______________________________________________________________________________", WHITE);
-	text[12]->message("Use the H key to go back to the menu", WHITE);
-	text[13]->message("Use the P key to go pause the game, press p again to resume the game", WHITE);
+	text[12]->message("Use the H key to go back to the menu.", WHITE);
+	text[13]->message("Use the P key to pause the game, press p again to resume the game.", WHITE);
 	//Position text
 	text[2]->position = Point2(SWIDTH / 2 + 295, SHEIGHT / 2 - 270);
 	text[3]->position = Point2(SWIDTH / 2 + 295, SHEIGHT / 2 + 270);
