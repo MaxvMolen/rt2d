@@ -404,12 +404,14 @@ void MyScene02::update(float deltaTime)
 	// ###############################################################
 	// Pause game by pressing p
 	// ###############################################################
+	// paused the game
 	if (input()->getKeyDown(P)) {
 		started02 = false;
 		myufo->movementonoff = false;
 		pcounter02++;
 		layers[8]->addChild(mypause);
 	}
+	// resume game
 	if (pcounter02 == 2) {
 		started02 = true;
 		myufo->movementonoff = true;
