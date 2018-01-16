@@ -210,12 +210,12 @@ MyScene02::MyScene02() : CoreScene()
 			path->rotation.z = 3.14;
 		}
 		if (n02 >= 6) {
-			path->position = Point2(((5) * -75) + 787.5,(n02-5)*-75 +1036);
+			path->position = Point2((5 * -75) + 787.5,(n02 - 5)*-75 +1036);
 			path->addSprite("assets/StartPRoad.tga");
 			path->rotation.z = 0;
 		}
 		if (n02 >= 8) {
-			path->position = Point2(((5) * -75) + 787.5, (n02 - 5)*-75 + 1036);
+			path->position = Point2((5 * -75) + 787.5, (n02 - 5)*-75 + 1036);
 			path->addSprite("assets/StartPRoadCurve.tga");
 			path->rotation.z = 6.27;
 		}

@@ -175,7 +175,6 @@ MyScene03::MyScene03() : CoreScene()
 			tree->position = Point2(635, (n03 - 30) * 108 + 47);
 		}
 		layers[2]->addChild(tree);
-
 	}
 	// ###############################################################
 	// create light
@@ -257,7 +256,7 @@ void MyScene03::update(float deltaTime)
 	// ###############################################################
 	std::stringstream cs;
 	cs << "Score: " << score.currentscore;
-	text[0]->message(cs.str(), YELLOW); // add background so it can be seen better
+	text[0]->message(cs.str(), YELLOW);
 	text[0]->position.y = 30;
 	// ###############################################################
 	// unufo automatic rotation
@@ -363,7 +362,7 @@ void MyScene03::update(float deltaTime)
 	if (mycar[7]->position.y <= -100) {
 		mycar[7]->position.y = 1200;
 	}
-	//other road
+	//cars on the road on the left side of the screen
 	mycar[8]->position.y += 600 * deltaTime; //driving up
 	if (mycar[8]->position.y >= 1180) {
 		mycar[8]->position.y = -100;

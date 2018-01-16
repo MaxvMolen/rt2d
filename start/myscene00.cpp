@@ -58,7 +58,7 @@ MyScene00::MyScene00() : CoreScene()
 			roads->rotation.z = 0;
 		}
 		if (n00 >= 13) {
-			roads->position = Point2(1980-515, (n00 - 13) * 250 - 267);
+			roads->position = Point2(1465, (n00 - 13) * 250 - 267);
 			roads->rotation.z = 0;
 		}
 		layers[1]->addChild(roads);
@@ -149,7 +149,7 @@ MyScene00::MyScene00() : CoreScene()
 		bbench->sprite()->color.r = 205;
 		bbench->sprite()->color.g = 102;
 		bbench->sprite()->color.b = 44;
-		bbench->position = Point2(0 * 108 + 800, 375);
+		bbench->position = Point2(800, 375);
 		if (n00 >= 1) {
 			bbench->position = Point2((n00 + 2) * 108 + 800, 375);
 		}
@@ -169,7 +169,7 @@ MyScene00::MyScene00() : CoreScene()
 		sbench->rotation.z = -1.57;
 		if (n00 >= 2) {
 			sbench->rotation.z = -4.71;
-			sbench->position = Point2(1250 - 75, (n00 - 2) * 550 + 100);
+			sbench->position = Point2(1175, (n00 - 2) * 550 + 100);
 		}
 		layers[2]->addChild(sbench);
 	}
@@ -179,19 +179,19 @@ MyScene00::MyScene00() : CoreScene()
 	for (n00 = 0; n00 < totalperson00; ++n00) {
 		MyPerson* person = new MyPerson();
 		myperson.push_back(person);
-		person->position = Point2(675 + 50, (n00) * 550 + 100);
+		person->position = Point2(725, (n00) * 550 + 100);
 		person->rotation.z = 1.57;
 		person->scale = Point(0.8f, 0.8f);
 		if (n00 >= 2) {
-			person->rotation.z = 1.57 + 1.57 + 1.57;
-			person->position = Point2(1250 - 50, (n00 - 2) * 550 + 100);
+			person->rotation.z = 4.71;
+			person->position = Point2(1200, (n00 - 2) * 550 + 100);
 		}
 		if (n00 >= 4) {
 			person->rotation.z = 0;
 			person->position = Point2((n00 - 4) * 380 + 770, 432);
 		}
 		if (n00 >= 6) {
-			person->rotation.z = 1.57 + 1.57;
+			person->rotation.z = 3.14;
 			person->position = Point2((n00 - 6) * 330 + 820, 317);
 		}
 		layers[2]->addChild(person);

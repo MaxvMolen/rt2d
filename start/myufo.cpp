@@ -50,6 +50,7 @@ void MyUfo::update(float deltaTime)
 				this->rotation.z -= TWO_PI;
 			}
 		}
+		// Standard speed
 		else {
 			speed = 300;
 		}
@@ -136,7 +137,7 @@ void MyUfo::bounderies(float width, float height) {
 
 void MyUfo::standard() {
 	// ###############################################################
-	// Sets default
+	// Sets default sprite
 	// ###############################################################
 	this->addSprite("assets/StartUfo2.tga");
 	this->scale = Point(1.0f, 1.0f);
