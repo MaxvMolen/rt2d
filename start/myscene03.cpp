@@ -48,7 +48,7 @@ MyScene03::MyScene03() : CoreScene()
 	// ###############################################################
 	mytext = new BasicEntity();
 	mytext->addSprite("assets/StartText.tga");
-	mytext->position = Point2(SWIDTH / 2 + 155, SHEIGHT / 2 - 20);
+	mytext->position = Point2(SWIDTH / 2 + 165, SHEIGHT / 2 - 20);
 	layers[4]->addChild(mytext);
 	mytext->scale = Point2(0.5f, 0.7f);
 	// ###############################################################
@@ -59,10 +59,10 @@ MyScene03::MyScene03() : CoreScene()
 	text[3]->message("Art: Max van der Molen", WHITE);
 	text[4]->message("Thanks for playing my game!", WHITE);
 	//Position text
-	text[1]->position = Point2(665, 410);
-	text[2]->position = Point2(665, 470);
-	text[3]->position = Point2(665, 500);
-	text[4]->position = Point2(665, 560);
+	text[1]->position = Point2(675, 410);
+	text[2]->position = Point2(675, 470);
+	text[3]->position = Point2(675, 500);
+	text[4]->position = Point2(675, 560);
 	//Scale text
 	text[1]->scale = Point2(0.7f, 0.7f);
 	//text will deleted in corescene.cpp
