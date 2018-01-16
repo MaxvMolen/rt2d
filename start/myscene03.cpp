@@ -40,7 +40,7 @@ MyScene03::MyScene03() : CoreScene()
 	// ###############################################################
 	myaclogo = new BasicEntity();
 	myaclogo->addSprite("assets/AC-Logo.tga");
-	myaclogo->position = Point2(SWIDTH / 2, 1021);
+	myaclogo->position = Point2(SWIDTH / 2, 1006);
 	layers[5]->addChild(myaclogo);
 	myaclogo->scale = Point2(0.3f, 0.3f);
 	// ###############################################################
