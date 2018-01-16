@@ -29,10 +29,10 @@ MyScene01::MyScene01() : CoreScene()
 	// create back text
 	// ###############################################################
 	mytext = new BasicEntity();
-	mytext->addSprite("assets/StartText.tga");
-	mytext->position = Point2(SWIDTH / 2 + 25, SHEIGHT / 2 - 15);
+	mytext->addSprite("assets/StartText2.tga");
+	mytext->position = Point2(SWIDTH / 2+5, SHEIGHT / 2 - 15);
 	layers[1]->addChild(mytext);
-	mytext->scale = Point2(1.0f, 0.7f);
+	mytext->scale = Point2(1.0f, 1.0f);
 	// ###############################################################
 	// create myexampleright
 	// ###############################################################
