@@ -500,7 +500,7 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 	// Collision ufo
 	// ###############################################################
 	if ((xu - xe)*(xu - xe) + (yu - ye)*(yu - ye) < ru*re) {
-
+		bool colls = true;
 		// use w to break the lock and pick the item up
 		if (input()->getKey('W')) {
 			//std::cout << score.currentscore;
@@ -515,6 +515,18 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 				else {
 					score.subtractscore(deltaTime);
 				}
+				std::vector<MyCar*>::iterator it = mycar.begin();
+				while (it != mycar.end()) {
+					if (no == 2) { //if its 1 it wil loop through all cars and crash
+						std::cout << "deleting Car" << std::endl;
+						*it;
+						delete(*it);
+						it = mycar.erase(it);
+					}
+					else {
+						++it;
+					}
+				}
 				//remove object
 			}
 			else if (no == 2) {
@@ -526,6 +538,22 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 				}
 				else {
 					score.subtractscore(deltaTime);
+				}
+				std::vector<MyTree*>::iterator it = mytree.begin();
+				while (it != mytree.end()) {
+					//if (it->position.x == xe) { // Experimental code
+					//collision = true;
+					//}
+					if (no == 3) { // if its 2 it wil loop through all trees and crash || if collision = true
+						std::cout << "deleting Tree" << std::endl;
+						//*it;
+						//delete(*it);
+						//it = mytree.erase(it);
+						//no++;
+					}
+					else {
+						++it;
+					}
 				}
 				//remove object
 			}
@@ -541,7 +569,8 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 				}//
 				std::vector<MyPerson*>::iterator it = myperson.begin();
 				while (it != myperson.end()){
-					if (no == 2) { // causes the problems if the same as the object 3
+					if (no == 2) { // if its 3 it wil loop through all person and crash
+						std::cout << "deleting Person" << std::endl;
 						*it;
 						delete(*it);
 						it = myperson.erase(it);

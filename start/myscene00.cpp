@@ -530,7 +530,7 @@ void MyScene00::collision(float xu, float yu, float ru, float xe, float ye, floa
 			}
 			else if (no == 2) {
 				//collision object
-				//
+				//std::cout << "Tree";
 				//std::cout << "|";
 				if (MyUfo::noa == 3) {
 					score.addscore(deltaTime);
