@@ -566,7 +566,6 @@ void MyScene00::update(float deltaTime)
 		}
 		//mypausebutton | pause button
 		if (mousepos.y >= mypausebutton->position.y - 30 && mousepos.y <= mypausebutton->position.y + 30 && mousepos.x <= mypausebutton->position.x + 30 && mousepos.x >= mypausebutton->position.x - 30 && input()->getMouseDown(0)) {
-			std::cout << "Car";
 			started00 = false;
 			myufo->movementonoff = false;
 			pcounter00++;

@@ -48,6 +48,8 @@ private:
 	std::vector<MyCar*> mycar;
 	/// @brief the tree in the level
 	std::vector<MyTree*> mytree;
+	/// @brief the home button
+	BasicEntity* myhomebutton;
 };
 
 #endif /* MYSCENE03_H */

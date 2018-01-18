@@ -68,6 +68,10 @@ private:
 	BasicEntity* myback;
 	/// @brief the pause icon
 	BasicEntity* mypause;
+	/// @brief the home button
+	BasicEntity* myhomebutton;
+	/// @brief the pause button
+	BasicEntity* mypausebutton;
 };
 
 #endif /* MYSCENE02_H */

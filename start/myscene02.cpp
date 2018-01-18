@@ -286,12 +286,33 @@ MyScene02::MyScene02() : CoreScene()
 	mybscore->position = Point2(95, 0);
 	mybscore->scale = Point(1.5f, 1.0f);
 	layers[7]->addChild(mybscore);
+	// ###############################################################
+	// create home and pause buttons
+	// ###############################################################
+	// home button
+	myhomebutton = new BasicEntity();
+	myhomebutton->addSprite("assets/StartHomeButton.tga");
+	myhomebutton->position = Point2(40, 110);
+	myhomebutton->scale = Point(0.5f, 0.5f);
+	layers[7]->addChild(myhomebutton);
+	// pause button
+	mypausebutton = new BasicEntity();
+	mypausebutton->addSprite("assets/StartPauseButton.tga");
+	mypausebutton->position = Point2(40, 180);
+	mypausebutton->scale = Point(0.5f, 0.5f);
+	layers[7]->addChild(mypausebutton);
 }
 
 
 MyScene02::~MyScene02()
 {
 	// deconstruct and delete the Tree
+	this->removeChild(myhomebutton);
+	delete myhomebutton;
+
+	this->removeChild(mypausebutton);
+	delete mypausebutton;
+
 	this->removeChild(mybscore);
 	delete mybscore;
 
@@ -491,6 +512,27 @@ void MyScene02::update(float deltaTime)
 			myperson[3]->position.x = 800;
 			myperson[3]->position.y = 1050;
 		}
+	}
+	// ###############################################################
+	// Update mouse position
+	// ###############################################################
+	int mousex = input()->getMouseX() + camera()->position.x - SWIDTH / 2;
+	int mousey = input()->getMouseY() + camera()->position.y - SHEIGHT / 2;
+	Point2 mousepos = Point2(mousex, mousey);
+	// ###############################################################
+	// Game buttons
+	// ###############################################################
+	//myhomebutton | home button
+	if (mousepos.y >= myhomebutton->position.y - 30 && mousepos.y <= myhomebutton->position.y + 30 && mousepos.x <= myhomebutton->position.x + 30 && mousepos.x >= myhomebutton->position.x - 30 && input()->getMouseDown(0)) {
+		myufo->standard();
+		CoreScene::sceneselect(0);
+	}
+	//mypausebutton | pause button
+	if (mousepos.y >= mypausebutton->position.y - 30 && mousepos.y <= mypausebutton->position.y + 30 && mousepos.x <= mypausebutton->position.x + 30 && mousepos.x >= mypausebutton->position.x - 30 && input()->getMouseDown(0)) {
+		started02 = false;
+		myufo->movementonoff = false;
+		pcounter02++;
+		layers[8]->addChild(mypause);
 	}
 }
 
