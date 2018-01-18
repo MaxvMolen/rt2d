@@ -118,8 +118,8 @@ MyScene01::MyScene01() : CoreScene()
 	// ###############################################################
 	mybscore = new BasicEntity();
 	mybscore->addSprite("assets/StartBScore.tga");
-	mybscore->position = Point2(95, 0);
-	mybscore->scale = Point(1.5f, 1.0f);
+	mybscore->position = Point2(80, 0);
+	mybscore->scale = Point(2.0f, 1.0f);
 	layers[7]->addChild(mybscore);
 	// ###############################################################
 	// create home and pause buttons
