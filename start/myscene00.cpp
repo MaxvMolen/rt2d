@@ -503,13 +503,9 @@ void MyScene00::update(float deltaTime)
 	// Buttons menu
 	// ###############################################################
 	Point2 mousepos = Point2(mousex, mousey);
-	// display location mous pointer on screen
-	std::stringstream cursortxt;
-	cursortxt << "cursor (" << mousepos.x << "," << mousepos.y << ")";
-	text[9]->message(cursortxt.str(), YELLOW);
 
 	if (menu == true) {
-		//myheaderstart |start button
+		//myheaderstart | start button
 		if (mousepos.y >= myheaderstart->position.y - 90 && mousepos.y <= myheaderstart->position.y + 90 &&  mousepos.x <= myheaderstart->position.x + 210 && mousepos.x >= myheaderstart->position.x-210 && input()->getMouseDown(0)) {
 			pcounter00 = 0;
 			layers[0]->addChild(mypause);
