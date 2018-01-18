@@ -319,7 +319,6 @@ void MyScene03::update(float deltaTime)
 				unufo->sprite()->color.r = 110;
 				unufo->sprite()->color.g = 156;
 				unufo->sprite()->color.b = 56;
-				//std::cout << "pcount++";
 			}
 		}
 		if (unufo->position.x <= 1350 && pcount == 1) {
@@ -330,7 +329,6 @@ void MyScene03::update(float deltaTime)
 				unufo->sprite()->color.r = 255;
 				unufo->sprite()->color.g = 171;
 				unufo->sprite()->color.b = 103;
-				//std::cout << "pcount++";
 			}
 		}
 		if (unufo->position.y >= 250 && pcount == 2) {
@@ -341,7 +339,6 @@ void MyScene03::update(float deltaTime)
 				unufo->sprite()->color.r = 236;
 				unufo->sprite()->color.g = 16;
 				unufo->sprite()->color.b = 18;
-				//std::cout << "pcount++";
 			}
 		}
 		if (unufo->position.x >= 580 && pcount == 3) {
@@ -352,7 +349,6 @@ void MyScene03::update(float deltaTime)
 				unufo->sprite()->color.r = 255;
 				unufo->sprite()->color.g = 171;
 				unufo->sprite()->color.b = 103;
-				//std::cout << "pcount = 0";
 			}
 		}
 	}

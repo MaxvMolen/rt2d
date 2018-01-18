@@ -585,7 +585,8 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 					//mytree[1]->coltf = true; // example not how it wil work //solution1?
 					//((*it)->y > 50)
 					//if ((*it)->position.x == xe) { // Experimental code //solution2?
-					if ((*it)->coltf = true && no == 7) { // if its 2 it wil loop through all trees and crash || if collision = true
+					//mytree[4]->coltf == true;
+					if ((*it)->coltf == true) { // if its 2 it wil loop through all trees and crash || if collision = true
 						std::cout << "deleting Tree" << std::endl;
 						////*it;
 						//delete(*it);

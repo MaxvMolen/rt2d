@@ -146,4 +146,3 @@ void MyUfo::standard() {
 	this->sprite()->color.b = 18;
 	noa = 1;
 }
-
