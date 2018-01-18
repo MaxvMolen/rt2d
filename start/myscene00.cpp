@@ -495,6 +495,47 @@ void MyScene00::update(float deltaTime)
 		}
 	}
 	// ###############################################################
+	// Update mouse position
+	// ###############################################################
+	int mousex = input()->getMouseX() + camera()->position.x - SWIDTH / 2;
+	int mousey = input()->getMouseY() + camera()->position.y - SHEIGHT / 2;
+	// ###############################################################
+	// Buttons menu
+	// ###############################################################
+	Point2 mousepos = Point2(mousex, mousey);
+	// display location mous pointer on screen
+	std::stringstream cursortxt;
+	cursortxt << "cursor (" << mousepos.x << "," << mousepos.y << ")";
+	text[9]->message(cursortxt.str(), YELLOW);
+
+	if (menu == true) {
+		//myheaderstart |start button
+		if (mousepos.y >= myheaderstart->position.y - 90 && mousepos.y <= myheaderstart->position.y + 90 &&  mousepos.x <= myheaderstart->position.x + 210 && mousepos.x >= myheaderstart->position.x-210 && input()->getMouseDown(0)) {
+			pcounter00 = 0;
+			layers[0]->addChild(mypause);
+			myufo->movementonoff = true;
+			layers[7]->addChild(myufo);
+			myheader->position.x = -500;
+			myheaderstart->position.x = -500;
+			myheadertutorial->position.x = -500;
+			mycredits->position.x = -500;
+			started00 = true;
+			menu = false;
+		}
+		//myheadertutorial | tutorial button
+		if (mousepos.y >= myheadertutorial->position.y - 90 && mousepos.y <= myheadertutorial->position.y + 90 && mousepos.x <= myheadertutorial->position.x + 210 && mousepos.x >= myheadertutorial->position.x - 210 && input()->getMouseDown(0)) {
+			myufo->standard();
+			layers[0]->addChild(mypause);
+			activescene++;
+		}
+		//mycredits | credits button
+		if (mousepos.y >= mycredits->position.y - 90 && mousepos.y <= mycredits->position.y + 90 && mousepos.x <= mycredits->position.x + 210 && mousepos.x >= mycredits->position.x - 210 && input()->getMouseDown(0)) {
+			myufo->standard();
+			layers[0]->addChild(mypause);
+			CoreScene::sceneselect(3);
+		}
+	}
+	// ###############################################################
 	// Change scene when all items are removed
 	// ###############################################################
 	if (mytree.size() == NULL && myperson.size() == NULL && mycar.size() == NULL && menu == false) {
