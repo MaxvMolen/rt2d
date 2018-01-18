@@ -50,6 +50,10 @@ private:
 	std::vector<MyTree*> mytree;
 	/// @brief the home button
 	BasicEntity* myhomebutton;
+	/// @brief the pause icon
+	BasicEntity* mypause;
+	/// @brief the pause button
+	BasicEntity* mypausebutton;
 };
 
 #endif /* MYSCENE03_H */

@@ -16,6 +16,12 @@ int totaltree03 = 40;
 
 int n03 = 0;
 
+// pause counter if its 0 its not paused if its 1 the game is paused
+int pcounter03 = 0;
+
+// has the game started yes or no
+bool started03 = true;
+
 // Checkpoints ufo
 int pcount = 0;
 
@@ -213,13 +219,35 @@ MyScene03::MyScene03() : CoreScene()
 	myhomebutton->position = Point2(40, 110);
 	myhomebutton->scale = Point(0.5f, 0.5f);
 	layers[7]->addChild(myhomebutton);
+	// pause button
+	mypausebutton = new BasicEntity();
+	mypausebutton->addSprite("assets/StartPauseButton.tga");
+	mypausebutton->position = Point2(40, 180);
+	mypausebutton->scale = Point(0.5f, 0.5f);
+	layers[7]->addChild(mypausebutton);
+	// ###############################################################
+	// create pause
+	// ###############################################################
+	mypause = new BasicEntity();
+	mypause->addSprite("assets/StartPause.tga");
+	mypause->position = Point2(SWIDTH / 1 - 75, 75);
+	mypause->sprite()->color.r = 255;
+	mypause->sprite()->color.g = 223;
+	mypause->sprite()->color.b = 5;
+	layers[0]->addChild(mypause);
 }
 
 MyScene03::~MyScene03()
 {
 	// deconstruct and delete the Tree
+	this->removeChild(mypause);
+	delete mypause;
+
 	this->removeChild(myhomebutton);
 	delete myhomebutton;
+
+	this->removeChild(mypausebutton);
+	delete mypausebutton;
 
 	this->removeChild(mybscore);
 	delete mybscore;
@@ -273,55 +301,59 @@ void MyScene03::update(float deltaTime)
 	// ###############################################################
 	// unufo automatic rotation
 	// ###############################################################
-	unufo->rotation.z -= 10 * deltaTime; // 90 deg/sec
-	if (unufo->rotation.z > TWO_PI) {
-		unufo->rotation.z -= TWO_PI;
+	if (started03 == true) {
+		unufo->rotation.z -= 10 * deltaTime; // 90 deg/sec
+		if (unufo->rotation.z > TWO_PI) {
+			unufo->rotation.z -= TWO_PI;
+		}
 	}
 	// ###############################################################
 	// unufo move allong path
 	// ###############################################################
-	if (unufo->position.y <= 900 && pcount == 0) {
-		unufo->position.y += 300 * deltaTime;
-		if (unufo->position.y >= 890 && unufo->position.y <= 900) {
-			pcount++;
-			unufo->addSprite("assets/StartUfo3.tga");
-			unufo->sprite()->color.r = 110;
-			unufo->sprite()->color.g = 156;
-			unufo->sprite()->color.b = 56;
-			//std::cout << "pcount++";
+	if (started03 == true) {
+		if (unufo->position.y <= 900 && pcount == 0) {
+			unufo->position.y += 300 * deltaTime;
+			if (unufo->position.y >= 890 && unufo->position.y <= 900) {
+				pcount++;
+				unufo->addSprite("assets/StartUfo3.tga");
+				unufo->sprite()->color.r = 110;
+				unufo->sprite()->color.g = 156;
+				unufo->sprite()->color.b = 56;
+				//std::cout << "pcount++";
+			}
 		}
-	}
-	if (unufo->position.x <= 1350 && pcount == 1) {
-		unufo->position.x += 300 * deltaTime;
-		if (unufo->position.x >= 1340 && unufo->position.x <= 1350) {
-			pcount++;
-			unufo->addSprite("assets/StartUfo1.tga");
-			unufo->sprite()->color.r = 255;
-			unufo->sprite()->color.g = 171;
-			unufo->sprite()->color.b = 103;
-			//std::cout << "pcount++";
+		if (unufo->position.x <= 1350 && pcount == 1) {
+			unufo->position.x += 300 * deltaTime;
+			if (unufo->position.x >= 1340 && unufo->position.x <= 1350) {
+				pcount++;
+				unufo->addSprite("assets/StartUfo1.tga");
+				unufo->sprite()->color.r = 255;
+				unufo->sprite()->color.g = 171;
+				unufo->sprite()->color.b = 103;
+				//std::cout << "pcount++";
+			}
 		}
-	}
-	if (unufo->position.y >= 250 && pcount == 2) {
-		unufo->position.y -= 300 * deltaTime;
-		if (unufo->position.y >= 240 && unufo->position.y <= 250) {
-			pcount++;
-			unufo->addSprite("assets/StartUfo2.tga");
-			unufo->sprite()->color.r = 236;
-			unufo->sprite()->color.g = 16;
-			unufo->sprite()->color.b = 18;
-			//std::cout << "pcount++";
+		if (unufo->position.y >= 250 && pcount == 2) {
+			unufo->position.y -= 300 * deltaTime;
+			if (unufo->position.y >= 240 && unufo->position.y <= 250) {
+				pcount++;
+				unufo->addSprite("assets/StartUfo2.tga");
+				unufo->sprite()->color.r = 236;
+				unufo->sprite()->color.g = 16;
+				unufo->sprite()->color.b = 18;
+				//std::cout << "pcount++";
+			}
 		}
-	}
-	if (unufo->position.x >= 580 && pcount == 3) {
-		unufo->position.x -= 300 * deltaTime;
-		if (unufo->position.x >= 570 && unufo->position.x <= 580) {
-			pcount = 0;
-			unufo->addSprite("assets/StartUfo1.tga");
-			unufo->sprite()->color.r = 255;
-			unufo->sprite()->color.g = 171;
-			unufo->sprite()->color.b = 103;
-			//std::cout << "pcount = 0";
+		if (unufo->position.x >= 580 && pcount == 3) {
+			unufo->position.x -= 300 * deltaTime;
+			if (unufo->position.x >= 570 && unufo->position.x <= 580) {
+				pcount = 0;
+				unufo->addSprite("assets/StartUfo1.tga");
+				unufo->sprite()->color.r = 255;
+				unufo->sprite()->color.g = 171;
+				unufo->sprite()->color.b = 103;
+				//std::cout << "pcount = 0";
+			}
 		}
 	}
 	// ###############################################################
@@ -337,71 +369,75 @@ void MyScene03::update(float deltaTime)
 	// ###############################################################
 	// Update X and Y position of light
 	// ###############################################################
-	light->position.x = unufo->position.x;
-	light->position.y = unufo->position.y;
+	if (started03 == true) {
+		light->position.x = unufo->position.x;
+		light->position.y = unufo->position.y;
+	}
 	// ###############################################################
 	// Move car over the road
 	// ###############################################################
-	mycar[0]->position.y += 600 * deltaTime; //driving up
-	if (mycar[0]->position.y >= 1180) {
-		mycar[0]->position.y = -100;
-	}
-	mycar[1]->position.y += 800 * deltaTime; //driving up
-	if (mycar[1]->position.y >= 1280) {
-		mycar[1]->position.y = -100;
-	}
-	mycar[2]->position.y -= 600 * deltaTime; //driving down
-	if (mycar[2]->position.y <= -100) {
-		mycar[2]->position.y = 1200;
-	}
-	mycar[3]->position.y -= 800 * deltaTime; //driving down
-	if (mycar[3]->position.y <= -100) {
-		mycar[3]->position.y = 1200;
-	}
-	mycar[4]->position.y -= 800 * deltaTime; //driving down
-	if (mycar[4]->position.y <= -100) {
-		mycar[4]->position.y = 1200;
-	}
-	mycar[5]->position.y += 800 * deltaTime; //driving up
-	if (mycar[5]->position.y >= 1280) {
-		mycar[5]->position.y = -100;
-	}
-	mycar[6]->position.y += 600 * deltaTime; //driving down
-	if (mycar[6]->position.y >= 1180) {
-		mycar[6]->position.y = -100;
-	}
-	mycar[7]->position.y -= 600 * deltaTime; //driving up
-	if (mycar[7]->position.y <= -100) {
-		mycar[7]->position.y = 1200;
-	}
-	//cars on the road on the left side of the screen
-	mycar[8]->position.y += 600 * deltaTime; //driving up
-	if (mycar[8]->position.y >= 1180) {
-		mycar[8]->position.y = -100;
-	}
-	mycar[9]->position.y += 800 * deltaTime; //driving up
-	if (mycar[9]->position.y >= 1280) {
-		mycar[9]->position.y = -100;
-	}
-	mycar[10]->position.y -= 600 * deltaTime; //driving down
-	if (mycar[10]->position.y <= -100) {
-		mycar[10]->position.y = 1200;
-	}
-	mycar[11]->position.y -= 800 * deltaTime; //driving down
-	if (mycar[11]->position.y <= -100) {
-		mycar[11]->position.y = 1200;
-	}
-	mycar[12]->position.y -= 800 * deltaTime; //driving down
-	if (mycar[12]->position.y <= -100) {
-		mycar[12]->position.y = 1200;
-	}
-	mycar[13]->position.y += 800 * deltaTime; //driving up
-	if (mycar[13]->position.y >= 1280) {
-		mycar[13]->position.y = -100;
-	}
-	mycar[14]->position.y += 600 * deltaTime; //driving down
-	if (mycar[14]->position.y >= 1180) {
-		mycar[14]->position.y = -100;
+	if (started03 == true) {
+		mycar[0]->position.y += 600 * deltaTime; //driving up
+		if (mycar[0]->position.y >= 1180) {
+			mycar[0]->position.y = -100;
+		}
+		mycar[1]->position.y += 800 * deltaTime; //driving up
+		if (mycar[1]->position.y >= 1280) {
+			mycar[1]->position.y = -100;
+		}
+		mycar[2]->position.y -= 600 * deltaTime; //driving down
+		if (mycar[2]->position.y <= -100) {
+			mycar[2]->position.y = 1200;
+		}
+		mycar[3]->position.y -= 800 * deltaTime; //driving down
+		if (mycar[3]->position.y <= -100) {
+			mycar[3]->position.y = 1200;
+		}
+		mycar[4]->position.y -= 800 * deltaTime; //driving down
+		if (mycar[4]->position.y <= -100) {
+			mycar[4]->position.y = 1200;
+		}
+		mycar[5]->position.y += 800 * deltaTime; //driving up
+		if (mycar[5]->position.y >= 1280) {
+			mycar[5]->position.y = -100;
+		}
+		mycar[6]->position.y += 600 * deltaTime; //driving down
+		if (mycar[6]->position.y >= 1180) {
+			mycar[6]->position.y = -100;
+		}
+		mycar[7]->position.y -= 600 * deltaTime; //driving up
+		if (mycar[7]->position.y <= -100) {
+			mycar[7]->position.y = 1200;
+		}
+		//cars on the road on the left side of the screen
+		mycar[8]->position.y += 600 * deltaTime; //driving up
+		if (mycar[8]->position.y >= 1180) {
+			mycar[8]->position.y = -100;
+		}
+		mycar[9]->position.y += 800 * deltaTime; //driving up
+		if (mycar[9]->position.y >= 1280) {
+			mycar[9]->position.y = -100;
+		}
+		mycar[10]->position.y -= 600 * deltaTime; //driving down
+		if (mycar[10]->position.y <= -100) {
+			mycar[10]->position.y = 1200;
+		}
+		mycar[11]->position.y -= 800 * deltaTime; //driving down
+		if (mycar[11]->position.y <= -100) {
+			mycar[11]->position.y = 1200;
+		}
+		mycar[12]->position.y -= 800 * deltaTime; //driving down
+		if (mycar[12]->position.y <= -100) {
+			mycar[12]->position.y = 1200;
+		}
+		mycar[13]->position.y += 800 * deltaTime; //driving up
+		if (mycar[13]->position.y >= 1280) {
+			mycar[13]->position.y = -100;
+		}
+		mycar[14]->position.y += 600 * deltaTime; //driving down
+		if (mycar[14]->position.y >= 1180) {
+			mycar[14]->position.y = -100;
+		}
 	}
 	// ###############################################################
 	// Update mouse position
@@ -415,5 +451,26 @@ void MyScene03::update(float deltaTime)
 	//myhomebutton | home button
 	if (mousepos.y >= myhomebutton->position.y - 30 && mousepos.y <= myhomebutton->position.y + 30 && mousepos.x <= myhomebutton->position.x + 30 && mousepos.x >= myhomebutton->position.x - 30 && input()->getMouseDown(0)) {
 		CoreScene::sceneselect(0);
+	}
+	//mypausebutton | pause button
+	if (mousepos.y >= mypausebutton->position.y - 30 && mousepos.y <= mypausebutton->position.y + 30 && mousepos.x <= mypausebutton->position.x + 30 && mousepos.x >= mypausebutton->position.x - 30 && input()->getMouseDown(0)) {
+		started03 = false;
+		pcounter03++;
+		layers[8]->addChild(mypause);
+	}
+	// ###############################################################
+	// Pause game by pressing p
+	// ###############################################################
+	// paused the game
+	if (input()->getKeyDown(P)) {
+		started03 = false;
+		pcounter03++;
+		layers[8]->addChild(mypause);
+	}
+	// resume game
+	if (pcounter03 == 2) {
+		started03 = true;
+		pcounter03 = 0;
+		layers[0]->addChild(mypause);
 	}
 }
