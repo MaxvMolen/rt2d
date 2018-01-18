@@ -23,6 +23,8 @@ public:
 	/// @param deltaTime the elapsed time in seconds
 	/// @return void
 	virtual void update(float deltaTime);
+	/// @brief boolean that turns true on collision
+	static bool coltf;
 
 private:
 	/* add your private declarations */

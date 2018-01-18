@@ -141,7 +141,7 @@ MyScene02::MyScene02() : CoreScene()
 			tree->rotation.z = 3.14;
 		}
 		if (n02 >= 8) {
-			tree->position = Point2(655,425 );
+			tree->position = Point2(655,425);
 		}
 		layers[6]->addChild(tree);
 	}
@@ -519,9 +519,9 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 				while (it != mycar.end()) {
 					if (no == 2) { //if its 1 it wil loop through all cars and crash
 						std::cout << "deleting Car" << std::endl;
-						*it;
-						delete(*it);
-						it = mycar.erase(it);
+						//*it;
+						//delete(*it);
+						//it = mycar.erase(it);
 					}
 					else {
 						++it;
@@ -541,15 +541,14 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 				}
 				std::vector<MyTree*>::iterator it = mytree.begin();
 				while (it != mytree.end()) {
-					//if (it->position.x == xe) { // Experimental code
-					//collision = true;
-					//}
-					if (no == 3) { // if its 2 it wil loop through all trees and crash || if collision = true
+					//mytree[1]->coltf = true; // example not how it wil work //solution1?
+					//((*it)->y > 50)
+					//if ((*it)->position.x == xe) { // Experimental code //solution2?
+					if ((*it)->coltf = true) { // if its 2 it wil loop through all trees and crash || if collision = true
 						std::cout << "deleting Tree" << std::endl;
-						//*it;
+						////*it;
 						//delete(*it);
 						//it = mytree.erase(it);
-						//no++;
 					}
 					else {
 						++it;
@@ -566,14 +565,14 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 				}
 				else {
 					score.subtractscore(deltaTime);
-				}//
+				}
 				std::vector<MyPerson*>::iterator it = myperson.begin();
 				while (it != myperson.end()){
 					if (no == 2) { // if its 3 it wil loop through all person and crash
 						std::cout << "deleting Person" << std::endl;
-						*it;
-						delete(*it);
-						it = myperson.erase(it);
+						//*it;
+						//delete(*it);
+						//it = myperson.erase(it);
 					}
 					else {
 						++it;

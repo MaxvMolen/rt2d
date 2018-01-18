@@ -6,6 +6,9 @@
 
 #include "mytree.h"
 
+// The bool that turns true if something collides with the tree
+bool MyTree::coltf = false;
+
 MyTree::MyTree() : Entity()
 {
 	// ###############################################################
