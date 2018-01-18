@@ -261,10 +261,31 @@ MyScene00::MyScene00() : CoreScene()
 	mybscore->position = Point2(95, 0);
 	mybscore->scale = Point(1.5f, 1.0f);
 	layers[7]->addChild(mybscore);
+	// ###############################################################
+	// create home and pause buttons
+	// ###############################################################
+	// home button
+	myhomebutton = new BasicEntity();
+	myhomebutton->addSprite("assets/StartHomeButton.tga");
+	myhomebutton->position = Point2(40, 110);
+	myhomebutton->scale = Point(0.5f, 0.5f);
+	layers[7]->addChild(myhomebutton);
+	// pause button
+	mypausebutton = new BasicEntity();
+	mypausebutton->addSprite("assets/StartPauseButton.tga");
+	mypausebutton->position = Point2(40, 180);
+	mypausebutton->scale = Point(0.5f, 0.5f);
+	layers[7]->addChild(mypausebutton);
 }
 
 MyScene00::~MyScene00()
 {
+	this->removeChild(myhomebutton);
+	delete myhomebutton;
+
+	this->removeChild(mypausebutton);
+	delete mypausebutton;
+
 	this->removeChild(mybscore);
 	delete mybscore;
 
@@ -380,6 +401,8 @@ void MyScene00::update(float deltaTime)
 			myheaderstart->position.x = -500;
 			myheadertutorial->position.x = -500;
 			mycredits->position.x = -500;
+			myhomebutton->position = Point2(40, 110);
+			mypausebutton->position = Point2(40, 180);
 			started00 = true;
 			menu = false;
 		}
@@ -389,6 +412,8 @@ void MyScene00::update(float deltaTime)
 			myufo->movementonoff = false;
 			light->position.x = -100;
 			light->position.y = -100;
+			myhomebutton->position.x = -500;
+			mypausebutton->position.x = -500;
 			myheader->position = Point2(SWIDTH / 2, 125);
 			myheaderstart->position = Point2(SWIDTH / 2, 335);
 			myheadertutorial->position = Point2(SWIDTH / 2, 525);
@@ -499,11 +524,10 @@ void MyScene00::update(float deltaTime)
 	// ###############################################################
 	int mousex = input()->getMouseX() + camera()->position.x - SWIDTH / 2;
 	int mousey = input()->getMouseY() + camera()->position.y - SHEIGHT / 2;
+	Point2 mousepos = Point2(mousex, mousey);
 	// ###############################################################
 	// Buttons menu
 	// ###############################################################
-	Point2 mousepos = Point2(mousex, mousey);
-
 	if (menu == true) {
 		//myheaderstart | start button
 		if (mousepos.y >= myheaderstart->position.y - 90 && mousepos.y <= myheaderstart->position.y + 90 &&  mousepos.x <= myheaderstart->position.x + 210 && mousepos.x >= myheaderstart->position.x-210 && input()->getMouseDown(0)) {
@@ -511,6 +535,8 @@ void MyScene00::update(float deltaTime)
 			layers[0]->addChild(mypause);
 			myufo->movementonoff = true;
 			layers[7]->addChild(myufo);
+			myhomebutton->position = Point2(40, 110);
+			mypausebutton->position = Point2(40, 180);
 			myheader->position.x = -500;
 			myheaderstart->position.x = -500;
 			myheadertutorial->position.x = -500;
@@ -529,6 +555,22 @@ void MyScene00::update(float deltaTime)
 			myufo->standard();
 			layers[0]->addChild(mypause);
 			CoreScene::sceneselect(3);
+		}
+	}
+	else {
+		//myhomebutton | home button
+		if (mousepos.y >= myhomebutton->position.y - 30 && mousepos.y <= myhomebutton->position.y + 30 && mousepos.x <= myhomebutton->position.x + 30 && mousepos.x >= myhomebutton->position.x - 30 && input()->getMouseDown(0)) {
+			layers[0]->addChild(mypause);
+			started00 = false;
+			menu = true;
+		}
+		//mypausebutton | pause button
+		if (mousepos.y >= mypausebutton->position.y - 30 && mousepos.y <= mypausebutton->position.y + 30 && mousepos.x <= mypausebutton->position.x + 30 && mousepos.x >= mypausebutton->position.x - 30 && input()->getMouseDown(0)) {
+			std::cout << "Car";
+			started00 = false;
+			myufo->movementonoff = false;
+			pcounter00++;
+			layers[8]->addChild(mypause);
 		}
 	}
 	// ###############################################################
