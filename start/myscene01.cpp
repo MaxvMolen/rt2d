@@ -159,13 +159,13 @@ MyScene01::MyScene01() : CoreScene()
 	examplehomebutton->addSprite("assets/StartHomeButton.tga");
 	examplehomebutton->position = Point2(660, 575);
 	examplehomebutton->scale = Point(0.3f, 0.3f);
-	layers[7]->addChild(examplehomebutton);
+	layers[2]->addChild(examplehomebutton);
 	// pause button
 	examplepausebutton = new BasicEntity();
 	examplepausebutton->addSprite("assets/StartPauseButton.tga");
 	examplepausebutton->position = Point2(1120, 605);
 	examplepausebutton->scale = Point(0.3f, 0.3f);
-	layers[7]->addChild(examplepausebutton);
+	layers[2]->addChild(examplepausebutton);
 	// ###############################################################
 	// create persons for the level
 	// ###############################################################
