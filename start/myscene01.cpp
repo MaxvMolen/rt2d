@@ -8,6 +8,14 @@
 #include <sstream>
 #include "myscene01.h"
 
+// amount of objects
+int totalpath01 = 16;
+int totalroads01 = 8;
+int totalcar01 = 2;
+int totaltree01 = 1;
+int totalperson01 = 2;
+
+int n01 = 0;
 // pause counter if its 0 its not paused if its 1 the game is paused
 int pcounter01 = 0;
 
@@ -15,6 +23,11 @@ int pcounter01 = 0;
 bool started01 = true;
 // switch movement on and of
 bool switchs01 = false;
+
+//myufo
+float xa1 = 1; // x position myufo
+float ya1 = 1; // y position myufo
+float ra1 = 25; // radius myufo
 
 MyScene01::MyScene01() : CoreScene()
 {
@@ -30,7 +43,7 @@ MyScene01::MyScene01() : CoreScene()
 	// ###############################################################
 	mytext = new BasicEntity();
 	mytext->addSprite("assets/StartText2.tga");
-	mytext->position = Point2(SWIDTH / 2+5, SHEIGHT / 2 +10);
+	mytext->position = Point2(SWIDTH / 2+5, SHEIGHT / 2 -75);
 	layers[1]->addChild(mytext);
 	mytext->scale = Point2(1.0f, 1.0f);
 	// ###############################################################
@@ -39,14 +52,14 @@ MyScene01::MyScene01() : CoreScene()
 	myexampleright = new BasicEntity();
 	myexampleright->addSprite("assets/ExampleGameplayRight.tga");
 	myexampleright->position = Point2(SWIDTH / 2 + 700, SHEIGHT / 2 - 270);
-	layers[7]->addChild(myexampleright);
+	layers[0]->addChild(myexampleright);				//////////////////////////////////////////////////// LAYER 7
 	// ###############################################################
 	// create examplewrong
 	// ###############################################################
 	myexamplewrong = new BasicEntity();
 	myexamplewrong->addSprite("assets/ExampleGameplayWrong.tga");
 	myexamplewrong->position = Point2(SWIDTH / 2 + 700, SHEIGHT / 2+270);
-	layers[7]->addChild(myexamplewrong);
+	layers[0]->addChild(myexamplewrong);				//////////////////////////////////////////////////// LAYER 7
 	// ###############################################################
 	// create header for the level
 	// ###############################################################
@@ -74,8 +87,8 @@ MyScene01::MyScene01() : CoreScene()
 	// text instruction
 	// ###############################################################
 	//messages with instructions gameplay
-	text[2]->message("Right", WHITE);
-	text[3]->message("Wrong", WHITE);
+	//text[2]->message("Right", WHITE);
+	//text[3]->message("Wrong", WHITE);
 	text[4]->message("Use arrowkeys to move.", WHITE);
 	text[5]->message("A,S and D to change form.", WHITE);
 	text[6]->message("Use W to pickup objects and to go faster.", WHITE);
@@ -87,21 +100,21 @@ MyScene01::MyScene01() : CoreScene()
 	text[12]->message("Use the H key to go back to the menu.", WHITE);
 	text[13]->message("Use the P key to pause the game, press p again to resume the game.", WHITE);
 	//Position text
-	text[2]->position = Point2(SWIDTH / 2 + 295, SHEIGHT / 2 - 270);
-	text[3]->position = Point2(SWIDTH / 2 + 295, SHEIGHT / 2 + 270);
-	text[4]->position = Point2(50, 560);
-	text[5]->position = Point2(50, 590);
-	text[6]->position = Point2(50, 620);
-	text[7]->position = Point2(50, 410);
-	text[8]->position = Point2(50, 440);
-	text[9]->position = Point2(50, 470);
-	text[10]->position = Point2(50, 500);
-	text[11]->position = Point2(50, 530);
-	text[12]->position = Point2(50, 650);
-	text[13]->position = Point2(50, 680);
+	//text[2]->position = Point2(SWIDTH / 2 + 295, SHEIGHT / 2 - 270);
+	//text[3]->position = Point2(SWIDTH / 2 + 295, SHEIGHT / 2 + 270);
+	text[4]->position = Point2(50, 485);
+	text[5]->position = Point2(50, 515);
+	text[6]->position = Point2(50, 545);
+	text[7]->position = Point2(50, 335);
+	text[8]->position = Point2(50, 365);
+	text[9]->position = Point2(50, 395);
+	text[10]->position = Point2(50, 425);
+	text[11]->position = Point2(50, 455);
+	text[12]->position = Point2(50, 575);
+	text[13]->position = Point2(50, 605);
 	//Scale text
-	text[2]->scale = Point2(1.0f, 1.0f);
-	text[3]->scale = Point2(1.0f, 1.0f);
+	//text[2]->scale = Point2(1.0f, 1.0f);
+	//text[3]->scale = Point2(1.0f, 1.0f);
 	//text will deleted in corescene.cpp
 	// ###############################################################
 	// create pause
@@ -142,19 +155,78 @@ MyScene01::MyScene01() : CoreScene()
 	// home button
 	examplehomebutton = new BasicEntity();
 	examplehomebutton->addSprite("assets/StartHomeButton.tga");
-	examplehomebutton->position = Point2(660, 650);
+	examplehomebutton->position = Point2(660, 575);
 	examplehomebutton->scale = Point(0.3f, 0.3f);
 	layers[7]->addChild(examplehomebutton);
 	// pause button
 	examplepausebutton = new BasicEntity();
 	examplepausebutton->addSprite("assets/StartPauseButton.tga");
-	examplepausebutton->position = Point2(1120, 680);
+	examplepausebutton->position = Point2(1120, 605);
 	examplepausebutton->scale = Point(0.3f, 0.3f);
 	layers[7]->addChild(examplepausebutton);
+	// ###############################################################
+	// create persons for the level
+	// ###############################################################
+	for (n01 = 0; n01 < totalperson01; ++n01) {
+		MyPerson* person = new MyPerson();
+		myperson.push_back(person);
+		person->position = Point2(1700, 300);
+		person->scale = Point(0.7f, 0.7f);
+		person->rotation.z = 0;
+		if (n01 >= 1) {
+			person->position = Point2(575, 780);
+			person->rotation.z = 1.57;
+		}
+		layers[6]->addChild(person);
+	}
+	// ###############################################################
+	// create trees	for the level
+	// ###############################################################
+	for (n01 = 0; n01 < totaltree01; ++n01) {
+		MyTree* tree = new MyTree();
+		mytree.push_back(tree);
+		tree->position = Point2(1700, 300);
+		layers[6]->addChild(tree);
+	}
+	// ###############################################################
+	// create cars for the level
+	// ###############################################################
+	for (n01 = 0; n01 < totalcar01; ++n01) {
+		MyCar* car = new MyCar();
+		mycar.push_back(car);
+		car->position = Point2(1700, 300);
+		if (n01 >= 1) {
+			car->position = Point2(300, 900);
+			car->rotation.z = -1.57;
+		}
+		layers[5]->addChild(car);
+	}
+	// ###############################################################
+	// create roads for the level
+	// ###############################################################
+	for (n01 = 0; n01 < totalroads01; ++n01) {
+		BasicEntity* roads = new BasicEntity();
+		myroads.push_back(roads);
+		roads->addSprite("assets/StartRoad.tga");
+		roads->position = Point2(125 + n01 * 250, 960);
+		roads->rotation.z = 1.57;
+		layers[1]->addChild(roads);
+	}
+	// ###############################################################
+	// create paths for the level
+	// ###############################################################
+	for (n01 = 0; n01 < totalpath01; ++n01) {
+		BasicEntity* path = new BasicEntity();
+		mypath.push_back(path);
+		path->addSprite("assets/StartPRoad.tga");
+		path->position = Point2(n01 * 125, 780);
+		path->rotation.z = 1.57;
+		layers[1]->addChild(path);
+	}
 }
 
 
-MyScene01::~MyScene01()
+MyScene01::~MyScene01() 
 {
 	this->removeChild(examplehomebutton);
 	delete examplehomebutton;
@@ -194,6 +266,24 @@ MyScene01::~MyScene01()
 
 	this->removeChild(mypause);
 	delete mypause;
+
+	for (n01 = 0; n01 < mycar.size(); ++n01) {
+		delete mycar[n01];
+		mycar[n01] = NULL;
+	}
+	mycar.clear();
+
+	for (n01 = 0; n01 < mytree.size(); ++n01) {
+		delete mytree[n01];
+		mytree[n01] = NULL;
+	}
+	mytree.clear();
+
+	for (n01 = 0; n01 < myperson.size(); ++n01) {
+		delete myperson[n01];
+		myperson[n01] = NULL;
+	}
+	myperson.clear();
 }
 
 void MyScene01::update(float deltaTime)
@@ -228,10 +318,18 @@ void MyScene01::update(float deltaTime)
 	light->position.x = myufo->position.x;
 	light->position.y = myufo->position.y;
 	// ###############################################################
+	// Update X and Y position of myufo
+	// ###############################################################
+	if (started01 == true) {
+		xa1 = myufo->position.x;
+		ya1 = myufo->position.y;
+	}
+	// ###############################################################
 	// Menu
 	// ###############################################################
 	if (input()->getKeyUp(KeyCode::H)) {
 		myufo->standard();
+		score.setscore(deltaTime, 0);
 		CoreScene::sceneselect(0);
 	}
 	// ###############################################################
@@ -263,6 +361,7 @@ void MyScene01::update(float deltaTime)
 	//myhomebutton | home button
 	if (mousepos.y >= myhomebutton->position.y - 30 && mousepos.y <= myhomebutton->position.y + 30 && mousepos.x <= myhomebutton->position.x + 30 && mousepos.x >= myhomebutton->position.x - 30 && input()->getMouseDown(0)) {
 		myufo->standard();
+		score.setscore(deltaTime, 0);
 		CoreScene::sceneselect(0);
 	}
 	//mypausebutton | pause button
@@ -271,5 +370,134 @@ void MyScene01::update(float deltaTime)
 		myufo->movementonoff = false;
 		pcounter01++;
 		layers[8]->addChild(mypause);
+	}
+	// ###############################################################
+	// Call collision function and set radius of object
+	// ###############################################################
+	if (started01 == true) {
+		for (n01 = 0; n01 < mycar.size(); ++n01) {
+			collision(xa1, ya1, ra1, mycar[n01]->position.x, mycar[n01]->position.y, 125, 1, deltaTime);
+		}
+		for (n01 = 0; n01 < mytree.size(); ++n01) {
+			collision(xa1, ya1, ra1, mytree[n01]->position.x, mytree[n01]->position.y, 50, 2, deltaTime);
+		}
+		for (n01 = 0; n01 < myperson.size(); ++n01) {
+			collision(xa1, ya1, ra1, myperson[n01]->position.x, myperson[n01]->position.y, 25, 3, deltaTime);
+		}
+	}
+	// ###############################################################
+	// Move car over the road
+	// ###############################################################
+	if (started01 == true) {
+		mycar[1]->position.x -= 600 * deltaTime;
+
+		if (mycar[1]->position.x <= -100) {
+			mycar[1]->position.x = 2000;
+		}
+	}
+	// ###############################################################
+	// Move person over the path
+	// ###############################################################
+	if (started01 == true) {
+		myperson[1]->position.x += 200 * deltaTime;
+
+		if (myperson[1]->position.x >= 2000) {
+			myperson[1]->position.x = -100;
+		}
+	}
+}
+
+void MyScene01::collision(float xu, float yu, float ru, float xe, float ye, float re, float no, float deltaTime) {
+	// ###############################################################
+	// Collision ufo
+	// ###############################################################
+	if ((xu - xe)*(xu - xe) + (yu - ye)*(yu - ye) < ru*re) {
+		bool colls = true;
+		// use w to break the lock and pick the item up
+		if (input()->getKey('W')) {
+			//std::cout << score.currentscore;
+			//std::cout << "|";
+			if (no == 1) {
+				//collision object
+				//std::cout << "Car";
+				//std::cout << "|";
+				if (MyUfo::noa == 1) {
+					score.addscore(deltaTime);
+				}
+				else {
+					score.subtractscore(deltaTime);
+				}
+				std::vector<MyCar*>::iterator it = mycar.begin();
+				while (it != mycar.end()) {
+					if (no == 2) { //if its 1 it wil loop through all cars and crash
+						std::cout << "deleting Car" << std::endl;
+						//*it;
+						//delete(*it);
+						//it = mycar.erase(it);
+					}
+					else {
+						++it;
+					}
+				}
+				//remove object
+			}
+			else if (no == 2) {
+				//collision object
+				//std::cout << "Tree";
+				//std::cout << "|";
+				if (MyUfo::noa == 3) {
+					score.addscore(deltaTime);
+				}
+				else {
+					score.subtractscore(deltaTime);
+				}
+				std::vector<MyTree*>::iterator it = mytree.begin();
+				while (it != mytree.end()) {
+					//mytree[1]->coltf = true; // example not how it wil work //solution1?
+					//((*it)->y > 50)
+					//if ((*it)->position.x == xe) { // Experimental code //solution2?
+					//mytree[4]->coltf == true;
+					if ((*it)->coltf == true) { // if its 2 it wil loop through all trees and crash || if collision = true
+						std::cout << "deleting Tree" << std::endl;
+						////*it;
+						//delete(*it);
+						//it = mytree.erase(it);
+					}
+					else {
+						++it;
+					}
+				}
+				//remove object
+			}
+			else if (no == 3) {
+				//collision object
+				//std::cout << "Person";
+				//std::cout << "|";
+				if (MyUfo::noa == 2) {
+					score.addscore(deltaTime);
+				}
+				else {
+					score.subtractscore(deltaTime);
+				}
+				std::vector<MyPerson*>::iterator it = myperson.begin();
+				while (it != myperson.end()) {
+					if (no == 2) { // if its 3 it wil loop through all person and crash
+						std::cout << "deleting Person" << std::endl;
+						//*it;
+						//delete(*it);
+						//it = myperson.erase(it);
+					}
+					else {
+						++it;
+					}
+				}
+				//remove object
+			}
+		}
+		else {
+			// lock the ufo in place on collision of object 
+			myufo->position.x = xe;
+			myufo->position.y = ye;
+		}
 	}
 }
