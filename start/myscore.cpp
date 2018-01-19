@@ -37,3 +37,10 @@ void MyScore::subtractscore(float deltaTime) {
 	// ###############################################################
 	currentscore -= 1000 * deltaTime;
 }
+
+void MyScore::setscore(float deltaTime, int num) {
+	// ###############################################################
+	// Add to the currentscore
+	// ###############################################################
+	currentscore == num;
+}

@@ -29,6 +29,8 @@ public:
 	virtual void addscore(float deltaTime);
 	/// @brief subtract score from the currenscore
 	virtual void subtractscore(float deltaTime);
+	/// @brief set the current score
+	virtual void setscore(float deltaTime, int num);
 
 private:
 	/* add your private declarations */
