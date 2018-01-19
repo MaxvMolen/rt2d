@@ -42,5 +42,5 @@ void MyScore::setscore(float deltaTime, int num) {
 	// ###############################################################
 	// Add to the currentscore
 	// ###############################################################
-	currentscore == num;
+	currentscore = num;
 }
