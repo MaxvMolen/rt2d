@@ -172,7 +172,7 @@ MyScene01::MyScene01() : CoreScene()
 	for (n01 = 0; n01 < totalperson01; ++n01) {
 		MyPerson* person = new MyPerson();
 		myperson.push_back(person);
-		person->position = Point2(1, 1);
+		person->position = Point2(1625, 450);
 		person->scale = Point(0.7f, 0.7f);
 		person->rotation.z = 0;
 		if (n01 >= 1) {
@@ -187,7 +187,7 @@ MyScene01::MyScene01() : CoreScene()
 	for (n01 = 0; n01 < totaltree01; ++n01) {
 		MyTree* tree = new MyTree();
 		mytree.push_back(tree);
-		tree->position = Point2(1, 1);
+		tree->position = Point2(1625, 350);
 		layers[6]->addChild(tree);
 	}
 	// ###############################################################
@@ -196,7 +196,7 @@ MyScene01::MyScene01() : CoreScene()
 	for (n01 = 0; n01 < totalcar01; ++n01) {
 		MyCar* car = new MyCar();
 		mycar.push_back(car);
-		car->position = Point2(1, 1);
+		car->position = Point2(1625, 575);
 		if (n01 >= 1) {
 			car->position = Point2(300, 900);
 			car->rotation.z = -1.57;
@@ -226,7 +226,6 @@ MyScene01::MyScene01() : CoreScene()
 		layers[1]->addChild(path);
 	}
 }
-
 
 MyScene01::~MyScene01() 
 {
@@ -331,7 +330,7 @@ void MyScene01::update(float deltaTime)
 	// ###############################################################
 	if (input()->getKeyUp(KeyCode::H)) {
 		myufo->standard();
-		score.setscore(deltaTime, 0);
+		score.setscore(deltaTime, score.storedscore);
 		CoreScene::sceneselect(0);
 	}
 	// ###############################################################
@@ -363,7 +362,7 @@ void MyScene01::update(float deltaTime)
 	//myhomebutton | home button
 	if (mousepos.y >= myhomebutton->position.y - 30 && mousepos.y <= myhomebutton->position.y + 30 && mousepos.x <= myhomebutton->position.x + 30 && mousepos.x >= myhomebutton->position.x - 30 && input()->getMouseDown(0)) {
 		myufo->standard();
-		score.setscore(deltaTime, 0);
+		score.setscore(deltaTime, score.storedscore);
 		CoreScene::sceneselect(0);
 	}
 	//mypausebutton | pause button

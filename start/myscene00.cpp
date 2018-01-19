@@ -37,6 +37,7 @@ float ra0 = 25; // radius myufo
 
 MyScene00::MyScene00() : CoreScene()
 {
+	
 	// ###############################################################
 	// create background
 	// ###############################################################
@@ -424,6 +425,8 @@ void MyScene00::update(float deltaTime)
 			myufo->standard();
 			layers[0]->addChild(mypause);
 			activescene++;
+			score.storedscore == score.currentscore;
+			score.setscore(deltaTime, 0);
 		}
 		// go to credits
 		if (input()->getKeyUp(KeyCode::RightShift)) {
@@ -549,6 +552,8 @@ void MyScene00::update(float deltaTime)
 			myufo->standard();
 			layers[0]->addChild(mypause);
 			activescene++;
+			score.storedscore = score.currentscore;
+			score.setscore(deltaTime, 0);
 		}
 		//mycredits | credits button
 		if (mousepos.y >= mycredits->position.y - 90 && mousepos.y <= mycredits->position.y + 90 && mousepos.x <= mycredits->position.x + 210 && mousepos.x >= mycredits->position.x - 210 && input()->getMouseDown(0)) {

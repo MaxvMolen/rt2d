@@ -25,6 +25,7 @@ public:
 	virtual void update(float deltaTime);
 	/// @brief keeps track of the current score
 	static int currentscore;
+	static int storedscore;
 	/// @brief add core to the currenscore
 	virtual void addscore(float deltaTime);
 	/// @brief subtract score from the currenscore

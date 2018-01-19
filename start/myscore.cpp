@@ -7,6 +7,7 @@
 #include "myscore.h"
 
 int MyScore::currentscore = 0;
+int MyScore::storedscore = 0;
 
 MyScore::MyScore() : Entity()
 {
@@ -40,7 +41,7 @@ void MyScore::subtractscore(float deltaTime) {
 
 void MyScore::setscore(float deltaTime, int num) {
 	// ###############################################################
-	// Add to the currentscore
+	// Set the currentscore
 	// ###############################################################
 	currentscore = num;
 }
