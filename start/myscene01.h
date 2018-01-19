@@ -48,6 +48,10 @@ private:
 	BasicEntity* myhomebutton;
 	/// @brief the pause button
 	BasicEntity* mypausebutton;
+	/// @brief the example home button
+	BasicEntity* examplehomebutton;
+	/// @brief the example pause button
+	BasicEntity* examplepausebutton;
 };
 
 #endif /* MYSCENE01_H */

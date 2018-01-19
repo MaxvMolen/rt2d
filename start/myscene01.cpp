@@ -136,11 +136,32 @@ MyScene01::MyScene01() : CoreScene()
 	mypausebutton->position = Point2(40, 180);
 	mypausebutton->scale = Point(0.5f, 0.5f);
 	layers[7]->addChild(mypausebutton);
+	// ###############################################################
+	// create  example home and pause buttons
+	// ###############################################################
+	// home button
+	examplehomebutton = new BasicEntity();
+	examplehomebutton->addSprite("assets/StartHomeButton.tga");
+	examplehomebutton->position = Point2(660, 650);
+	examplehomebutton->scale = Point(0.3f, 0.3f);
+	layers[7]->addChild(examplehomebutton);
+	// pause button
+	examplepausebutton = new BasicEntity();
+	examplepausebutton->addSprite("assets/StartPauseButton.tga");
+	examplepausebutton->position = Point2(1120, 680);
+	examplepausebutton->scale = Point(0.3f, 0.3f);
+	layers[7]->addChild(examplepausebutton);
 }
 
 
 MyScene01::~MyScene01()
 {
+	this->removeChild(examplehomebutton);
+	delete examplehomebutton;
+
+	this->removeChild(examplepausebutton);
+	delete examplepausebutton;
+
 	this->removeChild(myhomebutton);
 	delete myhomebutton;
 
