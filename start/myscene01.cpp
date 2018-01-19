@@ -89,8 +89,8 @@ MyScene01::MyScene01() : CoreScene()
 	// text instruction
 	// ###############################################################
 	//messages with instructions gameplay
-	//text[2]->message("Right", WHITE);
-	//text[3]->message("Wrong", WHITE);
+	text[2]->message("Right", GREEN);
+	text[3]->message("Wrong", RED);
 	text[4]->message("Use arrowkeys to move.", WHITE);
 	text[5]->message("A,S and D to change form.", WHITE);
 	text[6]->message("Use W to pickup objects and to go faster.", WHITE);
@@ -102,8 +102,8 @@ MyScene01::MyScene01() : CoreScene()
 	text[12]->message("Use the H key to go back to the menu.", WHITE);
 	text[13]->message("Use the P key to pause the game, press p again to resume the game.", WHITE);
 	//Position text
-	//text[2]->position = Point2(SWIDTH / 2 + 295, SHEIGHT / 2 - 270);
-	//text[3]->position = Point2(SWIDTH / 2 + 295, SHEIGHT / 2 + 270);
+	text[2]->position = Point2(SWIDTH / 2 + 450, SHEIGHT / 2 - 270);
+	text[3]->position = Point2(SWIDTH / 2 + 750, SHEIGHT / 2 - 270);
 	text[4]->position = Point2(50, 485);
 	text[5]->position = Point2(50, 515);
 	text[6]->position = Point2(50, 545);
@@ -115,8 +115,8 @@ MyScene01::MyScene01() : CoreScene()
 	text[12]->position = Point2(50, 575);
 	text[13]->position = Point2(50, 605);
 	//Scale text
-	//text[2]->scale = Point2(1.0f, 1.0f);
-	//text[3]->scale = Point2(1.0f, 1.0f);
+	text[2]->scale = Point2(1.0f, 1.0f);
+	text[3]->scale = Point2(1.0f, 1.0f);
 	//text will deleted in corescene.cpp
 	// ###############################################################
 	// create pause
