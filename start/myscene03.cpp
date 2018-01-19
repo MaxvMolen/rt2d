@@ -308,7 +308,7 @@ void MyScene03::update(float deltaTime)
 		}
 	}
 	// ###############################################################
-	// unufo move allong path
+	// Move unufo along path and change apearance at certain points
 	// ###############################################################
 	if (started03 == true) {
 		if (unufo->position.y <= 900 && pcount == 0) {
@@ -321,6 +321,9 @@ void MyScene03::update(float deltaTime)
 				unufo->sprite()->color.b = 56;
 			}
 		}
+		else if(unufo->position.y >= 900 && pcount == 0) {
+			unufo->position.y = 891;
+		}
 		if (unufo->position.x <= 1350 && pcount == 1) {
 			unufo->position.x += 300 * deltaTime;
 			if (unufo->position.x >= 1340 && unufo->position.x <= 1350) {
@@ -331,7 +334,10 @@ void MyScene03::update(float deltaTime)
 				unufo->sprite()->color.b = 103;
 			}
 		}
-		if (unufo->position.y >= 250 && pcount == 2) {
+		else if (unufo->position.x >= 1350 && pcount == 1) {
+			unufo->position.x = 1341;
+		}
+		if (unufo->position.y >= 240 && pcount == 2) {
 			unufo->position.y -= 300 * deltaTime;
 			if (unufo->position.y >= 240 && unufo->position.y <= 250) {
 				pcount++;
@@ -341,7 +347,10 @@ void MyScene03::update(float deltaTime)
 				unufo->sprite()->color.b = 18;
 			}
 		}
-		if (unufo->position.x >= 580 && pcount == 3) {
+		else if (unufo->position.y <= 250 && pcount == 2) {
+			unufo->position.y = 245;
+		}
+		if (unufo->position.x >= 570 && pcount == 3) {
 			unufo->position.x -= 300 * deltaTime;
 			if (unufo->position.x >= 570 && unufo->position.x <= 580) {
 				pcount = 0;
@@ -350,6 +359,9 @@ void MyScene03::update(float deltaTime)
 				unufo->sprite()->color.g = 171;
 				unufo->sprite()->color.b = 103;
 			}
+		}
+		else if (unufo->position.x <= 570 && pcount == 3) {
+			unufo->position.x = 575;
 		}
 	}
 	// ###############################################################
