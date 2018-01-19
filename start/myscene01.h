@@ -64,6 +64,8 @@ private:
 	BasicEntity* examplehomebutton;
 	/// @brief the example pause button
 	BasicEntity* examplepausebutton;
+	/// @brief small background
+	BasicEntity* mysmallback;
 	/// @brief the person in the level that you need to pick up
 	std::vector<MyPerson*> myperson;
 	/// @brief the car in the level that you need to pick up

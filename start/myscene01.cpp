@@ -225,10 +225,21 @@ MyScene01::MyScene01() : CoreScene()
 		path->rotation.z = 1.57;
 		layers[1]->addChild(path);
 	}
+	// ###############################################################
+	// create small back
+	// ###############################################################
+	mysmallback = new BasicEntity();
+	mysmallback->addSprite("assets/StartBackSmall.tga");
+	mysmallback->scale = Point(0.5f, 0.75f);
+	mysmallback->position = Point2(1625, 490);
+	layers[4]->addChild(mysmallback);
 }
 
 MyScene01::~MyScene01() 
 {
+	this->removeChild(mysmallback);
+	delete mysmallback;
+
 	this->removeChild(examplehomebutton);
 	delete examplehomebutton;
 
