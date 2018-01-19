@@ -413,11 +413,8 @@ void MyScene01::collision(float xu, float yu, float ru, float xe, float ye, floa
 	// Collision ufo
 	// ###############################################################
 	if ((xu - xe)*(xu - xe) + (yu - ye)*(yu - ye) < ru*re) {
-		bool colls = true;
 		// use w to break the lock and pick the item up
 		if (input()->getKey('W')) {
-			//std::cout << score.currentscore;
-			//std::cout << "|";
 			if (no == 1) {
 				//collision object
 				//std::cout << "Car";
@@ -428,19 +425,6 @@ void MyScene01::collision(float xu, float yu, float ru, float xe, float ye, floa
 				else {
 					score.subtractscore(deltaTime);
 				}
-				std::vector<MyCar*>::iterator it = mycar.begin();
-				while (it != mycar.end()) {
-					if (no == 2) { //if its 1 it wil loop through all cars and crash
-						std::cout << "deleting Car" << std::endl;
-						//*it;
-						//delete(*it);
-						//it = mycar.erase(it);
-					}
-					else {
-						++it;
-					}
-				}
-				//remove object
 			}
 			else if (no == 2) {
 				//collision object
@@ -452,23 +436,6 @@ void MyScene01::collision(float xu, float yu, float ru, float xe, float ye, floa
 				else {
 					score.subtractscore(deltaTime);
 				}
-				std::vector<MyTree*>::iterator it = mytree.begin();
-				while (it != mytree.end()) {
-					//mytree[1]->coltf = true; // example not how it wil work //solution1?
-					//((*it)->y > 50)
-					//if ((*it)->position.x == xe) { // Experimental code //solution2?
-					//mytree[4]->coltf == true;
-					if ((*it)->coltf == true) { // if its 2 it wil loop through all trees and crash || if collision = true
-						std::cout << "deleting Tree" << std::endl;
-						////*it;
-						//delete(*it);
-						//it = mytree.erase(it);
-					}
-					else {
-						++it;
-					}
-				}
-				//remove object
 			}
 			else if (no == 3) {
 				//collision object
@@ -480,19 +447,6 @@ void MyScene01::collision(float xu, float yu, float ru, float xe, float ye, floa
 				else {
 					score.subtractscore(deltaTime);
 				}
-				std::vector<MyPerson*>::iterator it = myperson.begin();
-				while (it != myperson.end()) {
-					if (no == 2) { // if its 3 it wil loop through all person and crash
-						std::cout << "deleting Person" << std::endl;
-						//*it;
-						//delete(*it);
-						//it = myperson.erase(it);
-					}
-					else {
-						++it;
-					}
-				}
-				//remove object
 			}
 		}
 		else {
