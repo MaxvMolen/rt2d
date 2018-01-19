@@ -51,15 +51,17 @@ MyScene01::MyScene01() : CoreScene()
 	// ###############################################################
 	myexampleright = new BasicEntity();
 	myexampleright->addSprite("assets/ExampleGameplayRight.tga");
-	myexampleright->position = Point2(SWIDTH / 2 + 700, SHEIGHT / 2 - 270);
-	layers[0]->addChild(myexampleright);				//////////////////////////////////////////////////// LAYER 7
+	myexampleright->position = Point2(1475, 140);
+	myexampleright->scale = Point(0.5f, 0.5f);
+	layers[7]->addChild(myexampleright);
 	// ###############################################################
 	// create examplewrong
 	// ###############################################################
 	myexamplewrong = new BasicEntity();
 	myexamplewrong->addSprite("assets/ExampleGameplayWrong.tga");
-	myexamplewrong->position = Point2(SWIDTH / 2 + 700, SHEIGHT / 2+270);
-	layers[0]->addChild(myexamplewrong);				//////////////////////////////////////////////////// LAYER 7
+	myexamplewrong->position = Point2(1775, 140);
+	myexamplewrong->scale = Point(0.5f, 0.5f);
+	layers[7]->addChild(myexamplewrong);
 	// ###############################################################
 	// create header for the level
 	// ###############################################################
@@ -170,7 +172,7 @@ MyScene01::MyScene01() : CoreScene()
 	for (n01 = 0; n01 < totalperson01; ++n01) {
 		MyPerson* person = new MyPerson();
 		myperson.push_back(person);
-		person->position = Point2(1700, 300);
+		person->position = Point2(1, 1);
 		person->scale = Point(0.7f, 0.7f);
 		person->rotation.z = 0;
 		if (n01 >= 1) {
@@ -185,7 +187,7 @@ MyScene01::MyScene01() : CoreScene()
 	for (n01 = 0; n01 < totaltree01; ++n01) {
 		MyTree* tree = new MyTree();
 		mytree.push_back(tree);
-		tree->position = Point2(1700, 300);
+		tree->position = Point2(1, 1);
 		layers[6]->addChild(tree);
 	}
 	// ###############################################################
@@ -194,7 +196,7 @@ MyScene01::MyScene01() : CoreScene()
 	for (n01 = 0; n01 < totalcar01; ++n01) {
 		MyCar* car = new MyCar();
 		mycar.push_back(car);
-		car->position = Point2(1700, 300);
+		car->position = Point2(1, 1);
 		if (n01 >= 1) {
 			car->position = Point2(300, 900);
 			car->rotation.z = -1.57;
