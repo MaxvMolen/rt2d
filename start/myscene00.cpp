@@ -594,7 +594,6 @@ void MyScene00::collision(float xu, float yu, float ru, float xe, float ye, floa
 	// Collision ufo
 	// ###############################################################
 	if ((xu - xe)*(xu - xe) + (yu - ye)*(yu - ye) < ru*re) {
-
 		// use w to break the lock and pick the item up
 		if (input()->getKey('W')) {
 			//std::cout << score.currentscore;
@@ -609,7 +608,19 @@ void MyScene00::collision(float xu, float yu, float ru, float xe, float ye, floa
 				else {
 					score.subtractscore(deltaTime);
 				}
-				//remove object
+				std::vector<MyCar*>::iterator it = mycar.begin();
+				while (it != mycar.end()) {
+					if ((*it)->position.y == xe && (*it)->position.x == ye) {//change xe to ye and ye to xe
+						//std::cout << "deleting Car" << std::endl; // deleting car
+						delete(*it);
+						it = mycar.erase(it);
+						//std::cout << "deleted" << std::endl; // item deleted
+					}
+					else {
+						++it;
+						//std::cout << "+" << std::endl; // next in list
+					}
+				}
 			}
 			else if (no == 2) {
 				//collision object
@@ -621,7 +632,19 @@ void MyScene00::collision(float xu, float yu, float ru, float xe, float ye, floa
 				else {
 					score.subtractscore(deltaTime);
 				}
-				//remove object
+				std::vector<MyTree*>::iterator it = mytree.begin();
+				while (it != mytree.end()) {
+					if ((*it)->position.y == xe && (*it)->position.x == ye) {//change xe to ye and ye to xe
+						//std::cout << "deleting Tree" << std::endl; // deleting tree
+						delete(*it);
+						it = mytree.erase(it);
+						//std::cout << "deleted" << std::endl; // item deleted
+					}
+					else {
+						++it;
+						//std::cout << "+" << std::endl; // next in list
+					}
+				}
 			}
 			else if (no == 3) {
 				//collision object
@@ -633,7 +656,19 @@ void MyScene00::collision(float xu, float yu, float ru, float xe, float ye, floa
 				else {
 					score.subtractscore(deltaTime);
 				}
-				//remove object
+				std::vector<MyPerson*>::iterator it = myperson.begin();
+				while (it != myperson.end()) {
+					if ((*it)->position.y == xe && (*it)->position.x == ye) {//change xe to ye and ye to xe
+						//std::cout << "deleting Person" << std::endl; // deleting person
+						delete(*it);
+						it = myperson.erase(it);
+						//std::cout << "deleted" << std::endl; // item deleted
+					}
+					else {
+						++it;
+						//std::cout << "+" << std::endl; // next in list
+					}
+				}
 			}
 		}
 		else {
