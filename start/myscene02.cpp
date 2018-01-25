@@ -572,12 +572,14 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 				std::vector<MyCar*>::iterator it = mycar.begin();
 				while (it != mycar.end()) {
 					if ((*it)->position.y == xe && (*it)->position.x == ye) {//change xe to ye and ye to xe
-						std::cout << "deleting Car" << std::endl;
+						std::cout << "deleting Car" << std::endl; // deleting car
 						delete(*it);
 						it = mycar.erase(it);
+						std::cout << "deleted" << std::endl; // item deleted
 					}
 					else {
 						++it;
+						std::cout << "+" << std::endl; // next in list
 					}
 				}
 			}
@@ -618,12 +620,14 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 				std::vector<MyPerson*>::iterator it = myperson.begin();
 				while (it != myperson.end()){
 					if ((*it)->position.y == xe && (*it)->position.x == ye) {//change xe to ye and ye to xe
-						std::cout << "deleting Person" << std::endl;
+						std::cout << "deleting Person" << std::endl; // deleting person
 						delete(*it);
 						it = myperson.erase(it);
+						std::cout << "deleted" << std::endl; // item deleted
 					}
 					else {
 						++it;
+						std::cout << "+" << std::endl; // next in list
 					}
 				}
 			}
