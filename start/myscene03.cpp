@@ -321,6 +321,7 @@ void MyScene03::update(float deltaTime)
 				unufo->sprite()->color.b = 56;
 			}
 		}
+		// if out of course put back to last checkpoint
 		else if(unufo->position.y >= 900 && pcount == 0) {
 			unufo->position.y = 891;
 		}
@@ -334,6 +335,7 @@ void MyScene03::update(float deltaTime)
 				unufo->sprite()->color.b = 103;
 			}
 		}
+		// if out of course put back to last checkpoint
 		else if (unufo->position.x >= 1350 && pcount == 1) {
 			unufo->position.x = 1341;
 		}
@@ -347,6 +349,7 @@ void MyScene03::update(float deltaTime)
 				unufo->sprite()->color.b = 18;
 			}
 		}
+		// if out of course put back to last checkpoint
 		else if (unufo->position.y <= 250 && pcount == 2) {
 			unufo->position.y = 245;
 		}
@@ -360,6 +363,7 @@ void MyScene03::update(float deltaTime)
 				unufo->sprite()->color.b = 103;
 			}
 		}
+		// if out of course put back to last checkpoint
 		else if (unufo->position.x <= 570 && pcount == 3) {
 			unufo->position.x = 575;
 		}

@@ -501,6 +501,7 @@ void MyScene02::update(float deltaTime)
 				ppcount++;
 			}
 		}
+		// if out of course put back to last checkpoint
 		else if (myperson[3]->position.x <= 400 && ppcount == 0) {
 			myperson[3]->position.x = 415;
 		}
@@ -512,6 +513,7 @@ void MyScene02::update(float deltaTime)
 
 			}
 		}
+		// if out of course put back to last checkpoint
 		else if (myperson[3]->position.y <= 800 && ppcount == 1) {
 			myperson[3]->position.y = 810;
 		}
