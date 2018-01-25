@@ -24,7 +24,7 @@ int n02 = 0;
 
 // pause counter if its 0 its not paused if its 1 the game is paused
 int pcounter02 = 0;
-
+int ppcount = 0;
 // has the game started yes or no
 bool started02 = true;
 
@@ -494,23 +494,35 @@ void MyScene02::update(float deltaTime)
 	// Move person over the road
 	// ###############################################################
 	if (started02 == true) {
-		if (myperson[3]->position.x != 420 && myperson[3]->position.y >= 810) {
+		if (myperson[3]->position.x >= 410 && ppcount == 0) {
 			myperson[3]->rotation.z = 4.7;
 			myperson[3]->position.x -= 200 * deltaTime;
+			if (myperson[3]->position.x >= 410 && myperson[3]->position.x <= 415) {
+				ppcount++;
+			}
 		}
-		if (myperson[3]->position.y >= 800 && myperson[3]->position.x <= 415) {
-			myperson[3]->position.y -= 200 * deltaTime;
-			myperson[3]->position.x += 200 * deltaTime;
+		else if (myperson[3]->position.x <= 400 && ppcount == 0) {
+			myperson[3]->position.x = 415;
+		}
+		if (myperson[3]->position.y >= 810 && ppcount == 1) {
 			myperson[3]->rotation.z = 0;
+			myperson[3]->position.y -= 200 * deltaTime;
+			if (myperson[3]->position.y >= 800 && myperson[3]->position.y <= 810) {
+				ppcount++;
+
+			}
 		}
-		if (myperson[3]->position.y >= 800 && myperson[3]->position.y <= 810) {
-			myperson[3]->position.y += 200 * deltaTime;
+		else if (myperson[3]->position.y <= 800 && ppcount == 1) {
+			myperson[3]->position.y = 810;
+		}
+		if (myperson[3]->position.y >= 240 && ppcount == 2) {
 			myperson[3]->position.x -= 200 * deltaTime;
 			myperson[3]->rotation.z = 4.7;
-		}
-		if (myperson[3]->position.x <= -40) {
-			myperson[3]->position.x = 800;
-			myperson[3]->position.y = 1050;
+			if (myperson[3]->position.x <= -50 && ppcount == 2) {
+				myperson[3]->position.x = 800;
+				myperson[3]->position.y = 1050;
+				ppcount = 0;
+			}
 		}
 	}
 	// ###############################################################
