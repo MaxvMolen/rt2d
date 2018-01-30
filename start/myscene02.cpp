@@ -604,7 +604,6 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 					}
 					else {
 						++it;
-						std::cout << "+" << std::endl; // next in list
 					}
 				}
 			}
@@ -625,7 +624,6 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 					}
 					else {
 						++it;
-						std::cout << "+" << std::endl; // next in list
 					}
 				}
 			}
@@ -646,7 +644,6 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 					}
 					else {
 						++it;
-						std::cout << "+" << std::endl; // next in list
 					}
 				}
 			}
