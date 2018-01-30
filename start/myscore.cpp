@@ -29,14 +29,14 @@ void MyScore::addscore(float deltaTime) {
 	// ###############################################################
 	// Add to the currentscore
 	// ###############################################################
-	currentscore += 1000 * deltaTime;
+	currentscore += 10;
 }
 
 void MyScore::subtractscore(float deltaTime) {
 	// ###############################################################
 	// Subtract from the currentscore
 	// ###############################################################
-	currentscore -= 1000 * deltaTime;
+	currentscore -= 10;
 }
 
 void MyScore::setscore(float deltaTime, int num) {
