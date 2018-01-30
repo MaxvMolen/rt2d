@@ -26,10 +26,14 @@ int pcounter00 = 0;
 // has the game started yes or no
 bool started00 = false;
 // are you on the menu yes or no
+
 bool menu = true;
 // switch movement on and of
 bool switchs = false;
 
+bool tree00 = false;
+bool car00 = false;
+bool person00 = false;
 //myufo
 float xa0 = 1; // x position myufo
 float ya0 = 1; // y position myufo
@@ -578,14 +582,38 @@ void MyScene00::update(float deltaTime)
 		}
 	}
 	// ###############################################################
-	// Change scene when all items are removed
+	// Change scene when all items are moved
 	// ###############################################################
-	if (mytree.size() == NULL && myperson.size() == NULL && mycar.size() == NULL && menu == false) {
-		started00 = false;
-		switchs = true;
+	if (menu == false && car00 == true && tree00 == true && person00 == true) {
 		myufo->standard();
 		layers[0]->addChild(mypause);
-		CoreScene::sceneselect(2); // next level
+		menu = true;
+		CoreScene::sceneselect(2); // level 2
+	}
+	// check to see if items are there or not
+	for (n00 = 0; n00 < mycar.size(); ++n00) {
+		if (mycar[n00]->position.y <= -100) {
+			car00 = true;
+		}
+		else {
+			car00 = false;
+		}
+	}
+	for (n00 = 0; n00 < mytree.size(); ++n00) {
+		if (mytree[n00]->position.y <= -100) {
+			tree00 = true;
+		}
+		else {
+			tree00 = false;
+		}
+	}
+	for (n00 = 0; n00 < myperson.size(); ++n00) {
+		if (myperson[n00]->position.y <= -100) {
+			person00 = true;
+		}
+		else {
+			person00 = false;
+		}
 	}
 }
 
@@ -610,15 +638,12 @@ void MyScene00::collision(float xu, float yu, float ru, float xe, float ye, floa
 				}
 				std::vector<MyCar*>::iterator it = mycar.begin();
 				while (it != mycar.end()) {
-					if ((*it)->position.y == xe && (*it)->position.x == ye) {//change xe to ye and ye to xe
-						//std::cout << "deleting Car" << std::endl; // deleting car
-						delete(*it);
-						it = mycar.erase(it);
-						//std::cout << "deleted" << std::endl; // item deleted
+					if ((*it)->position.y == ye && (*it)->position.x == xe) {
+						(*it)->position.y = -200;
 					}
 					else {
 						++it;
-						//std::cout << "+" << std::endl; // next in list
+						std::cout << "+" << std::endl; // next in list
 					}
 				}
 			}
@@ -634,15 +659,12 @@ void MyScene00::collision(float xu, float yu, float ru, float xe, float ye, floa
 				}
 				std::vector<MyTree*>::iterator it = mytree.begin();
 				while (it != mytree.end()) {
-					if ((*it)->position.y == xe && (*it)->position.x == ye) {//change xe to ye and ye to xe
-						//std::cout << "deleting Tree" << std::endl; // deleting tree
-						delete(*it);
-						it = mytree.erase(it);
-						//std::cout << "deleted" << std::endl; // item deleted
+					if ((*it)->position.y == ye && (*it)->position.x == xe) {
+						(*it)->position.y = -200;
 					}
 					else {
 						++it;
-						//std::cout << "+" << std::endl; // next in list
+						std::cout << "+" << std::endl; // next in list
 					}
 				}
 			}
@@ -658,15 +680,12 @@ void MyScene00::collision(float xu, float yu, float ru, float xe, float ye, floa
 				}
 				std::vector<MyPerson*>::iterator it = myperson.begin();
 				while (it != myperson.end()) {
-					if ((*it)->position.y == xe && (*it)->position.x == ye) {//change xe to ye and ye to xe
-						//std::cout << "deleting Person" << std::endl; // deleting person
-						delete(*it);
-						it = myperson.erase(it);
-						//std::cout << "deleted" << std::endl; // item deleted
+					if ((*it)->position.y == ye && (*it)->position.x == xe) {
+						(*it)->position.y = -200;
 					}
 					else {
 						++it;
-						//std::cout << "+" << std::endl; // next in list
+						std::cout << "+" << std::endl; // next in list
 					}
 				}
 			}
