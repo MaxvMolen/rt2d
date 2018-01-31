@@ -21,8 +21,10 @@ int totalpath02 = 14;
 int totalgarden02 = 3;
 
 int n02 = 0;
+
 // total moved
 int tm02 = 0;
+
 // pause counter if its 0 its not paused if its 1 the game is paused
 int pcounter02 = 0;
 int ppcount = 0;
