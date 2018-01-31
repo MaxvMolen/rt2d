@@ -501,7 +501,7 @@ void MyScene02::update(float deltaTime)
 		if (myperson[3]->position.x >= 410 && ppcount == 0) {
 			myperson[3]->rotation.z = 4.7;
 			myperson[3]->position.x -= 200 * deltaTime;
-			if (myperson[3]->position.x >= 410 && myperson[3]->position.x <= 415) { // resets when picked up to pisition needs fixing
+			if (myperson[3]->position.x >= 410 && myperson[3]->position.x <= 415) {
 				ppcount++;
 			}
 		}
@@ -557,8 +557,6 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 	if ((xu - xe)*(xu - xe) + (yu - ye)*(yu - ye) < ru*re) {
 		// use w to break the lock and pick the item up
 		if (input()->getKey('W')) {
-			//std::cout << score.currentscore;
-			//std::cout << "|";
 			if (no == 1){
 				//collision object
 				//std::cout << "Car";
