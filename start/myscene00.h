@@ -46,6 +46,8 @@ private:
 	MyUfo2* myufo2;
 	/// @brief the light underneath the ufo
 	std::vector<BasicEntity*> light;
+	/// @brief the name plate of the player
+	std::vector<BasicEntity*> myplate;
 	/// @brief the header
 	BasicEntity* myheader;
 	/// @brief the header for start

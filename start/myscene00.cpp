@@ -291,6 +291,26 @@ MyScene00::MyScene00() : CoreScene()
 	mypausebutton->position = Point2(40, 180);
 	mypausebutton->scale = Point(0.5f, 0.5f);
 	layers[7]->addChild(mypausebutton);
+	// ###############################################################
+	// create name plate for both players
+	// ###############################################################
+	for (n00 = 0; n00 < 2; ++n00) {
+		BasicEntity* myplates = new BasicEntity();
+		myplate.push_back(myplates);
+		myplates->addSprite("assets/StartBScore.tga");
+		myplates->scale = Point(0.7f, 0.1f);
+		myplates->sprite()->color.r = 181;
+		myplates->sprite()->color.g = 181;
+		myplates->sprite()->color.b = 181;
+		if (n00 > 1) {
+			myplates->addSprite("assets/StartBScore.tga");
+			myplates->scale = Point(0.7f, 0.1f);
+			myplates->sprite()->color.r = 181;
+			myplates->sprite()->color.g = 181;
+			myplates->sprite()->color.b = 181;
+		}
+		layers[6]->addChild(myplates);
+	}
 }
 
 MyScene00::~MyScene00()
@@ -333,6 +353,12 @@ MyScene00::~MyScene00()
 		light[n00] = NULL;
 	}
 	light.clear();
+
+	for (n00 = 0; n00 < myplate.size(); ++n00) {
+		delete myplate[n00];
+		myplate[n00] = NULL;
+	}
+	myplate.clear();
 
 	for (n00 = 0; n00 < myroads.size(); ++n00) {
 		delete myroads[n00];
@@ -441,6 +467,10 @@ void MyScene00::update(float deltaTime)
 			light[0]->position.y = -100;
 			light[1]->position.x = -100;
 			light[1]->position.y = -100;
+			myplate[0]->position.x = -100;
+			myplate[0]->position.y = -100;
+			myplate[1]->position.x = -100;
+			myplate[1]->position.y = -100;
 			myhomebutton->position.x = -500;
 			mypausebutton->position.x = -500;
 			myheader->position = Point2(SWIDTH / 2, 125);
@@ -509,18 +539,26 @@ void MyScene00::update(float deltaTime)
 	// ###############################################################
 	CoreScene::quit();
 	// ###############################################################
-	// Update X and Y position of light for player 1
+	// Update X and Y position of light for player 1 and player 2
 	// ###############################################################
 	if (started00 == true) {
 		light[0]->position.x = myufo->position.x;
 		light[0]->position.y = myufo->position.y;
 	}
-	// ###############################################################
-	// Update X and Y position of light for player 2
-	// ###############################################################
 	if (started00 == true) {
 		light[1]->position.x = myufo2->position.x;
 		light[1]->position.y = myufo2->position.y;
+	}
+	// ###############################################################
+	// Update X and Y position of light for player 1 and player 2
+	// ###############################################################
+	if (started00 == true) {
+		myplate[0]->position.x = myufo->position.x;
+		myplate[0]->position.y = myufo->position.y - 70;
+	}
+	if (started00 == true) {
+		myplate[1]->position.x = myufo2->position.x;
+		myplate[1]->position.y = myufo2->position.y - 70;
 	}
 	// ###############################################################
 	// Update X and Y position of myufo
