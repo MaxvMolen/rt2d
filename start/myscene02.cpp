@@ -517,10 +517,6 @@ void MyScene02::update(float deltaTime)
 
 			}
 		}
-		// if out of course put back to last checkpoint
-		else if (myperson[3]->position.y <= 800 && ppcount == 1) {
-			//myperson[3]->position.y = 810;
-		}
 		if (myperson[3]->position.y >= 240 && ppcount == 2) {
 			myperson[3]->position.x -= 200 * deltaTime;
 			myperson[3]->rotation.z = 4.7;
@@ -552,9 +548,6 @@ void MyScene02::update(float deltaTime)
 		pcounter02++;
 		layers[8]->addChild(mypause);
 	}
-	std::cout << "|";
-	std::cout << tm02;
-	std::cout << "|";
 }
 
 void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, float re, float no, float deltaTime) {
