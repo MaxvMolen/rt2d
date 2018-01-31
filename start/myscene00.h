@@ -42,6 +42,8 @@ private:
 	BasicEntity* mybscore;
 	/// @brief the rotating ufo you play in the game
 	MyUfo* myufo;
+	/// @brief the second player
+	MyUfo2* myufo2;
 	/// @brief the light underneath the ufo
 	BasicEntity* light;
 	/// @brief the header

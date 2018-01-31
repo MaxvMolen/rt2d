@@ -43,7 +43,7 @@ void MyUfo::update(float deltaTime)
 		// ###############################################################
 		// Rotate player faster with W
 		// ###############################################################
-		if (input()->getKey('W')) {
+		if (input()->getKey('Q')) {
 			this->rotation.z -= rotationSpeed * deltaTime; // 90 deg/sec
 			speed = 600;
 			if (this->rotation.z > TWO_PI) {
@@ -73,16 +73,16 @@ void MyUfo::movement(float deltaTime) {
 	// ###############################################################
 	// Move myentity with arrowkeys
 	// ###############################################################
-	if (input()->getKey(KeyCode::Up)) {
+	if (input()->getKey(KeyCode::W)) {
 		this->position.y -= speed * deltaTime;
 	}
-	if (input()->getKey(KeyCode::Down)) {
+	if (input()->getKey(KeyCode::S)) {
 		this->position.y += speed * deltaTime;
 	}
-	if (input()->getKey(KeyCode::Left)) {
+	if (input()->getKey(KeyCode::A)) {
 		this->position.x -= speed * deltaTime;
 	}
-	if (input()->getKey(KeyCode::Right)) {
+	if (input()->getKey(KeyCode::D)) {
 		this->position.x += speed * deltaTime;
 	}
 }
@@ -91,7 +91,7 @@ void MyUfo::changeUfo() {
 	// ###############################################################
 	// A,S and D changes ufo color and sprite
 	// ###############################################################
-	if (input()->getKey('A')) {
+	if (input()->getKey('1')) {
 		this->addSprite("assets/StartUfo1.tga");
 		this->scale = Point(1.0f, 1.0f);
 		this->sprite()->color.r = 255;
@@ -99,7 +99,7 @@ void MyUfo::changeUfo() {
 		this->sprite()->color.b = 103;
 		noa = 2;
 	}
-	if (input()->getKey('S')) {
+	if (input()->getKey('2')) {
 		this->addSprite("assets/StartUfo2.tga");
 		this->scale = Point(1.0f, 1.0f);
 		this->sprite()->color.r = 236;
@@ -107,7 +107,7 @@ void MyUfo::changeUfo() {
 		this->sprite()->color.b = 18;
 		noa = 1;
 	}
-	if (input()->getKey('D')) {
+	if (input()->getKey('3')) {
 		this->addSprite("assets/StartUfo3.tga");
 		this->scale = Point(1.0f, 1.0f);
 		this->sprite()->color.r = 110;

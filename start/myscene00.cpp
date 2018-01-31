@@ -240,6 +240,13 @@ MyScene00::MyScene00() : CoreScene()
 	myufo->position = Point2(SWIDTH / 2, SHEIGHT / 2);
 	layers[7]->addChild(myufo);
 	// ###############################################################
+	// create player 2
+	// ###############################################################
+	std::cout << "Car";
+	myufo2 = new MyUfo2();
+	myufo2->position = Point2(SWIDTH / 2, SHEIGHT / 2);
+	layers[7]->addChild(myufo2);
+	// ###############################################################
 	// create light
 	// ###############################################################
 	light = new BasicEntity();
@@ -297,6 +304,9 @@ MyScene00::~MyScene00()
 
 	this->removeChild(myufo);
 	delete myufo;
+
+	this->removeChild(myufo2);
+	delete myufo2;
 
 	this->removeChild(light);
 	delete light;

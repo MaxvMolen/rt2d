@@ -19,6 +19,7 @@
 #include "mycar.h"
 #include "mytree.h"
 #include "myufo.h"
+#include "myufo2.h"
 
 /// @brief The CoreScene class is the Scene implementation.
 class CoreScene : public Scene
