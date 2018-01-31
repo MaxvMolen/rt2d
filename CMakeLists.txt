@@ -158,6 +158,8 @@ IF(MAKE_START)
 		start/main.cpp
 		start/myufo.cpp
 		start/myufo.h
+		start/myufo2.cpp
+		start/myufo2.h
 		start/mycar.cpp
 		start/mycar.h
 		start/basicentity.cpp
