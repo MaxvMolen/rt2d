@@ -43,7 +43,7 @@ void MyUfo::update(float deltaTime)
 		// ###############################################################
 		// Rotate player faster with W
 		// ###############################################################
-		if (input()->getKey('Q')) {
+		if (input()->getKey(KeyCode::Q)) {
 			this->rotation.z -= rotationSpeed * deltaTime; // 90 deg/sec
 			speed = 600;
 			if (this->rotation.z > TWO_PI) {

@@ -628,7 +628,7 @@ void MyScene00::collision(float xu, float yu, float ru, float xe, float ye, floa
 	// ###############################################################
 	if ((xu - xe)*(xu - xe) + (yu - ye)*(yu - ye) < ru*re) {
 		// use w to break the lock and pick the item up
-		if (input()->getKey('W')) {
+		if (input()->getKey('Q')) {
 			if (no == 1) {
 				//collision object
 				//std::cout << "Car";
