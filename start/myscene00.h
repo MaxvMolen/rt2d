@@ -45,7 +45,7 @@ private:
 	/// @brief the second player
 	MyUfo2* myufo2;
 	/// @brief the light underneath the ufo
-	BasicEntity* light;
+	std::vector<BasicEntity*> light;
 	/// @brief the header
 	BasicEntity* myheader;
 	/// @brief the header for start

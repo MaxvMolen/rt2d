@@ -242,20 +242,22 @@ MyScene00::MyScene00() : CoreScene()
 	// ###############################################################
 	// create player 2
 	// ###############################################################
-	std::cout << "Car";
 	myufo2 = new MyUfo2();
 	myufo2->position = Point2(SWIDTH / 2, SHEIGHT / 2);
 	layers[7]->addChild(myufo2);
 	// ###############################################################
 	// create light
 	// ###############################################################
-	light = new BasicEntity();
-	light->addSprite("assets/StartUfoLight.tga");
-	light->scale = Point(0.7f, 0.7f);
-	light->sprite()->color.r = 181;
-	light->sprite()->color.g = 181;
-	light->sprite()->color.b = 181;
-	layers[6]->addChild(light);
+	for (n00 = 0; n00 < 2; ++n00) {
+		BasicEntity* mylight = new BasicEntity();
+		light.push_back(mylight);
+		mylight->addSprite("assets/StartUfoLight.tga");
+		mylight->scale = Point(0.7f, 0.7f);
+		mylight->sprite()->color.r = 181;
+		mylight->sprite()->color.g = 181;
+		mylight->sprite()->color.b = 181;
+		layers[6]->addChild(mylight);
+	}
 	// ###############################################################
 	// create pause
 	// ###############################################################
@@ -308,9 +310,6 @@ MyScene00::~MyScene00()
 	this->removeChild(myufo2);
 	delete myufo2;
 
-	this->removeChild(light);
-	delete light;
-
 	this->removeChild(myback);
 	delete myback;
 
@@ -328,6 +327,12 @@ MyScene00::~MyScene00()
 
 	this->removeChild(mypause);
 	delete mypause;
+
+	for (n00 = 0; n00 < light.size(); ++n00) {
+		delete light[n00];
+		light[n00] = NULL;
+	}
+	light.clear();
 
 	for (n00 = 0; n00 < myroads.size(); ++n00) {
 		delete myroads[n00];
@@ -432,8 +437,10 @@ void MyScene00::update(float deltaTime)
 			myufo->movementonoff = false;
 			layers[0]->addChild(myufo2);
 			myufo2->movementonoff = false;
-			light->position.x = -100;
-			light->position.y = -100;
+			light[0]->position.x = -100;
+			light[0]->position.y = -100;
+			light[1]->position.x = -100;
+			light[1]->position.y = -100;
 			myhomebutton->position.x = -500;
 			mypausebutton->position.x = -500;
 			myheader->position = Point2(SWIDTH / 2, 125);
@@ -502,11 +509,18 @@ void MyScene00::update(float deltaTime)
 	// ###############################################################
 	CoreScene::quit();
 	// ###############################################################
-	// Update X and Y position of light
+	// Update X and Y position of light for player 1
 	// ###############################################################
 	if (started00 == true) {
-		light->position.x = myufo->position.x;
-		light->position.y = myufo->position.y;
+		light[0]->position.x = myufo->position.x;
+		light[0]->position.y = myufo->position.y;
+	}
+	// ###############################################################
+	// Update X and Y position of light for player 2
+	// ###############################################################
+	if (started00 == true) {
+		light[1]->position.x = myufo2->position.x;
+		light[1]->position.y = myufo2->position.y;
 	}
 	// ###############################################################
 	// Update X and Y position of myufo
