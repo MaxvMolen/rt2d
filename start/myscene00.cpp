@@ -246,7 +246,7 @@ MyScene00::MyScene00() : CoreScene()
 	myufo2->position = Point2(SWIDTH / 2, SHEIGHT / 2);
 	layers[7]->addChild(myufo2);
 	// ###############################################################
-	// create light
+	// create light for both players
 	// ###############################################################
 	for (n00 = 0; n00 < 2; ++n00) {
 		BasicEntity* mylight = new BasicEntity();

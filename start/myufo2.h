@@ -11,7 +11,7 @@
 
 #include <rt2d/entity.h>
 
-/// @brief The MyUfo class is the Ufo implementation.
+/// @brief The MyUfo2 class is the Ufo implementation.
 class MyUfo2 : public Entity
 
 {
