@@ -19,7 +19,8 @@ int totalsmallbench00 = 4;
 int totalperson00 = 8;
 
 int n00 = 0;
-
+// total moved
+int tm00 = 0;
 // pause counter if its 0 its not paused if its 1 the game is paused
 int pcounter00 = 0;
 
@@ -584,36 +585,11 @@ void MyScene00::update(float deltaTime)
 	// ###############################################################
 	// Change scene when all items are moved
 	// ###############################################################
-	if (menu == false && car00 == true && tree00 == true && person00 == true) {
+	if (menu == false && tm00 == 36) {
 		myufo->standard();
 		layers[0]->addChild(mypause);
 		menu = true;
 		CoreScene::sceneselect(2); // level 2
-	}
-	// check to see if items are there or not
-	for (n00 = 0; n00 < mycar.size(); ++n00) {
-		if (mycar[n00]->position.y <= -100) {
-			car00 = true;
-		}
-		else {
-			car00 = false;
-		}
-	}
-	for (n00 = 0; n00 < mytree.size(); ++n00) {
-		if (mytree[n00]->position.y <= -100) {
-			tree00 = true;
-		}
-		else {
-			tree00 = false;
-		}
-	}
-	for (n00 = 0; n00 < myperson.size(); ++n00) {
-		if (myperson[n00]->position.y <= -100) {
-			person00 = true;
-		}
-		else {
-			person00 = false;
-		}
 	}
 }
 
@@ -640,6 +616,7 @@ void MyScene00::collision(float xu, float yu, float ru, float xe, float ye, floa
 				while (it != mycar.end()) {
 					if ((*it)->position.y == ye && (*it)->position.x == xe) {
 						(*it)->position.y = -200;
+						tm00++;
 					}
 					else {
 						++it;
@@ -660,6 +637,7 @@ void MyScene00::collision(float xu, float yu, float ru, float xe, float ye, floa
 				while (it != mytree.end()) {
 					if ((*it)->position.y == ye && (*it)->position.x == xe) {
 						(*it)->position.y = -200;
+						tm00++;
 					}
 					else {
 						++it;
@@ -680,6 +658,7 @@ void MyScene00::collision(float xu, float yu, float ru, float xe, float ye, floa
 				while (it != myperson.end()) {
 					if ((*it)->position.y == ye && (*it)->position.x == xe) {
 						(*it)->position.y = -200;
+						tm00++;
 					}
 					else {
 						++it;

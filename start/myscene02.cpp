@@ -21,7 +21,8 @@ int totalpath02 = 14;
 int totalgarden02 = 3;
 
 int n02 = 0;
-
+// total moved
+int tm02 = 0;
 // pause counter if its 0 its not paused if its 1 the game is paused
 int pcounter02 = 0;
 int ppcount = 0;
@@ -416,35 +417,10 @@ void MyScene02::update(float deltaTime)
 	// ###############################################################
 	// Change scene when all items are moved
 	// ###############################################################
-	if (car02 == true && tree02 == true && person02 == true) {
+	if (tm02 == 23) {
 		myufo->standard();
 		layers[0]->addChild(mypause);
 		CoreScene::sceneselect(3); // credits
-	}
-	// check to see if items are there or not
-	for (n02 = 0; n02 < mycar.size(); ++n02) {
-		if (mycar[n02]->position.y <= -100) {
-			car02 = true;
-		}
-		else {
-			car02 = false;
-		}
-	}
-	for (n02 = 0; n02 < mytree.size(); ++n02) {
-		if (mytree[n02]->position.y <= -100) {
-			tree02 = true;
-		}
-		else {
-			tree02 = false;
-		}
-	}
-	for (n02 = 0; n02 < myperson.size(); ++n02) {
-		if (myperson[n02]->position.y <= -100) {
-			person02 = true;
-		}
-		else {
-			person02 = false;
-		}
 	}
 	// ###############################################################
 	// Menu
@@ -525,7 +501,7 @@ void MyScene02::update(float deltaTime)
 		if (myperson[3]->position.x >= 410 && ppcount == 0) {
 			myperson[3]->rotation.z = 4.7;
 			myperson[3]->position.x -= 200 * deltaTime;
-			if (myperson[3]->position.x >= 410 && myperson[3]->position.x <= 415) {
+			if (myperson[3]->position.x >= 410 && myperson[3]->position.x <= 415) { // resets when picked up to pisition needs fixing
 				ppcount++;
 			}
 		}
@@ -543,7 +519,7 @@ void MyScene02::update(float deltaTime)
 		}
 		// if out of course put back to last checkpoint
 		else if (myperson[3]->position.y <= 800 && ppcount == 1) {
-			myperson[3]->position.y = 810;
+			//myperson[3]->position.y = 810;
 		}
 		if (myperson[3]->position.y >= 240 && ppcount == 2) {
 			myperson[3]->position.x -= 200 * deltaTime;
@@ -576,6 +552,9 @@ void MyScene02::update(float deltaTime)
 		pcounter02++;
 		layers[8]->addChild(mypause);
 	}
+	std::cout << "|";
+	std::cout << tm02;
+	std::cout << "|";
 }
 
 void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, float re, float no, float deltaTime) {
@@ -601,6 +580,7 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 				while (it != mycar.end()) {
 					if ((*it)->position.y == ye && (*it)->position.x == xe) {
 						(*it)->position.y = -200;
+						tm02++;
 					}
 					else {
 						++it;
@@ -621,6 +601,7 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 				while (it != mytree.end()) {
 					if ((*it)->position.y == ye && (*it)->position.x == xe) {
 						(*it)->position.y = -200;
+						tm02++;
 					}
 					else {
 						++it;
@@ -641,6 +622,7 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 				while (it != myperson.end()){
 					if ((*it)->position.y == ye && (*it)->position.x == xe) {
 						(*it)->position.y = -200;
+						tm02++;
 					}
 					else {
 						++it;
