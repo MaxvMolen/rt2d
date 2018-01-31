@@ -379,6 +379,7 @@ void MyScene00::update(float deltaTime)
 	// ###############################################################
 	if (started00 == false) {
 		myufo->movementonoff = false;
+		myufo2->movementonoff = false;
 		if (switchs == true) {
 			menu = true;
 			switchs = false;
@@ -387,6 +388,7 @@ void MyScene00::update(float deltaTime)
 	}
 	else {
 		myufo->movementonoff = true;
+		myufo2->movementonoff = true;
 	}
 	// ###############################################################
 	// Currentscore counter top right
@@ -412,7 +414,9 @@ void MyScene00::update(float deltaTime)
 			pcounter00 = 0;
 			layers[0]->addChild(mypause);
 			myufo->movementonoff = true;
+			myufo2->movementonoff = true;
 			layers[7]->addChild(myufo);
+			layers[7]->addChild(myufo2);
 			myheader->position.x = -500;
 			myheaderstart->position.x = -500;
 			myheadertutorial->position.x = -500;
@@ -426,6 +430,8 @@ void MyScene00::update(float deltaTime)
 		else {
 			layers[0]->addChild(myufo);
 			myufo->movementonoff = false;
+			layers[0]->addChild(myufo2);
+			myufo2->movementonoff = false;
 			light->position.x = -100;
 			light->position.y = -100;
 			myhomebutton->position.x = -500;
@@ -438,6 +444,7 @@ void MyScene00::update(float deltaTime)
 		// go to tutorial
 		if (input()->getKeyUp(KeyCode::Space)) {
 			myufo->standard();
+			myufo2->standard();
 			layers[0]->addChild(mypause);
 			activescene++;
 			score.storedscore == score.currentscore;
@@ -446,12 +453,14 @@ void MyScene00::update(float deltaTime)
 		// go to credits
 		if (input()->getKeyUp(KeyCode::RightShift)) {
 			myufo->standard();
+			myufo2->standard();
 			layers[0]->addChild(mypause);
 			CoreScene::sceneselect(3);
 		}
 		// go to credits
 		if (input()->getKeyUp(KeyCode::LeftShift)) {
 			myufo->standard();
+			myufo2->standard();
 			layers[0]->addChild(mypause);
 			CoreScene::sceneselect(3);
 		}
@@ -463,6 +472,7 @@ void MyScene00::update(float deltaTime)
 	if (input()->getKeyDown(P) && menu == false) {
 		started00 = false;
 		myufo->movementonoff = false;
+		myufo2->movementonoff = false;
 		pcounter00++;
 		layers[8]->addChild(mypause);
 	}
@@ -470,6 +480,7 @@ void MyScene00::update(float deltaTime)
 	if (pcounter00 == 2) {
 		started00 = true;
 		myufo->movementonoff = true;
+		myufo2->movementonoff = true;
 		pcounter00 = 0;
 		layers[0]->addChild(mypause);
 	}
@@ -478,9 +489,11 @@ void MyScene00::update(float deltaTime)
 	// ##############################################################################################################################
 	if (input()->getKeyUp(KeyCode::RightBracket)) {
 		myufo->movementonoff = true;
+		myufo2->movementonoff = true;
 		started00 = false;
 		switchs = true;
 		myufo->standard();
+		myufo2->standard();
 		layers[0]->addChild(mypause);
 		CoreScene::sceneselect(2);
 	}
@@ -553,6 +566,8 @@ void MyScene00::update(float deltaTime)
 			layers[0]->addChild(mypause);
 			myufo->movementonoff = true;
 			layers[7]->addChild(myufo);
+			myufo2->movementonoff = true;
+			layers[7]->addChild(myufo2);
 			myhomebutton->position = Point2(40, 110);
 			mypausebutton->position = Point2(40, 180);
 			myheader->position.x = -500;
@@ -565,6 +580,7 @@ void MyScene00::update(float deltaTime)
 		//myheadertutorial | tutorial button
 		if (mousepos.y >= myheadertutorial->position.y - 90 && mousepos.y <= myheadertutorial->position.y + 90 && mousepos.x <= myheadertutorial->position.x + 210 && mousepos.x >= myheadertutorial->position.x - 210 && input()->getMouseDown(0)) {
 			myufo->standard();
+			myufo2->standard();
 			layers[0]->addChild(mypause);
 			activescene++;
 			score.storedscore = score.currentscore;
@@ -573,6 +589,7 @@ void MyScene00::update(float deltaTime)
 		//mycredits | credits button
 		if (mousepos.y >= mycredits->position.y - 90 && mousepos.y <= mycredits->position.y + 90 && mousepos.x <= mycredits->position.x + 210 && mousepos.x >= mycredits->position.x - 210 && input()->getMouseDown(0)) {
 			myufo->standard();
+			myufo2->standard();
 			layers[0]->addChild(mypause);
 			CoreScene::sceneselect(3);
 		}
@@ -588,6 +605,7 @@ void MyScene00::update(float deltaTime)
 		if (mousepos.y >= mypausebutton->position.y - 30 && mousepos.y <= mypausebutton->position.y + 30 && mousepos.x <= mypausebutton->position.x + 30 && mousepos.x >= mypausebutton->position.x - 30 && input()->getMouseDown(0)) {
 			started00 = false;
 			myufo->movementonoff = false;
+			myufo2->movementonoff = false;
 			pcounter00++;
 			layers[8]->addChild(mypause);
 		}
@@ -597,6 +615,7 @@ void MyScene00::update(float deltaTime)
 	// ###############################################################
 	if (menu == false && tm00 == 36) {
 		myufo->standard();
+		myufo2->standard();
 		layers[0]->addChild(mypause);
 		menu = true;
 		CoreScene::sceneselect(2); // level 2
