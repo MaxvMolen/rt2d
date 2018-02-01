@@ -553,7 +553,7 @@ void MyScene00::update(float deltaTime)
 		light[1]->position.y = myufo2->position.y;
 	}
 	// ###############################################################
-	// Update X and Y position of light for player 1 and player 2
+	// Update X and Y position of plate for player 1 and player 2
 	// ###############################################################
 	if (started00 == true) {
 		myplate[0]->position.x = myufo->position.x;
@@ -612,6 +612,8 @@ void MyScene00::update(float deltaTime)
 			collision(xa0, ya0, ra0, myperson[n00]->position.x, myperson[n00]->position.y, 26, 3, deltaTime);
 		}
 
+		// collision player 2 
+		// on collision with an object currently player 1 will be teleported to that point and player 2 will not be affected.
 		for (n00 = 0; n00 < mycar.size(); ++n00) {
 			collision(xa02, ya02, ra02, mycar[n00]->position.x, mycar[n00]->position.y, 125, 1, deltaTime);
 		}

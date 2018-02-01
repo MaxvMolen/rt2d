@@ -29,6 +29,11 @@ float xa1 = 1; // x position myufo
 float ya1 = 1; // y position myufo
 float ra1 = 25; // radius myufo
 
+//myufo2
+float xa12 = 1; // x position myufo2
+float ya12 = 1; // y position myufo2
+float ra12 = 25; // radius myufo2
+
 MyScene01::MyScene01() : CoreScene()
 {
 	// ###############################################################
@@ -70,21 +75,30 @@ MyScene01::MyScene01() : CoreScene()
 	myheader->position = Point2(SWIDTH / 2, 125);
 	layers[5]->addChild(myheader);
 	// ###############################################################
-	// create light for underneath the ufo
+	// create light for both players
 	// ###############################################################
-	light = new BasicEntity();
-	light->addSprite("assets/StartUfoLight.tga");
-	light->scale = Point(0.7f, 0.7f);
-	light->sprite()->color.r = 181;
-	light->sprite()->color.g = 181;
-	light->sprite()->color.b = 181;
-	layers[6]->addChild(light);
+	for (n01 = 0; n01 < 2; ++n01) {
+		BasicEntity* mylight = new BasicEntity();
+		light.push_back(mylight);
+		mylight->addSprite("assets/StartUfoLight.tga");
+		mylight->scale = Point(0.7f, 0.7f);
+		mylight->sprite()->color.r = 181;
+		mylight->sprite()->color.g = 181;
+		mylight->sprite()->color.b = 181;
+		layers[6]->addChild(mylight);
+	}
 	// ###############################################################
 	// create ufo for the level
 	// ###############################################################
 	myufo = new MyUfo();
 	myufo->position = Point2(SWIDTH / 2, SHEIGHT / 2);
 	layers[7]->addChild(myufo);
+	// ###############################################################
+	// create player 2
+	// ###############################################################
+	myufo2 = new MyUfo2();
+	myufo2->position = Point2(SWIDTH / 2 + 100, SHEIGHT / 2);
+	layers[7]->addChild(myufo2);
 	// ###############################################################
 	// text instruction
 	// ###############################################################
@@ -233,6 +247,24 @@ MyScene01::MyScene01() : CoreScene()
 	mysmallback->scale = Point(0.5f, 0.75f);
 	mysmallback->position = Point2(1625, 490);
 	layers[4]->addChild(mysmallback);
+	// ###############################################################
+	// create name plate for both players
+	// ###############################################################
+	for (n01 = 0; n01 < 2; ++n01) {
+		BasicEntity* myplates = new BasicEntity();
+		myplate.push_back(myplates);
+		myplates->addSprite("assets/name.tga");
+		myplates->sprite()->color.r = 181;
+		myplates->sprite()->color.g = 181;
+		myplates->sprite()->color.b = 181;
+		if (n01 > 0) {
+			myplates->addSprite("assets/namep2.tga");
+			myplates->sprite()->color.r = 181;
+			myplates->sprite()->color.g = 181;
+			myplates->sprite()->color.b = 181;
+		}
+		layers[6]->addChild(myplates);
+	}
 }
 
 MyScene01::~MyScene01() 
@@ -258,8 +290,8 @@ MyScene01::~MyScene01()
 	this->removeChild(myufo);
 	delete myufo;
 
-	this->removeChild(light);
-	delete light;
+	this->removeChild(myufo2);
+	delete myufo2;
 
 	this->removeChild(myback);
 	delete myback;
@@ -278,6 +310,18 @@ MyScene01::~MyScene01()
 
 	this->removeChild(mypause);
 	delete mypause;
+
+	for (n01 = 0; n01 < light.size(); ++n01) {
+		delete light[n01];
+		light[n01] = NULL;
+	}
+	light.clear();
+
+	for (n01 = 0; n01 < myplate.size(); ++n01) {
+		delete myplate[n01];
+		myplate[n01] = NULL;
+	}
+	myplate.clear();
 
 	for (n01 = 0; n01 < mycar.size(); ++n01) {
 		delete mycar[n01];
@@ -305,6 +349,7 @@ void MyScene01::update(float deltaTime)
 	// ###############################################################
 	if (started01 == false) {
 		myufo->movementonoff = false;
+		myufo2->movementonoff = false;
 		if (switchs01 == true) {
 			switchs01 = false;
 			pcounter01 = 0;
@@ -312,6 +357,7 @@ void MyScene01::update(float deltaTime)
 	}
 	else {
 		myufo->movementonoff = true;
+		myufo2->movementonoff = true;
 	}
 	// ###############################################################
 	// Currentscore counter top right
@@ -325,10 +371,27 @@ void MyScene01::update(float deltaTime)
 	// ###############################################################
 	CoreScene::quit();
 	// ###############################################################
-	// Update X and Y position of light
+	// Update X and Y position of light for player 1 and player 2
 	// ###############################################################
-	light->position.x = myufo->position.x;
-	light->position.y = myufo->position.y;
+	if (started01 == true) {
+		light[0]->position.x = myufo->position.x;
+		light[0]->position.y = myufo->position.y;
+	}
+	if (started01 == true) {
+		light[1]->position.x = myufo2->position.x;
+		light[1]->position.y = myufo2->position.y;
+	}
+	// ###############################################################
+	// Update X and Y position of plate for player 1 and player 2
+	// ###############################################################
+	if (started01 == true) {
+		myplate[0]->position.x = myufo->position.x;
+		myplate[0]->position.y = myufo->position.y - 70;
+	}
+	if (started01 == true) {
+		myplate[1]->position.x = myufo2->position.x;
+		myplate[1]->position.y = myufo2->position.y - 70;
+	}
 	// ###############################################################
 	// Update X and Y position of myufo
 	// ###############################################################
@@ -337,10 +400,18 @@ void MyScene01::update(float deltaTime)
 		ya1 = myufo->position.y;
 	}
 	// ###############################################################
+	// Update X and Y position of myufo2
+	// ###############################################################
+	if (started01 == true) {
+		xa12 = myufo2->position.x;
+		ya12 = myufo2->position.y;
+	}
+	// ###############################################################
 	// Menu
 	// ###############################################################
 	if (input()->getKeyUp(KeyCode::H)) {
 		myufo->standard();
+		myufo2->standard();
 		score.setscore(deltaTime, score.storedscore);
 		CoreScene::sceneselect(0);
 	}
@@ -351,6 +422,7 @@ void MyScene01::update(float deltaTime)
 	if (input()->getKeyDown(P)) {
 		started01 = false;
 		myufo->movementonoff = false;
+		myufo2->movementonoff = false;
 		pcounter01++;
 		layers[8]->addChild(mypause);
 	}
@@ -358,6 +430,7 @@ void MyScene01::update(float deltaTime)
 	if (pcounter01 == 2) {
 		started01 = true;
 		myufo->movementonoff = true;
+		myufo2->movementonoff = true;
 		pcounter01 = 0;
 		layers[0]->addChild(mypause);
 	}
@@ -373,6 +446,7 @@ void MyScene01::update(float deltaTime)
 	//myhomebutton | home button
 	if (mousepos.y >= myhomebutton->position.y - 30 && mousepos.y <= myhomebutton->position.y + 30 && mousepos.x <= myhomebutton->position.x + 30 && mousepos.x >= myhomebutton->position.x - 30 && input()->getMouseDown(0)) {
 		myufo->standard();
+		myufo2->standard();
 		score.setscore(deltaTime, score.storedscore);
 		CoreScene::sceneselect(0);
 	}
@@ -380,6 +454,7 @@ void MyScene01::update(float deltaTime)
 	if (mousepos.y >= mypausebutton->position.y - 30 && mousepos.y <= mypausebutton->position.y + 30 && mousepos.x <= mypausebutton->position.x + 30 && mousepos.x >= mypausebutton->position.x - 30 && input()->getMouseDown(0)) {
 		started01 = false;
 		myufo->movementonoff = false;
+		myufo2->movementonoff = false;
 		pcounter01++;
 		layers[8]->addChild(mypause);
 	}
@@ -395,6 +470,18 @@ void MyScene01::update(float deltaTime)
 		}
 		for (n01 = 0; n01 < myperson.size(); ++n01) {
 			collision(xa1, ya1, ra1, myperson[n01]->position.x, myperson[n01]->position.y, 25, 3, deltaTime);
+		}
+
+		// collision player 2 
+		// on collision with an object currently player 1 will be teleported to that point and player 2 will not be affected.
+		for (n01 = 0; n01 < mycar.size(); ++n01) {
+			collision(xa12, ya12, ra12, mycar[n01]->position.x, mycar[n01]->position.y, 125, 1, deltaTime);
+		}
+		for (n01 = 0; n01 < mytree.size(); ++n01) {
+			collision(xa12, ya12, ra12, mytree[n01]->position.x, mytree[n01]->position.y, 50, 2, deltaTime);
+		}
+		for (n01 = 0; n01 < myperson.size(); ++n01) {
+			collision(xa12, ya12, ra12, myperson[n01]->position.x, myperson[n01]->position.y, 25, 3, deltaTime);
 		}
 	}
 	// ###############################################################
@@ -425,7 +512,7 @@ void MyScene01::collision(float xu, float yu, float ru, float xe, float ye, floa
 	// ###############################################################
 	if ((xu - xe)*(xu - xe) + (yu - ye)*(yu - ye) < ru*re) {
 		// use w to break the lock and pick the item up
-		if (input()->getKey('W')) {
+		if (input()->getKey('Q')) {
 			if (no == 1) {
 				//collision object
 				//std::cout << "Car";
