@@ -297,14 +297,14 @@ MyScene00::MyScene00() : CoreScene()
 	for (n00 = 0; n00 < 2; ++n00) {
 		BasicEntity* myplates = new BasicEntity();
 		myplate.push_back(myplates);
-		myplates->addSprite("assets/StartBScore.tga");
-		myplates->scale = Point(0.7f, 0.1f);
+		myplates->addSprite("assets/name.tga");
+		//myplates->scale = Point(0.7f, 0.1f);
 		myplates->sprite()->color.r = 181;
 		myplates->sprite()->color.g = 181;
 		myplates->sprite()->color.b = 181;
-		if (n00 > 1) {
-			myplates->addSprite("assets/StartBScore.tga");
-			myplates->scale = Point(0.7f, 0.1f);
+		if (n00 > 0) {
+			myplates->addSprite("assets/namep2.tga");
+			//myplates->scale = Point(0.7f, 0.1f);
 			myplates->sprite()->color.r = 181;
 			myplates->sprite()->color.g = 181;
 			myplates->sprite()->color.b = 181;
