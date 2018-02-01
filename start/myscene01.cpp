@@ -91,7 +91,7 @@ MyScene01::MyScene01() : CoreScene()
 	// create ufo for the level
 	// ###############################################################
 	myufo = new MyUfo();
-	myufo->position = Point2(SWIDTH / 2, SHEIGHT / 2);
+	myufo->position = Point2(SWIDTH / 2 - 100, SHEIGHT / 2);
 	layers[7]->addChild(myufo);
 	// ###############################################################
 	// create player 2

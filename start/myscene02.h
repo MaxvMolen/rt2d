@@ -42,8 +42,12 @@ private:
 	BasicEntity* mybscore;
 	/// @brief the rotating ufo you play in the game
 	MyUfo* myufo;
+	/// @brief the second player
+	MyUfo2* myufo2;
 	/// @brief the light underneath the ufo
-	BasicEntity* light;
+	std::vector<BasicEntity*> light;
+	/// @brief the name plate of the player
+	std::vector<BasicEntity*> myplate;
 	/// @brief the person in the level that you need to pick up
 	std::vector<MyPerson*> myperson;
 	/// @brief the car in the level that you need to pick up
