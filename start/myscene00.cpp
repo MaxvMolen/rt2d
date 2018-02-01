@@ -40,6 +40,11 @@ float xa0 = 1; // x position myufo
 float ya0 = 1; // y position myufo
 float ra0 = 25; // radius myufo
 
+//myufo2
+float xa02 = 1; // x position myufo2
+float ya02 = 1; // y position myufo2
+float ra02 = 25; // radius myufo2
+
 MyScene00::MyScene00() : CoreScene()
 {
 	
@@ -566,6 +571,13 @@ void MyScene00::update(float deltaTime)
 		ya0 = myufo->position.y;
 	}
 	// ###############################################################
+	// Update X and Y position of myufo2
+	// ###############################################################
+	if (started00 == true) {
+		xa02 = myufo2->position.x;
+		ya02 = myufo2->position.y;
+	}
+	// ###############################################################
 	// Move car over the road
 	// ###############################################################
 	if (started00 == true) {
@@ -598,6 +610,16 @@ void MyScene00::update(float deltaTime)
 		}
 		for (n00 = 0; n00 < myperson.size(); ++n00) {
 			collision(xa0, ya0, ra0, myperson[n00]->position.x, myperson[n00]->position.y, 26, 3, deltaTime);
+		}
+
+		for (n00 = 0; n00 < mycar.size(); ++n00) {
+			collision(xa02, ya02, ra02, mycar[n00]->position.x, mycar[n00]->position.y, 125, 1, deltaTime);
+		}
+		for (n00 = 0; n00 < mytree.size(); ++n00) {
+			collision(xa02, ya02, ra02, mytree[n00]->position.x, mytree[n00]->position.y, 50, 2, deltaTime);
+		}
+		for (n00 = 0; n00 < myperson.size(); ++n00) {
+			collision(xa02, ya02, ra02, myperson[n00]->position.x, myperson[n00]->position.y, 26, 3, deltaTime);
 		}
 	}
 	// ###############################################################
