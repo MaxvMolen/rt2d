@@ -39,7 +39,7 @@ public:
 	
 private:
 	/// @brief the background for the score counter
-	BasicEntity* mybscore;
+	std::vector<BasicEntity*> mybscore;
 	/// @brief the rotating ufo you play in the game
 	MyUfo* myufo;
 	/// @brief the second player

@@ -145,11 +145,19 @@ MyScene01::MyScene01() : CoreScene()
 	// ###############################################################
 	// create background score counter
 	// ###############################################################
-	mybscore = new BasicEntity();
-	mybscore->addSprite("assets/StartBScore.tga");
-	mybscore->position = Point2(85, 0);
-	mybscore->scale = Point(2.0f, 1.0f);
-	layers[7]->addChild(mybscore);
+	for (int n01 = 0; n01 < 2; ++n01) {
+		BasicEntity* bscore = new BasicEntity();
+		mybscore.push_back(bscore);
+		bscore->addSprite("assets/StartBScore.tga");
+		bscore->position = Point2(120, 0);
+		bscore->scale = Point(2.0f, 1.0f);
+		if (n01 > 0) {
+			bscore->addSprite("assets/StartBScore.tga");
+			bscore->position = Point2(1920 - 120, 0);
+			bscore->scale = Point(-2.0f, 1.0f);
+		}
+		layers[7]->addChild(bscore);
+	}
 	// ###############################################################
 	// create home and pause buttons
 	// ###############################################################
@@ -284,9 +292,6 @@ MyScene01::~MyScene01()
 	this->removeChild(mypausebutton);
 	delete mypausebutton;
 
-	this->removeChild(mybscore);
-	delete mybscore;
-
 	this->removeChild(myufo);
 	delete myufo;
 
@@ -310,6 +315,12 @@ MyScene01::~MyScene01()
 
 	this->removeChild(mypause);
 	delete mypause;
+
+	for (n01 = 0; n01 < mybscore.size(); ++n01) {
+		delete mybscore[n01];
+		mybscore[n01] = NULL;
+	}
+	mybscore.clear();  
 
 	for (n01 = 0; n01 < light.size(); ++n01) {
 		delete light[n01];
@@ -360,12 +371,20 @@ void MyScene01::update(float deltaTime)
 		myufo2->movementonoff = true;
 	}
 	// ###############################################################
-	// Currentscore counter top left
+	// Currentscore counter top left player 1
 	// ###############################################################
 	std::stringstream cs;
-	cs << "Score: " << score[0]->currentscore;
+	cs << "Score P1: " << score[0]->currentscore;
 	text[0]->message(cs.str(), YELLOW);
 	text[0]->position.y = 30;
+	// ###############################################################
+	// Currentscore counter top right player 2
+	// ###############################################################
+	std::stringstream cs2;
+	cs2 << "Score P2: " << score[1]->currentscore2;
+	text[1]->message(cs2.str(), YELLOW);
+	text[1]->position.y = 30;
+	text[1]->position.x = 1730 - 35;
 	// ###############################################################
 	// Escape key stops the Scene
 	// ###############################################################
