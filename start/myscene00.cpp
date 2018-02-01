@@ -280,11 +280,11 @@ MyScene00::MyScene00() : CoreScene()
 		BasicEntity* bscore = new BasicEntity();
 		mybscore.push_back(bscore);
 		bscore->addSprite("assets/StartBScore.tga");
-		bscore->position = Point2(85, 0);
+		bscore->position = Point2(120, 0);
 		bscore->scale = Point(2.0f, 1.0f);
 		if (n00 > 0) {
 			bscore->addSprite("assets/StartBScore.tga");
-			bscore->position = Point2(1920-85, 0);
+			bscore->position = Point2(1920-120, 0);
 			bscore->scale = Point(-2.0f, 1.0f);
 		}
 		layers[7]->addChild(bscore);
@@ -439,17 +439,17 @@ void MyScene00::update(float deltaTime)
 	// Currentscore counter top left player 1
 	// ###############################################################
 	std::stringstream cs;
-	cs << "Score: " << score.currentscore;
+	cs << "Score P1: " << score.currentscore;
 	text[0]->message(cs.str(), YELLOW);
 	text[0]->position.y = 30;
 	// ###############################################################
 	// Currentscore counter top right player 2
 	// ###############################################################
 	std::stringstream cs2;
-	cs2 << "Score: " << score2.currentscore;
+	cs2 << "Score P2: " << score2.currentscore;
 	text[1]->message(cs2.str(), YELLOW);
 	text[1]->position.y = 30;
-	text[1]->position.x = 1730;
+	text[1]->position.x = 1730-35;
 	// ###############################################################
 	// Menu
 	// ###############################################################
