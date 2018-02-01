@@ -27,7 +27,7 @@ public:
 	
 private:
 	/// @brief the background for the score counter
-	BasicEntity* mybscore;
+	std::vector<BasicEntity*> mybscore;
 	/// @brief the light underneath the ufo
 	BasicEntity* unufo;
 	/// @brief the light underneath the ufo
