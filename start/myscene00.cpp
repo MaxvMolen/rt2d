@@ -505,9 +505,9 @@ void MyScene00::update(float deltaTime)
 			myufo->standard();
 			myufo2->standard();
 			layers[0]->addChild(mypause);
-			activescene++;
-			score.storedscore == score.currentscore;
+			score.storedscore = score.currentscore;
 			score.setscore(deltaTime, 0);
+			activescene++;
 		}
 		// go to credits
 		if (input()->getKeyUp(KeyCode::RightShift)) {
