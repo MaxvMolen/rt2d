@@ -216,7 +216,7 @@ MyScene03::MyScene03() : CoreScene()
 			bscore->position = Point2(1920 - 120, 0);
 			bscore->scale = Point(-2.0f, 1.0f);
 		}
-		layers[7]->addChild(bscore);
+		layers[3]->addChild(bscore);
 	}
 	// ###############################################################
 	// create home and pause buttons
