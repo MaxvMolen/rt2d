@@ -237,13 +237,13 @@ MyScene00::MyScene00() : CoreScene()
 	// create Ufo
 	// ###############################################################
 	myufo = new MyUfo();
-	myufo->position = Point2(SWIDTH / 2, SHEIGHT / 2);
+	myufo->position = Point2(SWIDTH / 2-100, SHEIGHT / 2);
 	layers[7]->addChild(myufo);
 	// ###############################################################
 	// create player 2
 	// ###############################################################
 	myufo2 = new MyUfo2();
-	myufo2->position = Point2(SWIDTH / 2, SHEIGHT / 2);
+	myufo2->position = Point2(SWIDTH / 2+100, SHEIGHT / 2);
 	layers[7]->addChild(myufo2);
 	// ###############################################################
 	// create light for both players
