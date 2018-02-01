@@ -276,11 +276,19 @@ MyScene00::MyScene00() : CoreScene()
 	// ###############################################################
 	// create background score counter
 	// ###############################################################
-	mybscore = new BasicEntity();
-	mybscore->addSprite("assets/StartBScore.tga");
-	mybscore->position = Point2(85, 0);
-	mybscore->scale = Point(2.0f, 1.0f);
-	layers[7]->addChild(mybscore);
+	for (n00 = 0; n00 < 2; ++n00) {
+		BasicEntity* bscore = new BasicEntity();
+		mybscore.push_back(bscore);
+		bscore->addSprite("assets/StartBScore.tga");
+		bscore->position = Point2(85, 0);
+		bscore->scale = Point(2.0f, 1.0f);
+		if (n00 > 0) {
+			bscore->addSprite("assets/StartBScore.tga");
+			bscore->position = Point2(1920-85, 0);
+			bscore->scale = Point(-2.0f, 1.0f);
+		}
+		layers[7]->addChild(bscore);
+	}
 	// ###############################################################
 	// create home and pause buttons
 	// ###############################################################
@@ -324,9 +332,6 @@ MyScene00::~MyScene00()
 	this->removeChild(mypausebutton);
 	delete mypausebutton;
 
-	this->removeChild(mybscore);
-	delete mybscore;
-
 	this->removeChild(myufo);
 	delete myufo;
 
@@ -350,6 +355,12 @@ MyScene00::~MyScene00()
 
 	this->removeChild(mypause);
 	delete mypause;
+
+	for (n00 = 0; n00 < mybscore.size(); ++n00) {
+		delete mybscore[n00];
+		mybscore[n00] = NULL;
+	}
+	mybscore.clear();
 
 	for (n00 = 0; n00 < light.size(); ++n00) {
 		delete light[n00];
@@ -425,12 +436,20 @@ void MyScene00::update(float deltaTime)
 		myufo2->movementonoff = true;
 	}
 	// ###############################################################
-	// Currentscore counter top right
+	// Currentscore counter top left player 1
 	// ###############################################################
 	std::stringstream cs;
 	cs << "Score: " << score.currentscore;
 	text[0]->message(cs.str(), YELLOW);
 	text[0]->position.y = 30;
+	// ###############################################################
+	// Currentscore counter top right player 2
+	// ###############################################################
+	std::stringstream cs2;
+	cs2 << "Score: " << score2.currentscore;
+	text[1]->message(cs2.str(), YELLOW);
+	text[1]->position.y = 30;
+	text[1]->position.x = 1730;
 	// ###############################################################
 	// Menu
 	// ###############################################################

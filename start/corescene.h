@@ -52,6 +52,8 @@ protected:
 	std::vector<Text*> text;
 	/// @brief the players score
 	MyScore score;
+	/// @brief the player2 score
+	MyScore score2;
 private:
 	/* add your private declarations */
 };

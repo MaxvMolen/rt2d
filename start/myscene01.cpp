@@ -360,7 +360,7 @@ void MyScene01::update(float deltaTime)
 		myufo2->movementonoff = true;
 	}
 	// ###############################################################
-	// Currentscore counter top right
+	// Currentscore counter top left
 	// ###############################################################
 	std::stringstream cs;
 	cs << "Score: " << score.currentscore;
