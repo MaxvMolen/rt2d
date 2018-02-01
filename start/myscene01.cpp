@@ -413,6 +413,7 @@ void MyScene01::update(float deltaTime)
 		myufo->standard();
 		myufo2->standard();
 		score[0]->setscore(deltaTime, score[0]->storedscore);
+		score[1]->setscore2(deltaTime, score[1]->storedscore2);
 		CoreScene::sceneselect(0);
 	}
 	// ###############################################################
@@ -448,6 +449,7 @@ void MyScene01::update(float deltaTime)
 		myufo->standard();
 		myufo2->standard();
 		score[0]->setscore(deltaTime, score[0]->storedscore);
+		score[1]->setscore2(deltaTime, score[1]->storedscore2);
 		CoreScene::sceneselect(0);
 	}
 	//mypausebutton | pause button

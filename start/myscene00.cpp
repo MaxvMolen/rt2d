@@ -446,7 +446,7 @@ void MyScene00::update(float deltaTime)
 	// Currentscore counter top right player 2
 	// ###############################################################
 	std::stringstream cs2;
-	cs2 << "Score P2: " << score[1]->currentscore;
+	cs2 << "Score P2: " << score[1]->currentscore2;
 	text[1]->message(cs2.str(), YELLOW);
 	text[1]->position.y = 30;
 	text[1]->position.x = 1730-35;
@@ -507,6 +507,8 @@ void MyScene00::update(float deltaTime)
 			layers[0]->addChild(mypause);
 			score[0]->storedscore = score[0]->currentscore;
 			score[0]->setscore(deltaTime, 0);
+			score[1]->storedscore2 = score[1]->currentscore2;
+			score[1]->setscore2(deltaTime, 0);
 			activescene++;
 		}
 		// go to credits
@@ -678,6 +680,8 @@ void MyScene00::update(float deltaTime)
 			activescene++;
 			score[0]->storedscore = score[0]->currentscore;
 			score[0]->setscore(deltaTime, 0);
+			score[1]->storedscore2 = score[1]->currentscore2;
+			score[1]->setscore2(deltaTime, 0);
 		}
 		//mycredits | credits button
 		if (mousepos.y >= mycredits->position.y - 90 && mousepos.y <= mycredits->position.y + 90 && mousepos.x <= mycredits->position.x + 210 && mousepos.x >= mycredits->position.x - 210 && input()->getMouseDown(0)) {
