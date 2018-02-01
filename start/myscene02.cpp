@@ -458,7 +458,7 @@ void MyScene02::update(float deltaTime)
 	// Currentscore counter top left
 	// ###############################################################
 	std::stringstream cs;
-	cs << "Score: " << score.currentscore;
+	cs << "Score: " << score[0]->currentscore;
 	text[0]->message(cs.str(), YELLOW);
 	text[0]->position.y = 30;
 	// ###############################################################
@@ -649,10 +649,10 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 				//std::cout << "Car";
 				//std::cout << "|";
 				if (MyUfo::noa == 1) {
-					score.addscore(deltaTime);
+					score[0]->addscore(deltaTime);
 				}
 				else {
-					score.subtractscore(deltaTime);
+					score[0]->subtractscore(deltaTime);
 				}
 				std::vector<MyCar*>::iterator it = mycar.begin();
 				while (it != mycar.end()) {
@@ -670,10 +670,10 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 				//std::cout << "Tree";
 				//std::cout << "|";
 				if (MyUfo::noa == 3) {
-					score.addscore(deltaTime);
+					score[0]->addscore(deltaTime);
 				}
 				else {
-					score.subtractscore(deltaTime);
+					score[0]->subtractscore(deltaTime);
 				}
 				std::vector<MyTree*>::iterator it = mytree.begin();
 				while (it != mytree.end()) {
@@ -691,10 +691,10 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 				//std::cout << "Person";
 				//std::cout << "|";
 				if (MyUfo::noa == 2) {
-					score.addscore(deltaTime);
+					score[0]->addscore(deltaTime);
 				}
 				else {
-					score.subtractscore(deltaTime);
+					score[0]->subtractscore(deltaTime);
 				}
 				std::vector<MyPerson*>::iterator it = myperson.begin();
 				while (it != myperson.end()){

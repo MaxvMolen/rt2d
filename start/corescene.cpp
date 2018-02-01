@@ -33,6 +33,10 @@ CoreScene::CoreScene() : Scene()
 			layers[5]->addChild(line);
 		}
 	}
+	for (int n01 = 0; n01 < 2; ++n01) {
+		MyScore* scores = new MyScore();
+		score.push_back(scores);
+	}
 	// create the scene 'tree'
 	// add myentity to this Scene as a child.
 }
@@ -54,6 +58,12 @@ CoreScene::~CoreScene()
 		text[i] = NULL;
 	}
 	text.clear();
+
+	for (int n01 = 0; n01 < score.size(); ++n01) {
+		delete score[n01];
+		score[n01] = NULL;
+	}
+	score.clear();
 	// delete myentity from the heap (there was a 'new' in the constructor)
 }
 

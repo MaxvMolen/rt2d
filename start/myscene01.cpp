@@ -363,7 +363,7 @@ void MyScene01::update(float deltaTime)
 	// Currentscore counter top left
 	// ###############################################################
 	std::stringstream cs;
-	cs << "Score: " << score.currentscore;
+	cs << "Score: " << score[0]->currentscore;
 	text[0]->message(cs.str(), YELLOW);
 	text[0]->position.y = 30;
 	// ###############################################################
@@ -412,7 +412,7 @@ void MyScene01::update(float deltaTime)
 	if (input()->getKeyUp(KeyCode::H)) {
 		myufo->standard();
 		myufo2->standard();
-		score.setscore(deltaTime, score.storedscore);
+		score[0]->setscore(deltaTime, score[0]->storedscore);
 		CoreScene::sceneselect(0);
 	}
 	// ###############################################################
@@ -447,7 +447,7 @@ void MyScene01::update(float deltaTime)
 	if (mousepos.y >= myhomebutton->position.y - 30 && mousepos.y <= myhomebutton->position.y + 30 && mousepos.x <= myhomebutton->position.x + 30 && mousepos.x >= myhomebutton->position.x - 30 && input()->getMouseDown(0)) {
 		myufo->standard();
 		myufo2->standard();
-		score.setscore(deltaTime, score.storedscore);
+		score[0]->setscore(deltaTime, score[0]->storedscore);
 		CoreScene::sceneselect(0);
 	}
 	//mypausebutton | pause button
@@ -518,10 +518,10 @@ void MyScene01::collision(float xu, float yu, float ru, float xe, float ye, floa
 				//std::cout << "Car";
 				//std::cout << "|";
 				if (MyUfo::noa == 1) {
-					score.addscore(deltaTime);
+					score[0]->addscore(deltaTime);
 				}
 				else {
-					score.subtractscore(deltaTime);
+					score[0]->subtractscore(deltaTime);
 				}
 			}
 			else if (no == 2) {
@@ -529,10 +529,10 @@ void MyScene01::collision(float xu, float yu, float ru, float xe, float ye, floa
 				//std::cout << "Tree";
 				//std::cout << "|";
 				if (MyUfo::noa == 3) {
-					score.addscore(deltaTime);
+					score[0]->addscore(deltaTime);
 				}
 				else {
-					score.subtractscore(deltaTime);
+					score[0]->subtractscore(deltaTime);
 				}
 			}
 			else if (no == 3) {
@@ -540,10 +540,10 @@ void MyScene01::collision(float xu, float yu, float ru, float xe, float ye, floa
 				//std::cout << "Person";
 				//std::cout << "|";
 				if (MyUfo::noa == 2) {
-					score.addscore(deltaTime);
+					score[0]->addscore(deltaTime);
 				}
 				else {
-					score.subtractscore(deltaTime);
+					score[0]->subtractscore(deltaTime);
 				}
 			}
 		}

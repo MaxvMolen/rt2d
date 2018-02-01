@@ -295,7 +295,7 @@ void MyScene03::update(float deltaTime)
 	// Currentscore counter top left
 	// ###############################################################
 	std::stringstream cs;
-	cs << "Score: " << score.currentscore;
+	cs << "Score: " << score[0]->currentscore;
 	text[0]->message(cs.str(), YELLOW);
 	text[0]->position.y = 30;
 	// ###############################################################

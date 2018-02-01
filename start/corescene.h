@@ -51,9 +51,7 @@ protected:
 	/// @brief list of text
 	std::vector<Text*> text;
 	/// @brief the players score
-	MyScore score;
-	/// @brief the player2 score
-	MyScore score2;
+	std::vector<MyScore*> score;
 private:
 	/* add your private declarations */
 };
