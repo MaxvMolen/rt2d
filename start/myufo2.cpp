@@ -19,7 +19,8 @@ int MyUfo2::noa02 = 1;
 
 MyUfo2::MyUfo2() : Entity()
 {
-	this->addSprite("assets/StartUfo2.tga");
+	this->addSprite("assets/StartUfo2P2.tga");
+	this->scale = Point(0.8f, 0.8f);
 	this->sprite()->color.r = 236;
 	this->sprite()->color.g = 16;
 	this->sprite()->color.b = 18;
@@ -101,7 +102,7 @@ void MyUfo2::changeUfo() {
 	}
 	if (input()->getKey(KeyCode::KeyPad8)) {
 		this->addSprite("assets/StartUfo2P2.tga");
-		this->scale = Point(0.7f, 0.7f);
+		this->scale = Point(0.8f, 0.8f);
 		this->sprite()->color.r = 236;
 		this->sprite()->color.g = 16;
 		this->sprite()->color.b = 18;
@@ -139,8 +140,8 @@ void MyUfo2::standard() {
 	// ###############################################################
 	// Sets default sprite
 	// ###############################################################
-	this->addSprite("assets/StartUfo2.tga");
-	this->scale = Point(1.0f, 1.0f);
+	this->addSprite("assets/StartUfo2P2.tga");
+	this->scale = Point(0.8f, 0.8f);
 	this->sprite()->color.r = 236;
 	this->sprite()->color.g = 16;
 	this->sprite()->color.b = 18;
