@@ -92,8 +92,8 @@ void MyUfo2::changeUfo() {
 	// A,S and D changes ufo color and sprite
 	// ###############################################################
 	if (input()->getKey(KeyCode::KeyPad7)) {
-		this->addSprite("assets/StartUfo1.tga");
-		this->scale = Point(1.0f, 1.0f);
+		this->addSprite("assets/StartUfo1P2.tga");
+		this->scale = Point(0.5f, 0.5f);
 		this->sprite()->color.r = 255;
 		this->sprite()->color.g = 171;
 		this->sprite()->color.b = 103;
