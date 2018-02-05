@@ -91,13 +91,13 @@ MyScene01::MyScene01() : CoreScene()
 	// create ufo for the level
 	// ###############################################################
 	myufo = new MyUfo();
-	myufo->position = Point2(SWIDTH / 2 - 100, SHEIGHT / 2);
+	myufo->position = Point2(SWIDTH / 2 - 100, SHEIGHT / 2 - 300);
 	layers[7]->addChild(myufo);
 	// ###############################################################
 	// create player 2
 	// ###############################################################
 	myufo2 = new MyUfo2();
-	myufo2->position = Point2(SWIDTH / 2 + 100, SHEIGHT / 2);
+	myufo2->position = Point2(SWIDTH / 2 + 100, SHEIGHT / 2 - 300);
 	layers[7]->addChild(myufo2);
 	// ###############################################################
 	// text instruction
@@ -105,9 +105,9 @@ MyScene01::MyScene01() : CoreScene()
 	//messages with instructions gameplay
 	text[2]->message("Right", GREEN);
 	text[3]->message("Wrong", RED);
-	text[4]->message("Use arrowkeys to move.", WHITE);
-	text[5]->message("A,S and D to change form.", WHITE);
-	text[6]->message("Use W to pickup objects and to go faster.", WHITE);
+	text[4]->message("WASD to move as player 1 and numpad 5123 for player 2.", WHITE);
+	text[5]->message("1,2,3 to change form as player 1 and numpad 7,8 and 9 for player 2.", WHITE);
+	text[6]->message("Use Q to pickup objects and to go faster if you are player 1.", WHITE);
 	text[7]->message("In this game your objective is to pickup the right object with the right ufo.", WHITE);
 	text[8]->message("If you were to use the wrong ufo to pickup a object you will lose points.", WHITE);
 	text[9]->message("Use the beige ship to pick up humans, use the red ship to pick up", WHITE);
@@ -115,19 +115,21 @@ MyScene01::MyScene01() : CoreScene()
 	text[11]->message("_______________________________________________________________________________", WHITE);
 	text[12]->message("Use the H key to go back to the menu.", WHITE);
 	text[13]->message("Use the P key to pause the game, press p again to resume the game.", WHITE);
+	text[14]->message("Use numpad 4 to pickup objects and to go faster if you are player 2.", WHITE);
 	//Position text
 	text[2]->position = Point2(SWIDTH / 2 + 450, SHEIGHT / 2 - 270);
 	text[3]->position = Point2(SWIDTH / 2 + 750, SHEIGHT / 2 - 270);
-	text[4]->position = Point2(50, 485);
-	text[5]->position = Point2(50, 515);
-	text[6]->position = Point2(50, 545);
-	text[7]->position = Point2(50, 335);
-	text[8]->position = Point2(50, 365);
-	text[9]->position = Point2(50, 395);
-	text[10]->position = Point2(50, 425);
-	text[11]->position = Point2(50, 455);
-	text[12]->position = Point2(50, 575);
-	text[13]->position = Point2(50, 605);
+	text[4]->position = Point2(50, 465);
+	text[5]->position = Point2(50, 495);
+	text[6]->position = Point2(50, 525);
+	text[7]->position = Point2(50, 315);
+	text[8]->position = Point2(50, 345);
+	text[9]->position = Point2(50, 375);
+	text[10]->position = Point2(50, 405);
+	text[11]->position = Point2(50, 435);
+	text[12]->position = Point2(50, 585);
+	text[13]->position = Point2(50, 615);
+	text[14]->position = Point2(50, 555);
 	//Scale text
 	text[2]->scale = Point2(1.0f, 1.0f);
 	text[3]->scale = Point2(1.0f, 1.0f);
@@ -179,13 +181,13 @@ MyScene01::MyScene01() : CoreScene()
 	// home button
 	examplehomebutton = new BasicEntity();
 	examplehomebutton->addSprite("assets/StartHomeButton.tga");
-	examplehomebutton->position = Point2(660, 575);
+	examplehomebutton->position = Point2(660, 585);
 	examplehomebutton->scale = Point(0.3f, 0.3f);
 	layers[2]->addChild(examplehomebutton);
 	// pause button
 	examplepausebutton = new BasicEntity();
 	examplepausebutton->addSprite("assets/StartPauseButton.tga");
-	examplepausebutton->position = Point2(1120, 605);
+	examplepausebutton->position = Point2(1120, 615);
 	examplepausebutton->scale = Point(0.3f, 0.3f);
 	layers[2]->addChild(examplepausebutton);
 	// ###############################################################
