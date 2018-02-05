@@ -31,9 +31,6 @@ int ppcount = 0;
 // has the game started yes or no
 bool started02 = true;
 
-bool tree02 = false;
-bool car02 = false;
-bool person02 = false;
 //myufo
 float xa2 = 1; // x position myufo
 float ya2 = 1; // y position myufo

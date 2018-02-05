@@ -26,15 +26,12 @@ int pcounter00 = 0;
 
 // has the game started yes or no
 bool started00 = false;
-// are you on the menu yes or no
 
+// are you on the menu yes or no
 bool menu = true;
 // switch movement on and of
 bool switchs = false;
 
-bool tree00 = false;
-bool car00 = false;
-bool person00 = false;
 //myufo
 float xa0 = 1; // x position myufo
 float ya0 = 1; // y position myufo
