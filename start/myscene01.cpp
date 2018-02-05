@@ -496,13 +496,13 @@ void MyScene01::update(float deltaTime)
 		// collision player 2 
 		// on collision with an object currently player 1 will be teleported to that point and player 2 will not be affected.
 		for (n01 = 0; n01 < mycar.size(); ++n01) {
-			collision(xa12, ya12, ra12, mycar[n01]->position.x, mycar[n01]->position.y, 125, 1, deltaTime);
+			collision2(xa12, ya12, ra12, mycar[n01]->position.x, mycar[n01]->position.y, 125, 1, deltaTime);
 		}
 		for (n01 = 0; n01 < mytree.size(); ++n01) {
-			collision(xa12, ya12, ra12, mytree[n01]->position.x, mytree[n01]->position.y, 50, 2, deltaTime);
+			collision2(xa12, ya12, ra12, mytree[n01]->position.x, mytree[n01]->position.y, 50, 2, deltaTime);
 		}
 		for (n01 = 0; n01 < myperson.size(); ++n01) {
-			collision(xa12, ya12, ra12, myperson[n01]->position.x, myperson[n01]->position.y, 25, 3, deltaTime);
+			collision2(xa12, ya12, ra12, myperson[n01]->position.x, myperson[n01]->position.y, 26, 3, deltaTime);
 		}
 	}
 	// ###############################################################
@@ -572,6 +572,55 @@ void MyScene01::collision(float xu, float yu, float ru, float xe, float ye, floa
 			// lock the ufo in place on collision of object 
 			myufo->position.x = xe;
 			myufo->position.y = ye;
+		}
+	}
+}
+
+void MyScene01::collision2(float xu, float yu, float ru, float xe, float ye, float re, float no, float deltaTime) {
+	// ###############################################################
+	// Collision ufo
+	// ###############################################################
+	if ((xu - xe)*(xu - xe) + (yu - ye)*(yu - ye) < ru*re) {
+		// use w to break the lock and pick the item up
+		if (input()->getKey(KeyCode::KeyPad4)) {
+			if (no == 1) {
+				//collision object
+				//std::cout << "Car";
+				//std::cout << "|";
+				if (MyUfo2::noa02 == 1) {
+					score[0]->addscore2(deltaTime);
+				}
+				else {
+					score[0]->subtractscore2(deltaTime);
+				}
+			}
+			else if (no == 2) {
+				//collision object
+				//std::cout << "Tree";
+				//std::cout << "|";
+				if (MyUfo2::noa02 == 3) {
+					score[0]->addscore2(deltaTime);
+				}
+				else {
+					score[0]->subtractscore2(deltaTime);
+				}
+			}
+			else if (no == 3) {
+				//collision object
+				//std::cout << "Person";
+				//std::cout << "|";
+				if (MyUfo2::noa02 == 2) {
+					score[0]->addscore2(deltaTime);
+				}
+				else {
+					score[0]->subtractscore2(deltaTime);
+				}
+			}
+		}
+		else {
+			// lock the ufo in place on collision of object 
+			myufo2->position.x = xe;
+			myufo2->position.y = ye;
 		}
 	}
 }

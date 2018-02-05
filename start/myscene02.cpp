@@ -574,13 +574,13 @@ void MyScene02::update(float deltaTime)
 		// collision player 2 
 		// on collision with an object currently player 1 will be teleported to that point and player 2 will not be affected.
 		for (n02 = 0; n02 < mycar.size(); ++n02) {
-			collision(xa22, ya22, ra22, mycar[n02]->position.x, mycar[n02]->position.y, 125, 1, deltaTime);
+			collision2(xa22, ya22, ra22, mycar[n02]->position.x, mycar[n02]->position.y, 125, 1, deltaTime);
 		}
 		for (n02 = 0; n02 < mytree.size(); ++n02) {
-			collision(xa22, ya22, ra22, mytree[n02]->position.x, mytree[n02]->position.y, 50, 2, deltaTime);
+			collision2(xa22, ya22, ra22, mytree[n02]->position.x, mytree[n02]->position.y, 50, 2, deltaTime);
 		}
 		for (n02 = 0; n02 < myperson.size(); ++n02) {
-			collision(xa22, ya22, ra22, myperson[n02]->position.x, myperson[n02]->position.y, 25, 3, deltaTime);
+			collision2(xa22, ya22, ra22, myperson[n02]->position.x, myperson[n02]->position.y, 26, 3, deltaTime);
 		}
 	}
 	// ###############################################################
@@ -731,6 +731,85 @@ void MyScene02::collision(float xu, float yu, float ru, float xe, float ye, floa
 			// lock the ufo in place on collision of object 
 			myufo->position.x = xe;
 			myufo->position.y = ye;
+		}
+	}
+}
+
+void MyScene02::collision2(float xu, float yu, float ru, float xe, float ye, float re, float no, float deltaTime) {
+	// ###############################################################
+	// Collision ufo
+	// ###############################################################
+	if ((xu - xe)*(xu - xe) + (yu - ye)*(yu - ye) < ru*re) {
+		// use w to break the lock and pick the item up
+		if (input()->getKey(KeyCode::KeyPad4)) {
+			if (no == 1) {
+				//collision object
+				//std::cout << "Car";
+				//std::cout << "|";
+				if (MyUfo2::noa02 == 1) {
+					score[0]->addscore2(deltaTime);
+				}
+				else {
+					score[0]->subtractscore2(deltaTime);
+				}
+				std::vector<MyCar*>::iterator it = mycar.begin();
+				while (it != mycar.end()) {
+					if ((*it)->position.y == ye && (*it)->position.x == xe) {
+						(*it)->position.y = -200;
+						tm02++;
+					}
+					else {
+						++it;
+					}
+				}
+			}
+			else if (no == 2) {
+				//collision object
+				//std::cout << "Tree";
+				//std::cout << "|";
+				if (MyUfo2::noa02 == 3) {
+					score[0]->addscore2(deltaTime);
+				}
+				else {
+					score[0]->subtractscore2(deltaTime);
+				}
+				std::vector<MyTree*>::iterator it = mytree.begin();
+				while (it != mytree.end()) {
+					if ((*it)->position.y == ye && (*it)->position.x == xe) {
+						(*it)->position.y = -200;
+						tm02++;
+					}
+					else {
+						++it;
+					}
+				}
+			}
+			else if (no == 3) {
+				//collision object
+				//std::cout << "Person";
+				//std::cout << "|";
+				if (MyUfo2::noa02 == 2) {
+					score[0]->addscore2(deltaTime);
+				}
+				else {
+					score[0]->subtractscore2(deltaTime);
+				}
+				std::vector<MyPerson*>::iterator it = myperson.begin();
+				while (it != myperson.end()) {
+					if ((*it)->position.y == ye && (*it)->position.x == xe) {
+						(*it)->position.y = -200;
+						tm02++;
+					}
+					else {
+						++it;
+					}
+				}
+			}
+		}
+		else {
+			// lock the ufo in place on collision of object 
+			myufo2->position.x = xe;
+			myufo2->position.y = ye;
 		}
 	}
 }
