@@ -238,7 +238,7 @@ MyScene03::MyScene03() : CoreScene()
 	// ###############################################################
 	mypause = new BasicEntity();
 	mypause->addSprite("assets/StartPause.tga");
-	mypause->position = Point2(SWIDTH / 1 - 75, 75);
+	mypause->position = Point2(SWIDTH / 2, 75);
 	mypause->sprite()->color.r = 255;
 	mypause->sprite()->color.g = 223;
 	mypause->sprite()->color.b = 5;
