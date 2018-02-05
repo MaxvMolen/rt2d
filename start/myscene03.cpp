@@ -243,6 +243,13 @@ MyScene03::MyScene03() : CoreScene()
 	mypause->sprite()->color.g = 223;
 	mypause->sprite()->color.b = 5;
 	layers[0]->addChild(mypause);
+	// ###############################################################
+	// create winner
+	// ###############################################################
+	winner = new BasicEntity();
+	winner->addSprite("assets/WinnerP1P2.tga");
+	winner->position = Point2(SWIDTH / 2, SHEIGHT / 2-240);
+	layers[7]->addChild(winner);
 }
 
 MyScene03::~MyScene03()
@@ -250,6 +257,9 @@ MyScene03::~MyScene03()
 	// deconstruct and delete the Tree
 	this->removeChild(mypause);
 	delete mypause;
+
+	this->removeChild(winner);
+	delete winner;
 
 	this->removeChild(myhomebutton);
 	delete myhomebutton;
@@ -302,6 +312,28 @@ MyScene03::~MyScene03()
 
 void MyScene03::update(float deltaTime)
 {
+	// ###############################################################
+	// Check score to see who is winning
+	// ###############################################################
+	if (score[0]->currentscore > score[1]->currentscore2) {
+		// player 1 wins
+		winner->addSprite("assets/WinnerP1.tga");
+		winner->position = Point2(SWIDTH / 2, SHEIGHT / 2 - 240);
+		winner->scale = Point(2.0f, 2.0f);
+	}
+	else if (score[0]->currentscore == score[1]->currentscore2) {
+		// it's a tie
+		winner->addSprite("assets/WinnerP1P2.tga");
+		winner->position = Point2(SWIDTH / 2, SHEIGHT / 2 - 240);
+		winner->scale = Point(2.0f, 2.0f);
+	}
+	else {
+		// player 2 wins
+		winner->addSprite("assets/WinnerP2.tga");
+		winner->position = Point2(SWIDTH / 2, SHEIGHT / 2 - 240);
+		winner->scale = Point(2.0f, 2.0f);
+	}
+
 	// ###############################################################
 	// Currentscore counter top left player 1
 	// ###############################################################

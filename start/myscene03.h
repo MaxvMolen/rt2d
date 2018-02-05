@@ -54,6 +54,8 @@ private:
 	BasicEntity* mypause;
 	/// @brief the pause button
 	BasicEntity* mypausebutton;
+	/// @brief the message with who wins
+	BasicEntity* winner;
 };
 
 #endif /* MYSCENE03_H */
