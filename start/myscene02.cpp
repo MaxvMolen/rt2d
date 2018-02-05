@@ -417,7 +417,7 @@ void MyScene02::update(float deltaTime)
 	// ###############################################################
 	// Change scene when all items are moved
 	// ###############################################################
-	if (tm02 == 23) {
+	if (tm02 == 22) {
 		myufo->standard();
 		layers[0]->addChild(mypause);
 		CoreScene::sceneselect(3); // credits
